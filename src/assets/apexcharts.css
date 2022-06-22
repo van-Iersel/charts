@@ -15,7 +15,6 @@
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 
@@ -36,6 +35,7 @@
   opacity: 0;
 }
 
+/* Tooltip */
 .vaniersel-charts-tooltip {
   border-radius: 5px;
   box-shadow: 2px 2px 6px -4px #999;
@@ -72,7 +72,6 @@
 .vaniersel-charts-tooltip * {
   font-family: inherit;
 }
-
 
 .vaniersel-charts-tooltip-title {
   padding: 6px;
@@ -197,6 +196,7 @@
   margin-bottom: 5px;
 }
 
+/* X axis Tooltip */
 .vaniersel-charts-xaxistooltip {
   opacity: 0;
   padding: 9px 10px;
@@ -288,6 +288,7 @@
   transition: 0.15s ease all;
 }
 
+/* Y axis Tooltip */
 .vaniersel-charts-yaxistooltip {
   opacity: 0;
   padding: 4px 10px;
@@ -381,6 +382,7 @@
   display: none;
 }
 
+/* X Crosshairs */
 .vaniersel-charts-xcrosshairs,
 .vaniersel-charts-ycrosshairs {
   pointer-events: none;
@@ -434,6 +436,7 @@
   cursor: move
 }
 
+/* Toolbar */
 .vaniersel-charts-zoom-icon,
 .vaniersel-charts-zoomin-icon,
 .vaniersel-charts-zoomout-icon,
@@ -546,6 +549,7 @@
   align-items: center;
 }
 
+/* Menu */
 .vaniersel-charts-menu {
   background: #fff;
   position: absolute;
@@ -591,6 +595,7 @@
   opacity: 0;
 }
 
+/* Pie Charts */
 .vaniersel-charts-pie-label,
 .vaniersel-charts-datalabels,
 .vaniersel-charts-datalabel,
@@ -632,7 +637,6 @@
 
 
 /* markers */
-
 .vaniersel-charts-marker {
   transition: 0.15s ease all;
 }
