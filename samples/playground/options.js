@@ -831,8 +831,7 @@ export const optionsPattern = {
         },
         fontFamily: {
           title: 'Sets the font family for all the text elements of the chart',
-          type: String,
-          default: 'Helvetica, Arial, sans-serif'
+          type: String
         },
         foreColor: {
           title: 'Sets the text color for the chart',
@@ -1529,8 +1528,7 @@ export const optionsPattern = {
             },
             fontFamily: {
               title: 'Font family for the label',
-              type: String,
-              default: 'Helvetica, Arial, sans-serif'
+              type: String
             },
             fontWeight: {
               title:
@@ -1939,8 +1937,7 @@ export const optionsPattern = {
         },
         fontFamily: {
           title: 'Sets the font family of legend text elements',
-          type: String,
-          default: 'Helvetica, Arial'
+          type: String
         },
         fontWeight: {
           title: 'Sets the font-weight of legend text elements',
@@ -2691,8 +2688,7 @@ export const optionsPattern = {
                         },
                         fontFamily: {
                           title: 'FontFamily of the name in donut’s label',
-                          type: String,
-                          default: 'Helvetica, Arial, sans-serif'
+                          type: String
                         },
                         fontWeight: {
                           title: 'Font-weight of the name in dataLabel',
@@ -2732,8 +2728,7 @@ export const optionsPattern = {
                         },
                         fontFamily: {
                           title: 'FontFamily of the value label',
-                          type: String,
-                          default: 'Helvetica, Arial, sans-serif'
+                          type: String
                         },
                         fontWeight: {
                           title: 'Font weight of the value label in dataLabel',
@@ -2784,8 +2779,7 @@ export const optionsPattern = {
                         },
                         fontFamily: {
                           title: 'FontFamily of the total label',
-                          type: String,
-                          default: 'Helvetica, Arial, sans-serif'
+                          type: String
                         },
                         fontWeight: {
                           title: 'font-weight of the total label in dataLabel',
@@ -3788,8 +3782,7 @@ export const optionsPattern = {
                 },
                 fontFamily: {
                   title: 'Font family for the x-axis label',
-                  type: String,
-                  default: 'Helvetica, Arial, sans-serif'
+                  type: String
                 },
                 fontWeight: {
                   title: 'Font-weight for the x-axis label',
@@ -4007,8 +4000,7 @@ export const optionsPattern = {
                 },
                 fontFamily: {
                   title: 'Font family for the x-axis title',
-                  type: String,
-                  default: 'Helvetica, Arial, sans-serif'
+                  type: String
                 },
                 fontWeight: {
                   title: 'Font-weight for the x-axis title',
@@ -4295,8 +4287,7 @@ export const optionsPattern = {
                 },
                 fontFamily: {
                   title: 'Font-family for the y-axis label',
-                  type: String,
-                  default: 'Helvetica, Arial, sans-serif'
+                  type: String
                 },
                 fontWeight: {
                   title: 'Font-weight for the y-axis label',
@@ -4431,8 +4422,7 @@ export const optionsPattern = {
                 },
                 fontFamily: {
                   title: 'FontFamily for the y-axis title',
-                  type: String,
-                  default: 'Helvetica, Arial, sans-serif'
+                  type: String
                 },
                 fontWeight: {
                   title: 'Font-weight for the y-axis title',

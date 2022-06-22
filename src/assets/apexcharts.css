@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-family: 'Inter'
+}
+
 .vaniersel-charts-canvas {
+  font-family: var(--font-family);
   position: relative;
   user-select: none;
   /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */

@@ -299,7 +299,7 @@ export default class Options {
           brushScrolled: undefined
         },
         foreColor: '#373d3f',
-        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontFamily: 'inherit',
         height: 'auto',
         parentHeightOffset: 15,
         redrawOnParentResize: true,

@@ -23,7 +23,7 @@ tbody tr {
 
 th {
   font-weight: bold;
-  font-family: Helvetica;
+  font-family: inherit;
   padding-bottom: 20px;
 }
 td, th {

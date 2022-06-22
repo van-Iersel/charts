@@ -9,30 +9,30 @@
     <link href="../../assets/styles.css" rel="stylesheet" />
 
     <style>
-      
+
         .row {
       overflow: hidden;
       max-width: 890px;
       margin: 30px auto;
       display: flex;
     }
-    
+
     .col-md-4 {
       width: 33.33%;
       padding: 0 25px;
     }
-    
+
     table {
       width: 100%;
     }
-    
+
     tbody tr {
       border-top: 1px solid #e7e7e7;
     }
-    
+
     th {
       font-weight: bold;
-      font-family: Helvetica;
+      font-family: inherit;
       padding-bottom: 20px;
     }
     td, th {
@@ -40,19 +40,19 @@
       text-align: center;
       height: 65px;
     }
-    
+
     td div {
       margin: 0 auto;
     }
-    
+
     .left {
       float: left;
     }
-    
+
     .right {
       float: right;
     }
-    
+
     @media only screen and (max-width: 480px) {
       th:first-child, td:first-child {
         display: none;
@@ -65,7 +65,7 @@
         width: 100%;
       }
     }
-      
+
     </style>
 
     <script>
@@ -83,9 +83,9 @@
         )
     </script>
 
-    
+
     <script src="../../../dist/apexcharts.js"></script>
-    
+
 
     <script>
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
@@ -111,25 +111,25 @@
       }
     }
   };
-  
+
   var randomizeArray = function (arg) {
     var array = arg.slice();
     var currentIndex = array.length,
       temporaryValue, randomIndex;
-  
+
     while (0 !== currentIndex) {
-  
+
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-  
+
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-  
+
     return array;
   }
-  
+
   // data for the sparklines that appear below header area
   var sparklineData = [47, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35, 27, 93, 53, 61, 27, 54, 43, 19, 46];
   </script>
@@ -148,7 +148,7 @@
             <div id="chart-spark3"></div>
           </div>
         </div>
-      
+
         <div class="row">
           <table>
             <thead>
@@ -204,7 +204,7 @@
       </div>
 
     <script>
-      
+
         var options = {
           series: [{
           data: randomizeArray(sparklineData)
@@ -244,7 +244,7 @@
 
         var chart = new ApexCharts(document.querySelector("#chart-spark1"), options);
         chart.render();
-      
+
         var optionsSpark2 = {
           series: [{
           data: randomizeArray(sparklineData)
@@ -284,7 +284,7 @@
 
         var chartSpark2 = new ApexCharts(document.querySelector("#chart-spark2"), optionsSpark2);
         chartSpark2.render();
-      
+
         var optionsSpark3 = {
           series: [{
           data: randomizeArray(sparklineData)
@@ -328,7 +328,7 @@
 
         var chartSpark3 = new ApexCharts(document.querySelector("#chart-spark3"), optionsSpark3);
         chartSpark3.render();
-      
+
         var options1 = {
           series: [{
           data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
@@ -363,7 +363,7 @@
 
         var chart1 = new ApexCharts(document.querySelector("#chart-1"), options1);
         chart1.render();
-      
+
         var options2 = {
           series: [{
           data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14]
@@ -398,7 +398,7 @@
 
         var chart2 = new ApexCharts(document.querySelector("#chart-2"), options2);
         chart2.render();
-      
+
         var options3 = {
           series: [43, 32, 12, 9],
           chart: {
@@ -421,7 +421,7 @@
 
         var chart3 = new ApexCharts(document.querySelector("#chart-3"), options3);
         chart3.render();
-      
+
         var options4 = {
           series: [43, 32, 12, 9],
           chart: {
@@ -444,7 +444,7 @@
 
         var chart4 = new ApexCharts(document.querySelector("#chart-4"), options4);
         chart4.render();
-      
+
         var options5 = {
           series: [{
           data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
@@ -490,7 +490,7 @@
 
         var chart5 = new ApexCharts(document.querySelector("#chart-5"), options5);
         chart5.render();
-      
+
         var options6 = {
           series: [{
           data: [12, 14, 2, 47, 42, 15, 47, 75, 65, 19, 14]
@@ -536,7 +536,7 @@
 
         var chart6 = new ApexCharts(document.querySelector("#chart-6"), options6);
         chart6.render();
-      
+
         var options7 = {
           series: [45],
           chart: {
@@ -568,7 +568,7 @@
 
         var chart7 = new ApexCharts(document.querySelector("#chart-7"), options7);
         chart7.render();
-      
+
         var options8 = {
           series: [53, 67],
           chart: {
@@ -600,10 +600,10 @@
 
         var chart8 = new ApexCharts(document.querySelector("#chart-8"), options8);
         chart8.render();
-      
-      
+
+
     </script>
 
-    
+
   </body>
 </html>
