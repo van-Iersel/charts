@@ -7,24 +7,30 @@ export default {
   name: 'apexcharts-iframe',
   props: ['version', 'code', 'height'],
   mounted() {
-    this.update();
+    this.update()
 
     // Automatically adjust iframe height depending on the chart
     if (this.height === 'auto') {
-      window.onmessage = e => {
+      window.onmessage = (e) => {
         if (typeof e.data === 'object' && e.data.height) {
-          let height;
+          let height
           if (e.data.error) {
-            const stackLines = e.data.errorStack.split('\n').slice(0, -2);
-            let stackHtml = '';
+            const stackLines = e.data.errorStack.split('\n').slice(0, -2)
+            let stackHtml = ''
             for (const stackLine of stackLines) {
-              const m = stackLine.match(/^([^@]+)@(.*):(\d+):(\d+)$/);
-              const urlParts = m[2].split('/');
-              const filename = urlParts[urlParts.length-1];
-              stackHtml += `<div><a onclick='window.top.postMessage({url: ${JSON.stringify(m[2])}, line: ${m[3]}, column: ${m[4]}}, "*")'>${m[1]} ${filename} (${m[3]}:${m[4]})</a></div>`;
+              const m = stackLine.match(/^([^@]+)@(.*):(\d+):(\d+)$/)
+              const urlParts = m[2].split('/')
+              const filename = urlParts[urlParts.length - 1]
+              stackHtml += `<div><a onclick='window.top.postMessage({url: ${JSON.stringify(
+                m[2]
+              )}, line: ${m[3]}, column: ${m[4]}}, "*")'>${m[1]} ${filename} (${
+                m[3]
+              }:${m[4]})</a></div>`
             }
 
-            this.$refs.iframe.src = "data:text/html;charset=utf-8," + escape(`
+            this.$refs.iframe.src =
+              'data:text/html;charset=utf-8,' +
+              escape(`
             <!doctype html>
             <html lang="en">
               <head>
@@ -39,50 +45,55 @@ export default {
                   ${stackHtml}
                 </div>
               </body>
-            </html>`);
-            height = 200;
+            </html>`)
+            height = 200
           } else {
-            height = Math.min($(window).height()-20, e.data.height+10);
+            height = Math.min($(window).height() - 20, e.data.height + 10)
           }
-          $(this.$refs.iframe).css('height', `${height}px`);
+          $(this.$refs.iframe).css('height', `${height}px`)
         }
 
         if (typeof e.data === 'object' && e.data.line) {
           fetch(e.data.url)
-            .then(response => response.blob())
-            .then(blob => blob.text())
-            .then(source => {
-                window.openSidebar({
-                  type: 'sidebar',
-                  name: 'code-sidebar',
-                  code: source,
-                  line: e.data.line,
-                  column: e.data.column,
-                });
-            });
+            .then((response) => response.blob())
+            .then((blob) => blob.text())
+            .then((source) => {
+              window.openSidebar({
+                type: 'sidebar',
+                name: 'code-sidebar',
+                code: source,
+                line: e.data.line,
+                column: e.data.column
+              })
+            })
         }
-      };
+      }
     }
   },
   methods: {
     update() {
-      this.$refs.iframe.src = "data:text/html;charset=utf-8," + escape(getHtml(this.code, this.version));
-    },
+      this.$refs.iframe.src =
+        'data:text/html;charset=utf-8,' +
+        escape(getHtml(this.code, this.version))
+    }
   },
   watch: {
     code: 'update',
-    version: 'update',
-  },
-};
-
+    version: 'update'
+  }
+}
 
 const getHtml = (code, version) => {
   // A not minified version was not available until 1.4.7
-  const [major, minor, patch] = version.split('.');
-  let minified = major === '1' && (Number(minor) < 4 || (minor === '4' && patch <= '6'));
-  const libraryUrl = `https://cdn.jsdelivr.net/npm/apexcharts@${version}/dist/apexcharts${minified ? '.min' : ''}.js`;
+  const [major, minor, patch] = version.split('.')
+  let minified =
+    major === '1' && (Number(minor) < 4 || (minor === '4' && patch <= '6'))
+  const libraryUrl = `https://cdn.jsdelivr.net/npm/apexcharts@${version}/dist/apexcharts${
+    minified ? '.min' : ''
+  }.js`
 
-  return `
+  return (
+    `
 <!doctype html>
 <html lang="en">
   <head>
@@ -103,8 +114,11 @@ const getHtml = (code, version) => {
   <body>
     <div id="chart"></div>
 
-    <`+`script src="${libraryUrl}"></`+`script>
-    <`+`script>
+    <` +
+    `script src="${libraryUrl}"></` +
+    `script>
+    <` +
+    `script>
       function update(error) {
         window.top.postMessage({
           height: document.documentElement.getBoundingClientRect().height,
@@ -126,8 +140,10 @@ const getHtml = (code, version) => {
       } catch (e) {
         update(e);
       }
-    </`+`script>
+    </` +
+    `script>
   </body>
-</html>`;
-};
+</html>`
+  )
+}
 </script>

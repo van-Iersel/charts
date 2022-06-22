@@ -10,11 +10,7 @@ module.exports = {
     es6: true,
     node: true
   },
-  extends: [
-    'plugin:prettier/recommended',
-    'plugin:import/errors',
-    'plugin:import/warnings'
-  ],
+  extends: ['plugin:prettier/recommended'],
   plugins: ['promise'],
   globals: {
     Blob: true,
