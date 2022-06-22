@@ -9,12 +9,12 @@
     <link href="../../assets/styles.css" rel="stylesheet" />
 
     <style>
-      
+
         #chart {
       max-width: 650px;
       margin: 35px auto;
     }
-      
+
     </style>
 
     <script>
@@ -32,11 +32,11 @@
         )
     </script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script src="../../../dist/apexcharts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-    
+
 
     <script>
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
@@ -55,7 +55,7 @@
       while (i < count) {
         var x = baseval;
         var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-  
+
         series.push([x, y]);
         baseval += 86400000;
         i++;
@@ -66,7 +66,7 @@
   </head>
 
   <body>
-    
+
     <div id="app">
       <div id="chart">
       <apexchart type="area" height="350" :options="chartOptions" :series="series"></apexchart>
@@ -87,7 +87,7 @@
           apexchart: VueApexCharts,
         },
         data: {
-          
+
           series: [
             {
               name: 'South',
@@ -141,15 +141,16 @@
               horizontalAlign: 'left'
             },
             xaxis: {
+              tickPlacement: 'on',
               type: 'datetime'
             },
           },
-          
-          
+
+
         },
-        
+
       })
     </script>
-    
+
   </body>
 </html>

@@ -9,12 +9,12 @@
     <link href="../../assets/styles.css" rel="stylesheet" />
 
     <style>
-      
+
         #chart {
       max-width: 650px;
       margin: 35px auto;
     }
-      
+
     </style>
 
     <script>
@@ -32,11 +32,11 @@
         )
     </script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script src="../../../dist/apexcharts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-    
+
 
     <script>
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
@@ -48,11 +48,11 @@
       };
     </script>
 
-    
+
   </head>
 
   <body>
-    
+
     <div id="app">
       <div id="chart">
       <apexchart type="bar" height="440" :options="chartOptions" :series="series"></apexchart>
@@ -73,7 +73,7 @@
           apexchart: VueApexCharts,
         },
         data: {
-          
+
           series: [{
             name: 'Males',
             data: [0.4, 0.65, 0.76, 0.88, 1.5, 2.1, 2.9, 3.8, 3.9, 4.2, 4, 4.3, 4.1, 4.2, 4.5,
@@ -96,6 +96,7 @@
             colors: ['#008FFB', '#FF4560'],
             plotOptions: {
               bar: {
+                borderRadius: 8,
                 horizontal: true,
                 barHeight: '80%',
               },
@@ -107,7 +108,7 @@
               width: 1,
               colors: ["#fff"]
             },
-            
+
             grid: {
               xaxis: {
                 lines: {
@@ -153,12 +154,12 @@
               }
             },
           },
-          
-          
+
+
         },
-        
+
       })
     </script>
-    
+
   </body>
 </html>

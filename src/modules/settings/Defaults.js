@@ -135,7 +135,7 @@ export default class Defaults {
         tooltip: {
           enabled: false
         },
-        tickPlacement: 'between',
+        tickPlacement: 'on',
         crosshairs: {
           width: 'barWidth',
           position: 'back',
@@ -278,7 +278,7 @@ export default class Defaults {
       },
       plotOptions: {
         bar: {
-          borderRadius: 0,
+          borderRadius: 8,
           dataLabels: {
             position: 'center'
           }
@@ -314,7 +314,7 @@ export default class Defaults {
         }
       },
       xaxis: {
-        tickPlacement: 'between',
+        tickPlacement: 'on',
         tooltip: {
           enabled: false
         },
@@ -330,7 +330,7 @@ export default class Defaults {
   area() {
     return {
       stroke: {
-        width: 4,
+        width: 2,
         fill: {
           type: 'solid',
           gradient: {

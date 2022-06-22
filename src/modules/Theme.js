@@ -185,8 +185,8 @@ export default class Theme {
     const foreColor = options.chart.foreColor
       ? options.chart.foreColor
       : mode === 'dark'
-      ? '#f6f7f8'
-      : '#373d3f'
+      ? '#FF4560'
+      : '#FF4560'
 
     options.tooltip.theme = mode
     options.chart.foreColor = foreColor

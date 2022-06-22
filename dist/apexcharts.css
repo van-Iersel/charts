@@ -1,4 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-family: 'Inter';
+  --tooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%) !important;
+  --tooltip-background: #fff;
+  /* --tooltip-border: 1px solid #f3f4f6; */
+  --tooltip-border: none;
+  --label-color: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .vaniersel-charts-canvas {
+  font-family: var(--font-family);
   position: relative;
   user-select: none;
   /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
@@ -6,16 +24,15 @@
 
 
 /* scrollbar is not visible by default for legend, hence forcing the visibility */
-.vaniersel-charts-canvas ::-webkit-scrollbar {
+.vaniersel-charts-canvas::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 6px;
 }
 
-.vaniersel-charts-canvas ::-webkit-scrollbar-thumb {
+.vaniersel-charts-canvas::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
   box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 
@@ -39,11 +56,11 @@
 /* Tooltip */
 .vaniersel-charts-tooltip {
   border-radius: 5px;
-  box-shadow: 2px 2px 6px -4px #999;
+  box-shadow: var(--tooltip-shadow);
   cursor: default;
   font-size: 14px;
   left: 62px;
-  opacity: 0;
+  opacity: 1; /* TODO: Turn back to 0 after you're done */
   pointer-events: none;
   position: absolute;
   top: 20px;
@@ -53,6 +70,7 @@
   white-space: nowrap;
   z-index: 12;
   transition: 0.15s ease all;
+  padding-bottom: 8px;
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-active {
@@ -61,8 +79,8 @@
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-theme-light {
-  border: 1px solid #e3e3e3;
-  background: rgba(255, 255, 255, 0.96);
+  border: var(--tooltip-border);
+  background: var(--tooltip-background);
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-theme-dark {
@@ -75,14 +93,14 @@
 }
 
 .vaniersel-charts-tooltip-title {
-  padding: 6px;
-  font-size: 15px;
-  margin-bottom: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-theme-light .vaniersel-charts-tooltip-title {
-  background: #ECEFF1;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {
@@ -94,8 +112,13 @@
 .vaniersel-charts-tooltip-text-goals-value,
 .vaniersel-charts-tooltip-text-z-value {
   display: inline-block;
-  font-weight: 600;
-  margin-left: 5px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.vaniersel-charts-tooltip-text-y-label {
+  color: #6b7280;
+  margin-left: 6px;
 }
 
 .vaniersel-charts-tooltip-title:empty,
@@ -110,7 +133,7 @@
 .vaniersel-charts-tooltip-text-y-value,
 .vaniersel-charts-tooltip-text-goals-value,
 .vaniersel-charts-tooltip-text-z-value {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .vaniersel-charts-tooltip-text-goals-label,
@@ -129,29 +152,25 @@
 }
 
 .vaniersel-charts-tooltip-marker {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   position: relative;
   top: 0px;
-  margin-right: 10px;
+  margin-right: 12px;
   border-radius: 50%;
 }
 
 .vaniersel-charts-tooltip-series-group {
-  padding: 0 10px;
+  padding: 0 16px;
   display: none;
   text-align: left;
   justify-content: left;
   align-items: center;
+  margin-top: 8px;
 }
 
 .vaniersel-charts-tooltip-series-group.vaniersel-charts-active .vaniersel-charts-tooltip-marker {
   opacity: 1;
-}
-
-.vaniersel-charts-tooltip-series-group.vaniersel-charts-active,
-.vaniersel-charts-tooltip-series-group:last-child {
-  padding-bottom: 4px;
 }
 
 .vaniersel-charts-tooltip-series-group-hidden {
@@ -162,7 +181,9 @@
 }
 
 .vaniersel-charts-tooltip-y-group {
-  padding: 6px 0 5px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .vaniersel-charts-tooltip-box, .vaniersel-charts-custom-tooltip {
@@ -202,7 +223,7 @@
   opacity: 0;
   padding: 9px 10px;
   pointer-events: none;
-  color: #373d3f;
+  color: var(--label-color);
   font-size: 13px;
   text-align: center;
   border-radius: 2px;
@@ -294,7 +315,7 @@
   opacity: 0;
   padding: 4px 10px;
   pointer-events: none;
-  color: #373d3f;
+  color: var(--label-color);
   font-size: 13px;
   text-align: center;
   border-radius: 2px;

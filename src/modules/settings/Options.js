@@ -298,7 +298,6 @@ export default class Options {
           scrolled: undefined,
           brushScrolled: undefined
         },
-        foreColor: '#373d3f',
         fontFamily: 'inherit',
         height: 'auto',
         parentHeightOffset: 15,
@@ -402,7 +401,7 @@ export default class Options {
           columnWidth: '70%', // should be in percent 0 - 100
           barHeight: '70%', // should be in percent 0 - 100
           distributed: false,
-          borderRadius: 0,
+          borderRadius: 8,
           rangeBarOverlap: true,
           rangeBarGroupRows: false,
           colors: {
@@ -673,7 +672,7 @@ export default class Options {
         }
       },
       fill: {
-        type: 'solid',
+        type: 'fill',
         colors: undefined, // array of colors
         opacity: 0.85,
         gradient: {
@@ -707,8 +706,8 @@ export default class Options {
       },
       grid: {
         show: true,
-        borderColor: '#e0e0e0',
-        strokeDashArray: 0,
+        borderColor: '#e5e7eb',
+        strokeDashArray: 4,
         position: 'back',
         xaxis: {
           lines: {
@@ -737,7 +736,7 @@ export default class Options {
       },
       labels: [],
       legend: {
-        show: true,
+        show: false,
         showForSingleSeries: false,
         showForNullSeries: true,
         showForZeroSeries: true,
@@ -803,8 +802,8 @@ export default class Options {
         onDblClick: undefined,
         showNullDataPoints: true,
         hover: {
-          size: undefined,
-          sizeOffset: 3
+          size: 4,
+          sizeOffset: 4
         }
       },
       noData: {
@@ -851,7 +850,7 @@ export default class Options {
         floating: false,
         style: {
           fontSize: '14px',
-          fontWeight: 900,
+          fontWeight: 600,
           fontFamily: undefined,
           color: undefined
         }
@@ -861,7 +860,7 @@ export default class Options {
         align: 'left',
         margin: 5,
         offsetX: 0,
-        offsetY: 30,
+        offsetY: 15,
         floating: false,
         style: {
           fontSize: '12px',
@@ -906,7 +905,7 @@ export default class Options {
         theme: 'light',
         cssClass: '',
         style: {
-          fontSize: '12px',
+          fontSize: '14px',
           fontFamily: undefined
         },
         onDatasetHover: {
@@ -922,7 +921,7 @@ export default class Options {
           formatter: undefined,
           title: {
             formatter(seriesName) {
-              return seriesName ? seriesName + ': ' : ''
+              return seriesName
             }
           }
         },
@@ -992,7 +991,7 @@ export default class Options {
           }
         },
         axisBorder: {
-          show: true,
+          show: false,
           color: '#e0e0e0',
           width: '100%',
           height: 1,
@@ -1000,7 +999,7 @@ export default class Options {
           offsetY: 0
         },
         axisTicks: {
-          show: true,
+          show: false,
           color: '#e0e0e0',
           height: 6,
           offsetX: 0,
@@ -1056,7 +1055,7 @@ export default class Options {
           }
         },
         tooltip: {
-          enabled: true,
+          enabled: false,
           offsetY: 0,
           formatter: undefined,
           style: {

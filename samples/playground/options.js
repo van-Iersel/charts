@@ -3581,7 +3581,7 @@ export const optionsPattern = {
             fontSize: {
               title: 'Font size to apply on tooltip texts',
               type: String,
-              default: '12px'
+              default: '14px'
             }
           }
         },
@@ -3778,7 +3778,7 @@ export const optionsPattern = {
                 fontSize: {
                   title: 'Font size for the x-axis label',
                   type: String,
-                  default: '12px'
+                  default: '14px'
                 },
                 fontFamily: {
                   title: 'Font family for the x-axis label',
@@ -3939,7 +3939,7 @@ export const optionsPattern = {
             'Whether to draw the ticks in between the data-points or on the data-points. Note: tickPlacement only works for xaxis.type: category charts and not for datetime charts.',
           type: String,
           choices: ['between', 'on'],
-          default: 'between'
+          default: 'on'
         },
         min: {
           title:
@@ -3996,7 +3996,7 @@ export const optionsPattern = {
                 fontSize: {
                   title: 'Font size for the x-axis title',
                   type: String,
-                  default: '12px'
+                  default: '14px'
                 },
                 fontFamily: {
                   title: 'Font family for the x-axis title',
@@ -4283,7 +4283,7 @@ export const optionsPattern = {
                 fontSize: {
                   title: 'FontSize for the y-axis label',
                   type: String,
-                  default: '12px'
+                  default: '14px'
                 },
                 fontFamily: {
                   title: 'Font-family for the y-axis label',
@@ -4417,8 +4417,7 @@ export const optionsPattern = {
                 },
                 fontSize: {
                   title: 'FontSize for the y-axis title',
-                  type: String,
-                  default: '12px'
+                  type: String
                 },
                 fontFamily: {
                   title: 'FontFamily for the y-axis title',

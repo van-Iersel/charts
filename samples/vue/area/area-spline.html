@@ -9,12 +9,12 @@
     <link href="../../assets/styles.css" rel="stylesheet" />
 
     <style>
-      
+
         #chart {
       max-width: 650px;
       margin: 35px auto;
     }
-      
+
     </style>
 
     <script>
@@ -32,11 +32,11 @@
         )
     </script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script src="../../../dist/apexcharts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-    
+
 
     <script>
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
@@ -48,14 +48,14 @@
       };
     </script>
 
-    
+
   </head>
 
   <body>
-    
+
     <div id="app">
       <div id="chart">
-      <apexchart type="area" height="350" :options="chartOptions" :series="series"></apexchart>
+      <apexchart type="line" height="350" :options="chartOptions" :series="series"></apexchart>
     </div>
     </div>
 
@@ -67,47 +67,61 @@
     </div>
 
     <script>
+      let chartColors = ['#a78bfa', '#2dd4bf']
+
       new Vue({
         el: '#app',
         components: {
           apexchart: VueApexCharts,
         },
         data: {
-          
           series: [{
-            name: 'series1',
+            name: 'new users',
             data: [31, 40, 28, 51, 42, 109, 100]
           }, {
-            name: 'series2',
+            name: 'paying users',
             data: [11, 32, 45, 32, 34, 52, 41]
           }],
           chartOptions: {
+            colors: chartColors,
             chart: {
-              height: 350,
-              type: 'area'
+              height: 365,
+              type: 'line'
             },
             dataLabels: {
               enabled: false
             },
             stroke: {
-              curve: 'smooth'
+              curve: 'smooth',
+              width: 2
             },
             xaxis: {
-              type: 'datetime',
-              categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+              tickPlacement: 'on',
+              categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+              crosshairs: {
+                stroke: {
+                  color: chartColors[0],
+                  width: 1,
+                  dashArray: 3,
+                },
+              },
             },
             tooltip: {
               x: {
                 format: 'dd/MM/yy HH:mm'
               },
             },
+            markers: {
+              strokeColor: chartColors,
+              strokeWidth: 2,
+                hover: {
+                  size: 4,
+                },
+            }
           },
-          
-          
         },
-        
       })
     </script>
-    
+
   </body>
 </html>

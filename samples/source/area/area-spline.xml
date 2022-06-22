@@ -3,7 +3,7 @@
 <chart>
 <options>
 chart: {
-  height: 350,
+  height: 365,
   type: 'area'
 },
 dataLabels: {
@@ -21,6 +21,9 @@ tooltip: {
     format: 'dd/MM/yy HH:mm'
   },
 },
+markers: {
+  strokeColor: ['pink'],
+}
 </options>
 
 <series>
