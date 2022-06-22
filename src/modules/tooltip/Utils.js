@@ -282,7 +282,7 @@ export default class Utils {
 
   getElMarkers() {
     return this.w.globals.dom.baseEl.querySelectorAll(
-      ' .apexcharts-series-markers'
+      ' .vaniersel-charts-series-markers'
     )
   }
 
@@ -290,19 +290,19 @@ export default class Utils {
     // first get all marker parents. This parent class contains series-index
     // which helps to sort the markers as they are dynamic
     let markersWraps = this.w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-series-markers-wrap'
+      '.vaniersel-charts-series-markers-wrap'
     )
 
     markersWraps = [...markersWraps]
     markersWraps.sort((a, b) => {
-      var indexA = Number(a.getAttribute('data:realIndex'))
-      var indexB = Number(b.getAttribute('data:realIndex'))
+      let indexA = Number(a.getAttribute('data:realIndex'))
+      let indexB = Number(b.getAttribute('data:realIndex'))
       return indexB < indexA ? 1 : indexB > indexA ? -1 : 0
     })
 
     let markers = []
     markersWraps.forEach((m) => {
-      markers.push(m.querySelector('.apexcharts-marker'))
+      markers.push(m.querySelector('.vaniersel-charts-marker'))
     })
 
     return markers
@@ -315,7 +315,7 @@ export default class Utils {
 
   getElBars() {
     return this.w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-bar-series,  .apexcharts-candlestick-series, .apexcharts-boxPlot-series, .apexcharts-rangebar-series'
+      '.vaniersel-charts-bar-series,  .vaniersel-charts-candlestick-series, .vaniersel-charts-boxPlot-series, .vaniersel-charts-rangebar-series'
     )
   }
 
@@ -341,17 +341,17 @@ export default class Utils {
 
     if (ttCtx.allTooltipSeriesGroups.length === 0) {
       ttCtx.allTooltipSeriesGroups = w.globals.dom.baseEl.querySelectorAll(
-        '.apexcharts-tooltip-series-group'
+        '.vaniersel-charts-tooltip-series-group'
       )
     }
 
     let allTooltipSeriesGroups = ttCtx.allTooltipSeriesGroups
     for (let i = 0; i < allTooltipSeriesGroups.length; i++) {
       if (state === 'enable') {
-        allTooltipSeriesGroups[i].classList.add('apexcharts-active')
+        allTooltipSeriesGroups[i].classList.add('vaniersel-charts-active')
         allTooltipSeriesGroups[i].style.display = w.config.tooltip.items.display
       } else {
-        allTooltipSeriesGroups[i].classList.remove('apexcharts-active')
+        allTooltipSeriesGroups[i].classList.remove('vaniersel-charts-active')
         allTooltipSeriesGroups[i].style.display = 'none'
       }
     }

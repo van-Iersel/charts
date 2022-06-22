@@ -122,7 +122,7 @@ class Legend {
       }
 
       let elMarker = document.createElement('span')
-      elMarker.classList.add('apexcharts-legend-marker')
+      elMarker.classList.add('vaniersel-charts-legend-marker')
 
       let mOffsetX = w.config.legend.markers.offsetX
       let mOffsetY = w.config.legend.markers.offsetY
@@ -200,13 +200,13 @@ class Legend {
       })
 
       if (collapsedSeries || ancillaryCollapsedSeries) {
-        elMarker.classList.add('apexcharts-inactive-legend')
+        elMarker.classList.add('vaniersel-charts-inactive-legend')
       }
 
       let elLegend = document.createElement('div')
 
       let elLegendText = document.createElement('span')
-      elLegendText.classList.add('apexcharts-legend-text')
+      elLegendText.classList.add('vaniersel-charts-legend-text')
       elLegendText.innerHTML = Array.isArray(text) ? text.join(' ') : text
 
       let textColor = w.config.legend.labels.useSeriesColors
@@ -244,7 +244,7 @@ class Legend {
           w.globals.collapsedSeriesIndices.indexOf(i) === -1 &&
           w.globals.ancillaryCollapsedSeriesIndices.indexOf(i) === -1
         ) {
-          elLegend.classList.add('apexcharts-hidden-zero-series')
+          elLegend.classList.add('vaniersel-charts-hidden-zero-series')
         }
       }
 
@@ -254,19 +254,19 @@ class Legend {
           w.globals.collapsedSeriesIndices.indexOf(i) === -1 &&
           w.globals.ancillaryCollapsedSeriesIndices.indexOf(i) === -1
         ) {
-          elLegend.classList.add('apexcharts-hidden-null-series')
+          elLegend.classList.add('vaniersel-charts-hidden-null-series')
         }
       }
 
       w.globals.dom.elLegendWrap.appendChild(elLegend)
       w.globals.dom.elLegendWrap.classList.add(
-        `apexcharts-align-${w.config.legend.horizontalAlign}`
+        `vaniersel-charts-align-${w.config.legend.horizontalAlign}`
       )
       w.globals.dom.elLegendWrap.classList.add(
         'apx-legend-position-' + w.config.legend.position
       )
 
-      elLegend.classList.add('apexcharts-legend-series')
+      elLegend.classList.add('vaniersel-charts-legend-series')
       elLegend.style.margin = `${w.config.legend.itemMargin.vertical}px ${w.config.legend.itemMargin.horizontal}px`
       w.globals.dom.elLegendWrap.style.width = w.config.legend.width
         ? w.config.legend.width + 'px'
@@ -282,11 +282,11 @@ class Legend {
       })
 
       if (collapsedSeries || ancillaryCollapsedSeries) {
-        elLegend.classList.add('apexcharts-inactive-legend')
+        elLegend.classList.add('vaniersel-charts-inactive-legend')
       }
 
       if (!w.config.legend.onItemClick.toggleDataSeries) {
-        elLegend.classList.add('apexcharts-no-click')
+        elLegend.classList.add('vaniersel-charts-no-click')
       }
     }
 
@@ -312,7 +312,9 @@ class Legend {
   setLegendWrapXY(offsetX, offsetY) {
     let w = this.w
 
-    let elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend')
+    let elLegendWrap = w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-legend'
+    )
 
     const legendRect = elLegendWrap.getBoundingClientRect()
 
@@ -359,7 +361,9 @@ class Legend {
   legendAlignHorizontal() {
     let w = this.w
 
-    let elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend')
+    let elLegendWrap = w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-legend'
+    )
 
     elLegendWrap.style.right = 0
 
@@ -410,12 +414,12 @@ class Legend {
     const w = this.w
 
     const hoverOverLegend =
-      e.target.classList.contains('apexcharts-legend-text') ||
-      e.target.classList.contains('apexcharts-legend-marker')
+      e.target.classList.contains('vaniersel-charts-legend-text') ||
+      e.target.classList.contains('vaniersel-charts-legend-marker')
 
     if (w.config.chart.type !== 'heatmap' && !this.isBarsDistributed) {
       if (
-        !e.target.classList.contains('apexcharts-inactive-legend') &&
+        !e.target.classList.contains('vaniersel-charts-inactive-legend') &&
         hoverOverLegend
       ) {
         let series = new Series(this.ctx)
@@ -439,8 +443,8 @@ class Legend {
     if (w.config.legend.customLegendItems.length) return
 
     if (
-      e.target.classList.contains('apexcharts-legend-text') ||
-      e.target.classList.contains('apexcharts-legend-marker')
+      e.target.classList.contains('vaniersel-charts-legend-text') ||
+      e.target.classList.contains('vaniersel-charts-legend-marker')
     ) {
       let seriesCnt = parseInt(e.target.getAttribute('rel'), 10) - 1
       let isHidden = e.target.getAttribute('data:collapsed') === 'true'
@@ -455,7 +459,7 @@ class Legend {
       const markerClick = this.w.config.legend.markers.onClick
       if (
         typeof markerClick === 'function' &&
-        e.target.classList.contains('apexcharts-legend-marker')
+        e.target.classList.contains('vaniersel-charts-legend-marker')
       ) {
         markerClick(this.ctx, seriesCnt, this.w)
         this.ctx.events.fireEvent('legendMarkerClick', [

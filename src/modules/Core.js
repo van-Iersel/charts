@@ -82,13 +82,13 @@ export default class Core {
     gl.dom.elWrap = document.createElement('div')
     Graphics.setAttrs(gl.dom.elWrap, {
       id: gl.chartClass.substring(1),
-      class: 'apexcharts-canvas ' + gl.chartClass.substring(1)
+      class: 'vaniersel-charts-canvas ' + gl.chartClass.substring(1)
     })
     this.el.appendChild(gl.dom.elWrap)
 
     gl.dom.Paper = new window.SVG.Doc(gl.dom.elWrap)
     gl.dom.Paper.attr({
-      class: 'apexcharts-svg',
+      class: 'vaniersel-charts-svg',
       'xmlns:data': 'ApexChartsNS',
       transform: `translate(${cnf.chart.offsetX}, ${cnf.chart.offsetY})`
     })
@@ -98,17 +98,17 @@ export default class Core {
     this.setSVGDimensions()
 
     gl.dom.elGraphical = gl.dom.Paper.group().attr({
-      class: 'apexcharts-inner apexcharts-graphical'
+      class: 'vaniersel-charts-inner vaniersel-charts-graphical'
     })
 
     gl.dom.elAnnotations = gl.dom.Paper.group().attr({
-      class: 'apexcharts-annotations'
+      class: 'vaniersel-charts-annotations'
     })
 
     gl.dom.elDefs = gl.dom.Paper.defs()
 
     gl.dom.elLegendWrap = document.createElement('div')
-    gl.dom.elLegendWrap.classList.add('apexcharts-legend')
+    gl.dom.elLegendWrap.classList.add('vaniersel-charts-legend')
     gl.dom.elWrap.appendChild(gl.dom.elLegendWrap)
     gl.dom.Paper.add(gl.dom.elGraphical)
     gl.dom.elGraphical.add(gl.dom.elDefs)
@@ -406,7 +406,7 @@ export default class Core {
     }
 
     let el = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-radialbar, .apexcharts-pie'
+      '.vaniersel-charts-radialbar, .vaniersel-charts-pie'
     )
 
     let chartInnerDimensions = w.globals.radialSize * 2.05

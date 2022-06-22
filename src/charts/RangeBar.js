@@ -23,7 +23,7 @@ class RangeBar extends Bar {
     this.barHelpers.initVariables(series)
 
     let ret = graphics.group({
-      class: 'apexcharts-rangebar-series apexcharts-plot-series'
+      class: 'vaniersel-charts-rangebar-series vaniersel-charts-plot-series'
     })
 
     for (let i = 0; i < series.length; i++) {
@@ -38,7 +38,7 @@ class RangeBar extends Bar {
 
       // el to which series will be drawn
       let elSeries = graphics.group({
-        class: `apexcharts-series`,
+        class: `vaniersel-charts-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[realIndex]),
         rel: i + 1,
         'data:realIndex': realIndex
@@ -69,12 +69,12 @@ class RangeBar extends Bar {
 
       // eldatalabels
       let elDataLabelsWrap = graphics.group({
-        class: 'apexcharts-datalabels',
+        class: 'vaniersel-charts-datalabels',
         'data:realIndex': realIndex
       })
 
       let elGoalsMarkers = graphics.group({
-        class: 'apexcharts-rangebar-goals-markers',
+        class: 'vaniersel-charts-rangebar-goals-markers',
         style: `pointer-events: none`
       })
 
@@ -433,7 +433,7 @@ class RangeBar extends Bar {
 
   buildCustomTooltipHTML({ color, seriesName, ylabel, start, end }) {
     return (
-      '<div class="apexcharts-tooltip-rangebar">' +
+      '<div class="vaniersel-charts-tooltip-rangebar">' +
       '<div> <span class="series-name" style="color: ' +
       color +
       '">' +

@@ -23,9 +23,9 @@ export default class PointAnnotations {
       pointStrokeColor: anno.marker.strokeColor,
       shape: anno.marker.shape,
       pRadius: anno.marker.radius,
-      class: `apexcharts-point-annotation-marker ${anno.marker.cssClass} ${
-        anno.id ? anno.id : ''
-      }`
+      class: `vaniersel-charts-point-annotation-marker ${
+        anno.marker.cssClass
+      } ${anno.id ? anno.id : ''}`
     }
 
     let point = this.annoCtx.graphics.drawMarker(
@@ -51,7 +51,7 @@ export default class PointAnnotations {
       fontFamily: anno.label.style.fontFamily,
       fontWeight: anno.label.style.fontWeight,
       foreColor: anno.label.style.color,
-      cssClass: `apexcharts-point-annotation-label ${
+      cssClass: `vaniersel-charts-point-annotation-label ${
         anno.label.style.cssClass
       } ${anno.id ? anno.id : ''}`
     })
@@ -66,7 +66,8 @@ export default class PointAnnotations {
     if (anno.customSVG.SVG) {
       let g = this.annoCtx.graphics.group({
         class:
-          'apexcharts-point-annotations-custom-svg ' + anno.customSVG.cssClass
+          'vaniersel-charts-point-annotations-custom-svg ' +
+          anno.customSVG.cssClass
       })
 
       g.attr({
@@ -88,7 +89,7 @@ export default class PointAnnotations {
         width: imgWidth,
         height: imgHeight,
         path: anno.image.path,
-        appendTo: '.apexcharts-point-annotations'
+        appendTo: '.vaniersel-charts-point-annotations'
       })
     }
 
@@ -110,7 +111,7 @@ export default class PointAnnotations {
     let w = this.w
 
     let elg = this.annoCtx.graphics.group({
-      class: 'apexcharts-point-annotations'
+      class: 'vaniersel-charts-point-annotations'
     })
 
     w.config.annotations.points.map((anno, index) => {

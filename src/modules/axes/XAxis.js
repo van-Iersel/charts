@@ -62,12 +62,12 @@ export default class XAxis {
     let graphics = new Graphics(this.ctx)
 
     let elXaxis = graphics.group({
-      class: 'apexcharts-xaxis',
+      class: 'vaniersel-charts-xaxis',
       transform: `translate(${w.config.xaxis.offsetX}, ${w.config.xaxis.offsetY})`
     })
 
     let elXaxisTexts = graphics.group({
-      class: 'apexcharts-xaxis-texts-g',
+      class: 'vaniersel-charts-xaxis-texts-g',
       transform: `translate(${w.globals.translateXAxisX}, ${w.globals.translateXAxisY})`
     })
 
@@ -118,7 +118,7 @@ export default class XAxis {
 
     if (w.config.xaxis.title.text !== undefined) {
       let elXaxisTitle = graphics.group({
-        class: 'apexcharts-xaxis-title'
+        class: 'vaniersel-charts-xaxis-title'
       })
 
       let elXAxisTitleText = graphics.drawText({
@@ -135,7 +135,8 @@ export default class XAxis {
         fontWeight: w.config.xaxis.title.style.fontWeight,
         foreColor: w.config.xaxis.title.style.color,
         cssClass:
-          'apexcharts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
+          'vaniersel-charts-xaxis-title-text ' +
+          w.config.xaxis.title.style.cssClass
       })
 
       elXaxisTitle.add(elXAxisTitleText)
@@ -291,8 +292,8 @@ export default class XAxis {
           isPlainText: false,
           cssClass:
             (isLeafGroup
-              ? 'apexcharts-xaxis-label '
-              : 'apexcharts-xaxis-group-label ') + cssClass
+              ? 'vaniersel-charts-xaxis-label '
+              : 'vaniersel-charts-xaxis-group-label ') + cssClass
         })
         elXaxisTexts.add(elText)
 
@@ -327,12 +328,13 @@ export default class XAxis {
       : 0
 
     let elYaxis = graphics.group({
-      class: 'apexcharts-yaxis apexcharts-xaxis-inversed',
+      class: 'vaniersel-charts-yaxis vaniersel-charts-xaxis-inversed',
       rel: realIndex
     })
 
     let elYaxisTexts = graphics.group({
-      class: 'apexcharts-yaxis-texts-g apexcharts-xaxis-inversed-texts-g',
+      class:
+        'vaniersel-charts-yaxis-texts-g vaniersel-charts-xaxis-inversed-texts-g',
       transform: 'translate(' + translateYAxisX + ', 0)'
     })
 
@@ -389,7 +391,7 @@ export default class XAxis {
           fontFamily: ylabels.style.fontFamily,
           fontWeight: ylabels.style.fontWeight,
           isPlainText: false,
-          cssClass: 'apexcharts-yaxis-label ' + ylabels.style.cssClass
+          cssClass: 'vaniersel-charts-yaxis-label ' + ylabels.style.cssClass
         })
 
         elYaxisTexts.add(elLabel)
@@ -413,7 +415,8 @@ export default class XAxis {
 
     if (w.config.yaxis[0].title.text !== undefined) {
       let elXaxisTitle = graphics.group({
-        class: 'apexcharts-yaxis-title apexcharts-xaxis-title-inversed',
+        class:
+          'vaniersel-charts-yaxis-title vaniersel-charts-xaxis-title-inversed',
         transform: 'translate(' + translateYAxisX + ', 0)'
       })
 
@@ -427,7 +430,7 @@ export default class XAxis {
         fontWeight: w.config.yaxis[0].title.style.fontWeight,
         fontFamily: w.config.yaxis[0].title.style.fontFamily,
         cssClass:
-          'apexcharts-yaxis-title-text ' +
+          'vaniersel-charts-yaxis-title-text ' +
           w.config.yaxis[0].title.style.cssClass
       })
 
@@ -494,7 +497,7 @@ export default class XAxis {
 
       // we are not returning anything, but appending directly to the element passed in param
       appendToElement.add(line)
-      line.node.classList.add('apexcharts-xaxis-tick')
+      line.node.classList.add('vaniersel-charts-xaxis-tick')
     }
   }
 
@@ -531,16 +534,18 @@ export default class XAxis {
 
     let graphics = new Graphics(this.ctx)
 
-    let xAxis = w.globals.dom.baseEl.querySelector('.apexcharts-xaxis-texts-g')
+    let xAxis = w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-xaxis-texts-g'
+    )
 
     let xAxisTexts = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-xaxis-texts-g text:not(.apexcharts-xaxis-group-label)'
+      '.vaniersel-charts-xaxis-texts-g text:not(.vaniersel-charts-xaxis-group-label)'
     )
     let yAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-yaxis-inversed text'
+      '.vaniersel-charts-yaxis-inversed text'
     )
     let xAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-xaxis-inversed-texts-g text tspan'
+      '.vaniersel-charts-xaxis-inversed-texts-g text tspan'
     )
 
     if (w.globals.rotateXLabels || w.config.xaxis.labels.rotateAlways) {

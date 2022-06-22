@@ -39,7 +39,7 @@ export default class YAxis {
     let yaxisFontWeight = yaxisStyle.fontWeight
 
     let elYaxis = graphics.group({
-      class: 'apexcharts-yaxis',
+      class: 'vaniersel-charts-yaxis',
       rel: realIndex,
       transform: 'translate(' + w.globals.translateYAxisX[realIndex] + ', 0)'
     })
@@ -49,7 +49,7 @@ export default class YAxis {
     }
 
     let elYaxisTexts = graphics.group({
-      class: 'apexcharts-yaxis-texts-g'
+      class: 'vaniersel-charts-yaxis-texts-g'
     })
 
     elYaxis.add(elYaxisTexts)
@@ -98,7 +98,7 @@ export default class YAxis {
           maxWidth: w.config.yaxis[realIndex].labels.maxWidth,
           foreColor: getForeColor(),
           isPlainText: false,
-          cssClass: 'apexcharts-yaxis-label ' + yaxisStyle.cssClass
+          cssClass: 'vaniersel-charts-yaxis-label ' + yaxisStyle.cssClass
         })
         if (i === tickAmount) {
           firstLabel = label
@@ -125,7 +125,7 @@ export default class YAxis {
 
     if (w.config.yaxis[realIndex].title.text !== undefined) {
       let elYaxisTitle = graphics.group({
-        class: 'apexcharts-yaxis-title'
+        class: 'vaniersel-charts-yaxis-title'
       })
 
       let x = 0
@@ -145,7 +145,7 @@ export default class YAxis {
         fontWeight: w.config.yaxis[realIndex].title.style.fontWeight,
         fontFamily: w.config.yaxis[realIndex].title.style.fontFamily,
         cssClass:
-          'apexcharts-yaxis-title-text ' +
+          'vaniersel-charts-yaxis-title-text ' +
           w.config.yaxis[realIndex].title.style.cssClass
       })
 
@@ -195,11 +195,11 @@ export default class YAxis {
     let graphics = new Graphics(this.ctx)
 
     let elXaxis = graphics.group({
-      class: 'apexcharts-xaxis apexcharts-yaxis-inversed'
+      class: 'vaniersel-charts-xaxis vaniersel-charts-yaxis-inversed'
     })
 
     let elXaxisTexts = graphics.group({
-      class: 'apexcharts-xaxis-texts-g',
+      class: 'vaniersel-charts-xaxis-texts-g',
       transform: `translate(${w.globals.translateXAxisX}, ${w.globals.translateXAxisY})`
     })
 
@@ -277,7 +277,8 @@ export default class YAxis {
           fontWeight: w.config.xaxis.labels.style.fontWeight,
           isPlainText: false,
           cssClass:
-            'apexcharts-xaxis-label ' + w.config.xaxis.labels.style.cssClass
+            'vaniersel-charts-xaxis-label ' +
+            w.config.xaxis.labels.style.cssClass
         })
 
         elXaxisTexts.add(elTick)
@@ -327,7 +328,8 @@ export default class YAxis {
     const graphics = new Graphics(this.ctx)
     if (w.config.xaxis.title.text !== undefined) {
       let elYaxisTitle = graphics.group({
-        class: 'apexcharts-xaxis-title apexcharts-yaxis-title-inversed'
+        class:
+          'vaniersel-charts-xaxis-title vaniersel-charts-yaxis-title-inversed'
       })
 
       let elYAxisTitleText = graphics.drawText({
@@ -345,7 +347,8 @@ export default class YAxis {
         fontWeight: w.config.xaxis.title.style.fontWeight,
         foreColor: w.config.xaxis.title.style.color,
         cssClass:
-          'apexcharts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
+          'vaniersel-charts-xaxis-title-text ' +
+          w.config.xaxis.title.style.cssClass
       })
 
       elYaxisTitle.add(elYAxisTitleText)
@@ -369,7 +372,7 @@ export default class YAxis {
     }
 
     let elYAxisLabelsWrap = w.globals.dom.baseEl.querySelector(
-      ` .apexcharts-yaxis[rel='${realIndex}'] .apexcharts-yaxis-texts-g`
+      ` .vaniersel-charts-yaxis[rel='${realIndex}'] .vaniersel-charts-yaxis-texts-g`
     )
 
     if (elYAxisLabelsWrap !== null) {
@@ -377,7 +380,7 @@ export default class YAxis {
     }
 
     let yAxisTitle = w.globals.dom.baseEl.querySelector(
-      `.apexcharts-yaxis[rel='${realIndex}'] .apexcharts-yaxis-title text`
+      `.vaniersel-charts-yaxis[rel='${realIndex}'] .vaniersel-charts-yaxis-title text`
     )
 
     if (yAxisTitle !== null) {
@@ -512,17 +515,19 @@ export default class YAxis {
   setYAxisTextAlignments() {
     const w = this.w
 
-    let yaxis = w.globals.dom.baseEl.getElementsByClassName(`apexcharts-yaxis`)
+    let yaxis = w.globals.dom.baseEl.getElementsByClassName(
+      `vaniersel-charts-yaxis`
+    )
     yaxis = Utils.listToArray(yaxis)
     yaxis.forEach((y, index) => {
       const yaxe = w.config.yaxis[index]
       // proceed only if user has specified alignment
       if (yaxe && yaxe.labels.align !== undefined) {
         const yAxisInner = w.globals.dom.baseEl.querySelector(
-          `.apexcharts-yaxis[rel='${index}'] .apexcharts-yaxis-texts-g`
+          `.vaniersel-charts-yaxis[rel='${index}'] .vaniersel-charts-yaxis-texts-g`
         )
         let yAxisTexts = w.globals.dom.baseEl.querySelectorAll(
-          `.apexcharts-yaxis[rel='${index}'] .apexcharts-yaxis-label`
+          `.vaniersel-charts-yaxis[rel='${index}'] .vaniersel-charts-yaxis-label`
         )
 
         yAxisTexts = Utils.listToArray(yAxisTexts)

@@ -30,7 +30,7 @@ export default class TreemapChart {
     const fill = new Fill(this.ctx)
 
     let ret = graphics.group({
-      class: 'apexcharts-treemap'
+      class: 'vaniersel-charts-treemap'
     })
 
     if (w.globals.noData) return ret
@@ -60,7 +60,7 @@ export default class TreemapChart {
 
     nodes.forEach((node, i) => {
       let elSeries = graphics.group({
-        class: `apexcharts-series apexcharts-treemap-series`,
+        class: `vaniersel-charts-series vaniersel-charts-treemap-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[i]),
         rel: i + 1,
         'data:realIndex': i
@@ -73,7 +73,7 @@ export default class TreemapChart {
       }
 
       let elDataLabelWrap = graphics.group({
-        class: 'apexcharts-data-labels'
+        class: 'vaniersel-charts-data-labels'
       })
 
       node.forEach((r, j) => {
@@ -124,7 +124,7 @@ export default class TreemapChart {
           dataPointIndex: j
         })
 
-        elRect.node.classList.add('apexcharts-treemap-rect')
+        elRect.node.classList.add('vaniersel-charts-treemap-rect')
 
         elRect.attr({
           fill: pathFill

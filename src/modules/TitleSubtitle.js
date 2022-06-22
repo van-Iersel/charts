@@ -44,7 +44,7 @@ export default class TitleSubtitle {
         opacity: 1
       })
 
-      titleText.node.setAttribute('class', `apexcharts-${type}-text`)
+      titleText.node.setAttribute('class', `vaniersel-charts-${type}-text`)
 
       w.globals.dom.Paper.add(titleText)
     }

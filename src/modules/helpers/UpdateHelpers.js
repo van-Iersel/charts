@@ -78,13 +78,28 @@ export default class UpdateHelpers {
 
             if (options.series) {
               // Replace the collapsed series data
-              for (let i = 0; i < w.globals.collapsedSeriesIndices.length; i++) {
-                let series = w.config.series[w.globals.collapsedSeriesIndices[i]]
-                w.globals.collapsedSeries[i].data = w.globals.axisCharts ? series.data.slice() : series
+              for (
+                let i = 0;
+                i < w.globals.collapsedSeriesIndices.length;
+                i++
+              ) {
+                let series =
+                  w.config.series[w.globals.collapsedSeriesIndices[i]]
+                w.globals.collapsedSeries[i].data = w.globals.axisCharts
+                  ? series.data.slice()
+                  : series
               }
-              for (let i = 0; i < w.globals.ancillaryCollapsedSeriesIndices.length; i++) {
-                let series = w.config.series[w.globals.ancillaryCollapsedSeriesIndices[i]]
-                w.globals.ancillaryCollapsedSeries[i].data = w.globals.axisCharts ? series.data.slice() : series
+              for (
+                let i = 0;
+                i < w.globals.ancillaryCollapsedSeriesIndices.length;
+                i++
+              ) {
+                let series =
+                  w.config.series[w.globals.ancillaryCollapsedSeriesIndices[i]]
+                w.globals.ancillaryCollapsedSeries[i].data = w.globals
+                  .axisCharts
+                  ? series.data.slice()
+                  : series
               }
 
               // Ensure that auto-generated axes are scaled to the visible data
@@ -161,7 +176,7 @@ export default class UpdateHelpers {
   toggleDataPointSelection(seriesIndex, dataPointIndex) {
     const w = this.w
     let elPath = null
-    const parent = `.apexcharts-series[data\\:realIndex='${seriesIndex}']`
+    const parent = `.vaniersel-charts-series[data\\:realIndex='${seriesIndex}']`
 
     if (w.globals.axisCharts) {
       elPath = w.globals.dom.Paper.select(

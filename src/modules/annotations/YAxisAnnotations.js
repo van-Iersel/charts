@@ -53,7 +53,7 @@ export default class YAnnotations {
         anno.borderColor, // strokeColor
         strokeDashArray // stokeDashArray
       )
-      rect.node.classList.add('apexcharts-annotation-rect')
+      rect.node.classList.add('vaniersel-charts-annotation-rect')
       rect.attr('clip-path', `url(#gridRectMask${w.globals.cuid})`)
 
       parent.appendChild(rect.node)
@@ -72,7 +72,7 @@ export default class YAnnotations {
       fontFamily: anno.label.style.fontFamily,
       fontWeight: anno.label.style.fontWeight,
       foreColor: anno.label.style.color,
-      cssClass: `apexcharts-yaxis-annotation-label ${
+      cssClass: `vaniersel-charts-yaxis-annotation-label ${
         anno.label.style.cssClass
       } ${anno.id ? anno.id : ''}`
     })
@@ -100,7 +100,7 @@ export default class YAnnotations {
     let w = this.w
 
     let elg = this.annoCtx.graphics.group({
-      class: 'apexcharts-yaxis-annotations'
+      class: 'vaniersel-charts-yaxis-annotations'
     })
 
     w.config.annotations.yaxis.map((anno, index) => {

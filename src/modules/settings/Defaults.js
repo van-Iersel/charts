@@ -825,7 +825,7 @@ export default class Defaults {
       w.config.series[seriesIndex].type &&
       w.config.series[seriesIndex].type !== chartType
     ) {
-      return `<div class="apexcharts-custom-tooltip">
+      return `<div class="vaniersel-charts-custom-tooltip">
           ${
             w.config.series[seriesIndex].name
               ? w.config.series[seriesIndex].name
@@ -834,7 +834,7 @@ export default class Defaults {
         </div>`
     } else {
       return (
-        `<div class="apexcharts-tooltip-box apexcharts-tooltip-${w.config.chart.type}">` +
+        `<div class="vaniersel-charts-tooltip-box vaniersel-charts-tooltip-${w.config.chart.type}">` +
         `<div>${labels[0]}: <span class="value">` +
         o +
         '</span></div>' +

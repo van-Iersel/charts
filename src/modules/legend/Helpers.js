@@ -11,63 +11,63 @@ export default class Helpers {
     let stylesheet = document.createElement('style')
     stylesheet.setAttribute('type', 'text/css')
 
-    const text = `	
-    	
-      .apexcharts-legend {	
-        display: flex;	
-        overflow: auto;	
-        padding: 0 10px;	
-      }	
-      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {	
-        flex-wrap: wrap	
-      }	
-      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {	
-        flex-direction: column;	
-        bottom: 0;	
-      }	
-      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {	
-        justify-content: flex-start;	
-      }	
-      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {	
-        justify-content: center;  	
-      }	
-      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {	
-        justify-content: flex-end;	
-      }	
-      .apexcharts-legend-series {	
-        cursor: pointer;	
-        line-height: normal;	
-      }	
-      .apexcharts-legend.apx-legend-position-bottom .apexcharts-legend-series, .apexcharts-legend.apx-legend-position-top .apexcharts-legend-series{	
-        display: flex;	
-        align-items: center;	
-      }	
-      .apexcharts-legend-text {	
-        position: relative;	
-        font-size: 14px;	
-      }	
-      .apexcharts-legend-text *, .apexcharts-legend-marker * {	
-        pointer-events: none;	
-      }	
-      .apexcharts-legend-marker {	
-        position: relative;	
-        display: inline-block;	
-        cursor: pointer;	
-        margin-right: 3px;	
+    const text = `
+
+      .vaniersel-charts-legend {
+        display: flex;
+        overflow: auto;
+        padding: 0 10px;
+      }
+      .vaniersel-charts-legend.apx-legend-position-bottom, .vaniersel-charts-legend.apx-legend-position-top {
+        flex-wrap: wrap
+      }
+      .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {
+        flex-direction: column;
+        bottom: 0;
+      }
+      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {
+        justify-content: flex-start;
+      }
+      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-center, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-center {
+        justify-content: center;
+      }
+      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-right, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-right {
+        justify-content: flex-end;
+      }
+      .vaniersel-charts-legend-series {
+        cursor: pointer;
+        line-height: normal;
+      }
+      .vaniersel-charts-legend.apx-legend-position-bottom .vaniersel-charts-legend-series, .vaniersel-charts-legend.apx-legend-position-top .vaniersel-charts-legend-series{
+        display: flex;
+        align-items: center;
+      }
+      .vaniersel-charts-legend-text {
+        position: relative;
+        font-size: 14px;
+      }
+      .vaniersel-charts-legend-text *, .vaniersel-charts-legend-marker * {
+        pointer-events: none;
+      }
+      .vaniersel-charts-legend-marker {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 3px;
         border-style: solid;
-      }	
-      	
-      .apexcharts-legend.apexcharts-align-right .apexcharts-legend-series, .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series{	
-        display: inline-block;	
-      }	
-      .apexcharts-legend-series.apexcharts-no-click {	
-        cursor: auto;	
-      }	
-      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {	
-        display: none !important;	
-      }	
-      .apexcharts-inactive-legend {	
-        opacity: 0.45;	
+      }
+
+      .vaniersel-charts-legend.vaniersel-charts-align-right .vaniersel-charts-legend-series, .vaniersel-charts-legend.vaniersel-charts-align-left .vaniersel-charts-legend-series{
+        display: inline-block;
+      }
+      .vaniersel-charts-legend-series.vaniersel-charts-no-click {
+        cursor: auto;
+      }
+      .vaniersel-charts-legend .vaniersel-charts-hidden-zero-series, .vaniersel-charts-legend .vaniersel-charts-hidden-null-series {
+        display: none !important;
+      }
+      .vaniersel-charts-inactive-legend {
+        opacity: 0.45;
       }`
 
     let rules = document.createTextNode(text)
@@ -80,7 +80,7 @@ export default class Helpers {
   getLegendBBox() {
     const w = this.w
     let currLegendsWrap = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-legend'
+      '.vaniersel-charts-legend'
     )
     let currLegendsWrapRect = currLegendsWrap.getBoundingClientRect()
 
@@ -128,12 +128,12 @@ export default class Helpers {
 
       if (w.globals.axisCharts) {
         seriesEl = w.globals.dom.baseEl.querySelector(
-          `.apexcharts-series[data\\:realIndex='${seriesCnt}']`
+          `.vaniersel-charts-series[data\\:realIndex='${seriesCnt}']`
         )
         realIndex = parseInt(seriesEl.getAttribute('data:realIndex'), 10)
       } else {
         seriesEl = w.globals.dom.baseEl.querySelector(
-          `.apexcharts-series[rel='${seriesCnt + 1}']`
+          `.vaniersel-charts-series[rel='${seriesCnt + 1}']`
         )
         realIndex = parseInt(seriesEl.getAttribute('rel'), 10) - 1
       }
@@ -158,7 +158,7 @@ export default class Helpers {
     } else {
       // for non-axis charts i.e pie / donuts
       let seriesEl = w.globals.dom.Paper.select(
-        ` .apexcharts-series[rel='${seriesCnt + 1}'] path`
+        ` .vaniersel-charts-series[rel='${seriesCnt + 1}'] path`
       )
 
       const type = w.config.chart.type
@@ -224,12 +224,14 @@ export default class Helpers {
     let seriesChildren = seriesEl.childNodes
     for (let sc = 0; sc < seriesChildren.length; sc++) {
       if (
-        seriesChildren[sc].classList.contains('apexcharts-series-markers-wrap')
+        seriesChildren[sc].classList.contains(
+          'vaniersel-charts-series-markers-wrap'
+        )
       ) {
-        if (seriesChildren[sc].classList.contains('apexcharts-hide')) {
-          seriesChildren[sc].classList.remove('apexcharts-hide')
+        if (seriesChildren[sc].classList.contains('vaniersel-charts-hide')) {
+          seriesChildren[sc].classList.remove('vaniersel-charts-hide')
         } else {
-          seriesChildren[sc].classList.add('apexcharts-hide')
+          seriesChildren[sc].classList.add('vaniersel-charts-hide')
         }
       }
     }

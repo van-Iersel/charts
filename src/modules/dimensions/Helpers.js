@@ -19,7 +19,9 @@ export default class Helpers {
     const floating =
       type === 'title' ? w.config.title.floating : w.config.subtitle.floating
 
-    let el = w.globals.dom.baseEl.querySelector(`.apexcharts-${type}-text`)
+    let el = w.globals.dom.baseEl.querySelector(
+      `.vaniersel-charts-${type}-text`
+    )
 
     if (el !== null && !floating) {
       let coord = el.getBoundingClientRect()
@@ -36,7 +38,9 @@ export default class Helpers {
   getLegendsRect() {
     let w = this.w
 
-    let elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend')
+    let elLegendWrap = w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-legend'
+    )
 
     if (
       !w.config.legend.height &&

@@ -870,7 +870,7 @@
       value: function showDelayedElements() {
         this.w.globals.delayedElements.forEach(function (d) {
           var ele = d.el;
-          ele.classList.remove('apexcharts-element-hidden');
+          ele.classList.remove('vaniersel-charts-element-hidden');
         });
       }
     }, {
@@ -983,7 +983,7 @@
         var w = this.w; // revert shadow if it was there
         // but, ignore marker as marker don't have dropshadow yet
 
-        if (w.config.chart.dropShadow.enabled && !el.node.classList.contains('apexcharts-marker')) {
+        if (w.config.chart.dropShadow.enabled && !el.node.classList.contains('vaniersel-charts-marker')) {
           this.dropShadow(el, w.config.chart.dropShadow, i);
         }
       } // appends dropShadow to the filter object which can be chained with other filter effects
@@ -1705,7 +1705,7 @@
           'font-family': fontFamily,
           'font-weight': fontWeight,
           fill: foreColor,
-          class: 'apexcharts-text ' + cssClass
+          class: 'vaniersel-charts-text ' + cssClass
         });
         elText.node.style.fontFamily = fontFamily;
         elText.node.style.opacity = opacity;
@@ -1848,8 +1848,8 @@
         } else {
           if (!w.config.states.active.allowMultipleDataPointsSelection && w.globals.selectedDataPoints.length > 0) {
             w.globals.selectedDataPoints = [];
-            var elPaths = w.globals.dom.Paper.select('.apexcharts-series path').members;
-            var elCircles = w.globals.dom.Paper.select('.apexcharts-series circle, .apexcharts-series rect').members;
+            var elPaths = w.globals.dom.Paper.select('.vaniersel-charts-series path').members;
+            var elCircles = w.globals.dom.Paper.select('.vaniersel-charts-series circle, .vaniersel-charts-series rect').members;
 
             var deSelect = function deSelect(els) {
               Array.prototype.forEach.call(els, function (el) {
@@ -2433,7 +2433,7 @@
 
         if (anno.label.orientation === 'vertical') {
           var i = annoIndex !== null ? annoIndex : 0;
-          var xAnno = w.globals.dom.baseEl.querySelector(".apexcharts-xaxis-annotations .apexcharts-xaxis-annotation-label[rel='".concat(i, "']"));
+          var xAnno = w.globals.dom.baseEl.querySelector(".vaniersel-charts-xaxis-annotations .vaniersel-charts-xaxis-annotation-label[rel='".concat(i, "']"));
 
           if (xAnno !== null) {
             var xAnnoCoord = xAnno.getBoundingClientRect();
@@ -2457,7 +2457,7 @@
       value: function addBackgroundToAnno(annoEl, anno) {
         var w = this.w;
         if (!annoEl || typeof anno.label.text === 'undefined' || typeof anno.label.text !== 'undefined' && !String(anno.label.text).trim()) return null;
-        var elGridRect = w.globals.dom.baseEl.querySelector('.apexcharts-grid').getBoundingClientRect();
+        var elGridRect = w.globals.dom.baseEl.querySelector('.vaniersel-charts-grid').getBoundingClientRect();
         var coords = annoEl.getBoundingClientRect();
         var pleft = anno.label.style.padding.left;
         var pright = anno.label.style.padding.right;
@@ -2490,7 +2490,7 @@
         var w = this.w;
 
         var add = function add(anno, i, type) {
-          var annoLabel = w.globals.dom.baseEl.querySelector(".apexcharts-".concat(type, "-annotations .apexcharts-").concat(type, "-annotation-label[rel='").concat(i, "']"));
+          var annoLabel = w.globals.dom.baseEl.querySelector(".vaniersel-charts-".concat(type, "-annotations .vaniersel-charts-").concat(type, "-annotation-label[rel='").concat(i, "']"));
 
           if (annoLabel) {
             var parent = annoLabel.parentNode;
@@ -2535,7 +2535,7 @@
             catIndex = w.globals.categoryLabels.indexOf(y);
           }
 
-          var xLabel = w.globals.dom.baseEl.querySelector('.apexcharts-yaxis-texts-g text:nth-child(' + (catIndex + 1) + ')');
+          var xLabel = w.globals.dom.baseEl.querySelector('.vaniersel-charts-yaxis-texts-g text:nth-child(' + (catIndex + 1) + ')');
 
           if (xLabel) {
             yP = parseFloat(xLabel.getAttribute('y'));
@@ -2600,7 +2600,7 @@
         }
 
         var catIndex = w.globals.labels.indexOf(x);
-        var xLabel = w.globals.dom.baseEl.querySelector('.apexcharts-xaxis-texts-g text:nth-child(' + (catIndex + 1) + ')');
+        var xLabel = w.globals.dom.baseEl.querySelector('.vaniersel-charts-xaxis-texts-g text:nth-child(' + (catIndex + 1) + ')');
 
         if (xLabel) {
           rX = parseFloat(xLabel.getAttribute('x'));
@@ -2666,7 +2666,7 @@
           anno.borderColor, // strokeColor
           strokeDashArray // stokeDashArray
           );
-          rect.node.classList.add('apexcharts-annotation-rect');
+          rect.node.classList.add('vaniersel-charts-annotation-rect');
           rect.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
           parent.appendChild(rect.node);
 
@@ -2686,7 +2686,7 @@
           fontFamily: anno.label.style.fontFamily,
           fontWeight: anno.label.style.fontWeight,
           foreColor: anno.label.style.color,
-          cssClass: "apexcharts-xaxis-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
+          cssClass: "vaniersel-charts-xaxis-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
         });
         elText.attr({
           rel: index
@@ -2702,7 +2702,7 @@
 
         var w = this.w;
         var elg = this.annoCtx.graphics.group({
-          class: 'apexcharts-xaxis-annotations'
+          class: 'vaniersel-charts-xaxis-annotations'
         });
         w.config.annotations.xaxis.map(function (anno, index) {
           _this.addXaxisAnnotation(anno, elg.node, index);
@@ -2765,7 +2765,7 @@
           anno.borderColor, // strokeColor
           strokeDashArray // stokeDashArray
           );
-          rect.node.classList.add('apexcharts-annotation-rect');
+          rect.node.classList.add('vaniersel-charts-annotation-rect');
           rect.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
           parent.appendChild(rect.node);
 
@@ -2784,7 +2784,7 @@
           fontFamily: anno.label.style.fontFamily,
           fontWeight: anno.label.style.fontWeight,
           foreColor: anno.label.style.color,
-          cssClass: "apexcharts-yaxis-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
+          cssClass: "vaniersel-charts-yaxis-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
         });
         elText.attr({
           rel: index
@@ -2813,7 +2813,7 @@
 
         var w = this.w;
         var elg = this.annoCtx.graphics.group({
-          class: 'apexcharts-yaxis-annotations'
+          class: 'vaniersel-charts-yaxis-annotations'
         });
         w.config.annotations.yaxis.map(function (anno, index) {
           _this.addYaxisAnnotation(anno, elg.node, index);
@@ -2848,7 +2848,7 @@
           pointStrokeColor: anno.marker.strokeColor,
           shape: anno.marker.shape,
           pRadius: anno.marker.radius,
-          class: "apexcharts-point-annotation-marker ".concat(anno.marker.cssClass, " ").concat(anno.id ? anno.id : '')
+          class: "vaniersel-charts-point-annotation-marker ".concat(anno.marker.cssClass, " ").concat(anno.id ? anno.id : '')
         };
         var point = this.annoCtx.graphics.drawMarker(x + anno.marker.offsetX, y + anno.marker.offsetY, optsPoints);
         parent.appendChild(point.node);
@@ -2862,7 +2862,7 @@
           fontFamily: anno.label.style.fontFamily,
           fontWeight: anno.label.style.fontWeight,
           foreColor: anno.label.style.color,
-          cssClass: "apexcharts-point-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
+          cssClass: "vaniersel-charts-point-annotation-label ".concat(anno.label.style.cssClass, " ").concat(anno.id ? anno.id : '')
         });
         elText.attr({
           rel: index
@@ -2871,7 +2871,7 @@
 
         if (anno.customSVG.SVG) {
           var g = this.annoCtx.graphics.group({
-            class: 'apexcharts-point-annotations-custom-svg ' + anno.customSVG.cssClass
+            class: 'vaniersel-charts-point-annotations-custom-svg ' + anno.customSVG.cssClass
           });
           g.attr({
             transform: "translate(".concat(x + anno.customSVG.offsetX, ", ").concat(y + anno.customSVG.offsetY, ")")
@@ -2889,7 +2889,7 @@
             width: imgWidth,
             height: imgHeight,
             path: anno.image.path,
-            appendTo: '.apexcharts-point-annotations'
+            appendTo: '.vaniersel-charts-point-annotations'
           });
         }
 
@@ -2908,7 +2908,7 @@
 
         var w = this.w;
         var elg = this.annoCtx.graphics.group({
-          class: 'apexcharts-point-annotations'
+          class: 'vaniersel-charts-point-annotations'
         });
         w.config.annotations.points.map(function (anno, index) {
           _this.addPointAnnotation(anno, elg.node, index);
@@ -3211,7 +3211,7 @@
         fontSize: '13px',
         fontFamily: undefined,
         fontWeight: 400,
-        appendTo: '.apexcharts-annotations',
+        appendTo: '.vaniersel-charts-annotations',
         backgroundColor: 'transparent',
         borderColor: '#c2c2c2',
         borderRadius: 0,
@@ -4150,7 +4150,7 @@
             if (initialAnim && !w.globals.resized && !w.globals.dataChanged) {
               // fixes apexcharts/apexcharts.js#685
               if (w.config.chart.type !== 'scatter' && w.config.chart.type !== 'bubble' && w.globals.dataPoints > 1) {
-                annoElArray[i].classList.add('apexcharts-element-hidden');
+                annoElArray[i].classList.add('vaniersel-charts-element-hidden');
               }
             }
 
@@ -4217,7 +4217,7 @@
             borderRadius = params.borderRadius,
             borderColor = params.borderColor,
             _params$appendTo = params.appendTo,
-            appendTo = _params$appendTo === void 0 ? '.apexcharts-annotations' : _params$appendTo,
+            appendTo = _params$appendTo === void 0 ? '.vaniersel-charts-annotations' : _params$appendTo,
             _params$paddingLeft = params.paddingLeft,
             paddingLeft = _params$paddingLeft === void 0 ? 4 : _params$paddingLeft,
             _params$paddingRight = params.paddingRight,
@@ -4236,7 +4236,7 @@
           fontWeight: fontWeight || 'regular',
           fontFamily: fontFamily || w.config.chart.fontFamily,
           foreColor: foreColor || w.config.chart.foreColor,
-          cssClass: 'apexcharts-text ' + cssClass ? cssClass : ''
+          cssClass: 'vaniersel-charts-text ' + cssClass ? cssClass : ''
         });
         var parent = w.globals.dom.baseEl.querySelector(appendTo);
 
@@ -4265,7 +4265,7 @@
             _params$height = params.height,
             height = _params$height === void 0 ? 20 : _params$height,
             _params$appendTo2 = params.appendTo,
-            appendTo = _params$appendTo2 === void 0 ? '.apexcharts-annotations' : _params$appendTo2;
+            appendTo = _params$appendTo2 === void 0 ? '.vaniersel-charts-annotations' : _params$appendTo2;
         var img = w.globals.dom.Paper.image(path);
         img.size(width, height).move(x, y);
         var parent = w.globals.dom.baseEl.querySelector(appendTo);
@@ -4327,7 +4327,7 @@
             contextMethod = _ref.contextMethod;
         var me = context;
         var w = me.w;
-        var parent = w.globals.dom.baseEl.querySelector(".apexcharts-".concat(type, "-annotations"));
+        var parent = w.globals.dom.baseEl.querySelector(".vaniersel-charts-".concat(type, "-annotations"));
         var index = parent.childNodes.length + 1;
         var options = new Options();
         var axesAnno = Object.assign({}, type === 'xaxis' ? options.xAxisAnnotation : type === 'yaxis' ? options.yAxisAnnotation : options.pointAnnotation);
@@ -4348,7 +4348,7 @@
         } // add background
 
 
-        var axesAnnoLabel = w.globals.dom.baseEl.querySelector(".apexcharts-".concat(type, "-annotations .apexcharts-").concat(type, "-annotation-label[rel='").concat(index, "']"));
+        var axesAnnoLabel = w.globals.dom.baseEl.querySelector(".vaniersel-charts-".concat(type, "-annotations .vaniersel-charts-").concat(type, "-annotation-label[rel='").concat(index, "']"));
         var elRect = this.helpers.addBackgroundToAnno(axesAnnoLabel, anno);
 
         if (elRect) {
@@ -4371,7 +4371,7 @@
       key: "clearAnnotations",
       value: function clearAnnotations(ctx) {
         var w = ctx.w;
-        var annos = w.globals.dom.baseEl.querySelectorAll('.apexcharts-yaxis-annotations, .apexcharts-xaxis-annotations, .apexcharts-point-annotations'); // annotations added externally should be cleared out too
+        var annos = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-yaxis-annotations, .vaniersel-charts-xaxis-annotations, .vaniersel-charts-point-annotations'); // annotations added externally should be cleared out too
 
         w.globals.memory.methodsToExec.map(function (m, i) {
           if (m.label === 'addText' || m.label === 'addAnnotation') {
@@ -4754,7 +4754,7 @@
 
         if (w.globals.markers.size[seriesIndex] > 0 || alwaysDrawMarker || hasDiscreteMarkers) {
           elPointsWrap = graphics.group({
-            class: alwaysDrawMarker || hasDiscreteMarkers ? '' : 'apexcharts-series-markers'
+            class: alwaysDrawMarker || hasDiscreteMarkers ? '' : 'vaniersel-charts-series-markers'
           });
           elPointsWrap.attr('clip-path', "url(#gridRectMarkerMask".concat(w.globals.cuid, ")"));
         }
@@ -4765,7 +4765,7 @@
 
             if (j === 1 && q === 0) dataPointIndex = 0;
             if (j === 1 && q === 1) dataPointIndex = 1;
-            var PointClasses = 'apexcharts-marker';
+            var PointClasses = 'vaniersel-charts-marker';
 
             if ((w.config.chart.type === 'line' || w.config.chart.type === 'area') && !w.globals.comboCharts && !w.config.tooltip.intersect) {
               PointClasses += ' no-pointer-events';
@@ -4777,7 +4777,7 @@
               if (Utils$1.isNumber(p.y[q])) {
                 PointClasses += " w".concat(Utils$1.randomId());
               } else {
-                PointClasses = 'apexcharts-nullpoint';
+                PointClasses = 'vaniersel-charts-nullpoint';
               }
 
               var opts = this.getMarkerConfig({
@@ -4921,7 +4921,7 @@
         var zRatio = opts.zRatio;
         var elPointsMain = opts.elParent;
         var elPointsWrap = graphics.group({
-          class: "apexcharts-series-markers apexcharts-series-".concat(w.config.chart.type)
+          class: "vaniersel-charts-series-markers vaniersel-charts-series-".concat(w.config.chart.type)
         });
         elPointsWrap.attr('clip-path', "url(#gridRectMarkerMask".concat(w.globals.cuid, ")"));
 
@@ -4981,7 +4981,7 @@
         var markers = new Markers(this.ctx);
         var graphics = new Graphics(this.ctx);
         var markerConfig = markers.getMarkerConfig({
-          cssClass: 'apexcharts-marker',
+          cssClass: 'vaniersel-charts-marker',
           seriesIndex: i,
           dataPointIndex: dataPointIndex,
           finishRadius: w.config.chart.type === 'bubble' || w.globals.comboCharts && w.config.series[realIndex] && w.config.series[realIndex].type === 'bubble' ? finishRadius : null
@@ -5087,7 +5087,7 @@
         });
         filters.setSelectionFilter(el, realIndex, dataPointIndex);
         markers.addEvents(el);
-        el.node.classList.add('apexcharts-marker');
+        el.node.classList.add('vaniersel-charts-marker');
         return el;
       }
     }, {
@@ -5186,7 +5186,7 @@
         }
 
         elDataLabelsWrap = graphics.group({
-          class: 'apexcharts-data-labels'
+          class: 'vaniersel-charts-data-labels'
         });
 
         for (var q = 0; q < pos.x.length; q++) {
@@ -5331,7 +5331,7 @@
             fontWeight: dataLabelsConfig.style.fontWeight || 'normal'
           });
           dataLabelText.attr({
-            class: 'apexcharts-datalabel',
+            class: 'vaniersel-charts-datalabel',
             cx: x,
             cy: y
           });
@@ -5375,7 +5375,7 @@
       value: function dataLabelsBackground() {
         var w = this.w;
         if (w.config.chart.type === 'bubble') return;
-        var elDataLabels = w.globals.dom.baseEl.querySelectorAll('.apexcharts-datalabels text');
+        var elDataLabels = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-datalabels text');
 
         for (var i = 0; i < elDataLabels.length; i++) {
           var el = elDataLabels[i];
@@ -5409,8 +5409,8 @@
       key: "bringForward",
       value: function bringForward() {
         var w = this.w;
-        var elDataLabelsNodes = w.globals.dom.baseEl.querySelectorAll('.apexcharts-datalabels');
-        var elSeries = w.globals.dom.baseEl.querySelector('.apexcharts-plot-series:last-child');
+        var elDataLabelsNodes = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-datalabels');
+        var elSeries = w.globals.dom.baseEl.querySelector('.vaniersel-charts-plot-series:last-child');
 
         for (var i = 0; i < elDataLabelsNodes.length; i++) {
           if (elSeries) {
@@ -5740,7 +5740,7 @@
 
         if (dataLabelsConfig.enabled && !isSeriesNotCollapsed) {
           elDataLabelsWrap = graphics.group({
-            class: 'apexcharts-data-labels',
+            class: 'vaniersel-charts-data-labels',
             transform: rotate
           });
           var text = '';
@@ -5843,19 +5843,19 @@
     _createClass(Series, [{
       key: "getAllSeriesEls",
       value: function getAllSeriesEls() {
-        return this.w.globals.dom.baseEl.getElementsByClassName("apexcharts-series");
+        return this.w.globals.dom.baseEl.getElementsByClassName("vaniersel-charts-series");
       }
     }, {
       key: "getSeriesByName",
       value: function getSeriesByName(seriesName) {
-        return this.w.globals.dom.baseEl.querySelector(".apexcharts-inner .apexcharts-series[seriesName='".concat(Utils$1.escapeString(seriesName), "']"));
+        return this.w.globals.dom.baseEl.querySelector(".vaniersel-charts-inner .vaniersel-charts-series[seriesName='".concat(Utils$1.escapeString(seriesName), "']"));
       }
     }, {
       key: "isSeriesHidden",
       value: function isSeriesHidden(seriesName) {
         var targetElement = this.getSeriesByName(seriesName);
         var realIndex = parseInt(targetElement.getAttribute('data:realIndex'), 10);
-        var isHidden = targetElement.classList.contains('apexcharts-series-collapsed');
+        var isHidden = targetElement.classList.contains('vaniersel-charts-series-collapsed');
         return {
           isHidden: isHidden,
           realIndex: realIndex
@@ -5869,7 +5869,7 @@
         function iterateOnAllCollapsedSeries(series) {
           for (var cs = 0; cs < series.length; cs++) {
             if (series[cs].index === index) {
-              elSeries.node.classList.add('apexcharts-series-collapsed');
+              elSeries.node.classList.add('vaniersel-charts-series-collapsed');
             }
           }
         }
@@ -5950,7 +5950,7 @@
       value: function toggleSeriesOnHover(e, targetElement) {
         var w = this.w;
         if (!targetElement) targetElement = e.target;
-        var allSeriesEls = w.globals.dom.baseEl.querySelectorAll(".apexcharts-series, .apexcharts-datalabels");
+        var allSeriesEls = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-series, .vaniersel-charts-datalabels");
 
         if (e.type === 'mousemove') {
           var seriesCnt = parseInt(targetElement.getAttribute('rel'), 10) - 1;
@@ -5959,13 +5959,13 @@
 
           if (w.globals.axisCharts || w.config.chart.type === 'radialBar') {
             if (w.globals.axisCharts) {
-              seriesEl = w.globals.dom.baseEl.querySelector(".apexcharts-series[data\\:realIndex='".concat(seriesCnt, "']"));
-              dataLabelEl = w.globals.dom.baseEl.querySelector(".apexcharts-datalabels[data\\:realIndex='".concat(seriesCnt, "']"));
+              seriesEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[data\\:realIndex='".concat(seriesCnt, "']"));
+              dataLabelEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-datalabels[data\\:realIndex='".concat(seriesCnt, "']"));
             } else {
-              seriesEl = w.globals.dom.baseEl.querySelector(".apexcharts-series[rel='".concat(seriesCnt + 1, "']"));
+              seriesEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[rel='".concat(seriesCnt + 1, "']"));
             }
           } else {
-            seriesEl = w.globals.dom.baseEl.querySelector(".apexcharts-series[rel='".concat(seriesCnt + 1, "'] path"));
+            seriesEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[rel='".concat(seriesCnt + 1, "'] path"));
           }
 
           for (var se = 0; se < allSeriesEls.length; se++) {
@@ -5995,7 +5995,7 @@
         var _this = this;
 
         var w = this.w;
-        var allHeatMapElements = w.globals.dom.baseEl.getElementsByClassName('apexcharts-heatmap-rect');
+        var allHeatMapElements = w.globals.dom.baseEl.getElementsByClassName('vaniersel-charts-heatmap-rect');
 
         var activeInactive = function activeInactive(action) {
           for (var i = 0; i < allHeatMapElements.length; i++) {
@@ -6079,7 +6079,7 @@
         }
 
         var getPaths = function getPaths(chartType) {
-          return w.globals.dom.baseEl.querySelectorAll(".apexcharts-".concat(chartType, "-series .apexcharts-series"));
+          return w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-".concat(chartType, "-series .vaniersel-charts-series"));
         };
 
         var chartTypes = ['line', 'area', 'bar', 'rangebar', 'candlestick', 'radar'];
@@ -6092,11 +6092,11 @@
         });
         this.handlePrevBubbleScatterPaths('bubble');
         this.handlePrevBubbleScatterPaths('scatter');
-        var heatTreeSeries = w.globals.dom.baseEl.querySelectorAll(".apexcharts-".concat(w.config.chart.type, " .apexcharts-series"));
+        var heatTreeSeries = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-".concat(w.config.chart.type, " .vaniersel-charts-series"));
 
         if (heatTreeSeries.length > 0) {
           var _loop = function _loop(h) {
-            var seriesEls = w.globals.dom.baseEl.querySelectorAll(".apexcharts-".concat(w.config.chart.type, " .apexcharts-series[data\\:realIndex='").concat(h, "'] rect"));
+            var seriesEls = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-".concat(w.config.chart.type, " .vaniersel-charts-series[data\\:realIndex='").concat(h, "'] rect"));
             var dArr = [];
 
             var _loop2 = function _loop2(i) {
@@ -6137,11 +6137,11 @@
       key: "handlePrevBubbleScatterPaths",
       value: function handlePrevBubbleScatterPaths(type) {
         var w = this.w;
-        var paths = w.globals.dom.baseEl.querySelectorAll(".apexcharts-".concat(type, "-series .apexcharts-series"));
+        var paths = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-".concat(type, "-series .vaniersel-charts-series"));
 
         if (paths.length > 0) {
           for (var s = 0; s < paths.length; s++) {
-            var seriesEls = w.globals.dom.baseEl.querySelectorAll(".apexcharts-".concat(type, "-series .apexcharts-series[data\\:realIndex='").concat(s, "'] circle"));
+            var seriesEls = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-".concat(type, "-series .vaniersel-charts-series[data\\:realIndex='").concat(s, "'] circle"));
             var dArr = [];
 
             for (var i = 0; i < seriesEls.length; i++) {
@@ -6203,7 +6203,7 @@
             fontFamily: noDataOpts.style.fontFamily,
             foreColor: noDataOpts.style.color,
             opacity: 1,
-            class: 'apexcharts-text-nodata'
+            class: 'vaniersel-charts-text-nodata'
           });
           w.globals.dom.Paper.add(titleText);
         }
@@ -6454,7 +6454,7 @@
           var bcolor = this.barCtx.barOptions.colors.backgroundBarColors[j];
           var rect = graphics.drawRect(typeof x1 !== 'undefined' ? x1 : 0, typeof y1 !== 'undefined' ? y1 : 0, typeof x2 !== 'undefined' ? x2 : w.globals.gridWidth, typeof y2 !== 'undefined' ? y2 : w.globals.gridHeight, this.barCtx.barOptions.colors.backgroundBarRadius, bcolor, this.barCtx.barOptions.colors.backgroundBarOpacity);
           elSeries.add(rect);
-          rect.node.classList.add('apexcharts-backgroundBar');
+          rect.node.classList.add('vaniersel-charts-backgroundBar');
         }
       }
     }, {
@@ -6712,7 +6712,7 @@
             barHeight = _ref5.barHeight;
         var graphics = new Graphics(this.barCtx.ctx);
         var lineGroup = graphics.group({
-          className: 'apexcharts-bar-goals-groups'
+          className: 'vaniersel-charts-bar-goals-groups'
         });
         var line = null;
 
@@ -6796,7 +6796,7 @@
         this.yRatio = coreUtils.getLogYRatios(this.yRatio);
         this.barHelpers.initVariables(series);
         var ret = graphics.group({
-          class: 'apexcharts-bar-series apexcharts-plot-series'
+          class: 'vaniersel-charts-bar-series vaniersel-charts-plot-series'
         });
 
         if (w.config.dataLabels.enabled) {
@@ -6823,7 +6823,7 @@
           var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be drawn
 
           var elSeries = graphics.group({
-            class: "apexcharts-series",
+            class: "vaniersel-charts-series",
             rel: i + 1,
             seriesName: Utils$1.escapeString(w.globals.seriesNames[realIndex]),
             'data:realIndex': realIndex
@@ -6858,11 +6858,11 @@
 
 
           var elDataLabelsWrap = graphics.group({
-            class: 'apexcharts-datalabels',
+            class: 'vaniersel-charts-datalabels',
             'data:realIndex': realIndex
           });
           var elGoalsMarkers = graphics.group({
-            class: 'apexcharts-bar-goals-markers',
+            class: 'vaniersel-charts-bar-goals-markers',
             style: "pointer-events: none"
           });
 
@@ -7003,7 +7003,7 @@
           animationDelay: delay,
           initialSpeed: w.config.chart.animations.speed,
           dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-          className: "apexcharts-".concat(type, "-area")
+          className: "vaniersel-charts-".concat(type, "-area")
         });
         renderedPath.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
         var forecast = w.config.forecastDataPoints;
@@ -7463,7 +7463,7 @@
         this.seriesRangeEnd = w.globals.seriesRangeEnd;
         this.barHelpers.initVariables(series);
         var ret = graphics.group({
-          class: 'apexcharts-rangebar-series apexcharts-plot-series'
+          class: 'vaniersel-charts-rangebar-series vaniersel-charts-plot-series'
         });
 
         for (var i = 0; i < series.length; i++) {
@@ -7480,7 +7480,7 @@
           var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be drawn
 
           var elSeries = graphics.group({
-            class: "apexcharts-series",
+            class: "vaniersel-charts-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[realIndex]),
             rel: i + 1,
             'data:realIndex': realIndex
@@ -7507,11 +7507,11 @@
           zeroH = initPositions.zeroH; // eldatalabels
 
           var elDataLabelsWrap = graphics.group({
-            class: 'apexcharts-datalabels',
+            class: 'vaniersel-charts-datalabels',
             'data:realIndex': realIndex
           });
           var elGoalsMarkers = graphics.group({
-            class: 'apexcharts-rangebar-goals-markers',
+            class: 'vaniersel-charts-rangebar-goals-markers',
             style: "pointer-events: none"
           });
 
@@ -7859,7 +7859,7 @@
             ylabel = _ref5.ylabel,
             start = _ref5.start,
             end = _ref5.end;
-        return '<div class="apexcharts-tooltip-rangebar">' + '<div> <span class="series-name" style="color: ' + color + '">' + (seriesName ? seriesName : '') + '</span></div>' + '<div> <span class="category">' + ylabel + ' </span> <span class="value start-value">' + start + '</span> <span class="separator">-</span> <span class="value end-value">' + end + '</span></div>' + '</div>';
+        return '<div class="vaniersel-charts-tooltip-rangebar">' + '<div> <span class="series-name" style="color: ' + color + '">' + (seriesName ? seriesName : '') + '</span></div>' + '<div> <span class="category">' + ylabel + ' </span> <span class="value start-value">' + start + '</span> <span class="separator">-</span> <span class="value end-value">' + end + '</span></div>' + '</div>';
       }
     }]);
 
@@ -8694,9 +8694,9 @@
         var c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
 
         if (w.config.series[seriesIndex].type && w.config.series[seriesIndex].type !== chartType) {
-          return "<div class=\"apexcharts-custom-tooltip\">\n          ".concat(w.config.series[seriesIndex].name ? w.config.series[seriesIndex].name : 'series-' + (seriesIndex + 1), ": <strong>").concat(w.globals.series[seriesIndex][dataPointIndex], "</strong>\n        </div>");
+          return "<div class=\"vaniersel-charts-custom-tooltip\">\n          ".concat(w.config.series[seriesIndex].name ? w.config.series[seriesIndex].name : 'series-' + (seriesIndex + 1), ": <strong>").concat(w.globals.series[seriesIndex][dataPointIndex], "</strong>\n        </div>");
         } else {
-          return "<div class=\"apexcharts-tooltip-box apexcharts-tooltip-".concat(w.config.chart.type, "\">") + "<div>".concat(labels[0], ": <span class=\"value\">") + o + '</span></div>' + "<div>".concat(labels[1], ": <span class=\"value\">") + h + '</span></div>' + (m ? "<div>".concat(labels[2], ": <span class=\"value\">") + m + '</span></div>' : '') + "<div>".concat(labels[3], ": <span class=\"value\">") + l + '</span></div>' + "<div>".concat(labels[4], ": <span class=\"value\">") + c + '</span></div>' + '</div>';
+          return "<div class=\"vaniersel-charts-tooltip-box vaniersel-charts-tooltip-".concat(w.config.chart.type, "\">") + "<div>".concat(labels[0], ": <span class=\"value\">") + o + '</span></div>' + "<div>".concat(labels[1], ": <span class=\"value\">") + h + '</span></div>' + (m ? "<div>".concat(labels[2], ": <span class=\"value\">") + m + '</span></div>' : '') + "<div>".concat(labels[3], ": <span class=\"value\">") + l + '</span></div>' + "<div>".concat(labels[4], ": <span class=\"value\">") + c + '</span></div>' + '</div>';
         }
       }
     }]);
@@ -9061,7 +9061,7 @@
       value: function globalVars(config) {
         return {
           chartID: null,
-          // chart ID - apexcharts-cuid
+          // chart ID - vaniersel-charts-cuid
           cuid: null,
           // chart ID - random numbers excluding "apexcharts" part
           events: {
@@ -10405,9 +10405,9 @@
       value: function cleanup() {
         var w = this.w; // hide some elements to avoid printing them on exported svg
 
-        var xcrosshairs = w.globals.dom.baseEl.getElementsByClassName('apexcharts-xcrosshairs');
-        var ycrosshairs = w.globals.dom.baseEl.getElementsByClassName('apexcharts-ycrosshairs');
-        var zoomSelectionRects = w.globals.dom.baseEl.querySelectorAll('.apexcharts-zoom-rect, .apexcharts-selection-rect');
+        var xcrosshairs = w.globals.dom.baseEl.getElementsByClassName('vaniersel-charts-xcrosshairs');
+        var ycrosshairs = w.globals.dom.baseEl.getElementsByClassName('vaniersel-charts-ycrosshairs');
+        var zoomSelectionRects = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-zoom-rect, .vaniersel-charts-selection-rect');
         Array.prototype.forEach.call(zoomSelectionRects, function (z) {
           z.setAttribute('width', 0);
         });
@@ -10742,11 +10742,11 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var elXaxis = graphics.group({
-          class: 'apexcharts-xaxis',
+          class: 'vaniersel-charts-xaxis',
           transform: "translate(".concat(w.config.xaxis.offsetX, ", ").concat(w.config.xaxis.offsetY, ")")
         });
         var elXaxisTexts = graphics.group({
-          class: 'apexcharts-xaxis-texts-g',
+          class: 'vaniersel-charts-xaxis-texts-g',
           transform: "translate(".concat(w.globals.translateXAxisX, ", ").concat(w.globals.translateXAxisY, ")")
         });
         elXaxis.add(elXaxisTexts);
@@ -10785,7 +10785,7 @@
 
         if (w.config.xaxis.title.text !== undefined) {
           var elXaxisTitle = graphics.group({
-            class: 'apexcharts-xaxis-title'
+            class: 'vaniersel-charts-xaxis-title'
           });
           var elXAxisTitleText = graphics.drawText({
             x: w.globals.gridWidth / 2 + w.config.xaxis.title.offsetX,
@@ -10796,7 +10796,7 @@
             fontFamily: w.config.xaxis.title.style.fontFamily,
             fontWeight: w.config.xaxis.title.style.fontWeight,
             foreColor: w.config.xaxis.title.style.color,
-            cssClass: 'apexcharts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
+            cssClass: 'vaniersel-charts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
           });
           elXaxisTitle.add(elXAxisTitleText);
           elXaxis.add(elXaxisTitle);
@@ -10892,7 +10892,7 @@
               fontFamily: xaxisFontFamily,
               foreColor: Array.isArray(xaxisForeColors) ? getCatForeColor() : xaxisForeColors,
               isPlainText: false,
-              cssClass: (isLeafGroup ? 'apexcharts-xaxis-label ' : 'apexcharts-xaxis-group-label ') + cssClass
+              cssClass: (isLeafGroup ? 'vaniersel-charts-xaxis-label ' : 'vaniersel-charts-xaxis-group-label ') + cssClass
             });
             elXaxisTexts.add(elText);
 
@@ -10927,11 +10927,11 @@
         var graphics = new Graphics(this.ctx);
         var translateYAxisX = w.config.yaxis[0].opposite ? w.globals.translateYAxisX[realIndex] : 0;
         var elYaxis = graphics.group({
-          class: 'apexcharts-yaxis apexcharts-xaxis-inversed',
+          class: 'vaniersel-charts-yaxis vaniersel-charts-xaxis-inversed',
           rel: realIndex
         });
         var elYaxisTexts = graphics.group({
-          class: 'apexcharts-yaxis-texts-g apexcharts-xaxis-inversed-texts-g',
+          class: 'vaniersel-charts-yaxis-texts-g vaniersel-charts-xaxis-inversed-texts-g',
           transform: 'translate(' + translateYAxisX + ', 0)'
         });
         elYaxis.add(elYaxisTexts);
@@ -10982,7 +10982,7 @@
               fontFamily: ylabels.style.fontFamily,
               fontWeight: ylabels.style.fontWeight,
               isPlainText: false,
-              cssClass: 'apexcharts-yaxis-label ' + ylabels.style.cssClass
+              cssClass: 'vaniersel-charts-yaxis-label ' + ylabels.style.cssClass
             });
             elYaxisTexts.add(elLabel);
             var elTooltipTitle = document.createElementNS(w.globals.SVGNS, 'title');
@@ -11004,7 +11004,7 @@
 
         if (w.config.yaxis[0].title.text !== undefined) {
           var elXaxisTitle = graphics.group({
-            class: 'apexcharts-yaxis-title apexcharts-xaxis-title-inversed',
+            class: 'vaniersel-charts-yaxis-title vaniersel-charts-xaxis-title-inversed',
             transform: 'translate(' + translateYAxisX + ', 0)'
           });
           var elXAxisTitleText = graphics.drawText({
@@ -11016,7 +11016,7 @@
             fontSize: w.config.yaxis[0].title.style.fontSize,
             fontWeight: w.config.yaxis[0].title.style.fontWeight,
             fontFamily: w.config.yaxis[0].title.style.fontFamily,
-            cssClass: 'apexcharts-yaxis-title-text ' + w.config.yaxis[0].title.style.cssClass
+            cssClass: 'vaniersel-charts-yaxis-title-text ' + w.config.yaxis[0].title.style.cssClass
           });
           elXaxisTitle.add(elXAxisTitleText);
           elYaxis.add(elXaxisTitle);
@@ -11059,7 +11059,7 @@
           var line = graphics.drawLine(x1 + w.config.xaxis.axisTicks.offsetX, y1 + w.config.xaxis.offsetY, x2 + w.config.xaxis.axisTicks.offsetX, y2 + w.config.xaxis.offsetY, w.config.xaxis.axisTicks.color); // we are not returning anything, but appending directly to the element passed in param
 
           appendToElement.add(line);
-          line.node.classList.add('apexcharts-xaxis-tick');
+          line.node.classList.add('vaniersel-charts-xaxis-tick');
         }
       }
     }, {
@@ -11098,10 +11098,10 @@
       value: function xAxisLabelCorrections() {
         var w = this.w;
         var graphics = new Graphics(this.ctx);
-        var xAxis = w.globals.dom.baseEl.querySelector('.apexcharts-xaxis-texts-g');
-        var xAxisTexts = w.globals.dom.baseEl.querySelectorAll('.apexcharts-xaxis-texts-g text:not(.apexcharts-xaxis-group-label)');
-        var yAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll('.apexcharts-yaxis-inversed text');
-        var xAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll('.apexcharts-xaxis-inversed-texts-g text tspan');
+        var xAxis = w.globals.dom.baseEl.querySelector('.vaniersel-charts-xaxis-texts-g');
+        var xAxisTexts = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-xaxis-texts-g text:not(.vaniersel-charts-xaxis-group-label)');
+        var yAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-yaxis-inversed text');
+        var xAxisTextsInversed = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-xaxis-inversed-texts-g text tspan');
 
         if (w.globals.rotateXLabels || w.config.xaxis.labels.rotateAlways) {
           for (var xat = 0; xat < xAxisTexts.length; xat++) {
@@ -11199,7 +11199,7 @@
 
         if (elGrid === null) {
           elGrid = graphics.group({
-            class: 'apexcharts-grid'
+            class: 'vaniersel-charts-grid'
           });
         }
 
@@ -11345,12 +11345,12 @@
             y2 = _ref2.y2,
             parent = _ref2.parent;
         var w = this.w;
-        var isHorzLine = parent.node.classList.contains('apexcharts-gridlines-horizontal');
+        var isHorzLine = parent.node.classList.contains('vaniersel-charts-gridlines-horizontal');
         var strokeDashArray = w.config.grid.strokeDashArray;
         var offX = w.globals.barPadForNumericAxis;
         var graphics = new Graphics(this);
         var line = graphics.drawLine(x1 - (isHorzLine ? offX : 0), y1, x2 + (isHorzLine ? offX : 0), y2, w.config.grid.borderColor, strokeDashArray);
-        line.node.classList.add('apexcharts-gridline');
+        line.node.classList.add('vaniersel-charts-gridline');
         parent.add(line);
       }
     }, {
@@ -11370,7 +11370,7 @@
         var rect = graphics.drawRect(x1 - (type === 'row' ? offX : 0), y1, x2 + (type === 'row' ? offX * 2 : 0), y2, 0, color, w.config.grid[type].opacity);
         this.elg.add(rect);
         rect.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")"));
-        rect.node.classList.add("apexcharts-grid-".concat(type));
+        rect.node.classList.add("vaniersel-charts-grid-".concat(type));
       }
     }, {
       key: "_drawXYLines",
@@ -11413,7 +11413,7 @@
 
           if (typeof w.config.xaxis.tickAmount !== 'undefined' && w.config.xaxis.tickAmount !== 'dataPoints' && w.config.xaxis.tickPlacement === 'on') {
             // user has specified tickamount in a category x-axis chart
-            var visibleLabels = w.globals.dom.baseEl.querySelectorAll('.apexcharts-text.apexcharts-xaxis-label tspan:not(:empty)');
+            var visibleLabels = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-text.vaniersel-charts-xaxis-label tspan:not(:empty)');
             visibleLabels.forEach(function (d, i) {
               var textRect = d.getBBox();
 
@@ -11570,13 +11570,13 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         this.elg = graphics.group({
-          class: 'apexcharts-grid'
+          class: 'vaniersel-charts-grid'
         });
         this.elgridLinesH = graphics.group({
-          class: 'apexcharts-gridlines-horizontal'
+          class: 'vaniersel-charts-gridlines-horizontal'
         });
         this.elgridLinesV = graphics.group({
-          class: 'apexcharts-gridlines-vertical'
+          class: 'vaniersel-charts-gridlines-vertical'
         });
         this.elg.add(this.elgridLinesH);
         this.elg.add(this.elgridLinesV);
@@ -12799,7 +12799,7 @@
         var yaxisFontFamily = yaxisStyle.fontFamily;
         var yaxisFontWeight = yaxisStyle.fontWeight;
         var elYaxis = graphics.group({
-          class: 'apexcharts-yaxis',
+          class: 'vaniersel-charts-yaxis',
           rel: realIndex,
           transform: 'translate(' + w.globals.translateYAxisX[realIndex] + ', 0)'
         });
@@ -12809,7 +12809,7 @@
         }
 
         var elYaxisTexts = graphics.group({
-          class: 'apexcharts-yaxis-texts-g'
+          class: 'vaniersel-charts-yaxis-texts-g'
         });
         elYaxis.add(elYaxisTexts);
         var tickAmount = w.globals.yAxisScale[realIndex].result.length - 1; // labelsDivider is simply svg height/number of ticks
@@ -12849,7 +12849,7 @@
               maxWidth: w.config.yaxis[realIndex].labels.maxWidth,
               foreColor: getForeColor(),
               isPlainText: false,
-              cssClass: 'apexcharts-yaxis-label ' + yaxisStyle.cssClass
+              cssClass: 'vaniersel-charts-yaxis-label ' + yaxisStyle.cssClass
             });
 
             if (i === tickAmount) {
@@ -12877,7 +12877,7 @@
 
         if (w.config.yaxis[realIndex].title.text !== undefined) {
           var elYaxisTitle = graphics.group({
-            class: 'apexcharts-yaxis-title'
+            class: 'vaniersel-charts-yaxis-title'
           });
           var _x = 0;
 
@@ -12894,7 +12894,7 @@
             fontSize: w.config.yaxis[realIndex].title.style.fontSize,
             fontWeight: w.config.yaxis[realIndex].title.style.fontWeight,
             fontFamily: w.config.yaxis[realIndex].title.style.fontFamily,
-            cssClass: 'apexcharts-yaxis-title-text ' + w.config.yaxis[realIndex].title.style.cssClass
+            cssClass: 'vaniersel-charts-yaxis-title-text ' + w.config.yaxis[realIndex].title.style.cssClass
           });
           elYaxisTitle.add(elYAxisTitleText);
           elYaxis.add(elYaxisTitle);
@@ -12925,10 +12925,10 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var elXaxis = graphics.group({
-          class: 'apexcharts-xaxis apexcharts-yaxis-inversed'
+          class: 'vaniersel-charts-xaxis vaniersel-charts-yaxis-inversed'
         });
         var elXaxisTexts = graphics.group({
-          class: 'apexcharts-xaxis-texts-g',
+          class: 'vaniersel-charts-xaxis-texts-g',
           transform: "translate(".concat(w.globals.translateXAxisX, ", ").concat(w.globals.translateXAxisY, ")")
         });
         elXaxis.add(elXaxisTexts);
@@ -12981,7 +12981,7 @@
               fontFamily: this.xaxisFontFamily,
               fontWeight: w.config.xaxis.labels.style.fontWeight,
               isPlainText: false,
-              cssClass: 'apexcharts-xaxis-label ' + w.config.xaxis.labels.style.cssClass
+              cssClass: 'vaniersel-charts-xaxis-label ' + w.config.xaxis.labels.style.cssClass
             });
             elXaxisTexts.add(elTick);
             elTick.tspan(val);
@@ -13022,7 +13022,7 @@
 
         if (w.config.xaxis.title.text !== undefined) {
           var elYaxisTitle = graphics.group({
-            class: 'apexcharts-xaxis-title apexcharts-yaxis-title-inversed'
+            class: 'vaniersel-charts-xaxis-title vaniersel-charts-yaxis-title-inversed'
           });
           var elYAxisTitleText = graphics.drawText({
             x: w.globals.gridWidth / 2 + w.config.xaxis.title.offsetX,
@@ -13033,7 +13033,7 @@
             fontFamily: w.config.xaxis.title.style.fontFamily,
             fontWeight: w.config.xaxis.title.style.fontWeight,
             foreColor: w.config.xaxis.title.style.color,
-            cssClass: 'apexcharts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
+            cssClass: 'vaniersel-charts-xaxis-title-text ' + w.config.xaxis.title.style.cssClass
           });
           elYaxisTitle.add(elYAxisTitleText);
           parent.add(elYaxisTitle);
@@ -13052,13 +13052,13 @@
           width: 0,
           height: 0
         };
-        var elYAxisLabelsWrap = w.globals.dom.baseEl.querySelector(" .apexcharts-yaxis[rel='".concat(realIndex, "'] .apexcharts-yaxis-texts-g"));
+        var elYAxisLabelsWrap = w.globals.dom.baseEl.querySelector(" .vaniersel-charts-yaxis[rel='".concat(realIndex, "'] .vaniersel-charts-yaxis-texts-g"));
 
         if (elYAxisLabelsWrap !== null) {
           yAxisLabelsCoord = elYAxisLabelsWrap.getBoundingClientRect();
         }
 
-        var yAxisTitle = w.globals.dom.baseEl.querySelector(".apexcharts-yaxis[rel='".concat(realIndex, "'] .apexcharts-yaxis-title text"));
+        var yAxisTitle = w.globals.dom.baseEl.querySelector(".vaniersel-charts-yaxis[rel='".concat(realIndex, "'] .vaniersel-charts-yaxis-title text"));
 
         if (yAxisTitle !== null) {
           yAxisTitleCoord = yAxisTitle.getBoundingClientRect();
@@ -13156,14 +13156,14 @@
       key: "setYAxisTextAlignments",
       value: function setYAxisTextAlignments() {
         var w = this.w;
-        var yaxis = w.globals.dom.baseEl.getElementsByClassName("apexcharts-yaxis");
+        var yaxis = w.globals.dom.baseEl.getElementsByClassName("vaniersel-charts-yaxis");
         yaxis = Utils$1.listToArray(yaxis);
         yaxis.forEach(function (y, index) {
           var yaxe = w.config.yaxis[index]; // proceed only if user has specified alignment
 
           if (yaxe && yaxe.labels.align !== undefined) {
-            var yAxisInner = w.globals.dom.baseEl.querySelector(".apexcharts-yaxis[rel='".concat(index, "'] .apexcharts-yaxis-texts-g"));
-            var yAxisTexts = w.globals.dom.baseEl.querySelectorAll(".apexcharts-yaxis[rel='".concat(index, "'] .apexcharts-yaxis-label"));
+            var yAxisInner = w.globals.dom.baseEl.querySelector(".vaniersel-charts-yaxis[rel='".concat(index, "'] .vaniersel-charts-yaxis-texts-g"));
+            var yAxisTexts = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-yaxis[rel='".concat(index, "'] .vaniersel-charts-yaxis-label"));
             yAxisTexts = Utils$1.listToArray(yAxisTexts);
             var rect = yAxisInner.getBoundingClientRect();
 
@@ -13301,10 +13301,10 @@
         var target = e.target.className;
 
         if (e.type === 'click') {
-          var elMenu = w.globals.dom.baseEl.querySelector('.apexcharts-menu');
+          var elMenu = w.globals.dom.baseEl.querySelector('.vaniersel-charts-menu');
 
-          if (elMenu && elMenu.classList.contains('apexcharts-menu-open') && target !== 'apexcharts-menu-icon') {
-            elMenu.classList.remove('apexcharts-menu-open');
+          if (elMenu && elMenu.classList.contains('vaniersel-charts-menu-open') && target !== 'vaniersel-charts-menu-icon') {
+            elMenu.classList.remove('vaniersel-charts-menu-open');
           }
         }
 
@@ -13450,7 +13450,7 @@
           }
 
           xcrosshairs.attr({
-            class: 'apexcharts-xcrosshairs',
+            class: 'vaniersel-charts-xcrosshairs',
             x: 0,
             y: 0,
             y2: gridHeight,
@@ -13488,7 +13488,7 @@
         if (w.config.yaxis[0].crosshairs.show) {
           var ycrosshairs = graphics.drawLine(-offX, 0, w.globals.gridWidth + offX, 0, crosshair.stroke.color, crosshair.stroke.dashArray, crosshair.stroke.width);
           ycrosshairs.attr({
-            class: 'apexcharts-ycrosshairs'
+            class: 'vaniersel-charts-ycrosshairs'
           });
           w.globals.dom.elGraphical.add(ycrosshairs);
         } // draw an invisible crosshair to help in positioning the yaxis tooltip
@@ -13496,7 +13496,7 @@
 
         var ycrosshairsHidden = graphics.drawLine(-offX, 0, w.globals.gridWidth + offX, 0, crosshair.stroke.color, 0, 0);
         ycrosshairsHidden.attr({
-          class: 'apexcharts-ycrosshairs-hidden'
+          class: 'vaniersel-charts-ycrosshairs-hidden'
         });
         w.globals.dom.elGraphical.add(ycrosshairsHidden);
       }
@@ -13612,7 +13612,7 @@
 
         var w = this.w;
         var utils = new Utils$1();
-        w.globals.dom.elWrap.classList.add("apexcharts-theme-".concat(w.config.theme.mode));
+        w.globals.dom.elWrap.classList.add("vaniersel-charts-theme-".concat(w.config.theme.mode));
 
         if (w.config.colors === undefined) {
           w.globals.colors = this.predefined();
@@ -13859,7 +13859,7 @@
             foreColor: tsConfig.style.color,
             opacity: 1
           });
-          titleText.node.setAttribute('class', "apexcharts-".concat(type, "-text"));
+          titleText.node.setAttribute('class', "vaniersel-charts-".concat(type, "-text"));
           w.globals.dom.Paper.add(titleText);
         }
       }
@@ -13889,7 +13889,7 @@
         var width = 0;
         var height = 0;
         var floating = type === 'title' ? w.config.title.floating : w.config.subtitle.floating;
-        var el = w.globals.dom.baseEl.querySelector(".apexcharts-".concat(type, "-text"));
+        var el = w.globals.dom.baseEl.querySelector(".vaniersel-charts-".concat(type, "-text"));
 
         if (el !== null && !floating) {
           var coord = el.getBoundingClientRect();
@@ -13906,7 +13906,7 @@
       key: "getLegendsRect",
       value: function getLegendsRect() {
         var w = this.w;
-        var elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend');
+        var elLegendWrap = w.globals.dom.baseEl.querySelector('.vaniersel-charts-legend');
 
         if (!w.config.legend.height && (w.config.legend.position === 'top' || w.config.legend.position === 'bottom')) {
           // avoid legend to take up all the space
@@ -14842,7 +14842,7 @@
       value: function getLegendStyles() {
         var stylesheet = document.createElement('style');
         stylesheet.setAttribute('type', 'text/css');
-        var text = "\t\n    \t\n      .apexcharts-legend {\t\n        display: flex;\t\n        overflow: auto;\t\n        padding: 0 10px;\t\n      }\t\n      .apexcharts-legend.apx-legend-position-bottom, .apexcharts-legend.apx-legend-position-top {\t\n        flex-wrap: wrap\t\n      }\t\n      .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {\t\n        flex-direction: column;\t\n        bottom: 0;\t\n      }\t\n      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-left, .apexcharts-legend.apx-legend-position-top.apexcharts-align-left, .apexcharts-legend.apx-legend-position-right, .apexcharts-legend.apx-legend-position-left {\t\n        justify-content: flex-start;\t\n      }\t\n      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center, .apexcharts-legend.apx-legend-position-top.apexcharts-align-center {\t\n        justify-content: center;  \t\n      }\t\n      .apexcharts-legend.apx-legend-position-bottom.apexcharts-align-right, .apexcharts-legend.apx-legend-position-top.apexcharts-align-right {\t\n        justify-content: flex-end;\t\n      }\t\n      .apexcharts-legend-series {\t\n        cursor: pointer;\t\n        line-height: normal;\t\n      }\t\n      .apexcharts-legend.apx-legend-position-bottom .apexcharts-legend-series, .apexcharts-legend.apx-legend-position-top .apexcharts-legend-series{\t\n        display: flex;\t\n        align-items: center;\t\n      }\t\n      .apexcharts-legend-text {\t\n        position: relative;\t\n        font-size: 14px;\t\n      }\t\n      .apexcharts-legend-text *, .apexcharts-legend-marker * {\t\n        pointer-events: none;\t\n      }\t\n      .apexcharts-legend-marker {\t\n        position: relative;\t\n        display: inline-block;\t\n        cursor: pointer;\t\n        margin-right: 3px;\t\n        border-style: solid;\n      }\t\n      \t\n      .apexcharts-legend.apexcharts-align-right .apexcharts-legend-series, .apexcharts-legend.apexcharts-align-left .apexcharts-legend-series{\t\n        display: inline-block;\t\n      }\t\n      .apexcharts-legend-series.apexcharts-no-click {\t\n        cursor: auto;\t\n      }\t\n      .apexcharts-legend .apexcharts-hidden-zero-series, .apexcharts-legend .apexcharts-hidden-null-series {\t\n        display: none !important;\t\n      }\t\n      .apexcharts-inactive-legend {\t\n        opacity: 0.45;\t\n      }";
+        var text = "\n\n      .vaniersel-charts-legend {\n        display: flex;\n        overflow: auto;\n        padding: 0 10px;\n      }\n      .vaniersel-charts-legend.apx-legend-position-bottom, .vaniersel-charts-legend.apx-legend-position-top {\n        flex-wrap: wrap\n      }\n      .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {\n        flex-direction: column;\n        bottom: 0;\n      }\n      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {\n        justify-content: flex-start;\n      }\n      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-center, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-center {\n        justify-content: center;\n      }\n      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-right, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-right {\n        justify-content: flex-end;\n      }\n      .vaniersel-charts-legend-series {\n        cursor: pointer;\n        line-height: normal;\n      }\n      .vaniersel-charts-legend.apx-legend-position-bottom .vaniersel-charts-legend-series, .vaniersel-charts-legend.apx-legend-position-top .vaniersel-charts-legend-series{\n        display: flex;\n        align-items: center;\n      }\n      .vaniersel-charts-legend-text {\n        position: relative;\n        font-size: 14px;\n      }\n      .vaniersel-charts-legend-text *, .vaniersel-charts-legend-marker * {\n        pointer-events: none;\n      }\n      .vaniersel-charts-legend-marker {\n        position: relative;\n        display: inline-block;\n        cursor: pointer;\n        margin-right: 3px;\n        border-style: solid;\n      }\n\n      .vaniersel-charts-legend.vaniersel-charts-align-right .vaniersel-charts-legend-series, .vaniersel-charts-legend.vaniersel-charts-align-left .vaniersel-charts-legend-series{\n        display: inline-block;\n      }\n      .vaniersel-charts-legend-series.vaniersel-charts-no-click {\n        cursor: auto;\n      }\n      .vaniersel-charts-legend .vaniersel-charts-hidden-zero-series, .vaniersel-charts-legend .vaniersel-charts-hidden-null-series {\n        display: none !important;\n      }\n      .vaniersel-charts-inactive-legend {\n        opacity: 0.45;\n      }";
         var rules = document.createTextNode(text);
         stylesheet.appendChild(rules);
         return stylesheet;
@@ -14851,7 +14851,7 @@
       key: "getLegendBBox",
       value: function getLegendBBox() {
         var w = this.w;
-        var currLegendsWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend');
+        var currLegendsWrap = w.globals.dom.baseEl.querySelector('.vaniersel-charts-legend');
         var currLegendsWrapRect = currLegendsWrap.getBoundingClientRect();
         var currLegendsWrapWidth = currLegendsWrapRect.width;
         var currLegendsWrapHeight = currLegendsWrapRect.height;
@@ -14893,10 +14893,10 @@
           w.globals.risingSeries = [];
 
           if (w.globals.axisCharts) {
-            seriesEl = w.globals.dom.baseEl.querySelector(".apexcharts-series[data\\:realIndex='".concat(seriesCnt, "']"));
+            seriesEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[data\\:realIndex='".concat(seriesCnt, "']"));
             realIndex = parseInt(seriesEl.getAttribute('data:realIndex'), 10);
           } else {
-            seriesEl = w.globals.dom.baseEl.querySelector(".apexcharts-series[rel='".concat(seriesCnt + 1, "']"));
+            seriesEl = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[rel='".concat(seriesCnt + 1, "']"));
             realIndex = parseInt(seriesEl.getAttribute('rel'), 10) - 1;
           }
 
@@ -14919,7 +14919,7 @@
           }
         } else {
           // for non-axis charts i.e pie / donuts
-          var _seriesEl = w.globals.dom.Paper.select(" .apexcharts-series[rel='".concat(seriesCnt + 1, "'] path"));
+          var _seriesEl = w.globals.dom.Paper.select(" .vaniersel-charts-series[rel='".concat(seriesCnt + 1, "'] path"));
 
           var type = w.config.chart.type;
 
@@ -14978,11 +14978,11 @@
         var seriesChildren = seriesEl.childNodes;
 
         for (var sc = 0; sc < seriesChildren.length; sc++) {
-          if (seriesChildren[sc].classList.contains('apexcharts-series-markers-wrap')) {
-            if (seriesChildren[sc].classList.contains('apexcharts-hide')) {
-              seriesChildren[sc].classList.remove('apexcharts-hide');
+          if (seriesChildren[sc].classList.contains('vaniersel-charts-series-markers-wrap')) {
+            if (seriesChildren[sc].classList.contains('vaniersel-charts-hide')) {
+              seriesChildren[sc].classList.remove('vaniersel-charts-hide');
             } else {
-              seriesChildren[sc].classList.add('apexcharts-hide');
+              seriesChildren[sc].classList.add('vaniersel-charts-hide');
             }
           }
         }
@@ -15146,7 +15146,7 @@
           }
 
           var elMarker = document.createElement('span');
-          elMarker.classList.add('apexcharts-legend-marker');
+          elMarker.classList.add('vaniersel-charts-legend-marker');
           var mOffsetX = w.config.legend.markers.offsetX;
           var mOffsetY = w.config.legend.markers.offsetY;
           var mHeight = w.config.legend.markers.height;
@@ -15200,12 +15200,12 @@
           });
 
           if (collapsedSeries || ancillaryCollapsedSeries) {
-            elMarker.classList.add('apexcharts-inactive-legend');
+            elMarker.classList.add('vaniersel-charts-inactive-legend');
           }
 
           var elLegend = document.createElement('div');
           var elLegendText = document.createElement('span');
-          elLegendText.classList.add('apexcharts-legend-text');
+          elLegendText.classList.add('vaniersel-charts-legend-text');
           elLegendText.innerHTML = Array.isArray(text) ? text.join(' ') : text;
           var textColor = w.config.legend.labels.useSeriesColors ? w.globals.colors[i] : w.config.legend.labels.colors;
 
@@ -15231,20 +15231,20 @@
             var total = coreUtils.getSeriesTotalByIndex(i);
 
             if (total === 0 && coreUtils.seriesHaveSameValues(i) && !coreUtils.isSeriesNull(i) && w.globals.collapsedSeriesIndices.indexOf(i) === -1 && w.globals.ancillaryCollapsedSeriesIndices.indexOf(i) === -1) {
-              elLegend.classList.add('apexcharts-hidden-zero-series');
+              elLegend.classList.add('vaniersel-charts-hidden-zero-series');
             }
           }
 
           if (!w.config.legend.showForNullSeries) {
             if (coreUtils.isSeriesNull(i) && w.globals.collapsedSeriesIndices.indexOf(i) === -1 && w.globals.ancillaryCollapsedSeriesIndices.indexOf(i) === -1) {
-              elLegend.classList.add('apexcharts-hidden-null-series');
+              elLegend.classList.add('vaniersel-charts-hidden-null-series');
             }
           }
 
           w.globals.dom.elLegendWrap.appendChild(elLegend);
-          w.globals.dom.elLegendWrap.classList.add("apexcharts-align-".concat(w.config.legend.horizontalAlign));
+          w.globals.dom.elLegendWrap.classList.add("vaniersel-charts-align-".concat(w.config.legend.horizontalAlign));
           w.globals.dom.elLegendWrap.classList.add('apx-legend-position-' + w.config.legend.position);
-          elLegend.classList.add('apexcharts-legend-series');
+          elLegend.classList.add('vaniersel-charts-legend-series');
           elLegend.style.margin = "".concat(w.config.legend.itemMargin.vertical, "px ").concat(w.config.legend.itemMargin.horizontal, "px");
           w.globals.dom.elLegendWrap.style.width = w.config.legend.width ? w.config.legend.width + 'px' : '';
           w.globals.dom.elLegendWrap.style.height = w.config.legend.height ? w.config.legend.height + 'px' : '';
@@ -15255,11 +15255,11 @@
           });
 
           if (collapsedSeries || ancillaryCollapsedSeries) {
-            elLegend.classList.add('apexcharts-inactive-legend');
+            elLegend.classList.add('vaniersel-charts-inactive-legend');
           }
 
           if (!w.config.legend.onItemClick.toggleDataSeries) {
-            elLegend.classList.add('apexcharts-no-click');
+            elLegend.classList.add('vaniersel-charts-no-click');
           }
         }
 
@@ -15274,7 +15274,7 @@
       key: "setLegendWrapXY",
       value: function setLegendWrapXY(offsetX, offsetY) {
         var w = this.w;
-        var elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend');
+        var elLegendWrap = w.globals.dom.baseEl.querySelector('.vaniersel-charts-legend');
         var legendRect = elLegendWrap.getBoundingClientRect();
         var x = 0;
         var y = 0;
@@ -15313,7 +15313,7 @@
       key: "legendAlignHorizontal",
       value: function legendAlignHorizontal() {
         var w = this.w;
-        var elLegendWrap = w.globals.dom.baseEl.querySelector('.apexcharts-legend');
+        var elLegendWrap = w.globals.dom.baseEl.querySelector('.vaniersel-charts-legend');
         elLegendWrap.style.right = 0;
         var lRect = this.legendHelpers.getLegendBBox();
         var dimensions = new Dimensions(this.ctx);
@@ -15352,10 +15352,10 @@
       key: "onLegendHovered",
       value: function onLegendHovered(e) {
         var w = this.w;
-        var hoverOverLegend = e.target.classList.contains('apexcharts-legend-text') || e.target.classList.contains('apexcharts-legend-marker');
+        var hoverOverLegend = e.target.classList.contains('vaniersel-charts-legend-text') || e.target.classList.contains('vaniersel-charts-legend-marker');
 
         if (w.config.chart.type !== 'heatmap' && !this.isBarsDistributed) {
-          if (!e.target.classList.contains('apexcharts-inactive-legend') && hoverOverLegend) {
+          if (!e.target.classList.contains('vaniersel-charts-inactive-legend') && hoverOverLegend) {
             var series = new Series(this.ctx);
             series.toggleSeriesOnHover(e, e.target);
           }
@@ -15377,7 +15377,7 @@
         var w = this.w;
         if (w.config.legend.customLegendItems.length) return;
 
-        if (e.target.classList.contains('apexcharts-legend-text') || e.target.classList.contains('apexcharts-legend-marker')) {
+        if (e.target.classList.contains('vaniersel-charts-legend-text') || e.target.classList.contains('vaniersel-charts-legend-marker')) {
           var seriesCnt = parseInt(e.target.getAttribute('rel'), 10) - 1;
           var isHidden = e.target.getAttribute('data:collapsed') === 'true';
           var legendClick = this.w.config.chart.events.legendClick;
@@ -15389,7 +15389,7 @@
           this.ctx.events.fireEvent('legendClick', [this.ctx, seriesCnt, this.w]);
           var markerClick = this.w.config.legend.markers.onClick;
 
-          if (typeof markerClick === 'function' && e.target.classList.contains('apexcharts-legend-marker')) {
+          if (typeof markerClick === 'function' && e.target.classList.contains('vaniersel-charts-legend-marker')) {
             markerClick(this.ctx, seriesCnt, this.w);
             this.ctx.events.fireEvent('legendMarkerClick', [this.ctx, seriesCnt, this.w]);
           } // for now - just prevent click on heatmap legend - and allow hover only
@@ -15409,7 +15409,7 @@
 
   var icoPan = "<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\">\n    <defs>\n        <path d=\"M0 0h24v24H0z\" id=\"a\"/>\n    </defs>\n    <clipPath id=\"b\">\n        <use overflow=\"visible\" xlink:href=\"#a\"/>\n    </clipPath>\n    <path clip-path=\"url(#b)\" d=\"M23 5.5V20c0 2.2-1.8 4-4 4h-7.3c-1.08 0-2.1-.43-2.85-1.19L1 14.83s1.26-1.23 1.3-1.25c.22-.19.49-.29.79-.29.22 0 .42.06.6.16.04.01 4.31 2.46 4.31 2.46V4c0-.83.67-1.5 1.5-1.5S11 3.17 11 4v7h1V1.5c0-.83.67-1.5 1.5-1.5S15 .67 15 1.5V11h1V2.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5V11h1V5.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5z\"/>\n</svg>";
 
-  var icoZoom = "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\">\n    <path d=\"M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"/>\n    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n    <path d=\"M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z\"/>\n</svg>";
+  var icoZoom = "<svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\">\n    <path d=\"M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z\"/>\n    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n    <path d=\"M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z\"/>\n</svg>\n";
 
   var icoReset = "<svg fill=\"#000000\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z\"/>\n    <path d=\"M0 0h24v24H0z\" fill=\"none\"/>\n</svg>";
 
@@ -15435,7 +15435,7 @@
       this.w = ctx.w;
       var w = this.w;
       this.ev = this.w.config.chart.events;
-      this.selectedClass = 'apexcharts-selected';
+      this.selectedClass = 'vaniersel-charts-selected';
       this.localeValues = this.w.globals.locale.toolbar;
       this.minX = w.globals.minX;
       this.maxX = w.globals.maxX;
@@ -15453,7 +15453,7 @@
         };
 
         var elToolbarWrap = createDiv();
-        elToolbarWrap.setAttribute('class', 'apexcharts-toolbar');
+        elToolbarWrap.setAttribute('class', 'vaniersel-charts-toolbar');
         elToolbarWrap.style.top = w.config.chart.toolbar.offsetY + 'px';
         elToolbarWrap.style.right = -w.config.chart.toolbar.offsetX + 3 + 'px';
         w.globals.dom.elWrap.appendChild(elToolbarWrap);
@@ -15484,7 +15484,7 @@
               el: el,
               icon: typeof _this.t[tool] === 'string' ? _this.t[tool] : ico,
               title: _this.localeValues[type],
-              class: "apexcharts-".concat(tool, "-icon")
+              class: "vaniersel-charts-".concat(tool, "-icon")
             });
           }
         };
@@ -15498,7 +15498,7 @@
               el: z === 'zoom' ? _this.elZoom : _this.elSelection,
               icon: typeof _this.t[z] === 'string' ? _this.t[z] : z === 'zoom' ? icoZoom : icoSelect,
               title: _this.localeValues[z === 'zoom' ? 'selectionZoom' : 'selection'],
-              class: w.globals.isTouchDevice ? 'apexcharts-element-hidden' : "apexcharts-".concat(z, "-icon")
+              class: w.globals.isTouchDevice ? 'vaniersel-charts-element-hidden' : "vaniersel-charts-".concat(z, "-icon")
             });
           }
         };
@@ -15511,7 +15511,7 @@
             el: this.elPan,
             icon: typeof this.t.pan === 'string' ? this.t.pan : icoPan,
             title: this.localeValues.pan,
-            class: w.globals.isTouchDevice ? 'apexcharts-element-hidden' : 'apexcharts-pan-icon'
+            class: w.globals.isTouchDevice ? 'vaniersel-charts-element-hidden' : 'vaniersel-charts-pan-icon'
           });
         }
 
@@ -15522,7 +15522,7 @@
             el: this.elMenuIcon,
             icon: typeof this.t.download === 'string' ? this.t.download : icoMenu,
             title: this.localeValues.menu,
-            class: 'apexcharts-menu-icon'
+            class: 'vaniersel-charts-menu-icon'
           });
         }
 
@@ -15532,7 +15532,7 @@
             icon: this.t.customIcons[_i].icon,
             title: this.t.customIcons[_i].title,
             index: this.t.customIcons[_i].index,
-            class: 'apexcharts-toolbar-custom-icon ' + this.t.customIcons[_i].class
+            class: 'vaniersel-charts-toolbar-custom-icon ' + this.t.customIcons[_i].class
           });
         }
 
@@ -15569,7 +15569,7 @@
         this.elMenuItems = [];
         parent.appendChild(this.elMenu);
         Graphics.setAttrs(this.elMenu, {
-          class: 'apexcharts-menu'
+          class: 'vaniersel-charts-menu'
         });
         var menuItems = [{
           name: 'exportSVG',
@@ -15591,7 +15591,7 @@
           this.elMenuItems.push(document.createElement('div'));
           this.elMenuItems[i].innerHTML = menuItems[i].title;
           Graphics.setAttrs(this.elMenuItems[i], {
-            class: "apexcharts-menu-item ".concat(menuItems[i].name),
+            class: "vaniersel-charts-menu-item ".concat(menuItems[i].name),
             title: menuItems[i].title
           });
           this.elMenu.appendChild(this.elMenuItems[i]);
@@ -15646,15 +15646,15 @@
         var w = this.w;
 
         if (!this.elZoom) {
-          this.elZoom = w.globals.dom.baseEl.querySelector('.apexcharts-zoom-icon');
+          this.elZoom = w.globals.dom.baseEl.querySelector('.vaniersel-charts-zoom-icon');
         }
 
         if (!this.elPan) {
-          this.elPan = w.globals.dom.baseEl.querySelector('.apexcharts-pan-icon');
+          this.elPan = w.globals.dom.baseEl.querySelector('.vaniersel-charts-pan-icon');
         }
 
         if (!this.elSelection) {
-          this.elSelection = w.globals.dom.baseEl.querySelector('.apexcharts-selection-icon');
+          this.elSelection = w.globals.dom.baseEl.querySelector('.vaniersel-charts-selection-icon');
         }
       }
     }, {
@@ -15845,10 +15845,10 @@
         var _this4 = this;
 
         window.setTimeout(function () {
-          if (_this4.elMenu.classList.contains('apexcharts-menu-open')) {
-            _this4.elMenu.classList.remove('apexcharts-menu-open');
+          if (_this4.elMenu.classList.contains('vaniersel-charts-menu-open')) {
+            _this4.elMenu.classList.remove('vaniersel-charts-menu-open');
           } else {
-            _this4.elMenu.classList.add('apexcharts-menu-open');
+            _this4.elMenu.classList.add('vaniersel-charts-menu-open');
           }
         }, 0);
       }
@@ -15973,9 +15973,9 @@
         this.xyRatios = xyRatios;
         this.zoomRect = this.graphics.drawRect(0, 0, 0, 0);
         this.selectionRect = this.graphics.drawRect(0, 0, 0, 0);
-        this.gridRect = w.globals.dom.baseEl.querySelector('.apexcharts-grid');
-        this.zoomRect.node.classList.add('apexcharts-zoom-rect');
-        this.selectionRect.node.classList.add('apexcharts-selection-rect');
+        this.gridRect = w.globals.dom.baseEl.querySelector('.vaniersel-charts-grid');
+        this.zoomRect.node.classList.add('vaniersel-charts-zoom-rect');
+        this.selectionRect.node.classList.add('vaniersel-charts-selection-rect');
         w.globals.dom.elGraphical.add(this.zoomRect);
         w.globals.dom.elGraphical.add(this.selectionRect);
 
@@ -15996,8 +15996,8 @@
         }
 
         this.preselectedSelection();
-        this.hoverArea = w.globals.dom.baseEl.querySelector("".concat(w.globals.chartClass, " .apexcharts-svg"));
-        this.hoverArea.classList.add('apexcharts-zoomable');
+        this.hoverArea = w.globals.dom.baseEl.querySelector("".concat(w.globals.chartClass, " .vaniersel-charts-svg"));
+        this.hoverArea.classList.add('vaniersel-charts-zoomable');
         this.eventList.forEach(function (event) {
           _this2.hoverArea.addEventListener(event, me.svgMouseEvents.bind(me, xyRatios), {
             capture: false,
@@ -16046,7 +16046,7 @@
           pc = e.target.parentNode.classList;
         }
 
-        var falsePositives = tc.contains('apexcharts-selection-rect') || tc.contains('apexcharts-legend-marker') || tc.contains('apexcharts-legend-text') || pc && pc.contains('apexcharts-toolbar');
+        var falsePositives = tc.contains('vaniersel-charts-selection-rect') || tc.contains('vaniersel-charts-legend-marker') || tc.contains('vaniersel-charts-legend-text') || pc && pc.contains('vaniersel-charts-toolbar');
         if (falsePositives) return;
         me.clientX = e.type === 'touchmove' || e.type === 'touchstart' ? e.touches[0].clientX : e.type === 'touchend' ? e.changedTouches[0].clientX : e.clientX;
         me.clientY = e.type === 'touchmove' || e.type === 'touchstart' ? e.touches[0].clientY : e.type === 'touchend' ? e.changedTouches[0].clientY : e.clientY;
@@ -16909,14 +16909,14 @@
     }, {
       key: "getElMarkers",
       value: function getElMarkers() {
-        return this.w.globals.dom.baseEl.querySelectorAll(' .apexcharts-series-markers');
+        return this.w.globals.dom.baseEl.querySelectorAll(' .vaniersel-charts-series-markers');
       }
     }, {
       key: "getAllMarkers",
       value: function getAllMarkers() {
         // first get all marker parents. This parent class contains series-index
         // which helps to sort the markers as they are dynamic
-        var markersWraps = this.w.globals.dom.baseEl.querySelectorAll('.apexcharts-series-markers-wrap');
+        var markersWraps = this.w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series-markers-wrap');
         markersWraps = _toConsumableArray(markersWraps);
         markersWraps.sort(function (a, b) {
           var indexA = Number(a.getAttribute('data:realIndex'));
@@ -16925,7 +16925,7 @@
         });
         var markers = [];
         markersWraps.forEach(function (m) {
-          markers.push(m.querySelector('.apexcharts-marker'));
+          markers.push(m.querySelector('.vaniersel-charts-marker'));
         });
         return markers;
       }
@@ -16938,7 +16938,7 @@
     }, {
       key: "getElBars",
       value: function getElBars() {
-        return this.w.globals.dom.baseEl.querySelectorAll('.apexcharts-bar-series,  .apexcharts-candlestick-series, .apexcharts-boxPlot-series, .apexcharts-rangebar-series');
+        return this.w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-bar-series,  .vaniersel-charts-candlestick-series, .vaniersel-charts-boxPlot-series, .vaniersel-charts-rangebar-series');
       }
     }, {
       key: "hasBars",
@@ -16965,17 +16965,17 @@
         var ttCtx = this.ttCtx;
 
         if (ttCtx.allTooltipSeriesGroups.length === 0) {
-          ttCtx.allTooltipSeriesGroups = w.globals.dom.baseEl.querySelectorAll('.apexcharts-tooltip-series-group');
+          ttCtx.allTooltipSeriesGroups = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-tooltip-series-group');
         }
 
         var allTooltipSeriesGroups = ttCtx.allTooltipSeriesGroups;
 
         for (var i = 0; i < allTooltipSeriesGroups.length; i++) {
           if (state === 'enable') {
-            allTooltipSeriesGroups[i].classList.add('apexcharts-active');
+            allTooltipSeriesGroups[i].classList.add('vaniersel-charts-active');
             allTooltipSeriesGroups[i].style.display = w.config.tooltip.items.display;
           } else {
-            allTooltipSeriesGroups[i].classList.remove('apexcharts-active');
+            allTooltipSeriesGroups[i].classList.remove('vaniersel-charts-active');
             allTooltipSeriesGroups[i].style.display = 'none';
           }
         }
@@ -17136,7 +17136,7 @@
               var targetFill = e === null || e === void 0 ? void 0 : (_e$target = e.target) === null || _e$target === void 0 ? void 0 : _e$target.getAttribute('fill');
 
               if (targetFill) {
-                pColor = targetFill.indexOf("url") !== -1 ? document.querySelector(targetFill.substr(4).slice(0, -1)).childNodes[0].getAttribute("stroke") : targetFill;
+                pColor = targetFill.indexOf('url') !== -1 ? document.querySelector(targetFill.substr(4).slice(0, -1)).childNodes[0].getAttribute('stroke') : targetFill;
               }
 
               val = getValBySeriesIndex(i);
@@ -17273,7 +17273,7 @@
         if (ttCtx.showTooltipTitle) {
           if (ttCtx.tooltipTitle === null) {
             // get it once if null, and store it in class property
-            ttCtx.tooltipTitle = w.globals.dom.baseEl.querySelector('.apexcharts-tooltip-title');
+            ttCtx.tooltipTitle = w.globals.dom.baseEl.querySelector('.vaniersel-charts-tooltip-title');
           }
 
           ttCtx.tooltipTitle.innerHTML = xVal;
@@ -17284,19 +17284,19 @@
           ttCtx.xaxisTooltipText.innerHTML = xAxisTTVal !== '' ? xAxisTTVal : xVal;
         }
 
-        var ttYLabel = ttItems[t].querySelector('.apexcharts-tooltip-text-y-label');
+        var ttYLabel = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-y-label');
 
         if (ttYLabel) {
           ttYLabel.innerHTML = seriesName ? seriesName : '';
         }
 
-        var ttYVal = ttItems[t].querySelector('.apexcharts-tooltip-text-y-value');
+        var ttYVal = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-y-value');
 
         if (ttYVal) {
           ttYVal.innerHTML = typeof val !== 'undefined' ? val : '';
         }
 
-        if (ttItemsChildren[0] && ttItemsChildren[0].classList.contains('apexcharts-tooltip-marker')) {
+        if (ttItemsChildren[0] && ttItemsChildren[0].classList.contains('vaniersel-charts-tooltip-marker')) {
           if (w.config.tooltip.marker.fillColors && Array.isArray(w.config.tooltip.marker.fillColors)) {
             pColor = w.config.tooltip.marker.fillColors[t];
           }
@@ -17308,15 +17308,15 @@
           ttItemsChildren[0].style.display = 'none';
         }
 
-        var ttGLabel = ttItems[t].querySelector('.apexcharts-tooltip-text-goals-label');
-        var ttGVal = ttItems[t].querySelector('.apexcharts-tooltip-text-goals-value');
+        var ttGLabel = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-goals-label');
+        var ttGVal = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-goals-value');
 
         if (goalVals.length && w.globals.seriesGoals[t]) {
           var createGoalsHtml = function createGoalsHtml() {
             var gLabels = '<div >';
             var gVals = '<div>';
             goalVals.forEach(function (goal, gi) {
-              gLabels += " <div style=\"display: flex\"><span class=\"apexcharts-tooltip-marker\" style=\"background-color: ".concat(goal.attrs.strokeColor, "; height: 3px; border-radius: 0; top: 5px;\"></span> ").concat(goal.attrs.name, "</div>");
+              gLabels += " <div style=\"display: flex\"><span class=\"vaniersel-charts-tooltip-marker\" style=\"background-color: ".concat(goal.attrs.strokeColor, "; height: 3px; border-radius: 0; top: 5px;\"></span> ").concat(goal.attrs.name, "</div>");
               gVals += "<div>".concat(goal.val, "</div>");
             });
             ttGLabel.innerHTML = gLabels + "</div>";
@@ -17339,9 +17339,9 @@
         }
 
         if (zVal !== null) {
-          var ttZLabel = ttItems[t].querySelector('.apexcharts-tooltip-text-z-label');
+          var ttZLabel = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-z-label');
           ttZLabel.innerHTML = w.config.tooltip.z.title;
-          var ttZVal = ttItems[t].querySelector('.apexcharts-tooltip-text-z-value');
+          var ttZVal = ttItems[t].querySelector('.vaniersel-charts-tooltip-text-z-value');
           ttZVal.innerHTML = typeof zVal !== 'undefined' ? zVal : '';
         }
 
@@ -17386,10 +17386,10 @@
           // disable all tooltip text groups
           this.tooltipUtil.toggleAllTooltipSeriesGroups('disable'); // enable the first tooltip text group
 
-          var firstTooltipSeriesGroup = w.globals.dom.baseEl.querySelector('.apexcharts-tooltip-series-group');
+          var firstTooltipSeriesGroup = w.globals.dom.baseEl.querySelector('.vaniersel-charts-tooltip-series-group');
 
           if (firstTooltipSeriesGroup) {
-            firstTooltipSeriesGroup.classList.add('apexcharts-active');
+            firstTooltipSeriesGroup.classList.add('vaniersel-charts-active');
             firstTooltipSeriesGroup.style.display = w.config.tooltip.items.display;
           }
         }
@@ -17540,7 +17540,7 @@
           xcrosshairs.setAttribute('x1', x);
           xcrosshairs.setAttribute('x2', x);
           xcrosshairs.setAttribute('y2', w.globals.gridHeight);
-          xcrosshairs.classList.add('apexcharts-active');
+          xcrosshairs.classList.add('vaniersel-charts-active');
         }
 
         if (x < 0) {
@@ -17600,7 +17600,7 @@
         var ttCtx = this.ttCtx;
 
         if (ttCtx.xaxisTooltip !== null && ttCtx.xcrosshairsWidth !== 0) {
-          ttCtx.xaxisTooltip.classList.add('apexcharts-active');
+          ttCtx.xaxisTooltip.classList.add('vaniersel-charts-active');
           var cy = ttCtx.xaxisOffY + w.config.xaxis.tooltip.offsetY + w.globals.translateY + 1 + w.config.xaxis.offsetY;
           var xaxisTTText = ttCtx.xaxisTooltip.getBoundingClientRect();
           var xaxisTTTextWidth = xaxisTTText.width;
@@ -17624,7 +17624,7 @@
         var ttCtx = this.ttCtx;
 
         if (ttCtx.yaxisTTEls === null) {
-          ttCtx.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll('.apexcharts-yaxistooltip');
+          ttCtx.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-yaxistooltip');
         }
 
         var ycrosshairsHiddenRectY1 = parseInt(ttCtx.ycrosshairsHidden.getAttribute('y1'), 10);
@@ -17640,11 +17640,11 @@
         cy = cy - yAxisTTHeight / 2;
 
         if (w.globals.ignoreYAxisIndexes.indexOf(index) === -1) {
-          ttCtx.yaxisTTEls[index].classList.add('apexcharts-active');
+          ttCtx.yaxisTTEls[index].classList.add('vaniersel-charts-active');
           ttCtx.yaxisTTEls[index].style.top = cy + 'px';
           ttCtx.yaxisTTEls[index].style.left = cx + w.config.yaxis[index].tooltip.offsetX + 'px';
         } else {
-          ttCtx.yaxisTTEls[index].classList.remove('apexcharts-active');
+          ttCtx.yaxisTTEls[index].classList.remove('vaniersel-charts-active');
         }
       }
       /**
@@ -17708,7 +17708,7 @@
         var ttCtx = this.ttCtx;
 
         if (w.globals.markers.size[i] > 0) {
-          var allPoints = w.globals.dom.baseEl.querySelectorAll(" .apexcharts-series[data\\:realIndex='".concat(i, "'] .apexcharts-marker"));
+          var allPoints = w.globals.dom.baseEl.querySelectorAll(" .vaniersel-charts-series[data\\:realIndex='".concat(i, "'] .vaniersel-charts-marker"));
 
           for (var p = 0; p < allPoints.length; p++) {
             if (parseInt(allPoints[p].getAttribute('rel'), 10) === j) {
@@ -17741,7 +17741,7 @@
 
         cx = pointsArr[capturedSeries][j][0];
         cy = pointsArr[capturedSeries][j][1] ? pointsArr[capturedSeries][j][1] : 0;
-        var point = w.globals.dom.baseEl.querySelector(".apexcharts-series[data\\:realIndex='".concat(capturedSeries, "'] .apexcharts-series-markers circle"));
+        var point = w.globals.dom.baseEl.querySelector(".vaniersel-charts-series[data\\:realIndex='".concat(capturedSeries, "'] .vaniersel-charts-series-markers circle"));
 
         if (point && cy < w.globals.gridHeight && cy > 0) {
           point.setAttribute('r', hoverSize);
@@ -17824,14 +17824,14 @@
           i = series.getActiveConfigSeriesIndex(false, 'desc') + 1;
         }
 
-        var jBar = w.globals.dom.baseEl.querySelector(".apexcharts-bar-series .apexcharts-series[rel='".concat(i, "'] path[j='").concat(j, "'], .apexcharts-candlestick-series .apexcharts-series[rel='").concat(i, "'] path[j='").concat(j, "'], .apexcharts-boxPlot-series .apexcharts-series[rel='").concat(i, "'] path[j='").concat(j, "'], .apexcharts-rangebar-series .apexcharts-series[rel='").concat(i, "'] path[j='").concat(j, "']"));
+        var jBar = w.globals.dom.baseEl.querySelector(".vaniersel-charts-bar-series .vaniersel-charts-series[rel='".concat(i, "'] path[j='").concat(j, "'], .vaniersel-charts-candlestick-series .vaniersel-charts-series[rel='").concat(i, "'] path[j='").concat(j, "'], .vaniersel-charts-boxPlot-series .vaniersel-charts-series[rel='").concat(i, "'] path[j='").concat(j, "'], .vaniersel-charts-rangebar-series .vaniersel-charts-series[rel='").concat(i, "'] path[j='").concat(j, "']"));
         var bcx = jBar ? parseFloat(jBar.getAttribute('cx')) : 0;
         var bcy = jBar ? parseFloat(jBar.getAttribute('cy')) : 0;
         var bw = jBar ? parseFloat(jBar.getAttribute('barWidth')) : 0;
         var bh = jBar ? parseFloat(jBar.getAttribute('barHeight')) : 0;
         var elGrid = ttCtx.getElGrid();
         var seriesBound = elGrid.getBoundingClientRect();
-        var isBoxOrCandle = jBar.classList.contains('apexcharts-candlestick-area') || jBar.classList.contains('apexcharts-boxPlot-area');
+        var isBoxOrCandle = jBar.classList.contains('vaniersel-charts-candlestick-area') || jBar.classList.contains('vaniersel-charts-boxPlot-area');
 
         if (w.globals.isXNumeric) {
           if (jBar && !isBoxOrCandle) {
@@ -17915,7 +17915,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var marker = new Markers(this.ctx);
-        var elsSeries = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series');
+        var elsSeries = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series');
         elsSeries = _toConsumableArray(elsSeries);
 
         if (w.config.chart.stacked) {
@@ -17925,12 +17925,12 @@
         }
 
         for (var i = 0; i < elsSeries.length; i++) {
-          var pointsMain = elsSeries[i].querySelector(".apexcharts-series-markers-wrap");
+          var pointsMain = elsSeries[i].querySelector(".vaniersel-charts-series-markers-wrap");
 
           if (pointsMain !== null) {
             // it can be null as we have tooltips in donut/bar charts
             var point = void 0;
-            var PointClasses = "apexcharts-marker w".concat((Math.random() + 1).toString(36).substring(4));
+            var PointClasses = "vaniersel-charts-marker w".concat((Math.random() + 1).toString(36).substring(4));
 
             if ((w.config.chart.type === 'line' || w.config.chart.type === 'area') && !w.globals.comboCharts && !w.config.tooltip.intersect) {
               PointClasses += ' no-pointer-events';
@@ -17944,7 +17944,7 @@
             point = graphics.drawMarker(0, 0, elPointOptions);
             point.node.setAttribute('default-marker-size', 0);
             var elPointsG = document.createElementNS(w.globals.SVGNS, 'g');
-            elPointsG.classList.add('apexcharts-series-markers');
+            elPointsG.classList.add('vaniersel-charts-series-markers');
             elPointsG.appendChild(point.node);
             pointsMain.appendChild(elPointsG);
           }
@@ -17988,7 +17988,7 @@
         var me = this;
         var ttCtx = this.ttCtx;
         var col = j;
-        var points = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series:not(.apexcharts-series-collapsed) .apexcharts-marker');
+        var points = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series:not(.vaniersel-charts-series-collapsed) .vaniersel-charts-marker');
         var newSize = w.config.markers.hover.size;
 
         for (var p = 0; p < points.length; p++) {
@@ -18041,7 +18041,7 @@
       key: "resetPointsSize",
       value: function resetPointsSize() {
         var w = this.w;
-        var points = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series:not(.apexcharts-series-collapsed) .apexcharts-marker');
+        var points = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series:not(.vaniersel-charts-series-collapsed) .vaniersel-charts-marker');
 
         for (var p = 0; p < points.length; p++) {
           var size = parseFloat(points[p].getAttribute('default-marker-size'));
@@ -18092,7 +18092,7 @@
         var ttCtx = this.ttCtx;
         var w = this.w;
 
-        if (e.target.classList.contains("apexcharts-".concat(type, "-rect"))) {
+        if (e.target.classList.contains("vaniersel-charts-".concat(type, "-rect"))) {
           var i = this.getAttr(e, 'i');
           var j = this.getAttr(e, 'j');
           var cx = this.getAttr(e, 'cx');
@@ -18145,7 +18145,7 @@
         var i;
         var j;
 
-        if (e.target.classList.contains('apexcharts-marker')) {
+        if (e.target.classList.contains('vaniersel-charts-marker')) {
           var cx = parseInt(opt.paths.getAttribute('cx'), 10);
           var cy = parseInt(opt.paths.getAttribute('cy'), 10);
           var val = parseFloat(opt.paths.getAttribute('val'));
@@ -18153,7 +18153,7 @@
           i = parseInt(opt.paths.parentNode.parentNode.parentNode.getAttribute('rel'), 10) - 1;
 
           if (ttCtx.intersect) {
-            var el = Utils$1.findAncestor(opt.paths, 'apexcharts-series');
+            var el = Utils$1.findAncestor(opt.paths, 'vaniersel-charts-series');
 
             if (el) {
               i = parseInt(el.getAttribute('data:realIndex'), 10);
@@ -18258,7 +18258,7 @@
 
 
         if (ttCtx.tooltip === null) {
-          ttCtx.tooltip = w.globals.dom.baseEl.querySelector('.apexcharts-tooltip');
+          ttCtx.tooltip = w.globals.dom.baseEl.querySelector('.vaniersel-charts-tooltip');
         }
 
         if (!w.config.tooltip.shared) {
@@ -18312,7 +18312,7 @@
         var barHeight = 0;
         var cl = e.target.classList;
 
-        if (cl.contains('apexcharts-bar-area') || cl.contains('apexcharts-candlestick-area') || cl.contains('apexcharts-boxPlot-area') || cl.contains('apexcharts-rangebar-area')) {
+        if (cl.contains('vaniersel-charts-bar-area') || cl.contains('vaniersel-charts-candlestick-area') || cl.contains('vaniersel-charts-boxPlot-area') || cl.contains('vaniersel-charts-rangebar-area')) {
           var bar = e.target;
           var barRect = bar.getBoundingClientRect();
           var seriesBound = opt.elGrid.getBoundingClientRect();
@@ -18423,18 +18423,18 @@
         var ttCtx = this.ttCtx;
         var isBottom = w.config.xaxis.position === 'bottom';
         ttCtx.xaxisOffY = isBottom ? w.globals.gridHeight + 1 : -w.globals.xAxisHeight - w.config.xaxis.axisTicks.height + 3;
-        var tooltipCssClass = isBottom ? 'apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom' : 'apexcharts-xaxistooltip apexcharts-xaxistooltip-top';
+        var tooltipCssClass = isBottom ? 'vaniersel-charts-xaxistooltip vaniersel-charts-xaxistooltip-bottom' : 'vaniersel-charts-xaxistooltip vaniersel-charts-xaxistooltip-top';
         var renderTo = w.globals.dom.elWrap;
 
         if (ttCtx.isXAxisTooltipEnabled) {
-          var xaxisTooltip = w.globals.dom.baseEl.querySelector('.apexcharts-xaxistooltip');
+          var xaxisTooltip = w.globals.dom.baseEl.querySelector('.vaniersel-charts-xaxistooltip');
 
           if (xaxisTooltip === null) {
             ttCtx.xaxisTooltip = document.createElement('div');
-            ttCtx.xaxisTooltip.setAttribute('class', tooltipCssClass + ' apexcharts-theme-' + w.config.tooltip.theme);
+            ttCtx.xaxisTooltip.setAttribute('class', tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme);
             renderTo.appendChild(ttCtx.xaxisTooltip);
             ttCtx.xaxisTooltipText = document.createElement('div');
-            ttCtx.xaxisTooltipText.classList.add('apexcharts-xaxistooltip-text');
+            ttCtx.xaxisTooltipText.classList.add('vaniersel-charts-xaxistooltip-text');
             ttCtx.xaxisTooltipText.style.fontFamily = w.config.xaxis.tooltip.style.fontFamily || w.config.chart.fontFamily;
             ttCtx.xaxisTooltipText.style.fontSize = w.config.xaxis.tooltip.style.fontSize;
             ttCtx.xaxisTooltip.appendChild(ttCtx.xaxisTooltipText);
@@ -18455,24 +18455,24 @@
         var _loop = function _loop(i) {
           var isRight = w.config.yaxis[i].opposite || w.config.yaxis[i].crosshairs.opposite;
           ttCtx.yaxisOffX = isRight ? w.globals.gridWidth + 1 : 1;
-          var tooltipCssClass = isRight ? "apexcharts-yaxistooltip apexcharts-yaxistooltip-".concat(i, " apexcharts-yaxistooltip-right") : "apexcharts-yaxistooltip apexcharts-yaxistooltip-".concat(i, " apexcharts-yaxistooltip-left");
+          var tooltipCssClass = isRight ? "vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-".concat(i, " vaniersel-charts-yaxistooltip-right") : "vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-".concat(i, " vaniersel-charts-yaxistooltip-left");
           w.globals.yAxisSameScaleIndices.map(function (samescales, ssi) {
             samescales.map(function (s, si) {
               if (si === i) {
-                tooltipCssClass += w.config.yaxis[si].show ? " " : " apexcharts-yaxistooltip-hidden";
+                tooltipCssClass += w.config.yaxis[si].show ? " " : " vaniersel-charts-yaxistooltip-hidden";
               }
             });
           });
           var renderTo = w.globals.dom.elWrap;
-          var yaxisTooltip = w.globals.dom.baseEl.querySelector(".apexcharts-yaxistooltip apexcharts-yaxistooltip-".concat(i));
+          var yaxisTooltip = w.globals.dom.baseEl.querySelector(".vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-".concat(i));
 
           if (yaxisTooltip === null) {
             ttCtx.yaxisTooltip = document.createElement('div');
-            ttCtx.yaxisTooltip.setAttribute('class', tooltipCssClass + ' apexcharts-theme-' + w.config.tooltip.theme);
+            ttCtx.yaxisTooltip.setAttribute('class', tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme);
             renderTo.appendChild(ttCtx.yaxisTooltip);
             if (i === 0) ttCtx.yaxisTooltipText = [];
             ttCtx.yaxisTooltipText[i] = document.createElement('div');
-            ttCtx.yaxisTooltipText[i].classList.add('apexcharts-yaxistooltip-text');
+            ttCtx.yaxisTooltipText[i].classList.add('vaniersel-charts-yaxistooltip-text');
             ttCtx.yaxisTooltip.appendChild(ttCtx.yaxisTooltipText[i]);
           }
         };
@@ -18499,7 +18499,7 @@
             var count = w.globals.labels.length;
             ttCtx.xcrosshairsWidth = w.globals.gridWidth / count;
           } else if (w.config.xaxis.crosshairs.width === 'barWidth') {
-            var bar = w.globals.dom.baseEl.querySelector('.apexcharts-bar-area');
+            var bar = w.globals.dom.baseEl.querySelector('.vaniersel-charts-bar-area');
 
             if (bar !== null) {
               var barWidth = parseFloat(bar.getAttribute('barWidth'));
@@ -18509,7 +18509,7 @@
             }
           }
         } else {
-          var _bar = w.globals.dom.baseEl.querySelector('.apexcharts-bar-area');
+          var _bar = w.globals.dom.baseEl.querySelector('.vaniersel-charts-bar-area');
 
           if (_bar !== null && w.config.xaxis.crosshairs.width === 'barWidth') {
             var _barWidth = parseFloat(_bar.getAttribute('barWidth'));
@@ -18537,8 +18537,8 @@
         var w = this.w;
         var ttCtx = this.ttCtx; // set ycrosshairs height
 
-        ttCtx.ycrosshairs = w.globals.dom.baseEl.querySelector('.apexcharts-ycrosshairs');
-        ttCtx.ycrosshairsHidden = w.globals.dom.baseEl.querySelector('.apexcharts-ycrosshairs-hidden');
+        ttCtx.ycrosshairs = w.globals.dom.baseEl.querySelector('.vaniersel-charts-ycrosshairs');
+        ttCtx.ycrosshairsHidden = w.globals.dom.baseEl.querySelector('.vaniersel-charts-ycrosshairs-hidden');
       }
     }, {
       key: "drawYaxisTooltipText",
@@ -18597,17 +18597,17 @@
       value: function getElTooltip(ctx) {
         if (!ctx) ctx = this;
         if (!ctx.w.globals.dom.baseEl) return null;
-        return ctx.w.globals.dom.baseEl.querySelector('.apexcharts-tooltip');
+        return ctx.w.globals.dom.baseEl.querySelector('.vaniersel-charts-tooltip');
       }
     }, {
       key: "getElXCrosshairs",
       value: function getElXCrosshairs() {
-        return this.w.globals.dom.baseEl.querySelector('.apexcharts-xcrosshairs');
+        return this.w.globals.dom.baseEl.querySelector('.vaniersel-charts-xcrosshairs');
       }
     }, {
       key: "getElGrid",
       value: function getElGrid() {
-        return this.w.globals.dom.baseEl.querySelector('.apexcharts-grid');
+        return this.w.globals.dom.baseEl.querySelector('.vaniersel-charts-grid');
       }
     }, {
       key: "drawTooltip",
@@ -18625,13 +18625,13 @@
         }
 
         var tooltipEl = document.createElement('div');
-        tooltipEl.classList.add('apexcharts-tooltip');
+        tooltipEl.classList.add('vaniersel-charts-tooltip');
 
         if (w.config.tooltip.cssClass) {
           tooltipEl.classList.add(w.config.tooltip.cssClass);
         }
 
-        tooltipEl.classList.add("apexcharts-theme-".concat(this.tConfig.theme));
+        tooltipEl.classList.add("vaniersel-charts-theme-".concat(this.tConfig.theme));
         w.globals.dom.elWrap.appendChild(tooltipEl);
 
         if (w.globals.axisCharts) {
@@ -18660,7 +18660,7 @@
 
         if (this.showTooltipTitle) {
           this.tooltipTitle = document.createElement('div');
-          this.tooltipTitle.classList.add('apexcharts-tooltip-title');
+          this.tooltipTitle.classList.add('vaniersel-charts-tooltip-title');
           this.tooltipTitle.style.fontFamily = this.tConfig.style.fontFamily || w.config.chart.fontFamily;
           this.tooltipTitle.style.fontSize = this.tConfig.style.fontSize;
           tooltipEl.appendChild(this.tooltipTitle);
@@ -18676,7 +18676,7 @@
           }
         }
 
-        this.legendLabels = w.globals.dom.baseEl.querySelectorAll('.apexcharts-legend-text');
+        this.legendLabels = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-legend-text');
         this.ttItems = this.createTTElements(ttItemsCnt);
         this.addSVGEvents();
       }
@@ -18691,31 +18691,31 @@
 
         var _loop = function _loop(i) {
           var gTxt = document.createElement('div');
-          gTxt.classList.add('apexcharts-tooltip-series-group');
+          gTxt.classList.add('vaniersel-charts-tooltip-series-group');
           gTxt.style.order = w.config.tooltip.inverseOrder ? ttItemsCnt - i : i + 1;
 
           if (_this.tConfig.shared && _this.tConfig.enabledOnSeries && Array.isArray(_this.tConfig.enabledOnSeries)) {
             if (_this.tConfig.enabledOnSeries.indexOf(i) < 0) {
-              gTxt.classList.add('apexcharts-tooltip-series-group-hidden');
+              gTxt.classList.add('vaniersel-charts-tooltip-series-group-hidden');
             }
           }
 
           var point = document.createElement('span');
-          point.classList.add('apexcharts-tooltip-marker');
+          point.classList.add('vaniersel-charts-tooltip-marker');
           point.style.backgroundColor = w.globals.colors[i];
           gTxt.appendChild(point);
           var gYZ = document.createElement('div');
-          gYZ.classList.add('apexcharts-tooltip-text');
+          gYZ.classList.add('vaniersel-charts-tooltip-text');
           gYZ.style.fontFamily = _this.tConfig.style.fontFamily || w.config.chart.fontFamily;
           gYZ.style.fontSize = _this.tConfig.style.fontSize;
           ['y', 'goals', 'z'].forEach(function (g) {
             var gValText = document.createElement('div');
-            gValText.classList.add("apexcharts-tooltip-".concat(g, "-group"));
+            gValText.classList.add("vaniersel-charts-tooltip-".concat(g, "-group"));
             var txtLabel = document.createElement('span');
-            txtLabel.classList.add("apexcharts-tooltip-text-".concat(g, "-label"));
+            txtLabel.classList.add("vaniersel-charts-tooltip-text-".concat(g, "-label"));
             gValText.appendChild(txtLabel);
             var txtValue = document.createElement('span');
-            txtValue.classList.add("apexcharts-tooltip-text-".concat(g, "-value"));
+            txtValue.classList.add("vaniersel-charts-tooltip-text-".concat(g, "-value"));
             gValText.appendChild(txtValue);
             gYZ.appendChild(gValText);
           });
@@ -18759,11 +18759,11 @@
 
         if (w.globals.axisCharts) {
           if (chartWithmarkers) {
-            points = w.globals.dom.baseEl.querySelectorAll(".apexcharts-series[data\\:longestSeries='true'] .apexcharts-marker");
+            points = w.globals.dom.baseEl.querySelectorAll(".vaniersel-charts-series[data\\:longestSeries='true'] .vaniersel-charts-marker");
           } else if (commonBar) {
-            points = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series .apexcharts-bar-area, .apexcharts-series .apexcharts-candlestick-area, .apexcharts-series .apexcharts-boxPlot-area, .apexcharts-series .apexcharts-rangebar-area');
+            points = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series .vaniersel-charts-bar-area, .vaniersel-charts-series .vaniersel-charts-candlestick-area, .vaniersel-charts-series .vaniersel-charts-boxPlot-area, .vaniersel-charts-series .vaniersel-charts-rangebar-area');
           } else if (type === 'heatmap' || type === 'treemap') {
-            points = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series .apexcharts-heatmap, .apexcharts-series .apexcharts-treemap');
+            points = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series .vaniersel-charts-heatmap, .vaniersel-charts-series .vaniersel-charts-treemap');
           }
 
           if (points && points.length) {
@@ -18781,12 +18781,12 @@
         } else if (commonBar && !w.globals.comboCharts || chartWithmarkers && this.showOnIntersect) {
           this.addDatapointEventsListeners(seriesHoverParams);
         } else if (!w.globals.axisCharts || type === 'heatmap' || type === 'treemap') {
-          var seriesAll = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series');
+          var seriesAll = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series');
           this.addPathsEventListeners(seriesAll, seriesHoverParams);
         }
 
         if (this.showOnIntersect) {
-          var lineAreaPoints = w.globals.dom.baseEl.querySelectorAll('.apexcharts-line-series .apexcharts-marker, .apexcharts-area-series .apexcharts-marker');
+          var lineAreaPoints = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-line-series .vaniersel-charts-marker, .vaniersel-charts-area-series .vaniersel-charts-marker');
 
           if (lineAreaPoints.length > 0) {
             // if we find any lineSeries, addEventListeners for them
@@ -18832,7 +18832,7 @@
       key: "addDatapointEventsListeners",
       value: function addDatapointEventsListeners(seriesHoverParams) {
         var w = this.w;
-        var points = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series-markers .apexcharts-marker, .apexcharts-bar-area, .apexcharts-candlestick-area, .apexcharts-boxPlot-area, .apexcharts-rangebar-area');
+        var points = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-series-markers .vaniersel-charts-marker, .vaniersel-charts-bar-area, .vaniersel-charts-candlestick-area, .vaniersel-charts-boxPlot-area, .vaniersel-charts-rangebar-area');
         this.addPathsEventListeners(points, seriesHoverParams);
       }
     }, {
@@ -19029,7 +19029,7 @@
           }
 
           if (xcrosshairs !== null) {
-            xcrosshairs.classList.add('apexcharts-active');
+            xcrosshairs.classList.add('vaniersel-charts-active');
           }
 
           var hasYAxisTooltip = this.yaxisTooltips.filter(function (b) {
@@ -19037,7 +19037,7 @@
           });
 
           if (this.ycrosshairs !== null && hasYAxisTooltip.length) {
-            this.ycrosshairs.classList.add('apexcharts-active');
+            this.ycrosshairs.classList.add('vaniersel-charts-active');
           }
 
           if (isStickyTooltip && !this.showOnIntersect) {
@@ -19081,7 +19081,7 @@
             }
           }
 
-          opt.tooltipEl.classList.add('apexcharts-active');
+          opt.tooltipEl.classList.add('vaniersel-charts-active');
         } else if (e.type === 'mouseout' || e.type === 'touchend') {
           this.handleMouseOut(opt);
         }
@@ -19099,7 +19099,7 @@
         var seriesBound = w.globals.dom.elWrap.getBoundingClientRect();
 
         if (e.type === 'mousemove' || e.type === 'touchmove') {
-          tooltipEl.classList.add('apexcharts-active');
+          tooltipEl.classList.add('vaniersel-charts-active');
           this.tooltipLabels.drawSeriesTexts({
             ttItems: opt.ttItems,
             i: parseInt(rel, 10) - 1,
@@ -19122,7 +19122,7 @@
             this.legendLabels[i].innerHTML = text;
           }
         } else if (e.type === 'mouseout' || e.type === 'touchend') {
-          tooltipEl.classList.remove('apexcharts-active');
+          tooltipEl.classList.remove('vaniersel-charts-active');
 
           if (w.config.legend.tooltipHoverFormatter) {
             this.legendLabels.forEach(function (l) {
@@ -19193,7 +19193,7 @@
       value: function deactivateHoverFilter() {
         var w = this.w;
         var graphics = new Graphics(this.ctx);
-        var allPaths = w.globals.dom.Paper.select(".apexcharts-bar-area");
+        var allPaths = w.globals.dom.Paper.select(".vaniersel-charts-bar-area");
 
         for (var b = 0; b < allPaths.length; b++) {
           graphics.pathMouseLeave(allPaths[b]);
@@ -19204,7 +19204,7 @@
       value: function handleMouseOut(opt) {
         var w = this.w;
         var xcrosshairs = this.getElXCrosshairs();
-        opt.tooltipEl.classList.remove('apexcharts-active');
+        opt.tooltipEl.classList.remove('vaniersel-charts-active');
         this.deactivateHoverFilter();
 
         if (w.config.chart.type !== 'bubble') {
@@ -19212,24 +19212,24 @@
         }
 
         if (xcrosshairs !== null) {
-          xcrosshairs.classList.remove('apexcharts-active');
+          xcrosshairs.classList.remove('vaniersel-charts-active');
         }
 
         if (this.ycrosshairs !== null) {
-          this.ycrosshairs.classList.remove('apexcharts-active');
+          this.ycrosshairs.classList.remove('vaniersel-charts-active');
         }
 
         if (this.isXAxisTooltipEnabled) {
-          this.xaxisTooltip.classList.remove('apexcharts-active');
+          this.xaxisTooltip.classList.remove('vaniersel-charts-active');
         }
 
         if (this.yaxisTooltips.length) {
           if (this.yaxisTTEls === null) {
-            this.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll('.apexcharts-yaxistooltip');
+            this.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll('.vaniersel-charts-yaxistooltip');
           }
 
           for (var i = 0; i < this.yaxisTTEls.length; i++) {
-            this.yaxisTTEls[i].classList.remove('apexcharts-active');
+            this.yaxisTTEls[i].classList.remove('vaniersel-charts-active');
           }
         }
 
@@ -19327,7 +19327,7 @@
             if (this.barSeriesHeight > 0) {
               // hover state, activate snap filter
               var graphics = new Graphics(this.ctx);
-              var paths = w.globals.dom.Paper.select(".apexcharts-bar-area[j='".concat(j, "']")); // de-activate first
+              var paths = w.globals.dom.Paper.select(".vaniersel-charts-bar-area[j='".concat(j, "']")); // de-activate first
 
               this.deactivateHoverFilter();
               this.tooltipPosition.moveStickyTooltipOverBars(j);
@@ -19428,7 +19428,7 @@
         }
 
         var ret = this.graphics.group({
-          class: 'apexcharts-bar-series apexcharts-plot-series'
+          class: 'vaniersel-charts-bar-series vaniersel-charts-plot-series'
         });
         var x = 0;
         var y = 0;
@@ -19453,7 +19453,7 @@
           _this.isReversed = w.config.yaxis[_this.yaxisIndex] && w.config.yaxis[_this.yaxisIndex].reversed; // el to which series will be drawn
 
           var elSeries = _this.graphics.group({
-            class: "apexcharts-series",
+            class: "vaniersel-charts-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[realIndex]),
             rel: i + 1,
             'data:realIndex': realIndex
@@ -19463,7 +19463,7 @@
 
 
           var elDataLabelsWrap = _this.graphics.group({
-            class: 'apexcharts-datalabels',
+            class: 'vaniersel-charts-datalabels',
             'data:realIndex': realIndex
           });
 
@@ -19854,7 +19854,7 @@
         this.yRatio = coreUtils.getLogYRatios(this.yRatio);
         this.barHelpers.initVariables(series);
         var ret = graphics.group({
-          class: "apexcharts-".concat(w.config.chart.type, "-series apexcharts-plot-series")
+          class: "vaniersel-charts-".concat(w.config.chart.type, "-series vaniersel-charts-plot-series")
         });
 
         var _loop = function _loop(i) {
@@ -19876,7 +19876,7 @@
           var realIndex = w.globals.comboCharts ? seriesIndex[i] : i; // el to which series will be drawn
 
           var elSeries = graphics.group({
-            class: "apexcharts-series",
+            class: "vaniersel-charts-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[realIndex]),
             rel: i + 1,
             'data:realIndex': realIndex
@@ -19908,7 +19908,7 @@
           xArrj.push(x + barWidth / 2); // eldatalabels
 
           var elDataLabelsWrap = graphics.group({
-            class: 'apexcharts-datalabels',
+            class: 'vaniersel-charts-datalabels',
             'data:realIndex': realIndex
           });
 
@@ -20305,7 +20305,7 @@
 
         if (dataLabelsConfig.enabled) {
           elDataLabelsWrap = graphics.group({
-            class: 'apexcharts-data-labels'
+            class: 'vaniersel-charts-data-labels'
           });
           var offX = dataLabelsConfig.offsetX;
           var offY = dataLabelsConfig.offsetY;
@@ -20364,7 +20364,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var ret = graphics.group({
-          class: 'apexcharts-heatmap'
+          class: 'vaniersel-charts-heatmap'
         });
         ret.attr('clip-path', "url(#gridRectMask".concat(w.globals.cuid, ")")); // width divided into equal parts
 
@@ -20383,7 +20383,7 @@
         for (var i = rev ? 0 : heatSeries.length - 1; rev ? i < heatSeries.length : i >= 0; rev ? i++ : i--) {
           // el to which series will be drawn
           var elSeries = graphics.group({
-            class: "apexcharts-series apexcharts-heatmap-series",
+            class: "vaniersel-charts-series vaniersel-charts-heatmap-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[i]),
             rel: i + 1,
             'data:realIndex': i
@@ -20422,7 +20422,7 @@
               cx: x1,
               cy: y1
             });
-            rect.node.classList.add('apexcharts-heatmap-rect');
+            rect.node.classList.add('vaniersel-charts-heatmap-rect');
             elSeries.add(rect);
             rect.attr({
               fill: color,
@@ -20609,7 +20609,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         this.ret = graphics.group({
-          class: 'apexcharts-pie'
+          class: 'vaniersel-charts-pie'
         });
         if (w.globals.noData) return this.ret;
         var total = 0;
@@ -20729,7 +20729,7 @@
         var graphics = new Graphics(this.ctx);
         var fill = new Fill(this.ctx);
         var g = graphics.group({
-          class: 'apexcharts-slices'
+          class: 'vaniersel-charts-slices'
         });
         var startAngle = this.initialAngle;
         var prevStartAngle = this.initialAngle;
@@ -20739,7 +20739,7 @@
 
         for (var i = 0; i < sectorAngleArr.length; i++) {
           var elPieArc = graphics.group({
-            class: "apexcharts-series apexcharts-pie-series",
+            class: "vaniersel-charts-series vaniersel-charts-pie-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[i]),
             rel: i + 1,
             'data:realIndex': i
@@ -20763,7 +20763,7 @@
             strokeWidth: 0,
             fill: pathFill,
             fillOpacity: w.config.fill.opacity,
-            classes: "apexcharts-pie-area apexcharts-".concat(this.chartType.toLowerCase(), "-slice-").concat(i)
+            classes: "vaniersel-charts-pie-area vaniersel-charts-".concat(this.chartType.toLowerCase(), "-slice-").concat(i)
           });
           elPath.attr({
             index: 0,
@@ -20858,7 +20858,7 @@
 
               var foreColor = w.globals.dataLabels.style.colors[i];
               var elPieLabelWrap = graphics.group({
-                class: "apexcharts-datalabels"
+                class: "vaniersel-charts-datalabels"
               });
               var elPieLabel = graphics.drawText({
                 x: xPos,
@@ -20877,10 +20877,10 @@
                 filters.dropShadow(elPieLabel, textShadow);
               }
 
-              elPieLabel.node.classList.add('apexcharts-pie-label');
+              elPieLabel.node.classList.add('vaniersel-charts-pie-label');
 
               if (w.config.chart.animations.animate && w.globals.resized === false) {
-                elPieLabel.node.classList.add('apexcharts-pie-label-delay');
+                elPieLabel.node.classList.add('vaniersel-charts-pie-label-delay');
                 elPieLabel.node.style.animationDelay = w.config.chart.animations.speed / 940 + 's';
               }
 
@@ -21024,7 +21024,7 @@
         var me = this;
         var path;
         var size = me.sliceSizes[i] + (w.config.plotOptions.pie.expandOnClick ? 4 : 0);
-        var elPath = w.globals.dom.Paper.select(".apexcharts-".concat(me.chartType.toLowerCase(), "-slice-").concat(i)).members[0];
+        var elPath = w.globals.dom.Paper.select(".vaniersel-charts-".concat(me.chartType.toLowerCase(), "-slice-").concat(i)).members[0];
 
         if (elPath.attr('data:pieClicked') === 'true') {
           elPath.attr({
@@ -21038,7 +21038,7 @@
           return;
         } else {
           // reset all elems
-          var allEls = w.globals.dom.baseEl.getElementsByClassName('apexcharts-pie-area');
+          var allEls = w.globals.dom.baseEl.getElementsByClassName('vaniersel-charts-pie-area');
           Array.prototype.forEach.call(allEls, function (pieSlice) {
             pieSlice.setAttribute('data:pieClicked', 'false');
             var origPath = pieSlice.getAttribute('data:pathOrig');
@@ -21156,7 +21156,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var g = graphics.group({
-          class: 'apexcharts-datalabels-group',
+          class: 'vaniersel-charts-datalabels-group',
           transform: "translate(".concat(opts.translateX ? opts.translateX : 0, ", ").concat(opts.translateY ? opts.translateY : 0, ") scale(").concat(w.config.plotOptions.pie.customScale, ")")
         });
         var showTotal = dataLabelsConfig.total.show;
@@ -21214,7 +21214,7 @@
             fontWeight: labelFontWeight,
             fontFamily: labelFontFamily
           });
-          elLabel.node.classList.add('apexcharts-datalabel-label');
+          elLabel.node.classList.add('vaniersel-charts-datalabel-label');
           g.add(elLabel);
         }
 
@@ -21230,7 +21230,7 @@
             fontSize: dataLabelsConfig.value.fontSize,
             fontFamily: dataLabelsConfig.value.fontFamily
           });
-          elValue.node.classList.add('apexcharts-datalabel-value');
+          elValue.node.classList.add('vaniersel-charts-datalabel-value');
           g.add(elValue);
         } // for a multi-series circle chart, we need to show total value instead of first series labels
 
@@ -21262,8 +21262,8 @@
           }
         }
 
-        var elLabel = w.globals.dom.baseEl.querySelector('.apexcharts-datalabel-label');
-        var elValue = w.globals.dom.baseEl.querySelector('.apexcharts-datalabel-value');
+        var elLabel = w.globals.dom.baseEl.querySelector('.vaniersel-charts-datalabel-label');
+        var elValue = w.globals.dom.baseEl.querySelector('.vaniersel-charts-datalabel-value');
         var lbFormatter = labelsConfig.value.formatter;
         val = lbFormatter(val, w); // we need to show Total Val - so get the formatter of it
 
@@ -21297,7 +21297,7 @@
           this.printInnerLabels(dataLabelsConfig, name, val, el);
         }
 
-        var dataLabelsGroup = w.globals.dom.baseEl.querySelector('.apexcharts-datalabels-group');
+        var dataLabelsGroup = w.globals.dom.baseEl.querySelector('.vaniersel-charts-datalabels-group');
 
         if (dataLabelsGroup !== null) {
           dataLabelsGroup.style.opacity = 1;
@@ -21330,9 +21330,9 @@
         var _this3 = this;
 
         var w = this.w;
-        var dataLabelsGroup = w.globals.dom.baseEl.querySelector('.apexcharts-datalabels-group');
+        var dataLabelsGroup = w.globals.dom.baseEl.querySelector('.vaniersel-charts-datalabels-group');
         var sliceOut = false;
-        var slices = w.globals.dom.baseEl.getElementsByClassName("apexcharts-pie-area");
+        var slices = w.globals.dom.baseEl.getElementsByClassName("vaniersel-charts-pie-area");
 
         var selectSlice = function selectSlice(_ref2) {
           var makeSliceOut = _ref2.makeSliceOut,
@@ -21374,7 +21374,7 @@
             if (w.globals.selectedDataPoints.length && w.globals.series.length > 1) {
               if (w.globals.selectedDataPoints[0].length > 0) {
                 var index = w.globals.selectedDataPoints[0];
-                var el = w.globals.dom.baseEl.querySelector(".apexcharts-".concat(this.chartType.toLowerCase(), "-slice-").concat(index));
+                var el = w.globals.dom.baseEl.querySelector(".vaniersel-charts-".concat(this.chartType.toLowerCase(), "-slice-").concat(index));
                 this.printDataLabelsInner(el, dataLabelsConfig);
               } else if (dataLabelsGroup && w.globals.selectedDataPoints.length && w.globals.selectedDataPoints[0].length === 0) {
                 dataLabelsGroup.style.opacity = 0;
@@ -21453,20 +21453,20 @@
         var translateX = halfW + w.config.plotOptions.radar.offsetX;
         var translateY = halfH + w.config.plotOptions.radar.offsetY;
         var ret = this.graphics.group({
-          class: 'apexcharts-radar-series apexcharts-plot-series',
+          class: 'vaniersel-charts-radar-series vaniersel-charts-plot-series',
           transform: "translate(".concat(translateX || 0, ", ").concat(translateY || 0, ")")
         });
         var dataPointsPos = [];
         var elPointsMain = null;
         var elDataPointsMain = null;
         this.yaxisLabels = this.graphics.group({
-          class: 'apexcharts-yaxis'
+          class: 'vaniersel-charts-yaxis'
         });
         series.forEach(function (s, i) {
           var longestSeries = s.length === w.globals.dataPoints; // el to which series will be drawn
 
           var elSeries = _this.graphics.group().attr({
-            class: "apexcharts-series",
+            class: "vaniersel-charts-series",
             'data:longestSeries': longestSeries,
             seriesName: Utils$1.escapeString(w.globals.seriesNames[i]),
             rel: i + 1,
@@ -21497,11 +21497,11 @@
 
 
           elPointsMain = _this.graphics.group({
-            class: 'apexcharts-series-markers-wrap apexcharts-element-hidden'
+            class: 'vaniersel-charts-series-markers-wrap vaniersel-charts-element-hidden'
           }); // datapoints
 
           elDataPointsMain = _this.graphics.group({
-            class: "apexcharts-datalabels",
+            class: "vaniersel-charts-datalabels",
             'data:realIndex': i
           });
           w.globals.delayedElements.push({
@@ -21514,7 +21514,7 @@
             animationDelay: i,
             initialSpeed: w.config.chart.animations.speed,
             dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-            className: "apexcharts-radar",
+            className: "vaniersel-charts-radar",
             shouldClipToGrid: false,
             bindEventsOnPaths: false,
             stroke: w.globals.stroke.colors[i],
@@ -21562,7 +21562,7 @@
           s.forEach(function (sj, j) {
             var markers = new Markers(_this.ctx);
             var opts = markers.getMarkerConfig({
-              cssClass: 'apexcharts-marker',
+              cssClass: 'vaniersel-charts-marker',
               seriesIndex: i,
               dataPointIndex: j
             });
@@ -21575,7 +21575,7 @@
             point.node.setAttribute('default-marker-size', opts.pSize);
 
             var elPointsWrap = _this.graphics.group({
-              class: 'apexcharts-series-markers'
+              class: 'vaniersel-charts-series-markers'
             });
 
             if (elPointsWrap) {
@@ -21693,7 +21693,7 @@
         var w = this.w;
         var xaxisLabelsConfig = w.config.xaxis.labels;
         var elXAxisWrap = this.graphics.group({
-          class: 'apexcharts-xaxis'
+          class: 'vaniersel-charts-xaxis'
         });
         var polygonPos = Utils$1.getPolygonPos(this.size, this.dataPointsLen);
         w.globals.labels.forEach(function (label, i) {
@@ -21880,7 +21880,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var ret = graphics.group({
-          class: 'apexcharts-radialbar'
+          class: 'vaniersel-charts-radialbar'
         });
         if (w.globals.noData) return ret;
         var elSeries = graphics.group();
@@ -21945,7 +21945,7 @@
         var w = this.w;
         var graphics = new Graphics(this.ctx);
         var g = graphics.group({
-          class: 'apexcharts-tracks'
+          class: 'vaniersel-charts-tracks'
         });
         var filters = new Filters(this.ctx);
         var fill = new Fill(this.ctx);
@@ -21954,7 +21954,7 @@
 
         for (var i = 0; i < opts.series.length; i++) {
           var elRadialBarTrack = graphics.group({
-            class: 'apexcharts-radialbar-track apexcharts-track'
+            class: 'vaniersel-charts-radialbar-track vaniersel-charts-track'
           });
           g.add(elRadialBarTrack);
           elRadialBarTrack.attr({
@@ -21977,7 +21977,7 @@
             strokeWidth: strokeWidth * parseInt(trackConfig.strokeWidth, 10) / 100,
             fill: 'none',
             strokeOpacity: trackConfig.opacity,
-            classes: 'apexcharts-radialbar-area'
+            classes: 'vaniersel-charts-radialbar-area'
           });
 
           if (trackConfig.dropShadow.enabled) {
@@ -21986,7 +21986,7 @@
           }
 
           elRadialBarTrack.add(elPath);
-          elPath.attr('id', 'apexcharts-radialbarTrack-' + i);
+          elPath.attr('id', 'vaniersel-charts-radialbarTrack-' + i);
           this.animatePaths(elPath, {
             centerX: opts.centerX,
             centerY: opts.centerY,
@@ -22068,7 +22068,7 @@
 
         for (var i = reverseLoop ? opts.series.length - 1 : 0; reverseLoop ? i >= 0 : i < opts.series.length; reverseLoop ? i-- : i++) {
           var elRadialBarArc = graphics.group({
-            class: "apexcharts-series apexcharts-radial-series",
+            class: "vaniersel-charts-series vaniersel-charts-radial-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[i])
           });
           g.add(elRadialBarArc);
@@ -22115,7 +22115,7 @@
             strokeWidth: strokeWidth,
             fill: 'none',
             fillOpacity: w.config.fill.opacity,
-            classes: 'apexcharts-radialbar-area apexcharts-radialbar-slice-' + i,
+            classes: 'vaniersel-charts-radialbar-area vaniersel-charts-radialbar-slice-' + i,
             strokeDashArray: dashArray
           });
           Graphics.setAttrs(elPath.node, {
@@ -22176,7 +22176,7 @@
         var graphics = new Graphics(this.ctx);
         var circle = graphics.drawCircle(opts.size * 2);
         circle.attr({
-          class: 'apexcharts-radialbar-hollow',
+          class: 'vaniersel-charts-radialbar-hollow',
           cx: opts.centerX,
           cy: opts.centerY,
           r: opts.size,
@@ -22407,7 +22407,7 @@
         var graphics = new Graphics(this.ctx);
         var type = w.globals.comboCharts ? ptype : w.config.chart.type;
         var ret = graphics.group({
-          class: "apexcharts-".concat(type, "-series apexcharts-plot-series")
+          class: "vaniersel-charts-".concat(type, "-series vaniersel-charts-plot-series")
         });
         var coreUtils = new CoreUtils(this.ctx, w);
         this.yRatio = this.xyRatios.yRatio;
@@ -22530,17 +22530,17 @@
         this.categoryAxisCorrection = this.xDivision / 2; // el to which series will be drawn
 
         this.elSeries = graphics.group({
-          class: "apexcharts-series",
+          class: "vaniersel-charts-series",
           seriesName: Utils$1.escapeString(w.globals.seriesNames[realIndex])
         }); // points
 
         this.elPointsMain = graphics.group({
-          class: 'apexcharts-series-markers-wrap',
+          class: 'vaniersel-charts-series-markers-wrap',
           'data:realIndex': realIndex
         }); // eldatalabels
 
         this.elDataLabelsWrap = graphics.group({
-          class: 'apexcharts-datalabels',
+          class: 'vaniersel-charts-datalabels',
           'data:realIndex': realIndex
         });
         var longestSeries = series[i].length === w.globals.dataPoints;
@@ -22640,7 +22640,7 @@
           animationDelay: i,
           initialSpeed: w.config.chart.animations.speed,
           dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-          className: "apexcharts-".concat(type)
+          className: "vaniersel-charts-".concat(type)
         };
 
         if (type === 'area') {
@@ -22869,7 +22869,7 @@
 
         if (!this.pointsChart) {
           if (w.globals.series[i].length > 1) {
-            this.elPointsMain.node.classList.add('apexcharts-element-hidden');
+            this.elPointsMain.node.classList.add('vaniersel-charts-element-hidden');
           }
 
           var elPointsWrap = this.markers.plotChartMarkers(pointsPos, realIndex, j + 1);
@@ -23290,7 +23290,7 @@
         var graphics = new Graphics(this.ctx);
         var fill = new Fill(this.ctx);
         var ret = graphics.group({
-          class: 'apexcharts-treemap'
+          class: 'vaniersel-charts-treemap'
         });
         if (w.globals.noData) return ret;
         var ser = [];
@@ -23311,7 +23311,7 @@
         var nodes = window.TreemapSquared.generate(ser, w.globals.gridWidth, w.globals.gridHeight);
         nodes.forEach(function (node, i) {
           var elSeries = graphics.group({
-            class: "apexcharts-series apexcharts-treemap-series",
+            class: "vaniersel-charts-series vaniersel-charts-treemap-series",
             seriesName: Utils$1.escapeString(w.globals.seriesNames[i]),
             rel: i + 1,
             'data:realIndex': i
@@ -23324,7 +23324,7 @@
           }
 
           var elDataLabelWrap = graphics.group({
-            class: 'apexcharts-data-labels'
+            class: 'vaniersel-charts-data-labels'
           });
           node.forEach(function (r, j) {
             var x1 = r[0];
@@ -23355,7 +23355,7 @@
               seriesNumber: i,
               dataPointIndex: j
             });
-            elRect.node.classList.add('apexcharts-treemap-rect');
+            elRect.node.classList.add('vaniersel-charts-treemap-rect');
             elRect.attr({
               fill: pathFill
             });
@@ -24488,26 +24488,26 @@
         gl.dom.elWrap = document.createElement('div');
         Graphics.setAttrs(gl.dom.elWrap, {
           id: gl.chartClass.substring(1),
-          class: 'apexcharts-canvas ' + gl.chartClass.substring(1)
+          class: 'vaniersel-charts-canvas ' + gl.chartClass.substring(1)
         });
         this.el.appendChild(gl.dom.elWrap);
         gl.dom.Paper = new window.SVG.Doc(gl.dom.elWrap);
         gl.dom.Paper.attr({
-          class: 'apexcharts-svg',
+          class: 'vaniersel-charts-svg',
           'xmlns:data': 'ApexChartsNS',
           transform: "translate(".concat(cnf.chart.offsetX, ", ").concat(cnf.chart.offsetY, ")")
         });
         gl.dom.Paper.node.style.background = cnf.chart.background;
         this.setSVGDimensions();
         gl.dom.elGraphical = gl.dom.Paper.group().attr({
-          class: 'apexcharts-inner apexcharts-graphical'
+          class: 'vaniersel-charts-inner vaniersel-charts-graphical'
         });
         gl.dom.elAnnotations = gl.dom.Paper.group().attr({
-          class: 'apexcharts-annotations'
+          class: 'vaniersel-charts-annotations'
         });
         gl.dom.elDefs = gl.dom.Paper.defs();
         gl.dom.elLegendWrap = document.createElement('div');
-        gl.dom.elLegendWrap.classList.add('apexcharts-legend');
+        gl.dom.elLegendWrap.classList.add('vaniersel-charts-legend');
         gl.dom.elWrap.appendChild(gl.dom.elLegendWrap);
         gl.dom.Paper.add(gl.dom.elGraphical);
         gl.dom.elGraphical.add(gl.dom.elDefs);
@@ -24787,7 +24787,7 @@
           legendHeight = new Legend(this.ctx).legendHelpers.getLegendBBox().clwh + 10;
         }
 
-        var el = w.globals.dom.baseEl.querySelector('.apexcharts-radialbar, .apexcharts-pie');
+        var el = w.globals.dom.baseEl.querySelector('.vaniersel-charts-radialbar, .vaniersel-charts-pie');
         var chartInnerDimensions = w.globals.radialSize * 2.05;
 
         if (el && !w.config.chart.sparkline.enabled && w.config.plotOptions.radialBar.startAngle !== 0) {
@@ -25129,7 +25129,7 @@
       value: function toggleDataPointSelection(seriesIndex, dataPointIndex) {
         var w = this.w;
         var elPath = null;
-        var parent = ".apexcharts-series[data\\:realIndex='".concat(seriesIndex, "']");
+        var parent = ".vaniersel-charts-series[data\\:realIndex='".concat(seriesIndex, "']");
 
         if (w.globals.axisCharts) {
           elPath = w.globals.dom.Paper.select("".concat(parent, " path[j='").concat(dataPointIndex, "'], ").concat(parent, " circle[j='").concat(dataPointIndex, "'], ").concat(parent, " rect[j='").concat(dataPointIndex, "']")).members[0];
@@ -31111,7 +31111,7 @@
     }
   }
 
-  var css_248z = ".apexcharts-canvas {\n  position: relative;\n  user-select: none;\n  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */\n}\n\n\n/* scrollbar is not visible by default for legend, hence forcing the visibility */\n.apexcharts-canvas ::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 6px;\n}\n\n.apexcharts-canvas ::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: rgba(0, 0, 0, .5);\n  box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n}\n\n\n.apexcharts-inner {\n  position: relative;\n}\n\n.apexcharts-text tspan {\n  font-family: inherit;\n}\n\n.legend-mouseover-inactive {\n  transition: 0.15s ease all;\n  opacity: 0.20;\n}\n\n.apexcharts-series-collapsed {\n  opacity: 0;\n}\n\n.apexcharts-tooltip {\n  border-radius: 5px;\n  box-shadow: 2px 2px 6px -4px #999;\n  cursor: default;\n  font-size: 14px;\n  left: 62px;\n  opacity: 0;\n  pointer-events: none;\n  position: absolute;\n  top: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  white-space: nowrap;\n  z-index: 12;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-tooltip.apexcharts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-tooltip.apexcharts-theme-light {\n  border: 1px solid #e3e3e3;\n  background: rgba(255, 255, 255, 0.96);\n}\n\n.apexcharts-tooltip.apexcharts-theme-dark {\n  color: #fff;\n  background: rgba(30, 30, 30, 0.8);\n}\n\n.apexcharts-tooltip * {\n  font-family: inherit;\n}\n\n\n.apexcharts-tooltip-title {\n  padding: 6px;\n  font-size: 15px;\n  margin-bottom: 4px;\n}\n\n.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {\n  background: #ECEFF1;\n  border-bottom: 1px solid #ddd;\n}\n\n.apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {\n  background: rgba(0, 0, 0, 0.7);\n  border-bottom: 1px solid #333;\n}\n\n.apexcharts-tooltip-text-y-value,\n.apexcharts-tooltip-text-goals-value,\n.apexcharts-tooltip-text-z-value {\n  display: inline-block;\n  font-weight: 600;\n  margin-left: 5px;\n}\n\n.apexcharts-tooltip-title:empty,\n.apexcharts-tooltip-text-y-label:empty,\n.apexcharts-tooltip-text-y-value:empty,\n.apexcharts-tooltip-text-goals-label:empty,\n.apexcharts-tooltip-text-goals-value:empty,\n.apexcharts-tooltip-text-z-value:empty {\n  display: none;\n}\n\n.apexcharts-tooltip-text-y-value,\n.apexcharts-tooltip-text-goals-value,\n.apexcharts-tooltip-text-z-value {\n  font-weight: 600;\n}\n\n.apexcharts-tooltip-text-goals-label,\n.apexcharts-tooltip-text-goals-value {\n  padding: 6px 0 5px;\n}\n\n.apexcharts-tooltip-goals-group,\n.apexcharts-tooltip-text-goals-label,\n.apexcharts-tooltip-text-goals-value {\n  display: flex;\n}\n.apexcharts-tooltip-text-goals-label:not(:empty),\n.apexcharts-tooltip-text-goals-value:not(:empty) {\n  margin-top: -6px;\n}\n\n.apexcharts-tooltip-marker {\n  width: 12px;\n  height: 12px;\n  position: relative;\n  top: 0px;\n  margin-right: 10px;\n  border-radius: 50%;\n}\n\n.apexcharts-tooltip-series-group {\n  padding: 0 10px;\n  display: none;\n  text-align: left;\n  justify-content: left;\n  align-items: center;\n}\n\n.apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {\n  opacity: 1;\n}\n\n.apexcharts-tooltip-series-group.apexcharts-active,\n.apexcharts-tooltip-series-group:last-child {\n  padding-bottom: 4px;\n}\n\n.apexcharts-tooltip-series-group-hidden {\n  opacity: 0;\n  height: 0;\n  line-height: 0;\n  padding: 0 !important;\n}\n\n.apexcharts-tooltip-y-group {\n  padding: 6px 0 5px;\n}\n\n.apexcharts-tooltip-box, .apexcharts-custom-tooltip {\n  padding: 4px 8px;\n}\n\n.apexcharts-tooltip-boxPlot {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n.apexcharts-tooltip-box>div {\n  margin: 4px 0;\n}\n\n.apexcharts-tooltip-box span.value {\n  font-weight: bold;\n}\n\n.apexcharts-tooltip-rangebar {\n  padding: 5px 8px;\n}\n\n.apexcharts-tooltip-rangebar .category {\n  font-weight: 600;\n  color: #777;\n}\n\n.apexcharts-tooltip-rangebar .series-name {\n  font-weight: bold;\n  display: block;\n  margin-bottom: 5px;\n}\n\n.apexcharts-xaxistooltip {\n  opacity: 0;\n  padding: 9px 10px;\n  pointer-events: none;\n  color: #373d3f;\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-xaxistooltip.apexcharts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.apexcharts-xaxistooltip:after,\n.apexcharts-xaxistooltip:before {\n  left: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.apexcharts-xaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-left: -6px;\n}\n\n.apexcharts-xaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-left: -7px;\n}\n\n.apexcharts-xaxistooltip-bottom:after,\n.apexcharts-xaxistooltip-bottom:before {\n  bottom: 100%;\n}\n\n.apexcharts-xaxistooltip-top:after,\n.apexcharts-xaxistooltip-top:before {\n  top: 100%;\n}\n\n.apexcharts-xaxistooltip-bottom:after {\n  border-bottom-color: #ECEFF1;\n}\n\n.apexcharts-xaxistooltip-bottom:before {\n  border-bottom-color: #90A4AE;\n}\n\n.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-xaxistooltip-top:after {\n  border-top-color: #ECEFF1\n}\n\n.apexcharts-xaxistooltip-top:before {\n  border-top-color: #90A4AE;\n}\n\n.apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-xaxistooltip.apexcharts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-yaxistooltip {\n  opacity: 0;\n  padding: 4px 10px;\n  pointer-events: none;\n  color: #373d3f;\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n}\n\n.apexcharts-yaxistooltip.apexcharts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.apexcharts-yaxistooltip:after,\n.apexcharts-yaxistooltip:before {\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.apexcharts-yaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-top: -6px;\n}\n\n.apexcharts-yaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-top: -7px;\n}\n\n.apexcharts-yaxistooltip-left:after,\n.apexcharts-yaxistooltip-left:before {\n  left: 100%;\n}\n\n.apexcharts-yaxistooltip-right:after,\n.apexcharts-yaxistooltip-right:before {\n  right: 100%;\n}\n\n.apexcharts-yaxistooltip-left:after {\n  border-left-color: #ECEFF1;\n}\n\n.apexcharts-yaxistooltip-left:before {\n  border-left-color: #90A4AE;\n}\n\n.apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-yaxistooltip-right:after {\n  border-right-color: #ECEFF1;\n}\n\n.apexcharts-yaxistooltip-right:before {\n  border-right-color: #90A4AE;\n}\n\n.apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.apexcharts-yaxistooltip.apexcharts-active {\n  opacity: 1;\n}\n\n.apexcharts-yaxistooltip-hidden {\n  display: none;\n}\n\n.apexcharts-xcrosshairs,\n.apexcharts-ycrosshairs {\n  pointer-events: none;\n  opacity: 0;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-xcrosshairs.apexcharts-active,\n.apexcharts-ycrosshairs.apexcharts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-ycrosshairs-hidden {\n  opacity: 0;\n}\n\n.apexcharts-selection-rect {\n  cursor: move;\n}\n\n.svg_select_boundingRect, .svg_select_points_rot {\n  pointer-events: none;\n  opacity: 0;\n  visibility: hidden;\n}\n.apexcharts-selection-rect + g .svg_select_boundingRect,\n.apexcharts-selection-rect + g .svg_select_points_rot {\n  opacity: 0;\n  visibility: hidden;\n}\n\n.apexcharts-selection-rect + g .svg_select_points_l,\n.apexcharts-selection-rect + g .svg_select_points_r {\n  cursor: ew-resize;\n  opacity: 1;\n  visibility: visible;\n}\n\n.svg_select_points {\n  fill: #efefef;\n  stroke: #333;\n  rx: 2;\n}\n\n.apexcharts-svg.apexcharts-zoomable.hovering-zoom {\n  cursor: crosshair\n}\n\n.apexcharts-svg.apexcharts-zoomable.hovering-pan {\n  cursor: move\n}\n\n.apexcharts-zoom-icon,\n.apexcharts-zoomin-icon,\n.apexcharts-zoomout-icon,\n.apexcharts-reset-icon,\n.apexcharts-pan-icon,\n.apexcharts-selection-icon,\n.apexcharts-menu-icon,\n.apexcharts-toolbar-custom-icon {\n  cursor: pointer;\n  width: 20px;\n  height: 20px;\n  line-height: 24px;\n  color: #6E8192;\n  text-align: center;\n}\n\n.apexcharts-zoom-icon svg,\n.apexcharts-zoomin-icon svg,\n.apexcharts-zoomout-icon svg,\n.apexcharts-reset-icon svg,\n.apexcharts-menu-icon svg {\n  fill: #6E8192;\n}\n\n.apexcharts-selection-icon svg {\n  fill: #444;\n  transform: scale(0.76)\n}\n\n.apexcharts-theme-dark .apexcharts-zoom-icon svg,\n.apexcharts-theme-dark .apexcharts-zoomin-icon svg,\n.apexcharts-theme-dark .apexcharts-zoomout-icon svg,\n.apexcharts-theme-dark .apexcharts-reset-icon svg,\n.apexcharts-theme-dark .apexcharts-pan-icon svg,\n.apexcharts-theme-dark .apexcharts-selection-icon svg,\n.apexcharts-theme-dark .apexcharts-menu-icon svg,\n.apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {\n  fill: #f3f4f5;\n}\n\n.apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,\n.apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,\n.apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {\n  fill: #008FFB;\n}\n\n.apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,\n.apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,\n.apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,\n.apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,\n.apexcharts-theme-light .apexcharts-reset-icon:hover svg,\n.apexcharts-theme-light .apexcharts-menu-icon:hover svg {\n  fill: #333;\n}\n\n.apexcharts-selection-icon,\n.apexcharts-menu-icon {\n  position: relative;\n}\n\n.apexcharts-reset-icon {\n  margin-left: 5px;\n}\n\n.apexcharts-zoom-icon,\n.apexcharts-reset-icon,\n.apexcharts-menu-icon {\n  transform: scale(0.85);\n}\n\n.apexcharts-zoomin-icon,\n.apexcharts-zoomout-icon {\n  transform: scale(0.7)\n}\n\n.apexcharts-zoomout-icon {\n  margin-right: 3px;\n}\n\n.apexcharts-pan-icon {\n  transform: scale(0.62);\n  position: relative;\n  left: 1px;\n  top: 0px;\n}\n\n.apexcharts-pan-icon svg {\n  fill: #fff;\n  stroke: #6E8192;\n  stroke-width: 2;\n}\n\n.apexcharts-pan-icon.apexcharts-selected svg {\n  stroke: #008FFB;\n}\n\n.apexcharts-pan-icon:not(.apexcharts-selected):hover svg {\n  stroke: #333;\n}\n\n.apexcharts-toolbar {\n  position: absolute;\n  z-index: 11;\n  max-width: 176px;\n  text-align: right;\n  border-radius: 3px;\n  padding: 0px 6px 2px 6px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.apexcharts-menu {\n  background: #fff;\n  position: absolute;\n  top: 100%;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding: 3px;\n  right: 10px;\n  opacity: 0;\n  min-width: 110px;\n  transition: 0.15s ease all;\n  pointer-events: none;\n}\n\n.apexcharts-menu.apexcharts-menu-open {\n  opacity: 1;\n  pointer-events: all;\n  transition: 0.15s ease all;\n}\n\n.apexcharts-menu-item {\n  padding: 6px 7px;\n  font-size: 12px;\n  cursor: pointer;\n}\n\n.apexcharts-theme-light .apexcharts-menu-item:hover {\n  background: #eee;\n}\n\n.apexcharts-theme-dark .apexcharts-menu {\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n}\n\n@media screen and (min-width: 768px) {\n  .apexcharts-canvas:hover .apexcharts-toolbar {\n    opacity: 1;\n  }\n}\n\n.apexcharts-datalabel.apexcharts-element-hidden {\n  opacity: 0;\n}\n\n.apexcharts-pie-label,\n.apexcharts-datalabels,\n.apexcharts-datalabel,\n.apexcharts-datalabel-label,\n.apexcharts-datalabel-value {\n  cursor: default;\n  pointer-events: none;\n}\n\n.apexcharts-pie-label-delay {\n  opacity: 0;\n  animation-name: opaque;\n  animation-duration: 0.3s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease;\n}\n\n.apexcharts-canvas .apexcharts-element-hidden {\n  opacity: 0;\n}\n\n.apexcharts-hide .apexcharts-series-points {\n  opacity: 0;\n}\n\n.apexcharts-gridline,\n.apexcharts-annotation-rect,\n.apexcharts-tooltip .apexcharts-marker,\n.apexcharts-area-series .apexcharts-area,\n.apexcharts-line,\n.apexcharts-zoom-rect,\n.apexcharts-toolbar svg,\n.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,\n.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,\n.apexcharts-radar-series path,\n.apexcharts-radar-series polygon {\n  pointer-events: none;\n}\n\n\n/* markers */\n\n.apexcharts-marker {\n  transition: 0.15s ease all;\n}\n\n@keyframes opaque {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n\n/* Resize generated styles */\n\n@keyframes resizeanim {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.resize-triggers {\n  animation: 1ms resizeanim;\n  visibility: hidden;\n  opacity: 0;\n}\n\n.resize-triggers,\n.resize-triggers>div,\n.contract-trigger:before {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n}\n\n.resize-triggers>div {\n  background: #eee;\n  overflow: auto;\n}\n\n.contract-trigger:before {\n  width: 200%;\n  height: 200%;\n}\n";
+  var css_248z = ".vaniersel-charts-canvas {\n  position: relative;\n  user-select: none;\n  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */\n}\n\n\n/* scrollbar is not visible by default for legend, hence forcing the visibility */\n.vaniersel-charts-canvas ::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 6px;\n}\n\n.vaniersel-charts-canvas ::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: rgba(0, 0, 0, .5);\n  box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n}\n\n\n.vaniersel-charts-inner {\n  position: relative;\n}\n\n.vaniersel-charts-text tspan {\n  font-family: inherit;\n}\n\n.legend-mouseover-inactive {\n  transition: 0.15s ease all;\n  opacity: 0.20;\n}\n\n.vaniersel-charts-series-collapsed {\n  opacity: 0;\n}\n\n.vaniersel-charts-tooltip {\n  border-radius: 5px;\n  box-shadow: 2px 2px 6px -4px #999;\n  cursor: default;\n  font-size: 14px;\n  left: 62px;\n  opacity: 0;\n  pointer-events: none;\n  position: absolute;\n  top: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  white-space: nowrap;\n  z-index: 12;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light {\n  border: 1px solid #e3e3e3;\n  background: rgba(255, 255, 255, 0.96);\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-dark {\n  color: #fff;\n  background: rgba(30, 30, 30, 0.8);\n}\n\n.vaniersel-charts-tooltip * {\n  font-family: inherit;\n}\n\n\n.vaniersel-charts-tooltip-title {\n  padding: 6px;\n  font-size: 15px;\n  margin-bottom: 4px;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light .vaniersel-charts-tooltip-title {\n  background: #ECEFF1;\n  border-bottom: 1px solid #ddd;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {\n  background: rgba(0, 0, 0, 0.7);\n  border-bottom: 1px solid #333;\n}\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  display: inline-block;\n  font-weight: 600;\n  margin-left: 5px;\n}\n\n.vaniersel-charts-tooltip-title:empty,\n.vaniersel-charts-tooltip-text-y-label:empty,\n.vaniersel-charts-tooltip-text-y-value:empty,\n.vaniersel-charts-tooltip-text-goals-label:empty,\n.vaniersel-charts-tooltip-text-goals-value:empty,\n.vaniersel-charts-tooltip-text-z-value:empty {\n  display: none;\n}\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  font-weight: 600;\n}\n\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  padding: 6px 0 5px;\n}\n\n.vaniersel-charts-tooltip-goals-group,\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  display: flex;\n}\n.vaniersel-charts-tooltip-text-goals-label:not(:empty),\n.vaniersel-charts-tooltip-text-goals-value:not(:empty) {\n  margin-top: -6px;\n}\n\n.vaniersel-charts-tooltip-marker {\n  width: 12px;\n  height: 12px;\n  position: relative;\n  top: 0px;\n  margin-right: 10px;\n  border-radius: 50%;\n}\n\n.vaniersel-charts-tooltip-series-group {\n  padding: 0 10px;\n  display: none;\n  text-align: left;\n  justify-content: left;\n  align-items: center;\n}\n\n.vaniersel-charts-tooltip-series-group.vaniersel-charts-active .vaniersel-charts-tooltip-marker {\n  opacity: 1;\n}\n\n.vaniersel-charts-tooltip-series-group.vaniersel-charts-active,\n.vaniersel-charts-tooltip-series-group:last-child {\n  padding-bottom: 4px;\n}\n\n.vaniersel-charts-tooltip-series-group-hidden {\n  opacity: 0;\n  height: 0;\n  line-height: 0;\n  padding: 0 !important;\n}\n\n.vaniersel-charts-tooltip-y-group {\n  padding: 6px 0 5px;\n}\n\n.vaniersel-charts-tooltip-box, .vaniersel-charts-custom-tooltip {\n  padding: 4px 8px;\n}\n\n.vaniersel-charts-tooltip-boxPlot {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n.vaniersel-charts-tooltip-box>div {\n  margin: 4px 0;\n}\n\n.vaniersel-charts-tooltip-box span.value {\n  font-weight: bold;\n}\n\n.vaniersel-charts-tooltip-rangebar {\n  padding: 5px 8px;\n}\n\n.vaniersel-charts-tooltip-rangebar .category {\n  font-weight: 600;\n  color: #777;\n}\n\n.vaniersel-charts-tooltip-rangebar .series-name {\n  font-weight: bold;\n  display: block;\n  margin-bottom: 5px;\n}\n\n.vaniersel-charts-xaxistooltip {\n  opacity: 0;\n  padding: 9px 10px;\n  pointer-events: none;\n  color: #373d3f;\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.vaniersel-charts-xaxistooltip:after,\n.vaniersel-charts-xaxistooltip:before {\n  left: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-xaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-left: -6px;\n}\n\n.vaniersel-charts-xaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-left: -7px;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after,\n.vaniersel-charts-xaxistooltip-bottom:before {\n  bottom: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-top:after,\n.vaniersel-charts-xaxistooltip-top:before {\n  top: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after {\n  border-bottom-color: #ECEFF1;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:before {\n  border-bottom-color: #90A4AE;\n}\n\n.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:after {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:before {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-top:after {\n  border-top-color: #ECEFF1\n}\n\n.vaniersel-charts-xaxistooltip-top:before {\n  border-top-color: #90A4AE;\n}\n\n.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:after {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:before {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-yaxistooltip {\n  opacity: 0;\n  padding: 4px 10px;\n  pointer-events: none;\n  color: #373d3f;\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n}\n\n.vaniersel-charts-yaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.vaniersel-charts-yaxistooltip:after,\n.vaniersel-charts-yaxistooltip:before {\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-yaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-top: -6px;\n}\n\n.vaniersel-charts-yaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-top: -7px;\n}\n\n.vaniersel-charts-yaxistooltip-left:after,\n.vaniersel-charts-yaxistooltip-left:before {\n  left: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-right:after,\n.vaniersel-charts-yaxistooltip-right:before {\n  right: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-left:after {\n  border-left-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-left:before {\n  border-left-color: #90A4AE;\n}\n\n.vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:after {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:before {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-right:after {\n  border-right-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-right:before {\n  border-right-color: #90A4AE;\n}\n\n.vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:after {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:before {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n}\n\n.vaniersel-charts-yaxistooltip-hidden {\n  display: none;\n}\n\n.vaniersel-charts-xcrosshairs,\n.vaniersel-charts-ycrosshairs {\n  pointer-events: none;\n  opacity: 0;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xcrosshairs.vaniersel-charts-active,\n.vaniersel-charts-ycrosshairs.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-ycrosshairs-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-selection-rect {\n  cursor: move;\n}\n\n.svg_select_boundingRect, .svg_select_points_rot {\n  pointer-events: none;\n  opacity: 0;\n  visibility: hidden;\n}\n.vaniersel-charts-selection-rect + g .svg_select_boundingRect,\n.vaniersel-charts-selection-rect + g .svg_select_points_rot {\n  opacity: 0;\n  visibility: hidden;\n}\n\n.vaniersel-charts-selection-rect + g .svg_select_points_l,\n.vaniersel-charts-selection-rect + g .svg_select_points_r {\n  cursor: ew-resize;\n  opacity: 1;\n  visibility: visible;\n}\n\n.svg_select_points {\n  fill: #efefef;\n  stroke: #333;\n  rx: 2;\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-zoom {\n  cursor: crosshair\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-pan {\n  cursor: move\n}\n\n.vaniersel-charts-zoom-icon,\n.vaniersel-charts-zoomin-icon,\n.vaniersel-charts-zoomout-icon,\n.vaniersel-charts-reset-icon,\n.vaniersel-charts-pan-icon,\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon,\n.vaniersel-charts-toolbar-custom-icon {\n  cursor: pointer;\n  width: 20px;\n  height: 20px;\n  line-height: 24px;\n  color: #6E8192;\n  text-align: center;\n}\n\n.vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-reset-icon svg,\n.vaniersel-charts-menu-icon svg {\n  fill: #6E8192;\n}\n\n.vaniersel-charts-selection-icon svg {\n  fill: #444;\n  transform: scale(0.76)\n}\n\n.vaniersel-charts-theme-dark .vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-reset-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-pan-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-selection-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-menu-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-toolbar-custom-icon svg {\n  fill: #f3f4f5;\n}\n\n.vaniersel-charts-canvas .vaniersel-charts-zoom-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-selection-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-reset-zoom-icon.vaniersel-charts-selected svg {\n  fill: #008FFB;\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-selection-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoom-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomin-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomout-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-reset-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-menu-icon:hover svg {\n  fill: #333;\n}\n\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon {\n  position: relative;\n}\n\n.vaniersel-charts-reset-icon {\n  margin-left: 5px;\n}\n\n.vaniersel-charts-zoom-icon,\n.vaniersel-charts-reset-icon,\n.vaniersel-charts-menu-icon {\n  transform: scale(0.85);\n}\n\n.vaniersel-charts-zoomin-icon,\n.vaniersel-charts-zoomout-icon {\n  transform: scale(0.7)\n}\n\n.vaniersel-charts-zoomout-icon {\n  margin-right: 3px;\n}\n\n.vaniersel-charts-pan-icon {\n  transform: scale(0.62);\n  position: relative;\n  left: 1px;\n  top: 0px;\n}\n\n.vaniersel-charts-pan-icon svg {\n  fill: #fff;\n  stroke: #6E8192;\n  stroke-width: 2;\n}\n\n.vaniersel-charts-pan-icon.vaniersel-charts-selected svg {\n  stroke: #008FFB;\n}\n\n.vaniersel-charts-pan-icon:not(.vaniersel-charts-selected):hover svg {\n  stroke: #333;\n}\n\n.vaniersel-charts-toolbar {\n  position: absolute;\n  z-index: 11;\n  max-width: 176px;\n  text-align: right;\n  border-radius: 3px;\n  padding: 0px 6px 2px 6px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.vaniersel-charts-menu {\n  background: #fff;\n  position: absolute;\n  top: 100%;\n  border: 1px solid #ddd;\n  border-radius: 3px;\n  padding: 3px;\n  right: 10px;\n  opacity: 0;\n  min-width: 110px;\n  transition: 0.15s ease all;\n  pointer-events: none;\n}\n\n.vaniersel-charts-menu.vaniersel-charts-menu-open {\n  opacity: 1;\n  pointer-events: all;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-menu-item {\n  padding: 6px 7px;\n  font-size: 12px;\n  cursor: pointer;\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-menu-item:hover {\n  background: #eee;\n}\n\n.vaniersel-charts-theme-dark .vaniersel-charts-menu {\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n}\n\n@media screen and (min-width: 768px) {\n  .vaniersel-charts-canvas:hover .vaniersel-charts-toolbar {\n    opacity: 1;\n  }\n}\n\n.vaniersel-charts-datalabel.vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-pie-label,\n.vaniersel-charts-datalabels,\n.vaniersel-charts-datalabel,\n.vaniersel-charts-datalabel-label,\n.vaniersel-charts-datalabel-value {\n  cursor: default;\n  pointer-events: none;\n}\n\n.vaniersel-charts-pie-label-delay {\n  opacity: 0;\n  animation-name: opaque;\n  animation-duration: 0.3s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease;\n}\n\n.vaniersel-charts-canvas .vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-hide .vaniersel-charts-series-points {\n  opacity: 0;\n}\n\n.vaniersel-charts-gridline,\n.vaniersel-charts-annotation-rect,\n.vaniersel-charts-tooltip .vaniersel-charts-marker,\n.vaniersel-charts-area-series .vaniersel-charts-area,\n.vaniersel-charts-line,\n.vaniersel-charts-zoom-rect,\n.vaniersel-charts-toolbar svg,\n.vaniersel-charts-area-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-line-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-radar-series path,\n.vaniersel-charts-radar-series polygon {\n  pointer-events: none;\n}\n\n\n/* markers */\n\n.vaniersel-charts-marker {\n  transition: 0.15s ease all;\n}\n\n@keyframes opaque {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n\n/* Resize generated styles */\n\n@keyframes resizeanim {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.resize-triggers {\n  animation: 1ms resizeanim;\n  visibility: hidden;\n  opacity: 0;\n}\n\n.resize-triggers,\n.resize-triggers>div,\n.contract-trigger:before {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n}\n\n.resize-triggers>div {\n  background: #eee;\n  overflow: auto;\n}\n\n.contract-trigger:before {\n  width: 200%;\n  height: 200%;\n}\n";
 
   /**
    *

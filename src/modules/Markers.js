@@ -57,7 +57,7 @@ export default class Markers {
         class:
           alwaysDrawMarker || hasDiscreteMarkers
             ? ''
-            : 'apexcharts-series-markers'
+            : 'vaniersel-charts-series-markers'
       })
 
       elPointsWrap.attr(
@@ -74,7 +74,7 @@ export default class Markers {
         if (j === 1 && q === 0) dataPointIndex = 0
         if (j === 1 && q === 1) dataPointIndex = 1
 
-        let PointClasses = 'apexcharts-marker'
+        let PointClasses = 'vaniersel-charts-marker'
         if (
           (w.config.chart.type === 'line' || w.config.chart.type === 'area') &&
           !w.globals.comboCharts &&
@@ -91,7 +91,7 @@ export default class Markers {
           if (Utils.isNumber(p.y[q])) {
             PointClasses += ` w${Utils.randomId()}`
           } else {
-            PointClasses = 'apexcharts-nullpoint'
+            PointClasses = 'vaniersel-charts-nullpoint'
           }
 
           let opts = this.getMarkerConfig({

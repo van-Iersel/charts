@@ -23,7 +23,7 @@ export default class Toolbar {
     const w = this.w
 
     this.ev = this.w.config.chart.events
-    this.selectedClass = 'apexcharts-selected'
+    this.selectedClass = 'vaniersel-charts-selected'
 
     this.localeValues = this.w.globals.locale.toolbar
 
@@ -38,7 +38,7 @@ export default class Toolbar {
       return document.createElement('div')
     }
     const elToolbarWrap = createDiv()
-    elToolbarWrap.setAttribute('class', 'apexcharts-toolbar')
+    elToolbarWrap.setAttribute('class', 'vaniersel-charts-toolbar')
     elToolbarWrap.style.top = w.config.chart.toolbar.offsetY + 'px'
     elToolbarWrap.style.right = -w.config.chart.toolbar.offsetX + 3 + 'px'
     w.globals.dom.elWrap.appendChild(elToolbarWrap)
@@ -70,7 +70,7 @@ export default class Toolbar {
           el,
           icon: typeof this.t[tool] === 'string' ? this.t[tool] : ico,
           title: this.localeValues[type],
-          class: `apexcharts-${tool}-icon`
+          class: `vaniersel-charts-${tool}-icon`
         })
       }
     }
@@ -92,8 +92,8 @@ export default class Toolbar {
             z === 'zoom' ? 'selectionZoom' : 'selection'
           ],
           class: w.globals.isTouchDevice
-            ? 'apexcharts-element-hidden'
-            : `apexcharts-${z}-icon`
+            ? 'vaniersel-charts-element-hidden'
+            : `vaniersel-charts-${z}-icon`
         })
       }
     }
@@ -106,8 +106,8 @@ export default class Toolbar {
         icon: typeof this.t.pan === 'string' ? this.t.pan : icoPan,
         title: this.localeValues.pan,
         class: w.globals.isTouchDevice
-          ? 'apexcharts-element-hidden'
-          : 'apexcharts-pan-icon'
+          ? 'vaniersel-charts-element-hidden'
+          : 'vaniersel-charts-pan-icon'
       })
     }
 
@@ -118,7 +118,7 @@ export default class Toolbar {
         el: this.elMenuIcon,
         icon: typeof this.t.download === 'string' ? this.t.download : icoMenu,
         title: this.localeValues.menu,
-        class: 'apexcharts-menu-icon'
+        class: 'vaniersel-charts-menu-icon'
       })
     }
 
@@ -128,7 +128,8 @@ export default class Toolbar {
         icon: this.t.customIcons[i].icon,
         title: this.t.customIcons[i].title,
         index: this.t.customIcons[i].index,
-        class: 'apexcharts-toolbar-custom-icon ' + this.t.customIcons[i].class
+        class:
+          'vaniersel-charts-toolbar-custom-icon ' + this.t.customIcons[i].class
       })
     }
 
@@ -166,7 +167,7 @@ export default class Toolbar {
     parent.appendChild(this.elMenu)
 
     Graphics.setAttrs(this.elMenu, {
-      class: 'apexcharts-menu'
+      class: 'vaniersel-charts-menu'
     })
 
     const menuItems = [
@@ -192,7 +193,7 @@ export default class Toolbar {
       this.elMenuItems.push(document.createElement('div'))
       this.elMenuItems[i].innerHTML = menuItems[i].title
       Graphics.setAttrs(this.elMenuItems[i], {
-        class: `apexcharts-menu-item ${menuItems[i].name}`,
+        class: `vaniersel-charts-menu-item ${menuItems[i].name}`,
         title: menuItems[i].title
       })
       this.elMenu.appendChild(this.elMenuItems[i])
@@ -256,14 +257,18 @@ export default class Toolbar {
   getToolbarIconsReference() {
     const w = this.w
     if (!this.elZoom) {
-      this.elZoom = w.globals.dom.baseEl.querySelector('.apexcharts-zoom-icon')
+      this.elZoom = w.globals.dom.baseEl.querySelector(
+        '.vaniersel-charts-zoom-icon'
+      )
     }
     if (!this.elPan) {
-      this.elPan = w.globals.dom.baseEl.querySelector('.apexcharts-pan-icon')
+      this.elPan = w.globals.dom.baseEl.querySelector(
+        '.vaniersel-charts-pan-icon'
+      )
     }
     if (!this.elSelection) {
       this.elSelection = w.globals.dom.baseEl.querySelector(
-        '.apexcharts-selection-icon'
+        '.vaniersel-charts-selection-icon'
       )
     }
   }
@@ -448,10 +453,10 @@ export default class Toolbar {
 
   toggleMenu() {
     window.setTimeout(() => {
-      if (this.elMenu.classList.contains('apexcharts-menu-open')) {
-        this.elMenu.classList.remove('apexcharts-menu-open')
+      if (this.elMenu.classList.contains('vaniersel-charts-menu-open')) {
+        this.elMenu.classList.remove('vaniersel-charts-menu-open')
       } else {
-        this.elMenu.classList.add('apexcharts-menu-open')
+        this.elMenu.classList.add('vaniersel-charts-menu-open')
       }
     }, 0)
   }

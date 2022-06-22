@@ -48,10 +48,10 @@ export default class ZoomPanSelection extends Toolbar {
 
     this.zoomRect = this.graphics.drawRect(0, 0, 0, 0)
     this.selectionRect = this.graphics.drawRect(0, 0, 0, 0)
-    this.gridRect = w.globals.dom.baseEl.querySelector('.apexcharts-grid')
+    this.gridRect = w.globals.dom.baseEl.querySelector('.vaniersel-charts-grid')
 
-    this.zoomRect.node.classList.add('apexcharts-zoom-rect')
-    this.selectionRect.node.classList.add('apexcharts-selection-rect')
+    this.zoomRect.node.classList.add('vaniersel-charts-zoom-rect')
+    this.selectionRect.node.classList.add('vaniersel-charts-selection-rect')
     w.globals.dom.elGraphical.add(this.zoomRect)
     w.globals.dom.elGraphical.add(this.selectionRect)
 
@@ -79,9 +79,9 @@ export default class ZoomPanSelection extends Toolbar {
     this.preselectedSelection()
 
     this.hoverArea = w.globals.dom.baseEl.querySelector(
-      `${w.globals.chartClass} .apexcharts-svg`
+      `${w.globals.chartClass} .vaniersel-charts-svg`
     )
-    this.hoverArea.classList.add('apexcharts-zoomable')
+    this.hoverArea.classList.add('vaniersel-charts-zoomable')
 
     this.eventList.forEach((event) => {
       this.hoverArea.addEventListener(
@@ -137,10 +137,10 @@ export default class ZoomPanSelection extends Toolbar {
       pc = e.target.parentNode.classList
     }
     const falsePositives =
-      tc.contains('apexcharts-selection-rect') ||
-      tc.contains('apexcharts-legend-marker') ||
-      tc.contains('apexcharts-legend-text') ||
-      (pc && pc.contains('apexcharts-toolbar'))
+      tc.contains('vaniersel-charts-selection-rect') ||
+      tc.contains('vaniersel-charts-legend-marker') ||
+      tc.contains('vaniersel-charts-legend-text') ||
+      (pc && pc.contains('vaniersel-charts-toolbar'))
 
     if (falsePositives) return
 

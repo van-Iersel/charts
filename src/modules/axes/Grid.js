@@ -34,7 +34,7 @@ class Grid {
 
     if (elGrid === null) {
       elGrid = graphics.group({
-        class: 'apexcharts-grid'
+        class: 'vaniersel-charts-grid'
       })
     }
 
@@ -205,7 +205,7 @@ class Grid {
     const w = this.w
 
     const isHorzLine = parent.node.classList.contains(
-      'apexcharts-gridlines-horizontal'
+      'vaniersel-charts-gridlines-horizontal'
     )
 
     let strokeDashArray = w.config.grid.strokeDashArray
@@ -220,7 +220,7 @@ class Grid {
       w.config.grid.borderColor,
       strokeDashArray
     )
-    line.node.classList.add('apexcharts-gridline')
+    line.node.classList.add('vaniersel-charts-gridline')
     parent.add(line)
   }
 
@@ -244,7 +244,7 @@ class Grid {
     )
     this.elg.add(rect)
     rect.attr('clip-path', `url(#gridRectMask${w.globals.cuid})`)
-    rect.node.classList.add(`apexcharts-grid-${type}`)
+    rect.node.classList.add(`vaniersel-charts-grid-${type}`)
   }
 
   _drawXYLines({ xCount, tickAmount }) {
@@ -275,7 +275,7 @@ class Grid {
       ) {
         // user has specified tickamount in a category x-axis chart
         const visibleLabels = w.globals.dom.baseEl.querySelectorAll(
-          '.apexcharts-text.apexcharts-xaxis-label tspan:not(:empty)'
+          '.vaniersel-charts-text.vaniersel-charts-xaxis-label tspan:not(:empty)'
         )
 
         visibleLabels.forEach((d, i) => {
@@ -400,13 +400,13 @@ class Grid {
     let graphics = new Graphics(this.ctx)
 
     this.elg = graphics.group({
-      class: 'apexcharts-grid'
+      class: 'vaniersel-charts-grid'
     })
     this.elgridLinesH = graphics.group({
-      class: 'apexcharts-gridlines-horizontal'
+      class: 'vaniersel-charts-gridlines-horizontal'
     })
     this.elgridLinesV = graphics.group({
-      class: 'apexcharts-gridlines-vertical'
+      class: 'vaniersel-charts-gridlines-vertical'
     })
 
     this.elg.add(this.elgridLinesH)

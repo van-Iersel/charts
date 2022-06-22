@@ -100,13 +100,13 @@ export default class Events {
     const target = e.target.className
 
     if (e.type === 'click') {
-      let elMenu = w.globals.dom.baseEl.querySelector('.apexcharts-menu')
+      let elMenu = w.globals.dom.baseEl.querySelector('.vaniersel-charts-menu')
       if (
         elMenu &&
-        elMenu.classList.contains('apexcharts-menu-open') &&
-        target !== 'apexcharts-menu-icon'
+        elMenu.classList.contains('vaniersel-charts-menu-open') &&
+        target !== 'vaniersel-charts-menu-icon'
       ) {
-        elMenu.classList.remove('apexcharts-menu-open')
+        elMenu.classList.remove('vaniersel-charts-menu-open')
       }
     }
 

@@ -223,7 +223,7 @@ export default class Helpers {
         this.barCtx.barOptions.colors.backgroundBarOpacity
       )
       elSeries.add(rect)
-      rect.node.classList.add('apexcharts-backgroundBar')
+      rect.node.classList.add('vaniersel-charts-backgroundBar')
     }
   }
 
@@ -583,7 +583,7 @@ export default class Helpers {
   }) {
     let graphics = new Graphics(this.barCtx.ctx)
     const lineGroup = graphics.group({
-      className: 'apexcharts-bar-goals-groups'
+      className: 'vaniersel-charts-bar-goals-groups'
     })
 
     let line = null

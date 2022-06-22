@@ -71,7 +71,7 @@ class Pie {
     const graphics = new Graphics(this.ctx)
 
     this.ret = graphics.group({
-      class: 'apexcharts-pie'
+      class: 'vaniersel-charts-pie'
     })
 
     if (w.globals.noData) return this.ret
@@ -205,7 +205,7 @@ class Pie {
     let graphics = new Graphics(this.ctx)
     let fill = new Fill(this.ctx)
     let g = graphics.group({
-      class: 'apexcharts-slices'
+      class: 'vaniersel-charts-slices'
     })
 
     let startAngle = this.initialAngle
@@ -217,7 +217,7 @@ class Pie {
 
     for (let i = 0; i < sectorAngleArr.length; i++) {
       let elPieArc = graphics.group({
-        class: `apexcharts-series apexcharts-pie-series`,
+        class: `vaniersel-charts-series vaniersel-charts-pie-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[i]),
         rel: i + 1,
         'data:realIndex': i
@@ -252,7 +252,7 @@ class Pie {
         strokeWidth: 0,
         fill: pathFill,
         fillOpacity: w.config.fill.opacity,
-        classes: `apexcharts-pie-area apexcharts-${this.chartType.toLowerCase()}-slice-${i}`
+        classes: `vaniersel-charts-pie-area vaniersel-charts-${this.chartType.toLowerCase()}-slice-${i}`
       })
 
       elPath.attr({
@@ -373,7 +373,7 @@ class Pie {
           let foreColor = w.globals.dataLabels.style.colors[i]
 
           const elPieLabelWrap = graphics.group({
-            class: `apexcharts-datalabels`
+            class: `vaniersel-charts-datalabels`
           })
           let elPieLabel = graphics.drawText({
             x: xPos,
@@ -392,12 +392,12 @@ class Pie {
             filters.dropShadow(elPieLabel, textShadow)
           }
 
-          elPieLabel.node.classList.add('apexcharts-pie-label')
+          elPieLabel.node.classList.add('vaniersel-charts-pie-label')
           if (
             w.config.chart.animations.animate &&
             w.globals.resized === false
           ) {
-            elPieLabel.node.classList.add('apexcharts-pie-label-delay')
+            elPieLabel.node.classList.add('vaniersel-charts-pie-label-delay')
             elPieLabel.node.style.animationDelay =
               w.config.chart.animations.speed / 940 + 's'
           }
@@ -588,7 +588,7 @@ class Pie {
     let size =
       me.sliceSizes[i] + (w.config.plotOptions.pie.expandOnClick ? 4 : 0)
     let elPath = w.globals.dom.Paper.select(
-      `.apexcharts-${me.chartType.toLowerCase()}-slice-${i}`
+      `.vaniersel-charts-${me.chartType.toLowerCase()}-slice-${i}`
     ).members[0]
 
     if (elPath.attr('data:pieClicked') === 'true') {
@@ -605,7 +605,7 @@ class Pie {
     } else {
       // reset all elems
       let allEls = w.globals.dom.baseEl.getElementsByClassName(
-        'apexcharts-pie-area'
+        'vaniersel-charts-pie-area'
       )
       Array.prototype.forEach.call(allEls, (pieSlice) => {
         pieSlice.setAttribute('data:pieClicked', 'false')
@@ -782,7 +782,7 @@ class Pie {
     const graphics = new Graphics(this.ctx)
 
     let g = graphics.group({
-      class: 'apexcharts-datalabels-group',
+      class: 'vaniersel-charts-datalabels-group',
       transform: `translate(${opts.translateX ? opts.translateX : 0}, ${
         opts.translateY ? opts.translateY : 0
       }) scale(${w.config.plotOptions.pie.customScale})`
@@ -849,7 +849,7 @@ class Pie {
         fontWeight: labelFontWeight,
         fontFamily: labelFontFamily
       })
-      elLabel.node.classList.add('apexcharts-datalabel-label')
+      elLabel.node.classList.add('vaniersel-charts-datalabel-label')
       g.add(elLabel)
     }
 
@@ -868,7 +868,7 @@ class Pie {
         fontSize: dataLabelsConfig.value.fontSize,
         fontFamily: dataLabelsConfig.value.fontFamily
       })
-      elValue.node.classList.add('apexcharts-datalabel-value')
+      elValue.node.classList.add('vaniersel-charts-datalabel-value')
       g.add(elValue)
     }
 
@@ -902,10 +902,10 @@ class Pie {
     }
 
     let elLabel = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-datalabel-label'
+      '.vaniersel-charts-datalabel-label'
     )
     let elValue = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-datalabel-value'
+      '.vaniersel-charts-datalabel-value'
     )
 
     let lbFormatter = labelsConfig.value.formatter
@@ -943,7 +943,7 @@ class Pie {
     }
 
     let dataLabelsGroup = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-datalabels-group'
+      '.vaniersel-charts-datalabels-group'
     )
     if (dataLabelsGroup !== null) {
       dataLabelsGroup.style.opacity = 1
@@ -989,12 +989,12 @@ class Pie {
   revertDataLabelsInner(elem, dataLabelsConfig, event) {
     let w = this.w
     let dataLabelsGroup = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-datalabels-group'
+      '.vaniersel-charts-datalabels-group'
     )
 
     let sliceOut = false
     const slices = w.globals.dom.baseEl.getElementsByClassName(
-      `apexcharts-pie-area`
+      `vaniersel-charts-pie-area`
     )
 
     const selectSlice = ({ makeSliceOut, printLabel }) => {
@@ -1033,7 +1033,7 @@ class Pie {
           if (w.globals.selectedDataPoints[0].length > 0) {
             const index = w.globals.selectedDataPoints[0]
             const el = w.globals.dom.baseEl.querySelector(
-              `.apexcharts-${this.chartType.toLowerCase()}-slice-${index}`
+              `.vaniersel-charts-${this.chartType.toLowerCase()}-slice-${index}`
             )
 
             this.printDataLabelsInner(el, dataLabelsConfig)

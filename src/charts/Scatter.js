@@ -31,7 +31,7 @@ export default class Scatter {
     let elPointsMain = opts.elParent
 
     let elPointsWrap = graphics.group({
-      class: `apexcharts-series-markers apexcharts-series-${w.config.chart.type}`
+      class: `vaniersel-charts-series-markers vaniersel-charts-series-${w.config.chart.type}`
     })
 
     elPointsWrap.attr('clip-path', `url(#gridRectMarkerMask${w.globals.cuid})`)
@@ -107,7 +107,7 @@ export default class Scatter {
     const graphics = new Graphics(this.ctx)
 
     const markerConfig = markers.getMarkerConfig({
-      cssClass: 'apexcharts-marker',
+      cssClass: 'vaniersel-charts-marker',
       seriesIndex: i,
       dataPointIndex,
       finishRadius:
@@ -251,7 +251,7 @@ export default class Scatter {
     filters.setSelectionFilter(el, realIndex, dataPointIndex)
     markers.addEvents(el)
 
-    el.node.classList.add('apexcharts-marker')
+    el.node.classList.add('vaniersel-charts-marker')
 
     return el
   }

@@ -351,7 +351,7 @@ export default class BarDataLabels {
 
     if (dataLabelsConfig.enabled && !isSeriesNotCollapsed) {
       elDataLabelsWrap = graphics.group({
-        class: 'apexcharts-data-labels',
+        class: 'vaniersel-charts-data-labels',
         transform: rotate
       })
 

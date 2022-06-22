@@ -38,7 +38,7 @@ export default class Position {
       xcrosshairs.setAttribute('x1', x)
       xcrosshairs.setAttribute('x2', x)
       xcrosshairs.setAttribute('y2', w.globals.gridHeight)
-      xcrosshairs.classList.add('apexcharts-active')
+      xcrosshairs.classList.add('vaniersel-charts-active')
     }
 
     if (x < 0) {
@@ -94,7 +94,7 @@ export default class Position {
     const ttCtx = this.ttCtx
 
     if (ttCtx.xaxisTooltip !== null && ttCtx.xcrosshairsWidth !== 0) {
-      ttCtx.xaxisTooltip.classList.add('apexcharts-active')
+      ttCtx.xaxisTooltip.classList.add('vaniersel-charts-active')
 
       let cy =
         ttCtx.xaxisOffY +
@@ -128,7 +128,7 @@ export default class Position {
 
     if (ttCtx.yaxisTTEls === null) {
       ttCtx.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll(
-        '.apexcharts-yaxistooltip'
+        '.vaniersel-charts-yaxistooltip'
       )
     }
 
@@ -149,12 +149,12 @@ export default class Position {
     cy = cy - yAxisTTHeight / 2
 
     if (w.globals.ignoreYAxisIndexes.indexOf(index) === -1) {
-      ttCtx.yaxisTTEls[index].classList.add('apexcharts-active')
+      ttCtx.yaxisTTEls[index].classList.add('vaniersel-charts-active')
       ttCtx.yaxisTTEls[index].style.top = cy + 'px'
       ttCtx.yaxisTTEls[index].style.left =
         cx + w.config.yaxis[index].tooltip.offsetX + 'px'
     } else {
-      ttCtx.yaxisTTEls[index].classList.remove('apexcharts-active')
+      ttCtx.yaxisTTEls[index].classList.remove('vaniersel-charts-active')
     }
   }
 
@@ -223,7 +223,7 @@ export default class Position {
 
     if (w.globals.markers.size[i] > 0) {
       let allPoints = w.globals.dom.baseEl.querySelectorAll(
-        ` .apexcharts-series[data\\:realIndex='${i}'] .apexcharts-marker`
+        ` .vaniersel-charts-series[data\\:realIndex='${i}'] .vaniersel-charts-marker`
       )
       for (let p = 0; p < allPoints.length; p++) {
         if (parseInt(allPoints[p].getAttribute('rel'), 10) === j) {
@@ -264,7 +264,7 @@ export default class Position {
     cy = pointsArr[capturedSeries][j][1] ? pointsArr[capturedSeries][j][1] : 0
 
     let point = w.globals.dom.baseEl.querySelector(
-      `.apexcharts-series[data\\:realIndex='${capturedSeries}'] .apexcharts-series-markers circle`
+      `.vaniersel-charts-series[data\\:realIndex='${capturedSeries}'] .vaniersel-charts-series-markers circle`
     )
 
     if (point && cy < w.globals.gridHeight && cy > 0) {
@@ -362,7 +362,7 @@ export default class Position {
       i = series.getActiveConfigSeriesIndex(false, 'desc') + 1
     }
     let jBar = w.globals.dom.baseEl.querySelector(
-      `.apexcharts-bar-series .apexcharts-series[rel='${i}'] path[j='${j}'], .apexcharts-candlestick-series .apexcharts-series[rel='${i}'] path[j='${j}'], .apexcharts-boxPlot-series .apexcharts-series[rel='${i}'] path[j='${j}'], .apexcharts-rangebar-series .apexcharts-series[rel='${i}'] path[j='${j}']`
+      `.vaniersel-charts-bar-series .vaniersel-charts-series[rel='${i}'] path[j='${j}'], .vaniersel-charts-candlestick-series .vaniersel-charts-series[rel='${i}'] path[j='${j}'], .vaniersel-charts-boxPlot-series .vaniersel-charts-series[rel='${i}'] path[j='${j}'], .vaniersel-charts-rangebar-series .vaniersel-charts-series[rel='${i}'] path[j='${j}']`
     )
 
     let bcx = jBar ? parseFloat(jBar.getAttribute('cx')) : 0
@@ -374,8 +374,8 @@ export default class Position {
     let seriesBound = elGrid.getBoundingClientRect()
 
     const isBoxOrCandle =
-      jBar.classList.contains('apexcharts-candlestick-area') ||
-      jBar.classList.contains('apexcharts-boxPlot-area')
+      jBar.classList.contains('vaniersel-charts-candlestick-area') ||
+      jBar.classList.contains('vaniersel-charts-boxPlot-area')
     if (w.globals.isXNumeric) {
       if (jBar && !isBoxOrCandle) {
         bcx = bcx - (barLen % 2 !== 0 ? bw / 2 : 0)

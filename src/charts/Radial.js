@@ -46,7 +46,7 @@ class Radial extends Pie {
     const graphics = new Graphics(this.ctx)
 
     let ret = graphics.group({
-      class: 'apexcharts-radialbar'
+      class: 'vaniersel-charts-radialbar'
     })
 
     if (w.globals.noData) return ret
@@ -117,7 +117,7 @@ class Radial extends Pie {
     const graphics = new Graphics(this.ctx)
 
     let g = graphics.group({
-      class: 'apexcharts-tracks'
+      class: 'vaniersel-charts-tracks'
     })
 
     let filters = new Filters(this.ctx)
@@ -129,7 +129,7 @@ class Radial extends Pie {
 
     for (let i = 0; i < opts.series.length; i++) {
       let elRadialBarTrack = graphics.group({
-        class: 'apexcharts-radialbar-track apexcharts-track'
+        class: 'vaniersel-charts-radialbar-track vaniersel-charts-track'
       })
       g.add(elRadialBarTrack)
 
@@ -162,7 +162,7 @@ class Radial extends Pie {
           (strokeWidth * parseInt(trackConfig.strokeWidth, 10)) / 100,
         fill: 'none',
         strokeOpacity: trackConfig.opacity,
-        classes: 'apexcharts-radialbar-area'
+        classes: 'vaniersel-charts-radialbar-area'
       })
 
       if (trackConfig.dropShadow.enabled) {
@@ -172,7 +172,7 @@ class Radial extends Pie {
 
       elRadialBarTrack.add(elPath)
 
-      elPath.attr('id', 'apexcharts-radialbarTrack-' + i)
+      elPath.attr('id', 'vaniersel-charts-radialbarTrack-' + i)
 
       this.animatePaths(elPath, {
         centerX: opts.centerX,
@@ -266,7 +266,7 @@ class Radial extends Pie {
       reverseLoop ? i-- : i++
     ) {
       let elRadialBarArc = graphics.group({
-        class: `apexcharts-series apexcharts-radial-series`,
+        class: `vaniersel-charts-series vaniersel-charts-radial-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[i])
       })
       g.add(elRadialBarArc)
@@ -327,7 +327,9 @@ class Radial extends Pie {
         strokeWidth,
         fill: 'none',
         fillOpacity: w.config.fill.opacity,
-        classes: 'apexcharts-radialbar-area apexcharts-radialbar-slice-' + i,
+        classes:
+          'vaniersel-charts-radialbar-area vaniersel-charts-radialbar-slice-' +
+          i,
         strokeDashArray: dashArray
       })
 
@@ -392,7 +394,7 @@ class Radial extends Pie {
     let circle = graphics.drawCircle(opts.size * 2)
 
     circle.attr({
-      class: 'apexcharts-radialbar-hollow',
+      class: 'vaniersel-charts-radialbar-hollow',
       cx: opts.centerX,
       cy: opts.centerY,
       r: opts.size,

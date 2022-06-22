@@ -96,7 +96,7 @@ class DataLabels {
     }
 
     elDataLabelsWrap = graphics.group({
-      class: 'apexcharts-data-labels'
+      class: 'vaniersel-charts-data-labels'
     })
 
     for (let q = 0; q < pos.x.length; q++) {
@@ -262,7 +262,7 @@ class DataLabels {
       })
 
       dataLabelText.attr({
-        class: 'apexcharts-datalabel',
+        class: 'vaniersel-charts-datalabel',
         cx: x,
         cy: y
       })
@@ -322,7 +322,7 @@ class DataLabels {
     if (w.config.chart.type === 'bubble') return
 
     const elDataLabels = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-datalabels text'
+      '.vaniersel-charts-datalabels text'
     )
 
     for (let i = 0; i < elDataLabels.length; i++) {
@@ -355,11 +355,11 @@ class DataLabels {
   bringForward() {
     const w = this.w
     const elDataLabelsNodes = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-datalabels'
+      '.vaniersel-charts-datalabels'
     )
 
     const elSeries = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-plot-series:last-child'
+      '.vaniersel-charts-plot-series:last-child'
     )
 
     for (let i = 0; i < elDataLabelsNodes.length; i++) {

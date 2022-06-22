@@ -28,7 +28,7 @@ class BoxCandleStick extends Bar {
     this.barHelpers.initVariables(series)
 
     let ret = graphics.group({
-      class: `apexcharts-${w.config.chart.type}-series apexcharts-plot-series`
+      class: `vaniersel-charts-${w.config.chart.type}-series vaniersel-charts-plot-series`
     })
 
     for (let i = 0; i < series.length; i++) {
@@ -50,7 +50,7 @@ class BoxCandleStick extends Bar {
 
       // el to which series will be drawn
       let elSeries = graphics.group({
-        class: `apexcharts-series`,
+        class: `vaniersel-charts-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[realIndex]),
         rel: i + 1,
         'data:realIndex': realIndex
@@ -85,7 +85,7 @@ class BoxCandleStick extends Bar {
 
       // eldatalabels
       let elDataLabelsWrap = graphics.group({
-        class: 'apexcharts-datalabels',
+        class: 'vaniersel-charts-datalabels',
         'data:realIndex': realIndex
       })
 

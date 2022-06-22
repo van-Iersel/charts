@@ -148,7 +148,7 @@ export default class TreemapHelpers {
 
     if (dataLabelsConfig.enabled) {
       elDataLabelsWrap = graphics.group({
-        class: 'apexcharts-data-labels'
+        class: 'vaniersel-charts-data-labels'
       })
 
       const offX = dataLabelsConfig.offsetX

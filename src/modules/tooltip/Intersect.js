@@ -24,7 +24,7 @@ class Intersect {
     const ttCtx = this.ttCtx
     const w = this.w
 
-    if (e.target.classList.contains(`apexcharts-${type}-rect`)) {
+    if (e.target.classList.contains(`vaniersel-charts-${type}-rect`)) {
       let i = this.getAttr(e, 'i')
       let j = this.getAttr(e, 'j')
       let cx = this.getAttr(e, 'cx')
@@ -80,7 +80,7 @@ class Intersect {
 
     let i
     let j
-    if (e.target.classList.contains('apexcharts-marker')) {
+    if (e.target.classList.contains('vaniersel-charts-marker')) {
       let cx = parseInt(opt.paths.getAttribute('cx'), 10)
       let cy = parseInt(opt.paths.getAttribute('cy'), 10)
       let val = parseFloat(opt.paths.getAttribute('val'))
@@ -93,7 +93,7 @@ class Intersect {
         ) - 1
 
       if (ttCtx.intersect) {
-        const el = Utils.findAncestor(opt.paths, 'apexcharts-series')
+        const el = Utils.findAncestor(opt.paths, 'vaniersel-charts-series')
         if (el) {
           i = parseInt(el.getAttribute('data:realIndex'), 10)
         }
@@ -207,7 +207,9 @@ class Intersect {
 
     // if tooltip is still null, querySelector
     if (ttCtx.tooltip === null) {
-      ttCtx.tooltip = w.globals.dom.baseEl.querySelector('.apexcharts-tooltip')
+      ttCtx.tooltip = w.globals.dom.baseEl.querySelector(
+        '.vaniersel-charts-tooltip'
+      )
     }
 
     if (!w.config.tooltip.shared) {
@@ -267,10 +269,10 @@ class Intersect {
     const cl = e.target.classList
 
     if (
-      cl.contains('apexcharts-bar-area') ||
-      cl.contains('apexcharts-candlestick-area') ||
-      cl.contains('apexcharts-boxPlot-area') ||
-      cl.contains('apexcharts-rangebar-area')
+      cl.contains('vaniersel-charts-bar-area') ||
+      cl.contains('vaniersel-charts-candlestick-area') ||
+      cl.contains('vaniersel-charts-boxPlot-area') ||
+      cl.contains('vaniersel-charts-rangebar-area')
     ) {
       let bar = e.target
       let barRect = bar.getBoundingClientRect()

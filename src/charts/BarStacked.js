@@ -52,7 +52,7 @@ class BarStacked extends Bar {
     }
 
     let ret = this.graphics.group({
-      class: 'apexcharts-bar-series apexcharts-plot-series'
+      class: 'vaniersel-charts-bar-series vaniersel-charts-plot-series'
     })
 
     let x = 0
@@ -79,7 +79,7 @@ class BarStacked extends Bar {
 
       // el to which series will be drawn
       let elSeries = this.graphics.group({
-        class: `apexcharts-series`,
+        class: `vaniersel-charts-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[realIndex]),
         rel: i + 1,
         'data:realIndex': realIndex
@@ -88,7 +88,7 @@ class BarStacked extends Bar {
 
       // eldatalabels
       let elDataLabelsWrap = this.graphics.group({
-        class: 'apexcharts-datalabels',
+        class: 'vaniersel-charts-datalabels',
         'data:realIndex': realIndex
       })
 

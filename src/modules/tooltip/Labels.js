@@ -127,14 +127,14 @@ export default class Labels {
           }
         } else {
           // get a color from a hover area (if it's a line pattern then get from a first line)
-          const targetFill = e?.target?.getAttribute('fill');
+          const targetFill = e?.target?.getAttribute('fill')
           if (targetFill) {
-            pColor = (targetFill.indexOf("url") !== -1) ? (
-              document
-                .querySelector(targetFill.substr(4).slice(0, -1))
-                .childNodes[0]
-                .getAttribute("stroke")
-            ) : targetFill;
+            pColor =
+              targetFill.indexOf('url') !== -1
+                ? document
+                    .querySelector(targetFill.substr(4).slice(0, -1))
+                    .childNodes[0].getAttribute('stroke')
+                : targetFill
           }
           val = getValBySeriesIndex(i)
           if (hasGoalValues(i) && Array.isArray(w.globals.seriesGoals[i][j])) {
@@ -207,14 +207,14 @@ export default class Labels {
       if (w.globals.yLabelFormatters[0]) {
         yLbFormatter = w.globals.yLabelFormatters[0]
       } else {
-        yLbFormatter = function (label) {
+        yLbFormatter = function(label) {
           return label
         }
       }
     }
 
     if (typeof yLbTitleFormatter !== 'function') {
-      yLbTitleFormatter = function (label) {
+      yLbTitleFormatter = function(label) {
         return label
       }
     }
@@ -253,7 +253,7 @@ export default class Labels {
       if (ttCtx.tooltipTitle === null) {
         // get it once if null, and store it in class property
         ttCtx.tooltipTitle = w.globals.dom.baseEl.querySelector(
-          '.apexcharts-tooltip-title'
+          '.vaniersel-charts-tooltip-title'
         )
       }
       ttCtx.tooltipTitle.innerHTML = xVal
@@ -265,19 +265,21 @@ export default class Labels {
     }
 
     const ttYLabel = ttItems[t].querySelector(
-      '.apexcharts-tooltip-text-y-label'
+      '.vaniersel-charts-tooltip-text-y-label'
     )
     if (ttYLabel) {
       ttYLabel.innerHTML = seriesName ? seriesName : ''
     }
-    const ttYVal = ttItems[t].querySelector('.apexcharts-tooltip-text-y-value')
+    const ttYVal = ttItems[t].querySelector(
+      '.vaniersel-charts-tooltip-text-y-value'
+    )
     if (ttYVal) {
       ttYVal.innerHTML = typeof val !== 'undefined' ? val : ''
     }
 
     if (
       ttItemsChildren[0] &&
-      ttItemsChildren[0].classList.contains('apexcharts-tooltip-marker')
+      ttItemsChildren[0].classList.contains('vaniersel-charts-tooltip-marker')
     ) {
       if (
         w.config.tooltip.marker.fillColors &&
@@ -294,10 +296,10 @@ export default class Labels {
     }
 
     const ttGLabel = ttItems[t].querySelector(
-      '.apexcharts-tooltip-text-goals-label'
+      '.vaniersel-charts-tooltip-text-goals-label'
     )
     const ttGVal = ttItems[t].querySelector(
-      '.apexcharts-tooltip-text-goals-value'
+      '.vaniersel-charts-tooltip-text-goals-value'
     )
 
     if (goalVals.length && w.globals.seriesGoals[t]) {
@@ -305,7 +307,7 @@ export default class Labels {
         let gLabels = '<div >'
         let gVals = '<div>'
         goalVals.forEach((goal, gi) => {
-          gLabels += ` <div style="display: flex"><span class="apexcharts-tooltip-marker" style="background-color: ${goal.attrs.strokeColor}; height: 3px; border-radius: 0; top: 5px;"></span> ${goal.attrs.name}</div>`
+          gLabels += ` <div style="display: flex"><span class="vaniersel-charts-tooltip-marker" style="background-color: ${goal.attrs.strokeColor}; height: 3px; border-radius: 0; top: 5px;"></span> ${goal.attrs.name}</div>`
           gVals += `<div>${goal.val}</div>`
         })
         ttGLabel.innerHTML = gLabels + `</div>`
@@ -331,11 +333,11 @@ export default class Labels {
 
     if (zVal !== null) {
       const ttZLabel = ttItems[t].querySelector(
-        '.apexcharts-tooltip-text-z-label'
+        '.vaniersel-charts-tooltip-text-z-label'
       )
       ttZLabel.innerHTML = w.config.tooltip.z.title
       const ttZVal = ttItems[t].querySelector(
-        '.apexcharts-tooltip-text-z-value'
+        '.vaniersel-charts-tooltip-text-z-value'
       )
       ttZVal.innerHTML = typeof zVal !== 'undefined' ? zVal : ''
     }
@@ -390,11 +392,11 @@ export default class Labels {
 
       // enable the first tooltip text group
       let firstTooltipSeriesGroup = w.globals.dom.baseEl.querySelector(
-        '.apexcharts-tooltip-series-group'
+        '.vaniersel-charts-tooltip-series-group'
       )
 
       if (firstTooltipSeriesGroup) {
-        firstTooltipSeriesGroup.classList.add('apexcharts-active')
+        firstTooltipSeriesGroup.classList.add('vaniersel-charts-active')
         firstTooltipSeriesGroup.style.display = w.config.tooltip.items.display
       }
     }

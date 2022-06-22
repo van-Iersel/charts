@@ -89,7 +89,7 @@ class Radar {
     let translateY = halfH + w.config.plotOptions.radar.offsetY
 
     let ret = this.graphics.group({
-      class: 'apexcharts-radar-series apexcharts-plot-series',
+      class: 'vaniersel-charts-radar-series vaniersel-charts-plot-series',
       transform: `translate(${translateX || 0}, ${translateY || 0})`
     })
 
@@ -98,7 +98,7 @@ class Radar {
     let elDataPointsMain = null
 
     this.yaxisLabels = this.graphics.group({
-      class: 'apexcharts-yaxis'
+      class: 'vaniersel-charts-yaxis'
     })
 
     series.forEach((s, i) => {
@@ -106,7 +106,7 @@ class Radar {
 
       // el to which series will be drawn
       let elSeries = this.graphics.group().attr({
-        class: `apexcharts-series`,
+        class: `vaniersel-charts-series`,
         'data:longestSeries': longestSeries,
         seriesName: Utils.escapeString(w.globals.seriesNames[i]),
         rel: i + 1,
@@ -142,12 +142,13 @@ class Radar {
 
       // points
       elPointsMain = this.graphics.group({
-        class: 'apexcharts-series-markers-wrap apexcharts-element-hidden'
+        class:
+          'vaniersel-charts-series-markers-wrap vaniersel-charts-element-hidden'
       })
 
       // datapoints
       elDataPointsMain = this.graphics.group({
-        class: `apexcharts-datalabels`,
+        class: `vaniersel-charts-datalabels`,
         'data:realIndex': i
       })
 
@@ -162,7 +163,7 @@ class Radar {
         animationDelay: i,
         initialSpeed: w.config.chart.animations.speed,
         dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-        className: `apexcharts-radar`,
+        className: `vaniersel-charts-radar`,
         shouldClipToGrid: false,
         bindEventsOnPaths: false,
         stroke: w.globals.stroke.colors[i],
@@ -220,7 +221,7 @@ class Radar {
         let markers = new Markers(this.ctx)
 
         let opts = markers.getMarkerConfig({
-          cssClass: 'apexcharts-marker',
+          cssClass: 'vaniersel-charts-marker',
           seriesIndex: i,
           dataPointIndex: j
         })
@@ -237,7 +238,7 @@ class Radar {
         point.node.setAttribute('default-marker-size', opts.pSize)
 
         let elPointsWrap = this.graphics.group({
-          class: 'apexcharts-series-markers'
+          class: 'vaniersel-charts-series-markers'
         })
 
         if (elPointsWrap) {
@@ -374,7 +375,7 @@ class Radar {
 
     const xaxisLabelsConfig = w.config.xaxis.labels
     let elXAxisWrap = this.graphics.group({
-      class: 'apexcharts-xaxis'
+      class: 'vaniersel-charts-xaxis'
     })
 
     let polygonPos = Utils.getPolygonPos(this.size, this.dataPointsLen)

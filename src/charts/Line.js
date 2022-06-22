@@ -43,7 +43,7 @@ class Line {
     let graphics = new Graphics(this.ctx)
     let type = w.globals.comboCharts ? ptype : w.config.chart.type
     let ret = graphics.group({
-      class: `apexcharts-${type}-series apexcharts-plot-series`
+      class: `vaniersel-charts-${type}-series vaniersel-charts-plot-series`
     })
 
     const coreUtils = new CoreUtils(this.ctx, w)
@@ -186,19 +186,19 @@ class Line {
 
     // el to which series will be drawn
     this.elSeries = graphics.group({
-      class: `apexcharts-series`,
+      class: `vaniersel-charts-series`,
       seriesName: Utils.escapeString(w.globals.seriesNames[realIndex])
     })
 
     // points
     this.elPointsMain = graphics.group({
-      class: 'apexcharts-series-markers-wrap',
+      class: 'vaniersel-charts-series-markers-wrap',
       'data:realIndex': realIndex
     })
 
     // eldatalabels
     this.elDataLabelsWrap = graphics.group({
-      class: 'apexcharts-datalabels',
+      class: 'vaniersel-charts-datalabels',
       'data:realIndex': realIndex
     })
 
@@ -308,7 +308,7 @@ class Line {
       animationDelay: i,
       initialSpeed: w.config.chart.animations.speed,
       dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-      className: `apexcharts-${type}`
+      className: `vaniersel-charts-${type}`
     }
 
     if (type === 'area') {
@@ -550,7 +550,7 @@ class Line {
 
     if (!this.pointsChart) {
       if (w.globals.series[i].length > 1) {
-        this.elPointsMain.node.classList.add('apexcharts-element-hidden')
+        this.elPointsMain.node.classList.add('vaniersel-charts-element-hidden')
       }
 
       let elPointsWrap = this.markers.plotChartMarkers(

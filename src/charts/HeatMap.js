@@ -32,7 +32,7 @@ export default class HeatMap {
     const graphics = new Graphics(this.ctx)
 
     let ret = graphics.group({
-      class: 'apexcharts-heatmap'
+      class: 'vaniersel-charts-heatmap'
     })
 
     ret.attr('clip-path', `url(#gridRectMask${w.globals.cuid})`)
@@ -59,7 +59,7 @@ export default class HeatMap {
     ) {
       // el to which series will be drawn
       let elSeries = graphics.group({
-        class: `apexcharts-series apexcharts-heatmap-series`,
+        class: `vaniersel-charts-series vaniersel-charts-heatmap-series`,
         seriesName: Utils.escapeString(w.globals.seriesNames[i]),
         rel: i + 1,
         'data:realIndex': i
@@ -114,7 +114,7 @@ export default class HeatMap {
           cy: y1
         })
 
-        rect.node.classList.add('apexcharts-heatmap-rect')
+        rect.node.classList.add('vaniersel-charts-heatmap-rect')
         elSeries.add(rect)
 
         rect.attr({

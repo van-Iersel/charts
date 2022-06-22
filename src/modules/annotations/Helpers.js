@@ -12,7 +12,7 @@ export default class Helpers {
     if (anno.label.orientation === 'vertical') {
       const i = annoIndex !== null ? annoIndex : 0
       let xAnno = w.globals.dom.baseEl.querySelector(
-        `.apexcharts-xaxis-annotations .apexcharts-xaxis-annotation-label[rel='${i}']`
+        `.vaniersel-charts-xaxis-annotations .vaniersel-charts-xaxis-annotation-label[rel='${i}']`
       )
 
       if (xAnno !== null) {
@@ -55,7 +55,7 @@ export default class Helpers {
       return null
 
     const elGridRect = w.globals.dom.baseEl
-      .querySelector('.apexcharts-grid')
+      .querySelector('.vaniersel-charts-grid')
       .getBoundingClientRect()
 
     const coords = annoEl.getBoundingClientRect()
@@ -100,7 +100,7 @@ export default class Helpers {
 
     const add = (anno, i, type) => {
       let annoLabel = w.globals.dom.baseEl.querySelector(
-        `.apexcharts-${type}-annotations .apexcharts-${type}-annotation-label[rel='${i}']`
+        `.vaniersel-charts-${type}-annotations .vaniersel-charts-${type}-annotation-label[rel='${i}']`
       )
 
       if (annoLabel) {
@@ -150,7 +150,7 @@ export default class Helpers {
         catIndex = w.globals.categoryLabels.indexOf(y)
       }
       const xLabel = w.globals.dom.baseEl.querySelector(
-        '.apexcharts-yaxis-texts-g text:nth-child(' + (catIndex + 1) + ')'
+        '.vaniersel-charts-yaxis-texts-g text:nth-child(' + (catIndex + 1) + ')'
       )
       if (xLabel) {
         yP = parseFloat(xLabel.getAttribute('y'))
@@ -233,7 +233,7 @@ export default class Helpers {
     let catIndex = w.globals.labels.indexOf(x)
 
     const xLabel = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-xaxis-texts-g text:nth-child(' + (catIndex + 1) + ')'
+      '.vaniersel-charts-xaxis-texts-g text:nth-child(' + (catIndex + 1) + ')'
     )
 
     if (xLabel) {

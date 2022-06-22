@@ -33,7 +33,7 @@ export default class Theme {
     let utils = new Utils()
 
     w.globals.dom.elWrap.classList.add(
-      `apexcharts-theme-${w.config.theme.mode}`
+      `vaniersel-charts-theme-${w.config.theme.mode}`
     )
 
     if (w.config.colors === undefined) {

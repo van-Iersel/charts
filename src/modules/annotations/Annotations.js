@@ -57,7 +57,7 @@ export default class Annotations {
             w.config.chart.type !== 'bubble' &&
             w.globals.dataPoints > 1
           ) {
-            annoElArray[i].classList.add('apexcharts-element-hidden')
+            annoElArray[i].classList.add('vaniersel-charts-element-hidden')
           }
         }
         w.globals.delayedElements.push({ el: annoElArray[i], index: 0 })
@@ -112,7 +112,7 @@ export default class Annotations {
       strokeDashArray,
       borderRadius,
       borderColor,
-      appendTo = '.apexcharts-annotations',
+      appendTo = '.vaniersel-charts-annotations',
       paddingLeft = 4,
       paddingRight = 4,
       paddingBottom = 2,
@@ -130,7 +130,7 @@ export default class Annotations {
       fontWeight: fontWeight || 'regular',
       fontFamily: fontFamily || w.config.chart.fontFamily,
       foreColor: foreColor || w.config.chart.foreColor,
-      cssClass: 'apexcharts-text ' + cssClass ? cssClass : ''
+      cssClass: 'vaniersel-charts-text ' + cssClass ? cssClass : ''
     })
 
     const parent = w.globals.dom.baseEl.querySelector(appendTo)
@@ -167,7 +167,7 @@ export default class Annotations {
       y = 0,
       width = 20,
       height = 20,
-      appendTo = '.apexcharts-annotations'
+      appendTo = '.vaniersel-charts-annotations'
     } = params
 
     let img = w.globals.dom.Paper.image(path)
@@ -229,7 +229,7 @@ export default class Annotations {
     const me = context
     const w = me.w
     const parent = w.globals.dom.baseEl.querySelector(
-      `.apexcharts-${type}-annotations`
+      `.vaniersel-charts-${type}-annotations`
     )
     const index = parent.childNodes.length + 1
 
@@ -259,7 +259,7 @@ export default class Annotations {
 
     // add background
     let axesAnnoLabel = w.globals.dom.baseEl.querySelector(
-      `.apexcharts-${type}-annotations .apexcharts-${type}-annotation-label[rel='${index}']`
+      `.vaniersel-charts-${type}-annotations .vaniersel-charts-${type}-annotation-label[rel='${index}']`
     )
     const elRect = this.helpers.addBackgroundToAnno(axesAnnoLabel, anno)
     if (elRect) {
@@ -282,7 +282,7 @@ export default class Annotations {
   clearAnnotations(ctx) {
     const w = ctx.w
     let annos = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-yaxis-annotations, .apexcharts-xaxis-annotations, .apexcharts-point-annotations'
+      '.vaniersel-charts-yaxis-annotations, .vaniersel-charts-xaxis-annotations, .vaniersel-charts-point-annotations'
     )
 
     // annotations added externally should be cleared out too

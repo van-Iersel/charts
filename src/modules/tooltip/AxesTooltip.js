@@ -25,27 +25,29 @@ class AxesTooltip {
       ? w.globals.gridHeight + 1
       : -w.globals.xAxisHeight - w.config.xaxis.axisTicks.height + 3
     const tooltipCssClass = isBottom
-      ? 'apexcharts-xaxistooltip apexcharts-xaxistooltip-bottom'
-      : 'apexcharts-xaxistooltip apexcharts-xaxistooltip-top'
+      ? 'vaniersel-charts-xaxistooltip vaniersel-charts-xaxistooltip-bottom'
+      : 'vaniersel-charts-xaxistooltip vaniersel-charts-xaxistooltip-top'
 
     let renderTo = w.globals.dom.elWrap
 
     if (ttCtx.isXAxisTooltipEnabled) {
       let xaxisTooltip = w.globals.dom.baseEl.querySelector(
-        '.apexcharts-xaxistooltip'
+        '.vaniersel-charts-xaxistooltip'
       )
 
       if (xaxisTooltip === null) {
         ttCtx.xaxisTooltip = document.createElement('div')
         ttCtx.xaxisTooltip.setAttribute(
           'class',
-          tooltipCssClass + ' apexcharts-theme-' + w.config.tooltip.theme
+          tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme
         )
 
         renderTo.appendChild(ttCtx.xaxisTooltip)
 
         ttCtx.xaxisTooltipText = document.createElement('div')
-        ttCtx.xaxisTooltipText.classList.add('apexcharts-xaxistooltip-text')
+        ttCtx.xaxisTooltipText.classList.add(
+          'vaniersel-charts-xaxistooltip-text'
+        )
 
         ttCtx.xaxisTooltipText.style.fontFamily =
           w.config.xaxis.tooltip.style.fontFamily || w.config.chart.fontFamily
@@ -71,15 +73,15 @@ class AxesTooltip {
 
       ttCtx.yaxisOffX = isRight ? w.globals.gridWidth + 1 : 1
       let tooltipCssClass = isRight
-        ? `apexcharts-yaxistooltip apexcharts-yaxistooltip-${i} apexcharts-yaxistooltip-right`
-        : `apexcharts-yaxistooltip apexcharts-yaxistooltip-${i} apexcharts-yaxistooltip-left`
+        ? `vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-${i} vaniersel-charts-yaxistooltip-right`
+        : `vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-${i} vaniersel-charts-yaxistooltip-left`
 
       w.globals.yAxisSameScaleIndices.map((samescales, ssi) => {
         samescales.map((s, si) => {
           if (si === i) {
             tooltipCssClass += w.config.yaxis[si].show
               ? ` `
-              : ` apexcharts-yaxistooltip-hidden`
+              : ` vaniersel-charts-yaxistooltip-hidden`
           }
         })
       })
@@ -87,14 +89,14 @@ class AxesTooltip {
       let renderTo = w.globals.dom.elWrap
 
       let yaxisTooltip = w.globals.dom.baseEl.querySelector(
-        `.apexcharts-yaxistooltip apexcharts-yaxistooltip-${i}`
+        `.vaniersel-charts-yaxistooltip vaniersel-charts-yaxistooltip-${i}`
       )
 
       if (yaxisTooltip === null) {
         ttCtx.yaxisTooltip = document.createElement('div')
         ttCtx.yaxisTooltip.setAttribute(
           'class',
-          tooltipCssClass + ' apexcharts-theme-' + w.config.tooltip.theme
+          tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme
         )
 
         renderTo.appendChild(ttCtx.yaxisTooltip)
@@ -102,7 +104,9 @@ class AxesTooltip {
         if (i === 0) ttCtx.yaxisTooltipText = []
 
         ttCtx.yaxisTooltipText[i] = document.createElement('div')
-        ttCtx.yaxisTooltipText[i].classList.add('apexcharts-yaxistooltip-text')
+        ttCtx.yaxisTooltipText[i].classList.add(
+          'vaniersel-charts-yaxistooltip-text'
+        )
 
         ttCtx.yaxisTooltip.appendChild(ttCtx.yaxisTooltipText[i])
       }
@@ -125,7 +129,9 @@ class AxesTooltip {
         let count = w.globals.labels.length
         ttCtx.xcrosshairsWidth = w.globals.gridWidth / count
       } else if (w.config.xaxis.crosshairs.width === 'barWidth') {
-        let bar = w.globals.dom.baseEl.querySelector('.apexcharts-bar-area')
+        let bar = w.globals.dom.baseEl.querySelector(
+          '.vaniersel-charts-bar-area'
+        )
         if (bar !== null) {
           let barWidth = parseFloat(bar.getAttribute('barWidth'))
           ttCtx.xcrosshairsWidth = barWidth
@@ -134,7 +140,7 @@ class AxesTooltip {
         }
       }
     } else {
-      let bar = w.globals.dom.baseEl.querySelector('.apexcharts-bar-area')
+      let bar = w.globals.dom.baseEl.querySelector('.vaniersel-charts-bar-area')
       if (bar !== null && w.config.xaxis.crosshairs.width === 'barWidth') {
         let barWidth = parseFloat(bar.getAttribute('barWidth'))
         ttCtx.xcrosshairsWidth = barWidth
@@ -160,11 +166,11 @@ class AxesTooltip {
 
     // set ycrosshairs height
     ttCtx.ycrosshairs = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-ycrosshairs'
+      '.vaniersel-charts-ycrosshairs'
     )
 
     ttCtx.ycrosshairsHidden = w.globals.dom.baseEl.querySelector(
-      '.apexcharts-ycrosshairs-hidden'
+      '.vaniersel-charts-ycrosshairs-hidden'
     )
   }
 

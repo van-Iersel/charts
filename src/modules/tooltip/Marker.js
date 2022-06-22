@@ -26,7 +26,9 @@ export default class Marker {
     let graphics = new Graphics(this.ctx)
     let marker = new Markers(this.ctx)
 
-    let elsSeries = w.globals.dom.baseEl.querySelectorAll('.apexcharts-series')
+    let elsSeries = w.globals.dom.baseEl.querySelectorAll(
+      '.vaniersel-charts-series'
+    )
 
     elsSeries = [...elsSeries]
 
@@ -41,14 +43,14 @@ export default class Marker {
 
     for (let i = 0; i < elsSeries.length; i++) {
       let pointsMain = elsSeries[i].querySelector(
-        `.apexcharts-series-markers-wrap`
+        `.vaniersel-charts-series-markers-wrap`
       )
 
       if (pointsMain !== null) {
         // it can be null as we have tooltips in donut/bar charts
         let point
 
-        let PointClasses = `apexcharts-marker w${(Math.random() + 1)
+        let PointClasses = `vaniersel-charts-marker w${(Math.random() + 1)
           .toString(36)
           .substring(4)}`
         if (
@@ -69,7 +71,7 @@ export default class Marker {
         point.node.setAttribute('default-marker-size', 0)
 
         let elPointsG = document.createElementNS(w.globals.SVGNS, 'g')
-        elPointsG.classList.add('apexcharts-series-markers')
+        elPointsG.classList.add('vaniersel-charts-series-markers')
 
         elPointsG.appendChild(point.node)
         pointsMain.appendChild(elPointsG)
@@ -114,7 +116,7 @@ export default class Marker {
     let col = j
 
     let points = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-series:not(.apexcharts-series-collapsed) .apexcharts-marker'
+      '.vaniersel-charts-series:not(.vaniersel-charts-series-collapsed) .vaniersel-charts-marker'
     )
 
     let newSize = w.config.markers.hover.size
@@ -173,7 +175,7 @@ export default class Marker {
     let w = this.w
 
     let points = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-series:not(.apexcharts-series-collapsed) .apexcharts-marker'
+      '.vaniersel-charts-series:not(.vaniersel-charts-series-collapsed) .vaniersel-charts-marker'
     )
 
     for (let p = 0; p < points.length; p++) {

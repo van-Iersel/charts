@@ -40,7 +40,7 @@ class Filters {
     // but, ignore marker as marker don't have dropshadow yet
     if (
       w.config.chart.dropShadow.enabled &&
-      !el.node.classList.contains('apexcharts-marker')
+      !el.node.classList.contains('vaniersel-charts-marker')
     ) {
       this.dropShadow(el, w.config.chart.dropShadow, i)
     }

@@ -48,7 +48,7 @@ class Exports {
 
   getSvgString(scale) {
     if (scale == undefined) {
-        scale = 1; // if no scale is specified, don't scale...
+      scale = 1 // if no scale is specified, don't scale...
     }
     let svgString = this.w.globals.dom.Paper.svg()
     // in case the scale is different than 1, the svg needs to be rescaled
@@ -68,13 +68,13 @@ class Exports {
 
     // hide some elements to avoid printing them on exported svg
     const xcrosshairs = w.globals.dom.baseEl.getElementsByClassName(
-      'apexcharts-xcrosshairs'
+      'vaniersel-charts-xcrosshairs'
     )
     const ycrosshairs = w.globals.dom.baseEl.getElementsByClassName(
-      'apexcharts-ycrosshairs'
+      'vaniersel-charts-ycrosshairs'
     )
     const zoomSelectionRects = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-zoom-rect, .apexcharts-selection-rect'
+      '.vaniersel-charts-zoom-rect, .vaniersel-charts-selection-rect'
     )
     Array.prototype.forEach.call(zoomSelectionRects, (z) => {
       z.setAttribute('width', 0)

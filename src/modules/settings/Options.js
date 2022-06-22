@@ -230,7 +230,7 @@ export default class Options {
       fontSize: '13px',
       fontFamily: undefined,
       fontWeight: 400,
-      appendTo: '.apexcharts-annotations',
+      appendTo: '.vaniersel-charts-annotations',
       backgroundColor: 'transparent',
       borderColor: '#c2c2c2',
       borderRadius: 0,

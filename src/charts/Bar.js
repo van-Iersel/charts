@@ -59,7 +59,7 @@ class Bar {
     this.barHelpers.initVariables(series)
 
     let ret = graphics.group({
-      class: 'apexcharts-bar-series apexcharts-plot-series'
+      class: 'vaniersel-charts-bar-series vaniersel-charts-plot-series'
     })
 
     if (w.config.dataLabels.enabled) {
@@ -85,7 +85,7 @@ class Bar {
 
       // el to which series will be drawn
       let elSeries = graphics.group({
-        class: `apexcharts-series`,
+        class: `vaniersel-charts-series`,
         rel: i + 1,
         seriesName: Utils.escapeString(w.globals.seriesNames[realIndex]),
         'data:realIndex': realIndex
@@ -126,12 +126,12 @@ class Bar {
 
       // eldatalabels
       let elDataLabelsWrap = graphics.group({
-        class: 'apexcharts-datalabels',
+        class: 'vaniersel-charts-datalabels',
         'data:realIndex': realIndex
       })
 
       let elGoalsMarkers = graphics.group({
-        class: 'apexcharts-bar-goals-markers',
+        class: 'vaniersel-charts-bar-goals-markers',
         style: `pointer-events: none`
       })
 
@@ -284,7 +284,7 @@ class Bar {
       animationDelay: delay,
       initialSpeed: w.config.chart.animations.speed,
       dataChangeSpeed: w.config.chart.animations.dynamicAnimation.speed,
-      className: `apexcharts-${type}-area`
+      className: `vaniersel-charts-${type}-area`
     })
 
     renderedPath.attr('clip-path', `url(#gridRectMask${w.globals.cuid})`)

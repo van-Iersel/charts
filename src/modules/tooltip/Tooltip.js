@@ -41,15 +41,17 @@ export default class Tooltip {
     if (!ctx) ctx = this
     if (!ctx.w.globals.dom.baseEl) return null
 
-    return ctx.w.globals.dom.baseEl.querySelector('.apexcharts-tooltip')
+    return ctx.w.globals.dom.baseEl.querySelector('.vaniersel-charts-tooltip')
   }
 
   getElXCrosshairs() {
-    return this.w.globals.dom.baseEl.querySelector('.apexcharts-xcrosshairs')
+    return this.w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-xcrosshairs'
+    )
   }
 
   getElGrid() {
-    return this.w.globals.dom.baseEl.querySelector('.apexcharts-grid')
+    return this.w.globals.dom.baseEl.querySelector('.vaniersel-charts-grid')
   }
 
   drawTooltip(xyRatios) {
@@ -67,11 +69,11 @@ export default class Tooltip {
     }
 
     const tooltipEl = document.createElement('div')
-    tooltipEl.classList.add('apexcharts-tooltip')
+    tooltipEl.classList.add('vaniersel-charts-tooltip')
     if (w.config.tooltip.cssClass) {
       tooltipEl.classList.add(w.config.tooltip.cssClass)
     }
-    tooltipEl.classList.add(`apexcharts-theme-${this.tConfig.theme}`)
+    tooltipEl.classList.add(`vaniersel-charts-theme-${this.tConfig.theme}`)
     w.globals.dom.elWrap.appendChild(tooltipEl)
 
     if (w.globals.axisCharts) {
@@ -107,7 +109,7 @@ export default class Tooltip {
 
     if (this.showTooltipTitle) {
       this.tooltipTitle = document.createElement('div')
-      this.tooltipTitle.classList.add('apexcharts-tooltip-title')
+      this.tooltipTitle.classList.add('vaniersel-charts-tooltip-title')
       this.tooltipTitle.style.fontFamily =
         this.tConfig.style.fontFamily || w.config.chart.fontFamily
       this.tooltipTitle.style.fontSize = this.tConfig.style.fontSize
@@ -124,7 +126,7 @@ export default class Tooltip {
     }
 
     this.legendLabels = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-legend-text'
+      '.vaniersel-charts-legend-text'
     )
 
     this.ttItems = this.createTTElements(ttItemsCnt)
@@ -138,7 +140,7 @@ export default class Tooltip {
     const tooltipEl = this.getElTooltip()
     for (let i = 0; i < ttItemsCnt; i++) {
       let gTxt = document.createElement('div')
-      gTxt.classList.add('apexcharts-tooltip-series-group')
+      gTxt.classList.add('vaniersel-charts-tooltip-series-group')
       gTxt.style.order = w.config.tooltip.inverseOrder ? ttItemsCnt - i : i + 1
       if (
         this.tConfig.shared &&
@@ -146,31 +148,31 @@ export default class Tooltip {
         Array.isArray(this.tConfig.enabledOnSeries)
       ) {
         if (this.tConfig.enabledOnSeries.indexOf(i) < 0) {
-          gTxt.classList.add('apexcharts-tooltip-series-group-hidden')
+          gTxt.classList.add('vaniersel-charts-tooltip-series-group-hidden')
         }
       }
 
       let point = document.createElement('span')
-      point.classList.add('apexcharts-tooltip-marker')
+      point.classList.add('vaniersel-charts-tooltip-marker')
       point.style.backgroundColor = w.globals.colors[i]
       gTxt.appendChild(point)
 
       const gYZ = document.createElement('div')
-      gYZ.classList.add('apexcharts-tooltip-text')
+      gYZ.classList.add('vaniersel-charts-tooltip-text')
 
       gYZ.style.fontFamily =
         this.tConfig.style.fontFamily || w.config.chart.fontFamily
       gYZ.style.fontSize = this.tConfig.style.fontSize
       ;['y', 'goals', 'z'].forEach((g) => {
         const gValText = document.createElement('div')
-        gValText.classList.add(`apexcharts-tooltip-${g}-group`)
+        gValText.classList.add(`vaniersel-charts-tooltip-${g}-group`)
 
         let txtLabel = document.createElement('span')
-        txtLabel.classList.add(`apexcharts-tooltip-text-${g}-label`)
+        txtLabel.classList.add(`vaniersel-charts-tooltip-text-${g}-label`)
         gValText.appendChild(txtLabel)
 
         let txtValue = document.createElement('span')
-        txtValue.classList.add(`apexcharts-tooltip-text-${g}-value`)
+        txtValue.classList.add(`vaniersel-charts-tooltip-text-${g}-value`)
         gValText.appendChild(txtValue)
 
         gYZ.appendChild(gValText)
@@ -229,15 +231,15 @@ export default class Tooltip {
     if (w.globals.axisCharts) {
       if (chartWithmarkers) {
         points = w.globals.dom.baseEl.querySelectorAll(
-          ".apexcharts-series[data\\:longestSeries='true'] .apexcharts-marker"
+          ".vaniersel-charts-series[data\\:longestSeries='true'] .vaniersel-charts-marker"
         )
       } else if (commonBar) {
         points = w.globals.dom.baseEl.querySelectorAll(
-          '.apexcharts-series .apexcharts-bar-area, .apexcharts-series .apexcharts-candlestick-area, .apexcharts-series .apexcharts-boxPlot-area, .apexcharts-series .apexcharts-rangebar-area'
+          '.vaniersel-charts-series .vaniersel-charts-bar-area, .vaniersel-charts-series .vaniersel-charts-candlestick-area, .vaniersel-charts-series .vaniersel-charts-boxPlot-area, .vaniersel-charts-series .vaniersel-charts-rangebar-area'
         )
       } else if (type === 'heatmap' || type === 'treemap') {
         points = w.globals.dom.baseEl.querySelectorAll(
-          '.apexcharts-series .apexcharts-heatmap, .apexcharts-series .apexcharts-treemap'
+          '.vaniersel-charts-series .vaniersel-charts-heatmap, .vaniersel-charts-series .vaniersel-charts-treemap'
         )
       }
 
@@ -267,14 +269,14 @@ export default class Tooltip {
       type === 'treemap'
     ) {
       let seriesAll = w.globals.dom.baseEl.querySelectorAll(
-        '.apexcharts-series'
+        '.vaniersel-charts-series'
       )
       this.addPathsEventListeners(seriesAll, seriesHoverParams)
     }
 
     if (this.showOnIntersect) {
       let lineAreaPoints = w.globals.dom.baseEl.querySelectorAll(
-        '.apexcharts-line-series .apexcharts-marker, .apexcharts-area-series .apexcharts-marker'
+        '.vaniersel-charts-line-series .vaniersel-charts-marker, .vaniersel-charts-area-series .vaniersel-charts-marker'
       )
       if (lineAreaPoints.length > 0) {
         // if we find any lineSeries, addEventListeners for them
@@ -323,7 +325,7 @@ export default class Tooltip {
   addDatapointEventsListeners(seriesHoverParams) {
     let w = this.w
     let points = w.globals.dom.baseEl.querySelectorAll(
-      '.apexcharts-series-markers .apexcharts-marker, .apexcharts-bar-area, .apexcharts-candlestick-area, .apexcharts-boxPlot-area, .apexcharts-rangebar-area'
+      '.vaniersel-charts-series-markers .vaniersel-charts-marker, .vaniersel-charts-bar-area, .vaniersel-charts-candlestick-area, .vaniersel-charts-boxPlot-area, .vaniersel-charts-rangebar-area'
     )
     this.addPathsEventListeners(points, seriesHoverParams)
   }
@@ -544,14 +546,14 @@ export default class Tooltip {
       }
 
       if (xcrosshairs !== null) {
-        xcrosshairs.classList.add('apexcharts-active')
+        xcrosshairs.classList.add('vaniersel-charts-active')
       }
 
       const hasYAxisTooltip = this.yaxisTooltips.filter((b) => {
         return b === true
       })
       if (this.ycrosshairs !== null && hasYAxisTooltip.length) {
-        this.ycrosshairs.classList.add('apexcharts-active')
+        this.ycrosshairs.classList.add('vaniersel-charts-active')
       }
 
       if (isStickyTooltip && !this.showOnIntersect) {
@@ -599,7 +601,7 @@ export default class Tooltip {
         }
       }
 
-      opt.tooltipEl.classList.add('apexcharts-active')
+      opt.tooltipEl.classList.add('vaniersel-charts-active')
     } else if (e.type === 'mouseout' || e.type === 'touchend') {
       this.handleMouseOut(opt)
     }
@@ -615,7 +617,7 @@ export default class Tooltip {
     let seriesBound = w.globals.dom.elWrap.getBoundingClientRect()
 
     if (e.type === 'mousemove' || e.type === 'touchmove') {
-      tooltipEl.classList.add('apexcharts-active')
+      tooltipEl.classList.add('vaniersel-charts-active')
 
       this.tooltipLabels.drawSeriesTexts({
         ttItems: opt.ttItems,
@@ -646,7 +648,7 @@ export default class Tooltip {
         this.legendLabels[i].innerHTML = text
       }
     } else if (e.type === 'mouseout' || e.type === 'touchend') {
-      tooltipEl.classList.remove('apexcharts-active')
+      tooltipEl.classList.remove('vaniersel-charts-active')
       if (w.config.legend.tooltipHoverFormatter) {
         this.legendLabels.forEach((l) => {
           const defaultText = l.getAttribute('data:default-text')
@@ -717,7 +719,7 @@ export default class Tooltip {
     let w = this.w
     let graphics = new Graphics(this.ctx)
 
-    let allPaths = w.globals.dom.Paper.select(`.apexcharts-bar-area`)
+    let allPaths = w.globals.dom.Paper.select(`.vaniersel-charts-bar-area`)
 
     for (let b = 0; b < allPaths.length; b++) {
       graphics.pathMouseLeave(allPaths[b])
@@ -729,28 +731,28 @@ export default class Tooltip {
 
     const xcrosshairs = this.getElXCrosshairs()
 
-    opt.tooltipEl.classList.remove('apexcharts-active')
+    opt.tooltipEl.classList.remove('vaniersel-charts-active')
     this.deactivateHoverFilter()
     if (w.config.chart.type !== 'bubble') {
       this.marker.resetPointsSize()
     }
     if (xcrosshairs !== null) {
-      xcrosshairs.classList.remove('apexcharts-active')
+      xcrosshairs.classList.remove('vaniersel-charts-active')
     }
     if (this.ycrosshairs !== null) {
-      this.ycrosshairs.classList.remove('apexcharts-active')
+      this.ycrosshairs.classList.remove('vaniersel-charts-active')
     }
     if (this.isXAxisTooltipEnabled) {
-      this.xaxisTooltip.classList.remove('apexcharts-active')
+      this.xaxisTooltip.classList.remove('vaniersel-charts-active')
     }
     if (this.yaxisTooltips.length) {
       if (this.yaxisTTEls === null) {
         this.yaxisTTEls = w.globals.dom.baseEl.querySelectorAll(
-          '.apexcharts-yaxistooltip'
+          '.vaniersel-charts-yaxistooltip'
         )
       }
       for (let i = 0; i < this.yaxisTTEls.length; i++) {
-        this.yaxisTTEls[i].classList.remove('apexcharts-active')
+        this.yaxisTTEls[i].classList.remove('vaniersel-charts-active')
       }
     }
 
@@ -853,7 +855,7 @@ export default class Tooltip {
           // hover state, activate snap filter
           let graphics = new Graphics(this.ctx)
           let paths = w.globals.dom.Paper.select(
-            `.apexcharts-bar-area[j='${j}']`
+            `.vaniersel-charts-bar-area[j='${j}']`
           )
 
           // de-activate first

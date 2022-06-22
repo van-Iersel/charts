@@ -16,12 +16,14 @@ export default class Series {
   }
 
   getAllSeriesEls() {
-    return this.w.globals.dom.baseEl.getElementsByClassName(`apexcharts-series`)
+    return this.w.globals.dom.baseEl.getElementsByClassName(
+      `vaniersel-charts-series`
+    )
   }
 
   getSeriesByName(seriesName) {
     return this.w.globals.dom.baseEl.querySelector(
-      `.apexcharts-inner .apexcharts-series[seriesName='${Utils.escapeString(
+      `.vaniersel-charts-inner .vaniersel-charts-series[seriesName='${Utils.escapeString(
         seriesName
       )}']`
     )
@@ -31,7 +33,7 @@ export default class Series {
     const targetElement = this.getSeriesByName(seriesName)
     let realIndex = parseInt(targetElement.getAttribute('data:realIndex'), 10)
     let isHidden = targetElement.classList.contains(
-      'apexcharts-series-collapsed'
+      'vaniersel-charts-series-collapsed'
     )
 
     return { isHidden, realIndex }
@@ -42,7 +44,7 @@ export default class Series {
     function iterateOnAllCollapsedSeries(series) {
       for (let cs = 0; cs < series.length; cs++) {
         if (series[cs].index === index) {
-          elSeries.node.classList.add('apexcharts-series-collapsed')
+          elSeries.node.classList.add('vaniersel-charts-series-collapsed')
         }
       }
     }
@@ -133,7 +135,7 @@ export default class Series {
     if (!targetElement) targetElement = e.target
 
     let allSeriesEls = w.globals.dom.baseEl.querySelectorAll(
-      `.apexcharts-series, .apexcharts-datalabels`
+      `.vaniersel-charts-series, .vaniersel-charts-datalabels`
     )
 
     if (e.type === 'mousemove') {
@@ -144,19 +146,19 @@ export default class Series {
       if (w.globals.axisCharts || w.config.chart.type === 'radialBar') {
         if (w.globals.axisCharts) {
           seriesEl = w.globals.dom.baseEl.querySelector(
-            `.apexcharts-series[data\\:realIndex='${seriesCnt}']`
+            `.vaniersel-charts-series[data\\:realIndex='${seriesCnt}']`
           )
           dataLabelEl = w.globals.dom.baseEl.querySelector(
-            `.apexcharts-datalabels[data\\:realIndex='${seriesCnt}']`
+            `.vaniersel-charts-datalabels[data\\:realIndex='${seriesCnt}']`
           )
         } else {
           seriesEl = w.globals.dom.baseEl.querySelector(
-            `.apexcharts-series[rel='${seriesCnt + 1}']`
+            `.vaniersel-charts-series[rel='${seriesCnt + 1}']`
           )
         }
       } else {
         seriesEl = w.globals.dom.baseEl.querySelector(
-          `.apexcharts-series[rel='${seriesCnt + 1}'] path`
+          `.vaniersel-charts-series[rel='${seriesCnt + 1}'] path`
         )
       }
 
@@ -184,7 +186,7 @@ export default class Series {
   highlightRangeInSeries(e, targetElement) {
     const w = this.w
     const allHeatMapElements = w.globals.dom.baseEl.getElementsByClassName(
-      'apexcharts-heatmap-rect'
+      'vaniersel-charts-heatmap-rect'
     )
 
     const activeInactive = (action) => {
@@ -272,7 +274,7 @@ export default class Series {
 
     const getPaths = (chartType) => {
       return w.globals.dom.baseEl.querySelectorAll(
-        `.apexcharts-${chartType}-series .apexcharts-series`
+        `.vaniersel-charts-${chartType}-series .vaniersel-charts-series`
       )
     }
 
@@ -295,13 +297,13 @@ export default class Series {
     this.handlePrevBubbleScatterPaths('scatter')
 
     let heatTreeSeries = w.globals.dom.baseEl.querySelectorAll(
-      `.apexcharts-${w.config.chart.type} .apexcharts-series`
+      `.vaniersel-charts-${w.config.chart.type} .vaniersel-charts-series`
     )
 
     if (heatTreeSeries.length > 0) {
       for (let h = 0; h < heatTreeSeries.length; h++) {
         let seriesEls = w.globals.dom.baseEl.querySelectorAll(
-          `.apexcharts-${w.config.chart.type} .apexcharts-series[data\\:realIndex='${h}'] rect`
+          `.vaniersel-charts-${w.config.chart.type} .vaniersel-charts-series[data\\:realIndex='${h}'] rect`
         )
 
         let dArr = []
@@ -334,12 +336,12 @@ export default class Series {
   handlePrevBubbleScatterPaths(type) {
     const w = this.w
     let paths = w.globals.dom.baseEl.querySelectorAll(
-      `.apexcharts-${type}-series .apexcharts-series`
+      `.vaniersel-charts-${type}-series .vaniersel-charts-series`
     )
     if (paths.length > 0) {
       for (let s = 0; s < paths.length; s++) {
         let seriesEls = w.globals.dom.baseEl.querySelectorAll(
-          `.apexcharts-${type}-series .apexcharts-series[data\\:realIndex='${s}'] circle`
+          `.vaniersel-charts-${type}-series .vaniersel-charts-series[data\\:realIndex='${s}'] circle`
         )
         let dArr = []
 
@@ -402,7 +404,7 @@ export default class Series {
         fontFamily: noDataOpts.style.fontFamily,
         foreColor: noDataOpts.style.color,
         opacity: 1,
-        class: 'apexcharts-text-nodata'
+        class: 'vaniersel-charts-text-nodata'
       })
 
       w.globals.dom.Paper.add(titleText)

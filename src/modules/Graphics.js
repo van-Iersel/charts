@@ -538,7 +538,7 @@ class Graphics {
       'font-family': fontFamily,
       'font-weight': fontWeight,
       fill: foreColor,
-      class: 'apexcharts-text ' + cssClass
+      class: 'vaniersel-charts-text ' + cssClass
     })
 
     elText.node.style.fontFamily = fontFamily
@@ -688,10 +688,11 @@ class Graphics {
         w.globals.selectedDataPoints.length > 0
       ) {
         w.globals.selectedDataPoints = []
-        const elPaths = w.globals.dom.Paper.select('.apexcharts-series path')
-          .members
+        const elPaths = w.globals.dom.Paper.select(
+          '.vaniersel-charts-series path'
+        ).members
         const elCircles = w.globals.dom.Paper.select(
-          '.apexcharts-series circle, .apexcharts-series rect'
+          '.vaniersel-charts-series circle, .vaniersel-charts-series rect'
         ).members
 
         const deSelect = (els) => {
