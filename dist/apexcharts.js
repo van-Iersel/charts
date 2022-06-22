@@ -31180,11 +31180,11 @@
 
               var inShadowRoot = Utils$1.is('ShadowRoot', rootNode);
               var doc = _this.el.ownerDocument;
-              var globalCSS = doc.getElementById('apexcharts-css');
+              var globalCSS = doc.getElementById('vaniersel-charts-css');
 
               if (inShadowRoot || !globalCSS) {
                 _this.css = document.createElement('style');
-                _this.css.id = 'apexcharts-css';
+                _this.css.id = 'vaniersel-charts-css';
                 _this.css.textContent = css_248z;
 
                 if (inShadowRoot) {
@@ -31754,7 +31754,7 @@
     }, {
       key: "getChartArea",
       value: function getChartArea() {
-        var el = this.w.globals.dom.baseEl.querySelector('.apexcharts-inner');
+        var el = this.w.globals.dom.baseEl.querySelector('.vaniersel-charts-inner');
         return el;
       }
     }, {

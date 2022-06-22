@@ -78,11 +78,11 @@ export default class ApexCharts {
           let rootNode = this.el.getRootNode && this.el.getRootNode()
           let inShadowRoot = Utils.is('ShadowRoot', rootNode)
           let doc = this.el.ownerDocument
-          let globalCSS = doc.getElementById('apexcharts-css')
+          let globalCSS = doc.getElementById('vaniersel-charts-css')
 
           if (inShadowRoot || !globalCSS) {
             this.css = document.createElement('style')
-            this.css.id = 'apexcharts-css'
+            this.css.id = 'vaniersel-charts-css'
             this.css.textContent = apexCSS
 
             if (inShadowRoot) {
@@ -680,7 +680,9 @@ export default class ApexCharts {
   }
 
   getChartArea() {
-    const el = this.w.globals.dom.baseEl.querySelector('.apexcharts-inner')
+    const el = this.w.globals.dom.baseEl.querySelector(
+      '.vaniersel-charts-inner'
+    )
 
     return el
   }
