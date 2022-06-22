@@ -211,14 +211,6 @@ npm run build
 
 Head over to the <a href="https://apexcharts.com/docs/">documentation</a> section to read more about how to use different kinds of charts and explore all options.
 
-## Contacts
-
-Email: <a href="info@apexcharts.com">info@apexcharts.com</a>
-
-Twitter: <a href="https://twitter.com/apexcharts">@apexcharts</a>
-
-Facebook: <a href="https://facebook.com/apexcharts">fb.com/apexcharts</a>
-
 ## Dependency
 
 ApexCharts uses <a href="https://svgdotjs.github.io/" target="_blank">SVG.js</a> for drawing shapes, animations, applying svg filters and a lot more under the hood. The library is bundled in the final build file, so you don't need to include it.
