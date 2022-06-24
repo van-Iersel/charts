@@ -82,7 +82,7 @@
   cursor: default;
   font-size: var(--tooltip-font-size);
   left: 62px;
-  opacity: 1; /* TODO: Turn back to 0 after you're done */
+  opacity: 0; /* TODO: Turn back to 0 after you're done */
   pointer-events: none;
   position: absolute;
   top: 20px;
@@ -94,6 +94,7 @@
   transition: 0.15s ease all;
   padding-bottom: 8px;
   line-height: 1.5;
+
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-active {

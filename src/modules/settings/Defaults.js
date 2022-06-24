@@ -643,7 +643,6 @@ export default class Defaults {
         }
       },
       tooltip: {
-        theme: 'dark',
         fillSeriesColor: true
       },
       legend: {
@@ -687,7 +686,6 @@ export default class Defaults {
         }
       },
       tooltip: {
-        theme: 'dark',
         fillSeriesColor: true
       },
       legend: {
