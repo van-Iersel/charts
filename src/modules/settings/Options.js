@@ -905,7 +905,7 @@ export default class Options {
         theme: 'light',
         cssClass: '',
         style: {
-          fontSize: '14px',
+          // fontSize: '14px',
           fontFamily: undefined
         },
         onDatasetHover: {
