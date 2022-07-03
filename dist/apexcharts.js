@@ -3211,7 +3211,7 @@
         fontSize: '13px',
         fontFamily: undefined,
         fontWeight: 400,
-        appendTo: '.vaniersel-charts-annotations',
+        appendTo: '.apexcharts-annotations',
         backgroundColor: 'transparent',
         borderColor: '#c2c2c2',
         borderRadius: 0,
@@ -3283,7 +3283,8 @@
               scrolled: undefined,
               brushScrolled: undefined
             },
-            fontFamily: 'inherit',
+            foreColor: '#373d3f',
+            fontFamily: 'Helvetica, Arial, sans-serif',
             height: 'auto',
             parentHeightOffset: 15,
             redrawOnParentResize: true,
@@ -3389,7 +3390,7 @@
               barHeight: '70%',
               // should be in percent 0 - 100
               distributed: false,
-              borderRadius: 8,
+              borderRadius: 0,
               rangeBarOverlap: true,
               rangeBarGroupRows: false,
               colors: {
@@ -3663,7 +3664,7 @@
             }
           },
           fill: {
-            type: 'fill',
+            type: 'solid',
             colors: undefined,
             // array of colors
             opacity: 0.85,
@@ -3701,8 +3702,8 @@
           },
           grid: {
             show: true,
-            borderColor: '#e5e7eb',
-            strokeDashArray: 4,
+            borderColor: '#e0e0e0',
+            strokeDashArray: 0,
             position: 'back',
             xaxis: {
               lines: {
@@ -3733,7 +3734,7 @@
           },
           labels: [],
           legend: {
-            show: false,
+            show: true,
             showForSingleSeries: false,
             showForNullSeries: true,
             showForZeroSeries: true,
@@ -3803,8 +3804,8 @@
             onDblClick: undefined,
             showNullDataPoints: true,
             hover: {
-              size: 4,
-              sizeOffset: 4
+              size: undefined,
+              sizeOffset: 3
             }
           },
           noData: {
@@ -3852,7 +3853,7 @@
             floating: false,
             style: {
               fontSize: '14px',
-              fontWeight: 600,
+              fontWeight: 900,
               fontFamily: undefined,
               color: undefined
             }
@@ -3862,7 +3863,7 @@
             align: 'left',
             margin: 5,
             offsetX: 0,
-            offsetY: 15,
+            offsetY: 30,
             floating: false,
             style: {
               fontSize: '12px',
@@ -3914,7 +3915,7 @@
             theme: 'light',
             cssClass: '',
             style: {
-              // fontSize: '14px',
+              fontSize: '12px',
               fontFamily: undefined
             },
             onDatasetHover: {
@@ -3932,7 +3933,7 @@
               formatter: undefined,
               title: {
                 formatter: function formatter(seriesName) {
-                  return seriesName;
+                  return seriesName ? seriesName + ': ' : '';
                 }
               }
             },
@@ -4005,7 +4006,7 @@
               }
             },
             axisBorder: {
-              show: false,
+              show: true,
               color: '#e0e0e0',
               width: '100%',
               height: 1,
@@ -4013,7 +4014,7 @@
               offsetY: 0
             },
             axisTicks: {
-              show: false,
+              show: true,
               color: '#e0e0e0',
               height: 6,
               offsetX: 0,
@@ -4071,7 +4072,7 @@
               }
             },
             tooltip: {
-              enabled: false,
+              enabled: true,
               offsetY: 0,
               formatter: undefined,
               style: {
@@ -8003,7 +8004,7 @@
             tooltip: {
               enabled: false
             },
-            tickPlacement: 'on',
+            tickPlacement: 'between',
             crosshairs: {
               width: 'barWidth',
               position: 'back',
@@ -8148,7 +8149,7 @@
           },
           plotOptions: {
             bar: {
-              borderRadius: 8,
+              borderRadius: 0,
               dataLabels: {
                 position: 'center'
               }
@@ -8184,7 +8185,7 @@
             }
           },
           xaxis: {
-            tickPlacement: 'on',
+            tickPlacement: 'between',
             tooltip: {
               enabled: false
             },
@@ -8201,7 +8202,7 @@
       value: function area() {
         return {
           stroke: {
-            width: 2,
+            width: 4,
             fill: {
               type: 'solid',
               gradient: {
@@ -8513,6 +8514,7 @@
             }
           },
           tooltip: {
+            theme: 'dark',
             fillSeriesColor: true
           },
           legend: {
@@ -8557,6 +8559,7 @@
             }
           },
           tooltip: {
+            theme: 'dark',
             fillSeriesColor: true
           },
           legend: {
@@ -8691,9 +8694,9 @@
         var c = w.globals.seriesCandleC[seriesIndex][dataPointIndex];
 
         if (w.config.series[seriesIndex].type && w.config.series[seriesIndex].type !== chartType) {
-          return "<div class=\"vaniersel-charts-custom-tooltip\">\n          ".concat(w.config.series[seriesIndex].name ? w.config.series[seriesIndex].name : 'series-' + (seriesIndex + 1), ": <strong>").concat(w.globals.series[seriesIndex][dataPointIndex], "</strong>\n        </div>");
+          return "<div class=\"apexcharts-custom-tooltip\">\n          ".concat(w.config.series[seriesIndex].name ? w.config.series[seriesIndex].name : 'series-' + (seriesIndex + 1), ": <strong>").concat(w.globals.series[seriesIndex][dataPointIndex], "</strong>\n        </div>");
         } else {
-          return "<div class=\"vaniersel-charts-tooltip-box vaniersel-charts-tooltip-".concat(w.config.chart.type, "\">") + "<div>".concat(labels[0], ": <span class=\"value\">") + o + '</span></div>' + "<div>".concat(labels[1], ": <span class=\"value\">") + h + '</span></div>' + (m ? "<div>".concat(labels[2], ": <span class=\"value\">") + m + '</span></div>' : '') + "<div>".concat(labels[3], ": <span class=\"value\">") + l + '</span></div>' + "<div>".concat(labels[4], ": <span class=\"value\">") + c + '</span></div>' + '</div>';
+          return "<div class=\"apexcharts-tooltip-box apexcharts-tooltip-".concat(w.config.chart.type, "\">") + "<div>".concat(labels[0], ": <span class=\"value\">") + o + '</span></div>' + "<div>".concat(labels[1], ": <span class=\"value\">") + h + '</span></div>' + (m ? "<div>".concat(labels[2], ": <span class=\"value\">") + m + '</span></div>' : '') + "<div>".concat(labels[3], ": <span class=\"value\">") + l + '</span></div>' + "<div>".concat(labels[4], ": <span class=\"value\">") + c + '</span></div>' + '</div>';
         }
       }
     }]);
@@ -9058,7 +9061,7 @@
       value: function globalVars(config) {
         return {
           chartID: null,
-          // chart ID - vaniersel-charts-cuid
+          // chart ID - apexcharts-cuid
           cuid: null,
           // chart ID - random numbers excluding "apexcharts" part
           events: {
@@ -31107,7 +31110,7 @@
     }
   }
 
-  var css_248z = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');\n\n:root {\n  --font-family: 'Inter';\n  --label-color: #9ca3af;\n  --border-color: #f3f4f6;\n\n  --title-color: #374151;\n  --subtitle-color: #9ca3af;\n\n  --tooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%) !important;\n  --tooltip-background: #fff;\n  --tooltip-border: none;\n  --tooltip-border-radius: 4px;\n  --tooltip-font-size: 14px;\n  --tooltip-title-color: #374151;\n  --tooltip-title-font-size: 14px;\n  --tooltip-seperator: 1px solid var(--border-color);\n  --tooltip-value-color: #374151;\n  --tooltip-label-color: #6b7280;\n\n  --menu-background: #fff;\n  --menu-shadow: var(--tooltip-shadow);\n  --menu-border: var(--tooltip-border);\n  --menu-border-radius: 4px;\n  --menu-item-color: var(--label-color);\n  --menu-item-hover-color: #333;\n\n  --toolbar-icon-color: var(var(--label-color));\n  --toolbar-icon-hover-color: #333;\n  --toolbar-selected-color: #008FFB;\n}\n\n* {\n  box-sizing: border-box;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.vaniersel-charts-canvas {\n  font-family: var(--font-family);\n  position: relative;\n  user-select: none;\n  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */\n}\n\n\n/* scrollbar is not visible by default for legend, hence forcing the visibility */\n.vaniersel-charts-canvas::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 6px;\n}\n\n.vaniersel-charts-canvas::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: rgba(0, 0, 0, .5);\n  box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n}\n\n\n.vaniersel-charts-inner {\n  position: relative;\n}\n\n.vaniersel-charts-text tspan {\n  font-family: inherit;\n}\n\n.legend-mouseover-inactive {\n  transition: 0.15s ease all;\n  opacity: 0.20;\n}\n\n.vaniersel-charts-series-collapsed {\n  opacity: 0;\n}\n\n/* Tooltip */\n.vaniersel-charts-tooltip {\n  border-radius: var(--tooltip-border-radius);\n  box-shadow: var(--tooltip-shadow);\n  cursor: default;\n  font-size: var(--tooltip-font-size);\n  left: 62px;\n  opacity: 0; /* TODO: Turn back to 0 after you're done */\n  pointer-events: none;\n  position: absolute;\n  top: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  white-space: nowrap;\n  z-index: 12;\n  transition: 0.15s ease all;\n  padding-bottom: 8px;\n  line-height: 1.5;\n\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light {\n  border: var(--tooltip-border);\n  background: var(--tooltip-background);\n}\n\n/* .vaniersel-charts-tooltip.vaniersel-charts-theme-dark {\n  color: #fff;\n  background: rgba(30, 30, 30, 0.8);\n} */\n\n.vaniersel-charts-tooltip * {\n  font-family: inherit;\n}\n\n.vaniersel-charts-tooltip-title {\n  padding: 8px 16px;\n  font-size: var(--tooltip-title-font-size);\n  font-weight: 600;\n  color: var(--tooltip-title-color);\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light .vaniersel-charts-tooltip-title {\n  border-bottom: var(--tooltip-seperator);\n}\n\n/* .vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {\n  background: rgba(0, 0, 0, 0.7);\n  border-bottom: 1px solid #333;\n} */\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  display: inline-block;\n  font-weight: 500;\n  color: var(--tooltip-value-color);\n}\n\n.vaniersel-charts-tooltip-text-y-label {\n  color: var(--tooltip-label-color);\n  margin-left: 6px;\n}\n\n.vaniersel-charts-tooltip-title:empty,\n.vaniersel-charts-tooltip-text-y-label:empty,\n.vaniersel-charts-tooltip-text-y-value:empty,\n.vaniersel-charts-tooltip-text-goals-label:empty,\n.vaniersel-charts-tooltip-text-goals-value:empty,\n.vaniersel-charts-tooltip-text-z-value:empty {\n  display: none;\n}\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  font-weight: 500;\n}\n\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  padding: 6px 0 5px;\n}\n\n.vaniersel-charts-tooltip-goals-group,\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  display: flex;\n}\n.vaniersel-charts-tooltip-text-goals-label:not(:empty),\n.vaniersel-charts-tooltip-text-goals-value:not(:empty) {\n  margin-top: -6px;\n}\n\n.vaniersel-charts-tooltip-marker {\n  width: 10px;\n  height: 10px;\n  position: relative;\n  top: 0px;\n  margin-right: 12px;\n  border-radius: 50%;\n}\n\n.vaniersel-charts-tooltip-marker::after {\n  content: '';\n  width: 6px;\n  height: 6px;\n  position: absolute;\n  inset: 2px;\n  background: #fff;\n  border-radius: 100%;\n}\n\n.vaniersel-charts-tooltip-series-group {\n  padding: 0 16px;\n  display: none;\n  text-align: left;\n  justify-content: left;\n  align-items: center;\n  margin-top: 8px;\n}\n\n.vaniersel-charts-tooltip-series-group.vaniersel-charts-active .vaniersel-charts-tooltip-marker {\n  opacity: 1;\n}\n\n.vaniersel-charts-tooltip-series-group-hidden {\n  opacity: 0;\n  height: 0;\n  line-height: 0;\n  padding: 0 !important;\n}\n\n.vaniersel-charts-tooltip-y-group {\n  display: flex;\n  flex-direction: row-reverse;\n  align-items: center;\n}\n\n.vaniersel-charts-tooltip-box, .vaniersel-charts-custom-tooltip {\n  padding: 8px 16px 0px 16px;\n  color: var(--tooltip-label-color);\n}\n\n.vaniersel-charts-tooltip-boxPlot {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n.vaniersel-charts-tooltip-box span.value {\n  font-weight: 500;\n  color: var(--tooltip-value-color);\n}\n\n.vaniersel-charts-tooltip-rangebar {\n  padding: 5px 8px;\n}\n\n.vaniersel-charts-tooltip-rangebar .category {\n  font-weight: 600;\n  color: #777;\n}\n\n.vaniersel-charts-tooltip-rangebar .series-name {\n  font-weight: bold;\n  display: block;\n  margin-bottom: 5px;\n}\n\n/* X axis Tooltip */\n.vaniersel-charts-xaxistooltip {\n  opacity: 0;\n  padding: 9px 10px;\n  pointer-events: none;\n  color: var(--label-color);\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xaxis-label,\n.vaniersel-charts-yaxis-label {\n  fill: var(--label-color);\n}\n\n/* .vaniersel-charts-xaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n} */\n\n.vaniersel-charts-xaxistooltip:after,\n.vaniersel-charts-xaxistooltip:before {\n  left: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-xaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-left: -6px;\n}\n\n.vaniersel-charts-xaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-left: -7px;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after,\n.vaniersel-charts-xaxistooltip-bottom:before {\n  bottom: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-top:after,\n.vaniersel-charts-xaxistooltip-top:before {\n  top: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after {\n  border-bottom-color: #ECEFF1;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:before {\n  border-bottom-color: #90A4AE;\n}\n\n/* .vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:after {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:before {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-xaxistooltip-top:after {\n  border-top-color: #ECEFF1\n}\n\n.vaniersel-charts-xaxistooltip-top:before {\n  border-top-color: #90A4AE;\n}\n\n/* .vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:after {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:before {\n  border-top-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-xaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n/* Y axis Tooltip */\n.vaniersel-charts-yaxistooltip {\n  opacity: 0;\n  padding: 4px 10px;\n  pointer-events: none;\n  color: var(--label-color);\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n}\n\n/* .vaniersel-charts-yaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n} */\n\n.vaniersel-charts-yaxistooltip:after,\n.vaniersel-charts-yaxistooltip:before {\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-yaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-top: -6px;\n}\n\n.vaniersel-charts-yaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-top: -7px;\n}\n\n.vaniersel-charts-yaxistooltip-left:after,\n.vaniersel-charts-yaxistooltip-left:before {\n  left: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-right:after,\n.vaniersel-charts-yaxistooltip-right:before {\n  right: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-left:after {\n  border-left-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-left:before {\n  border-left-color: #90A4AE;\n}\n\n/* .vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:after {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:before {\n  border-left-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-yaxistooltip-right:after {\n  border-right-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-right:before {\n  border-right-color: #90A4AE;\n}\n\n/* .vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:after {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:before {\n  border-right-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-yaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n}\n\n.vaniersel-charts-yaxistooltip-hidden {\n  display: none;\n}\n\n/* X Crosshairs */\n.vaniersel-charts-xcrosshairs,\n.vaniersel-charts-ycrosshairs {\n  pointer-events: none;\n  opacity: 0;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xcrosshairs.vaniersel-charts-active,\n.vaniersel-charts-ycrosshairs.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-ycrosshairs-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-selection-rect {\n  cursor: move;\n}\n\n.svg_select_boundingRect, .svg_select_points_rot {\n  pointer-events: none;\n  opacity: 0;\n  visibility: hidden;\n}\n.vaniersel-charts-selection-rect + g .svg_select_boundingRect,\n.vaniersel-charts-selection-rect + g .svg_select_points_rot {\n  opacity: 0;\n  visibility: hidden;\n}\n\n.vaniersel-charts-selection-rect + g .svg_select_points_l,\n.vaniersel-charts-selection-rect + g .svg_select_points_r {\n  cursor: ew-resize;\n  opacity: 1;\n  visibility: visible;\n}\n\n.svg_select_points {\n  fill: #efefef;\n  stroke: #333;\n  rx: 2;\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-zoom {\n  cursor: crosshair\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-pan {\n  cursor: move\n}\n\n/* Toolbar */\n.vaniersel-charts-zoom-icon,\n.vaniersel-charts-zoomin-icon,\n.vaniersel-charts-zoomout-icon,\n.vaniersel-charts-reset-icon,\n.vaniersel-charts-pan-icon,\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon,\n.vaniersel-charts-toolbar-custom-icon {\n  cursor: pointer;\n  width: 20px;\n  height: 20px;\n  line-height: 24px;\n  color: var(--label-color);\n  text-align: center;\n}\n\n.vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-reset-icon svg,\n.vaniersel-charts-menu-icon svg,\n.vaniersel-charts-pan-icon svg {\n  color: var(--label-color);\n  width: 20px !important;\n  height: 20px !important;\n}\n\n.vaniersel-charts-selection-icon svg {\n  fill: #444;\n  transform: scale(0.76)\n}\n\n/* .vaniersel-charts-theme-dark .vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-reset-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-pan-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-selection-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-menu-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-toolbar-custom-icon svg {\n  fill: #f3f4f5;\n  width: 16px;\n  height: 16px;\n} */\n\n.vaniersel-charts-canvas .vaniersel-charts-zoom-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-selection-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-reset-zoom-icon.vaniersel-charts-selected svg {\n  fill: var(--toolbar-selected-color);\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-selection-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoom-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomin-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomout-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-reset-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-menu-icon:hover svg {\n  color: var(--toolbar-icon-hover-color);\n}\n\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon {\n  position: relative;\n}\n\n.vaniersel-charts-pan-icon.vaniersel-charts-selected svg {\n  stroke: var(--toolbar-selected-color);\n}\n\n.vaniersel-charts-pan-icon:not(.vaniersel-charts-selected):hover svg {\n  stroke: var(--toolbar-icon-hover-color);\n}\n\n.vaniersel-charts-toolbar {\n  position: absolute;\n  z-index: 11;\n  max-width: 176px;\n  text-align: right;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.vaniersel-charts-toolbar > *:not(:last-child) {\n  margin-right: 8px;\n}\n\n/* Menu */\n.vaniersel-charts-menu {\n  background: var(--menu-background);\n  box-shadow: var(--menu-shadow);\n  position: absolute;\n  top: 100%;\n  border: var(--menu-border);\n  border-radius: var(--menu-border-radius);\n  right: 10px;\n  opacity: 0;\n  min-width: 110px;\n  transition: 0.15s ease all;\n  pointer-events: none;\n}\n\n.vaniersel-charts-menu.vaniersel-charts-menu-open {\n  opacity: 1;\n  pointer-events: all;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-menu-item {\n  padding: 8px 16px;\n  font-size: 12px;\n  cursor: pointer;\n  color: var(--menu-item-color);\n  white-space: nowrap;\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-menu-item:hover {\n  color: var(--menu-item-hover-color);\n}\n\n/* .vaniersel-charts-theme-dark .vaniersel-charts-menu {\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n} */\n\n@media screen and (min-width: 768px) {\n  .vaniersel-charts-canvas:hover .vaniersel-charts-toolbar {\n    opacity: 1;\n  }\n}\n\n.vaniersel-charts-datalabel.vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n/* Pie Charts */\n.vaniersel-charts-pie-label,\n.vaniersel-charts-datalabels,\n.vaniersel-charts-datalabel,\n.vaniersel-charts-datalabel-label,\n.vaniersel-charts-datalabel-value {\n  cursor: default;\n  pointer-events: none;\n}\n\n.vaniersel-charts-pie-label-delay {\n  opacity: 0;\n  animation-name: opaque;\n  animation-duration: 0.3s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease;\n}\n\n.vaniersel-charts-canvas .vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-hide .vaniersel-charts-series-points {\n  opacity: 0;\n}\n\n.vaniersel-charts-gridline,\n.vaniersel-charts-annotation-rect,\n.vaniersel-charts-tooltip .vaniersel-charts-marker,\n.vaniersel-charts-area-series .vaniersel-charts-area,\n.vaniersel-charts-line,\n.vaniersel-charts-zoom-rect,\n.vaniersel-charts-toolbar svg,\n.vaniersel-charts-area-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-line-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-radar-series path,\n.vaniersel-charts-radar-series polygon {\n  pointer-events: none;\n}\n\n\n/* markers */\n.vaniersel-charts-marker {\n  fill: #fff;\n  transition: 0.15s ease all;\n}\n\n@keyframes opaque {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n\n/* Resize generated styles */\n\n@keyframes resizeanim {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.resize-triggers {\n  animation: 1ms resizeanim;\n  visibility: hidden;\n  opacity: 0;\n}\n\n.resize-triggers,\n.resize-triggers>div,\n.contract-trigger:before {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n}\n\n.resize-triggers>div {\n  background: #eee;\n  overflow: auto;\n}\n\n.contract-trigger:before {\n  width: 200%;\n  height: 200%;\n}\n\n.vaniersel-charts-title-text {\n  fill: var(--title-color);\n}\n\n.vaniersel-charts-subtitle-text {\n  fill: var(--subtitle-color);\n}\n";
+  var css_248z = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');\n\n:root {\n  --label-color: #373d3f;\n  --border-color: #f3f4f6;\n\n  --title-color: #374151;\n  --subtitle-color: #9ca3af;\n\n  --tooltip-shadow: 2px 2px 6px -4px #999;\n  --tooltip-background: #fff;\n  --tooltip-border: none;\n  --tooltip-border-radius: 5px;\n  --tooltip-font-size: 14px;\n  --tooltip-title-color: #374151;\n  --tooltip-title-font-size: 14px;\n  --tooltip-seperator: 1px solid var(--border-color);\n  --tooltip-value-color: #374151;\n  --tooltip-label-color: #6b7280;\n\n  --menu-background: #fff;\n  --menu-shadow: var(--tooltip-shadow);\n  --menu-border: var(--tooltip-border);\n  --menu-border-radius: 4px;\n  --menu-item-color: var(--label-color);\n  --menu-item-hover-color: #333;\n\n  --toolbar-icon-color: var(var(--label-color));\n  --toolbar-icon-hover-color: #333;\n  --toolbar-selected-color: #008FFB;\n}\n\n.vaniersel-charts-canvas > * {\n  box-sizing: border-box;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\n.vaniersel-charts-canvas {\n  font-family: inherit;\n  position: relative;\n  user-select: none;\n  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */\n}\n\n\n/* scrollbar is not visible by default for legend, hence forcing the visibility */\n.vaniersel-charts-canvas::-webkit-scrollbar {\n  -webkit-appearance: none;\n  width: 6px;\n}\n\n.vaniersel-charts-canvas::-webkit-scrollbar-thumb {\n  border-radius: 4px;\n  background-color: rgba(0, 0, 0, .5);\n  box-shadow: 0 0 1px rgba(255, 255, 255, .5);\n}\n\n\n.vaniersel-charts-inner {\n  position: relative;\n}\n\n.vaniersel-charts-text tspan {\n  font-family: inherit;\n}\n\n.legend-mouseover-inactive {\n  transition: 0.15s ease all;\n  opacity: 0.20;\n}\n\n.vaniersel-charts-series-collapsed {\n  opacity: 0;\n}\n\n/* Tooltip */\n.vaniersel-charts-tooltip {\n  border-radius: var(--tooltip-border-radius);\n  box-shadow: var(--tooltip-shadow);\n  cursor: default;\n  font-size: var(--tooltip-font-size);\n  left: 62px;\n  opacity: 1; /* TODO: Turn back to 0 after you're done */\n  pointer-events: none;\n  position: absolute;\n  top: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: hidden;\n  white-space: nowrap;\n  z-index: 12;\n  transition: 0.15s ease all;\n  padding-bottom: 8px;\n  line-height: 1.5;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light {\n  border: var(--tooltip-border);\n  background: var(--tooltip-background);\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-dark {\n  color: #fff;\n  background: rgba(30, 30, 30, 0.8);\n}\n\n.vaniersel-charts-tooltip * {\n  font-family: inherit;\n}\n\n.vaniersel-charts-tooltip-title {\n  padding: 8px 16px;\n  font-size: var(--tooltip-title-font-size);\n  font-weight: 600;\n  color: var(--tooltip-title-color);\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-light .vaniersel-charts-tooltip-title {\n  background: #ECEFF1;\n  border-bottom: var(--tooltip-seperator);\n}\n\n.vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {\n  background: rgba(0, 0, 0, 0.7);\n  border-bottom: 1px solid #333;\n}\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  display: inline-block;\n  font-weight: 500;\n  color: var(--tooltip-value-color);\n}\n\n.vaniersel-charts-tooltip-text-y-label {\n  color: var(--tooltip-label-color);\n  margin-left: 6px;\n}\n\n.vaniersel-charts-tooltip-title:empty,\n.vaniersel-charts-tooltip-text-y-label:empty,\n.vaniersel-charts-tooltip-text-y-value:empty,\n.vaniersel-charts-tooltip-text-goals-label:empty,\n.vaniersel-charts-tooltip-text-goals-value:empty,\n.vaniersel-charts-tooltip-text-z-value:empty {\n  display: none;\n}\n\n.vaniersel-charts-tooltip-text-y-value,\n.vaniersel-charts-tooltip-text-goals-value,\n.vaniersel-charts-tooltip-text-z-value {\n  font-weight: 500;\n}\n\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  padding: 6px 0 5px;\n}\n\n.vaniersel-charts-tooltip-goals-group,\n.vaniersel-charts-tooltip-text-goals-label,\n.vaniersel-charts-tooltip-text-goals-value {\n  display: flex;\n}\n.vaniersel-charts-tooltip-text-goals-label:not(:empty),\n.vaniersel-charts-tooltip-text-goals-value:not(:empty) {\n  margin-top: -6px;\n}\n\n.vaniersel-charts-tooltip-marker {\n  width: 10px;\n  height: 10px;\n  position: relative;\n  top: 0px;\n  margin-right: 12px;\n  border-radius: 50%;\n}\n\n.vaniersel-charts-tooltip-marker::after {\n  content: '';\n  width: 6px;\n  height: 6px;\n  position: absolute;\n  inset: 2px;\n  background: inherit;\n  border-radius: 100%;\n}\n\n.vaniersel-charts-tooltip-series-group {\n  padding: 0 16px;\n  display: none;\n  text-align: left;\n  justify-content: left;\n  align-items: center;\n  margin-top: 8px;\n}\n\n.vaniersel-charts-tooltip-series-group.vaniersel-charts-active .vaniersel-charts-tooltip-marker {\n  opacity: 1;\n}\n\n.vaniersel-charts-tooltip-series-group-hidden {\n  opacity: 0;\n  height: 0;\n  line-height: 0;\n  padding: 0 !important;\n}\n\n.vaniersel-charts-tooltip-y-group {\n  display: flex;\n  flex-direction: row-reverse;\n  align-items: center;\n}\n\n.vaniersel-charts-tooltip-box, .vaniersel-charts-custom-tooltip {\n  padding: 8px 16px 0px 16px;\n  color: var(--tooltip-label-color);\n}\n\n.vaniersel-charts-tooltip-boxPlot {\n  display: flex;\n  flex-direction: column-reverse;\n}\n\n.vaniersel-charts-tooltip-box span.value {\n  font-weight: 500;\n  color: var(--tooltip-value-color);\n}\n\n.vaniersel-charts-tooltip-rangebar {\n  padding: 5px 8px;\n}\n\n.vaniersel-charts-tooltip-rangebar .category {\n  font-weight: 600;\n  color: #777;\n}\n\n.vaniersel-charts-tooltip-rangebar .series-name {\n  font-weight: bold;\n  display: block;\n  margin-bottom: 5px;\n}\n\n/* X axis Tooltip */\n.vaniersel-charts-xaxistooltip {\n  opacity: 0;\n  padding: 9px 10px;\n  pointer-events: none;\n  color: var(--label-color);\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xaxis-label,\n.vaniersel-charts-yaxis-label {\n  fill: var(--label-color);\n}\n\n.vaniersel-charts-xaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.vaniersel-charts-xaxistooltip:after,\n.vaniersel-charts-xaxistooltip:before {\n  left: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-xaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-left: -6px;\n}\n\n.vaniersel-charts-xaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-left: -7px;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after,\n.vaniersel-charts-xaxistooltip-bottom:before {\n  bottom: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-top:after,\n.vaniersel-charts-xaxistooltip-top:before {\n  top: 100%;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:after {\n  border-bottom-color: #ECEFF1;\n}\n\n.vaniersel-charts-xaxistooltip-bottom:before {\n  border-bottom-color: #90A4AE;\n}\n\n.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:after {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:before {\n  border-bottom-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-top:after {\n  border-top-color: #ECEFF1\n}\n\n.vaniersel-charts-xaxistooltip-top:before {\n  border-top-color: #90A4AE;\n}\n\n.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:after {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:before {\n  border-top-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-xaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n/* Y axis Tooltip */\n.vaniersel-charts-yaxistooltip {\n  opacity: 0;\n  padding: 4px 10px;\n  pointer-events: none;\n  color: var(--label-color);\n  font-size: 13px;\n  text-align: center;\n  border-radius: 2px;\n  position: absolute;\n  z-index: 10;\n  background: #ECEFF1;\n  border: 1px solid #90A4AE;\n}\n\n.vaniersel-charts-yaxistooltip.vaniersel-charts-theme-dark {\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  color: #fff;\n}\n\n.vaniersel-charts-yaxistooltip:after,\n.vaniersel-charts-yaxistooltip:before {\n  top: 50%;\n  border: solid transparent;\n  content: \" \";\n  height: 0;\n  width: 0;\n  position: absolute;\n  pointer-events: none;\n}\n\n.vaniersel-charts-yaxistooltip:after {\n  border-color: rgba(236, 239, 241, 0);\n  border-width: 6px;\n  margin-top: -6px;\n}\n\n.vaniersel-charts-yaxistooltip:before {\n  border-color: rgba(144, 164, 174, 0);\n  border-width: 7px;\n  margin-top: -7px;\n}\n\n.vaniersel-charts-yaxistooltip-left:after,\n.vaniersel-charts-yaxistooltip-left:before {\n  left: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-right:after,\n.vaniersel-charts-yaxistooltip-right:before {\n  right: 100%;\n}\n\n.vaniersel-charts-yaxistooltip-left:after {\n  border-left-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-left:before {\n  border-left-color: #90A4AE;\n}\n\n/* .vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:after {\n  border-left-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:before {\n  border-left-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-yaxistooltip-right:after {\n  border-right-color: #ECEFF1;\n}\n\n.vaniersel-charts-yaxistooltip-right:before {\n  border-right-color: #90A4AE;\n}\n\n/* .vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:after {\n  border-right-color: rgba(0, 0, 0, 0.5);\n}\n\n.vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:before {\n  border-right-color: rgba(0, 0, 0, 0.5);\n} */\n\n.vaniersel-charts-yaxistooltip.vaniersel-charts-active {\n  opacity: 1;\n}\n\n.vaniersel-charts-yaxistooltip-hidden {\n  display: none;\n}\n\n/* X Crosshairs */\n.vaniersel-charts-xcrosshairs,\n.vaniersel-charts-ycrosshairs {\n  pointer-events: none;\n  opacity: 0;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-xcrosshairs.vaniersel-charts-active,\n.vaniersel-charts-ycrosshairs.vaniersel-charts-active {\n  opacity: 1;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-ycrosshairs-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-selection-rect {\n  cursor: move;\n}\n\n.svg_select_boundingRect, .svg_select_points_rot {\n  pointer-events: none;\n  opacity: 0;\n  visibility: hidden;\n}\n.vaniersel-charts-selection-rect + g .svg_select_boundingRect,\n.vaniersel-charts-selection-rect + g .svg_select_points_rot {\n  opacity: 0;\n  visibility: hidden;\n}\n\n.vaniersel-charts-selection-rect + g .svg_select_points_l,\n.vaniersel-charts-selection-rect + g .svg_select_points_r {\n  cursor: ew-resize;\n  opacity: 1;\n  visibility: visible;\n}\n\n.svg_select_points {\n  fill: #efefef;\n  stroke: #333;\n  rx: 2;\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-zoom {\n  cursor: crosshair\n}\n\n.vaniersel-charts-svg.vaniersel-charts-zoomable.hovering-pan {\n  cursor: move\n}\n\n/* Toolbar */\n.vaniersel-charts-zoom-icon,\n.vaniersel-charts-zoomin-icon,\n.vaniersel-charts-zoomout-icon,\n.vaniersel-charts-reset-icon,\n.vaniersel-charts-pan-icon,\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon,\n.vaniersel-charts-toolbar-custom-icon {\n  cursor: pointer;\n  width: 20px;\n  height: 20px;\n  line-height: 24px;\n  color: var(--label-color);\n  text-align: center;\n}\n\n.vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-reset-icon svg,\n.vaniersel-charts-menu-icon svg,\n.vaniersel-charts-pan-icon svg {\n  color: var(--label-color);\n  width: 20px !important;\n  height: 20px !important;\n}\n\n.vaniersel-charts-selection-icon svg {\n  fill: #444;\n  transform: scale(0.76)\n}\n\n/* .vaniersel-charts-theme-dark .vaniersel-charts-zoom-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomin-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-zoomout-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-reset-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-pan-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-selection-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-menu-icon svg,\n.vaniersel-charts-theme-dark .vaniersel-charts-toolbar-custom-icon svg {\n  fill: #f3f4f5;\n  width: 16px;\n  height: 16px;\n} */\n\n.vaniersel-charts-canvas .vaniersel-charts-zoom-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-selection-icon.vaniersel-charts-selected svg,\n.vaniersel-charts-canvas .vaniersel-charts-reset-zoom-icon.vaniersel-charts-selected svg {\n  fill: var(--toolbar-selected-color);\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-selection-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoom-icon:not(.vaniersel-charts-selected):hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomin-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-zoomout-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-reset-icon:hover svg,\n.vaniersel-charts-theme-light .vaniersel-charts-menu-icon:hover svg {\n  color: var(--toolbar-icon-hover-color);\n}\n\n.vaniersel-charts-selection-icon,\n.vaniersel-charts-menu-icon {\n  position: relative;\n}\n\n.vaniersel-charts-pan-icon.vaniersel-charts-selected svg {\n  stroke: var(--toolbar-selected-color);\n}\n\n.vaniersel-charts-pan-icon:not(.vaniersel-charts-selected):hover svg {\n  stroke: var(--toolbar-icon-hover-color);\n}\n\n.vaniersel-charts-toolbar {\n  position: absolute;\n  z-index: 11;\n  max-width: 176px;\n  text-align: right;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.vaniersel-charts-toolbar > *:not(:last-child) {\n  margin-right: 8px;\n}\n\n/* Menu */\n.vaniersel-charts-menu {\n  background: var(--menu-background);\n  box-shadow: var(--menu-shadow);\n  position: absolute;\n  top: 100%;\n  border: var(--menu-border);\n  border-radius: var(--menu-border-radius);\n  right: 10px;\n  opacity: 0;\n  min-width: 110px;\n  transition: 0.15s ease all;\n  pointer-events: none;\n}\n\n.vaniersel-charts-menu.vaniersel-charts-menu-open {\n  opacity: 1;\n  pointer-events: all;\n  transition: 0.15s ease all;\n}\n\n.vaniersel-charts-menu-item {\n  padding: 8px 16px;\n  font-size: 12px;\n  cursor: pointer;\n  color: var(--menu-item-color);\n  white-space: nowrap;\n}\n\n.vaniersel-charts-theme-light .vaniersel-charts-menu-item:hover {\n  color: var(--menu-item-hover-color);\n}\n\n.vaniersel-charts-theme-dark .vaniersel-charts-menu {\n  background: rgba(0, 0, 0, 0.7);\n  color: #fff;\n}\n\n@media screen and (min-width: 768px) {\n  .vaniersel-charts-canvas:hover .vaniersel-charts-toolbar {\n    opacity: 1;\n  }\n}\n\n.vaniersel-charts-datalabel.vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n/* Pie Charts */\n.vaniersel-charts-pie-label,\n.vaniersel-charts-datalabels,\n.vaniersel-charts-datalabel,\n.vaniersel-charts-datalabel-label,\n.vaniersel-charts-datalabel-value {\n  cursor: default;\n  pointer-events: none;\n}\n\n.vaniersel-charts-pie-label-delay {\n  opacity: 0;\n  animation-name: opaque;\n  animation-duration: 0.3s;\n  animation-fill-mode: forwards;\n  animation-timing-function: ease;\n}\n\n.vaniersel-charts-canvas .vaniersel-charts-element-hidden {\n  opacity: 0;\n}\n\n.vaniersel-charts-hide .vaniersel-charts-series-points {\n  opacity: 0;\n}\n\n.vaniersel-charts-gridline,\n.vaniersel-charts-annotation-rect,\n.vaniersel-charts-tooltip .vaniersel-charts-marker,\n.vaniersel-charts-area-series .vaniersel-charts-area,\n.vaniersel-charts-line,\n.vaniersel-charts-zoom-rect,\n.vaniersel-charts-toolbar svg,\n.vaniersel-charts-area-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-line-series .vaniersel-charts-series-markers .vaniersel-charts-marker.no-pointer-events,\n.vaniersel-charts-radar-series path,\n.vaniersel-charts-radar-series polygon {\n  pointer-events: none;\n}\n\n\n/* markers */\n.vaniersel-charts-marker {\n  transition: 0.15s ease all;\n}\n\n@keyframes opaque {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n\n\n/* Resize generated styles */\n\n@keyframes resizeanim {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.resize-triggers {\n  animation: 1ms resizeanim;\n  visibility: hidden;\n  opacity: 0;\n}\n\n.resize-triggers,\n.resize-triggers>div,\n.contract-trigger:before {\n  content: \" \";\n  display: block;\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n}\n\n.resize-triggers>div {\n  background: #eee;\n  overflow: auto;\n}\n\n.contract-trigger:before {\n  width: 200%;\n  height: 200%;\n}\n\n.vaniersel-charts-title-text {\n  fill: var(--title-color);\n}\n\n.vaniersel-charts-subtitle-text {\n  fill: var(--subtitle-color);\n}\n";
 
   /**
    *

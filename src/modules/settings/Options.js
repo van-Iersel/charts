@@ -230,7 +230,7 @@ export default class Options {
       fontSize: '13px',
       fontFamily: undefined,
       fontWeight: 400,
-      appendTo: '.vaniersel-charts-annotations',
+      appendTo: '.apexcharts-annotations',
       backgroundColor: 'transparent',
       borderColor: '#c2c2c2',
       borderRadius: 0,
@@ -298,7 +298,8 @@ export default class Options {
           scrolled: undefined,
           brushScrolled: undefined
         },
-        fontFamily: 'inherit',
+        foreColor: '#373d3f',
+        fontFamily: 'Helvetica, Arial, sans-serif',
         height: 'auto',
         parentHeightOffset: 15,
         redrawOnParentResize: true,
@@ -401,7 +402,7 @@ export default class Options {
           columnWidth: '70%', // should be in percent 0 - 100
           barHeight: '70%', // should be in percent 0 - 100
           distributed: false,
-          borderRadius: 8,
+          borderRadius: 0,
           rangeBarOverlap: true,
           rangeBarGroupRows: false,
           colors: {
@@ -672,7 +673,7 @@ export default class Options {
         }
       },
       fill: {
-        type: 'fill',
+        type: 'solid',
         colors: undefined, // array of colors
         opacity: 0.85,
         gradient: {
@@ -706,8 +707,8 @@ export default class Options {
       },
       grid: {
         show: true,
-        borderColor: '#e5e7eb',
-        strokeDashArray: 4,
+        borderColor: '#e0e0e0',
+        strokeDashArray: 0,
         position: 'back',
         xaxis: {
           lines: {
@@ -736,7 +737,7 @@ export default class Options {
       },
       labels: [],
       legend: {
-        show: false,
+        show: true,
         showForSingleSeries: false,
         showForNullSeries: true,
         showForZeroSeries: true,
@@ -802,8 +803,8 @@ export default class Options {
         onDblClick: undefined,
         showNullDataPoints: true,
         hover: {
-          size: 4,
-          sizeOffset: 4
+          size: undefined,
+          sizeOffset: 3
         }
       },
       noData: {
@@ -850,7 +851,7 @@ export default class Options {
         floating: false,
         style: {
           fontSize: '14px',
-          fontWeight: 600,
+          fontWeight: 900,
           fontFamily: undefined,
           color: undefined
         }
@@ -860,7 +861,7 @@ export default class Options {
         align: 'left',
         margin: 5,
         offsetX: 0,
-        offsetY: 15,
+        offsetY: 30,
         floating: false,
         style: {
           fontSize: '12px',
@@ -905,7 +906,7 @@ export default class Options {
         theme: 'light',
         cssClass: '',
         style: {
-          // fontSize: '14px',
+          fontSize: '12px',
           fontFamily: undefined
         },
         onDatasetHover: {
@@ -921,7 +922,7 @@ export default class Options {
           formatter: undefined,
           title: {
             formatter(seriesName) {
-              return seriesName
+              return seriesName ? seriesName + ': ' : ''
             }
           }
         },
@@ -991,7 +992,7 @@ export default class Options {
           }
         },
         axisBorder: {
-          show: false,
+          show: true,
           color: '#e0e0e0',
           width: '100%',
           height: 1,
@@ -999,7 +1000,7 @@ export default class Options {
           offsetY: 0
         },
         axisTicks: {
-          show: false,
+          show: true,
           color: '#e0e0e0',
           height: 6,
           offsetX: 0,
@@ -1055,7 +1056,7 @@ export default class Options {
           }
         },
         tooltip: {
-          enabled: false,
+          enabled: true,
           offsetY: 0,
           formatter: undefined,
           style: {

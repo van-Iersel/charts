@@ -72,7 +72,7 @@ export default class Globals {
 
   globalVars(config) {
     return {
-      chartID: null, // chart ID - vaniersel-charts-cuid
+      chartID: null, // chart ID - apexcharts-cuid
       cuid: null, // chart ID - random numbers excluding "apexcharts" part
       events: {
         beforeMount: [],

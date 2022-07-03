@@ -135,7 +135,7 @@ export default class Defaults {
         tooltip: {
           enabled: false
         },
-        tickPlacement: 'on',
+        tickPlacement: 'between',
         crosshairs: {
           width: 'barWidth',
           position: 'back',
@@ -278,7 +278,7 @@ export default class Defaults {
       },
       plotOptions: {
         bar: {
-          borderRadius: 8,
+          borderRadius: 0,
           dataLabels: {
             position: 'center'
           }
@@ -314,7 +314,7 @@ export default class Defaults {
         }
       },
       xaxis: {
-        tickPlacement: 'on',
+        tickPlacement: 'between',
         tooltip: {
           enabled: false
         },
@@ -330,7 +330,7 @@ export default class Defaults {
   area() {
     return {
       stroke: {
-        width: 2,
+        width: 4,
         fill: {
           type: 'solid',
           gradient: {
@@ -643,6 +643,7 @@ export default class Defaults {
         }
       },
       tooltip: {
+        theme: 'dark',
         fillSeriesColor: true
       },
       legend: {
@@ -686,6 +687,7 @@ export default class Defaults {
         }
       },
       tooltip: {
+        theme: 'dark',
         fillSeriesColor: true
       },
       legend: {
@@ -823,7 +825,7 @@ export default class Defaults {
       w.config.series[seriesIndex].type &&
       w.config.series[seriesIndex].type !== chartType
     ) {
-      return `<div class="vaniersel-charts-custom-tooltip">
+      return `<div class="apexcharts-custom-tooltip">
           ${
             w.config.series[seriesIndex].name
               ? w.config.series[seriesIndex].name
@@ -832,7 +834,7 @@ export default class Defaults {
         </div>`
     } else {
       return (
-        `<div class="vaniersel-charts-tooltip-box vaniersel-charts-tooltip-${w.config.chart.type}">` +
+        `<div class="apexcharts-tooltip-box apexcharts-tooltip-${w.config.chart.type}">` +
         `<div>${labels[0]}: <span class="value">` +
         o +
         '</span></div>' +
