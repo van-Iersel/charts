@@ -6511,8 +6511,8 @@
         pathFrom = pathFrom + graphics.line(x1, y1) + sl + sl + sl + sl + sl + graphics.line(x1, y1);
 
         if (w.config.chart.stacked) {
-          this.barCtx.yArrj.push(newPath.y2);
-          this.barCtx.yArrjF.push(Math.abs(y1 - newPath.y2));
+          this.barCtx.yArrj.push(newPath.y2WithRadius);
+          this.barCtx.yArrjF.push(Math.abs(y1 - newPath.y2WithRadius));
           this.barCtx.yArrjVal.push(this.barCtx.series[i][j]);
         }
 
@@ -6559,8 +6559,8 @@
         pathFrom = pathFrom + graphics.line(x1, y1) + sl + sl + sl + sl + sl + graphics.line(x1, y1);
 
         if (w.config.chart.stacked) {
-          this.barCtx.xArrj.push(newPath.x2);
-          this.barCtx.xArrjF.push(Math.abs(x1 - newPath.x2));
+          this.barCtx.xArrj.push(newPath.x2WithRadius);
+          this.barCtx.xArrjF.push(Math.abs(x1 - newPath.x2WithRadius));
           this.barCtx.xArrjVal.push(this.barCtx.series[i][j]);
         }
 
@@ -6616,6 +6616,7 @@
 
           return {
             pathWithRadius: pathWithRadius,
+            x2WithRadius: x2 + radius,
             x2: x2
           };
         } else {
@@ -6636,6 +6637,7 @@
 
           return {
             pathWithRadius: _pathWithRadius,
+            y2WithRadius: y2 - radius,
             y2: y2
           };
         }
@@ -25263,9 +25265,7 @@
     }, {
       key: "forceYAxisUpdate",
       value: function forceYAxisUpdate(options) {
-        var w = this.w;
-
-        if (w.config.chart.stacked && w.config.chart.stackType === '100%') {
+        if (options.chart && options.chart.stacked && options.chart.stackType === '100%') {
           if (Array.isArray(options.yaxis)) {
             options.yaxis.forEach(function (yaxe, index) {
               options.yaxis[index].min = 0;
