@@ -111,7 +111,7 @@ function rollupConfig(opts) {
       copy(
         [
           {
-            files: 'src/assets/apexcharts.css',
+            files: 'src/assets/charts.css',
             dest: 'dist'
           },
           {
