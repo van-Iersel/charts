@@ -75,7 +75,7 @@ export default class Core {
         cnf.chart.type === 'boxPlot') &&
       cnf.plotOptions.bar.horizontal
 
-    gl.chartClass = '.apexcharts' + gl.chartID
+    gl.chartClass = '.vaniersel-charts' + gl.chartID
 
     gl.dom.baseEl = this.el
 

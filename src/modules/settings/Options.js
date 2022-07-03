@@ -31,8 +31,8 @@ export default class Options {
         padding: 20,
         style: {
           colors: [],
-          fontSize: '11px',
-          fontWeight: 400,
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
           fontFamily: undefined,
           cssClass: ''
         },
@@ -40,14 +40,14 @@ export default class Options {
       },
       axisBorder: {
         show: false,
-        color: '#e0e0e0',
+        color: 'inherit',
         width: 1,
         offsetX: 0,
         offsetY: 0
       },
       axisTicks: {
         show: false,
-        color: '#e0e0e0',
+        color: 'inherit',
         width: 6,
         offsetX: 0,
         offsetY: 0
@@ -59,8 +59,8 @@ export default class Options {
         offsetX: 0,
         style: {
           color: undefined,
-          fontSize: '11px',
-          fontWeight: 900,
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
           fontFamily: undefined,
           cssClass: ''
         }
@@ -73,7 +73,7 @@ export default class Options {
         show: true,
         position: 'front',
         stroke: {
-          color: '#b6b6b6',
+          color: 'inherit',
           width: 1,
           dashArray: 0
         }
@@ -90,7 +90,7 @@ export default class Options {
       mouseLeave: undefined,
       marker: {
         size: 4,
-        fillColor: '#fff',
+        fillColor: 'inherit',
         strokeWidth: 2,
         strokeColor: '#333',
         shape: 'circle',
@@ -100,7 +100,7 @@ export default class Options {
         cssClass: ''
       },
       label: {
-        borderColor: '#c2c2c2',
+        borderColor: 'inherit',
         borderWidth: 1,
         borderRadius: 2,
         text: undefined,
@@ -110,11 +110,11 @@ export default class Options {
         mouseEnter: undefined,
         mouseLeave: undefined,
         style: {
-          background: '#fff',
+          background: 'inherit',
           color: undefined,
-          fontSize: '11px',
+          fontSize: 'inherit',
           fontFamily: undefined,
-          fontWeight: 400,
+          fontWeight: 'inherit',
           cssClass: '',
           padding: {
             left: 5,
@@ -145,8 +145,8 @@ export default class Options {
       y: 0,
       y2: null,
       strokeDashArray: 1,
-      fillColor: '#c2c2c2',
-      borderColor: '#c2c2c2',
+      fillColor: 'inherit',
+      borderColor: 'inherit',
       borderWidth: 1,
       opacity: 0.3,
       offsetX: 0,
@@ -154,7 +154,7 @@ export default class Options {
       width: '100%',
       yAxisIndex: 0,
       label: {
-        borderColor: '#c2c2c2',
+        borderColor: 'inherit',
         borderWidth: 1,
         borderRadius: 2,
         text: undefined,
@@ -165,11 +165,11 @@ export default class Options {
         mouseEnter: undefined,
         mouseLeave: undefined,
         style: {
-          background: '#fff',
+          background: 'inherit',
           color: undefined,
-          fontSize: '11px',
+          fontSize: 'inherit',
           fontFamily: undefined,
-          fontWeight: 400,
+          fontWeight: 'inherit',
           cssClass: '',
           padding: {
             left: 5,
@@ -186,14 +186,14 @@ export default class Options {
       x: 0,
       x2: null,
       strokeDashArray: 1,
-      fillColor: '#c2c2c2',
-      borderColor: '#c2c2c2',
+      fillColor: 'inherit',
+      borderColor: 'inherit',
       borderWidth: 1,
       opacity: 0.3,
       offsetX: 0,
       offsetY: 0,
       label: {
-        borderColor: '#c2c2c2',
+        borderColor: 'inherit',
         borderWidth: 1,
         borderRadius: 2,
         text: undefined,
@@ -205,11 +205,11 @@ export default class Options {
         mouseEnter: undefined,
         mouseLeave: undefined,
         style: {
-          background: '#fff',
+          background: 'inherit',
           color: undefined,
-          fontSize: '11px',
+          fontSize: 'inherit',
           fontFamily: undefined,
-          fontWeight: 400,
+          fontWeight: 'inherit',
           cssClass: '',
           padding: {
             left: 5,
@@ -227,12 +227,12 @@ export default class Options {
       text: '',
       textAnchor: 'start',
       foreColor: undefined,
-      fontSize: '13px',
+      fontSize: 'inherit',
       fontFamily: undefined,
-      fontWeight: 400,
+      fontWeight: 'inherit',
       appendTo: '.apexcharts-annotations',
       backgroundColor: 'transparent',
-      borderColor: '#c2c2c2',
+      borderColor: 'inherit',
       borderRadius: 0,
       borderWidth: 0,
       paddingLeft: 4,
@@ -275,7 +275,7 @@ export default class Options {
           top: 2,
           left: 2,
           blur: 4,
-          color: '#000',
+          color: 'inherit',
           opacity: 0.35
         },
         events: {
@@ -298,8 +298,8 @@ export default class Options {
           scrolled: undefined,
           brushScrolled: undefined
         },
-        foreColor: '#373d3f',
-        fontFamily: 'Helvetica, Arial, sans-serif',
+        foreColor: 'inherit',
+        fontFamily: 'inherit',
         height: 'auto',
         parentHeightOffset: 15,
         redrawOnParentResize: true,
@@ -313,12 +313,12 @@ export default class Options {
           type: 'x',
           // selectedPoints: undefined, // default datapoints that should be selected automatically
           fill: {
-            color: '#24292e',
+            color: 'inherit',
             opacity: 0.1
           },
           stroke: {
             width: 1,
-            color: '#24292e',
+            color: 'inherit',
             opacity: 0.4,
             dashArray: 3
           },
@@ -499,7 +499,7 @@ export default class Options {
               top: 0,
               left: 0,
               blur: 3,
-              color: '#000',
+              color: 'inherit',
               opacity: 0.5
             }
           },
@@ -507,7 +507,7 @@ export default class Options {
             show: true,
             startAngle: undefined,
             endAngle: undefined,
-            background: '#f2f2f2',
+            background: 'inherit',
             strokeWidth: '97%',
             opacity: 1,
             margin: 5, // margin is in pixels
@@ -524,9 +524,9 @@ export default class Options {
             show: true,
             name: {
               show: true,
-              fontSize: '16px',
+              fontSize: 'inherit',
               fontFamily: undefined,
-              fontWeight: 600,
+              fontWeight: 'inherit',
               color: undefined,
               offsetY: 0,
               formatter(val) {
@@ -535,9 +535,9 @@ export default class Options {
             },
             value: {
               show: true,
-              fontSize: '14px',
+              fontSize: 'inherit',
               fontFamily: undefined,
-              fontWeight: 400,
+              fontWeight: 'inherit',
               color: undefined,
               offsetY: 16,
               formatter(val) {
@@ -547,8 +547,8 @@ export default class Options {
             total: {
               show: false,
               label: 'Total',
-              fontSize: '16px',
-              fontWeight: 600,
+              fontSize: 'inherit',
+              fontWeight: 'inherit',
               fontFamily: undefined,
               color: undefined,
               formatter(w) {
@@ -581,9 +581,9 @@ export default class Options {
               show: false,
               name: {
                 show: true,
-                fontSize: '16px',
+                fontSize: 'inherit',
                 fontFamily: undefined,
-                fontWeight: 600,
+                fontWeight: 'inherit',
                 color: undefined,
                 offsetY: -10,
                 formatter(val) {
@@ -592,9 +592,9 @@ export default class Options {
               },
               value: {
                 show: true,
-                fontSize: '20px',
+                fontSize: 'inherit',
                 fontFamily: undefined,
-                fontWeight: 400,
+                fontWeight: 'inherit',
                 color: undefined,
                 offsetY: 10,
                 formatter(val) {
@@ -605,8 +605,8 @@ export default class Options {
                 show: false,
                 showAlways: false,
                 label: 'Total',
-                fontSize: '16px',
-                fontWeight: 400,
+                fontSize: 'inherit',
+                fontWeight: 'inherit',
                 fontFamily: undefined,
                 color: undefined,
                 formatter(w) {
@@ -619,11 +619,11 @@ export default class Options {
         polarArea: {
           rings: {
             strokeWidth: 1,
-            strokeColor: '#e8e8e8'
+            strokeColor: 'inherit'
           },
           spokes: {
             strokeWidth: 1,
-            connectorColors: '#e8e8e8'
+            connectorColors: 'inherit'
           }
         },
         radar: {
@@ -633,8 +633,8 @@ export default class Options {
           polygons: {
             // strokeColor: '#e8e8e8', // should be deprecated in the minor version i.e 3.2
             strokeWidth: 1,
-            strokeColors: '#e8e8e8',
-            connectorColors: '#e8e8e8',
+            strokeColors: 'inherit',
+            connectorColors: 'inherit',
             fill: {
               colors: undefined
             }
@@ -653,25 +653,25 @@ export default class Options {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: '12px',
+          fontSize: 'inherit',
           fontFamily: undefined,
-          fontWeight: 600,
+          fontWeight: 'inherit',
           colors: undefined
         },
         background: {
           enabled: true,
-          foreColor: '#fff',
+          foreColor: 'inherit',
           borderRadius: 2,
           padding: 4,
           opacity: 0.9,
           borderWidth: 1,
-          borderColor: '#fff',
+          borderColor: 'inherit',
           dropShadow: {
             enabled: false,
             top: 1,
             left: 1,
             blur: 1,
-            color: '#000',
+            color: 'inherit',
             opacity: 0.45
           }
         },
@@ -680,7 +680,7 @@ export default class Options {
           top: 1,
           left: 1,
           blur: 1,
-          color: '#000',
+          color: 'inherit',
           opacity: 0.45
         }
       },
@@ -719,7 +719,7 @@ export default class Options {
       },
       grid: {
         show: true,
-        borderColor: '#e0e0e0',
+        borderColor: 'inherit',
         strokeDashArray: 0,
         position: 'back',
         xaxis: {
@@ -758,9 +758,9 @@ export default class Options {
         // direction - top, bottom, left, right
         horizontalAlign: 'center', // when position top/bottom, you can specify whether to align legends left, right or center
         inverseOrder: false,
-        fontSize: '12px',
+        fontSize: 'inherit',
         fontFamily: undefined,
-        fontWeight: 400,
+        fontWeight: 'inherit',
         width: undefined,
         height: undefined,
         formatter: undefined,
@@ -777,7 +777,7 @@ export default class Options {
           height: 12,
           strokeWidth: 0,
           fillColors: undefined,
-          strokeColor: '#fff',
+          strokeColor: 'inherit',
           radius: 12,
           customHTML: undefined,
           offsetX: 0,
@@ -799,8 +799,8 @@ export default class Options {
         discrete: [],
         size: 0,
         colors: undefined,
-        //strokeColor: '#fff', // TODO: deprecate in major version 4.0
-        strokeColors: '#fff',
+        //strokeColor: 'inherit', // TODO: deprecate in major version 4.0
+        strokeColors: 'inherit',
         strokeWidth: 2,
         strokeOpacity: 0.9,
         strokeDashArray: 0,
@@ -827,7 +827,7 @@ export default class Options {
         offsetY: 0,
         style: {
           color: undefined,
-          fontSize: '14px',
+          fontSize: 'inherit',
           fontFamily: undefined
         }
       },
@@ -862,8 +862,8 @@ export default class Options {
         offsetY: 0,
         floating: false,
         style: {
-          fontSize: '14px',
-          fontWeight: 900,
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
           fontFamily: undefined,
           color: undefined
         }
@@ -876,8 +876,8 @@ export default class Options {
         offsetY: 30,
         floating: false,
         style: {
-          fontSize: '12px',
-          fontWeight: 400,
+          fontSize: 'inherit',
+          fontWeight: 'inherit',
           fontFamily: undefined,
           color: undefined
         }
@@ -918,7 +918,7 @@ export default class Options {
         theme: 'light',
         cssClass: '',
         style: {
-          fontSize: '12px',
+          fontSize: 'inherit',
           fontFamily: undefined
         },
         onDatasetHover: {
@@ -934,13 +934,13 @@ export default class Options {
           formatter: undefined,
           title: {
             formatter(seriesName) {
-              return seriesName ? seriesName + ': ' : ''
+              return seriesName ? seriesName : ''
             }
           }
         },
         z: {
           formatter: undefined,
-          title: 'Size: '
+          title: 'Size '
         },
         marker: {
           show: true,
@@ -974,8 +974,8 @@ export default class Options {
           showDuplicates: true,
           style: {
             colors: [],
-            fontSize: '12px',
-            fontWeight: 400,
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
             fontFamily: undefined,
             cssClass: ''
           },
@@ -997,15 +997,15 @@ export default class Options {
           groups: [],
           style: {
             colors: [],
-            fontSize: '12px',
-            fontWeight: 400,
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
             fontFamily: undefined,
             cssClass: ''
           }
         },
         axisBorder: {
           show: true,
-          color: '#e0e0e0',
+          color: 'inherit',
           width: '100%',
           height: 1,
           offsetX: 0,
@@ -1013,7 +1013,7 @@ export default class Options {
         },
         axisTicks: {
           show: true,
-          color: '#e0e0e0',
+          color: 'inherit',
           height: 6,
           offsetX: 0,
           offsetY: 0
@@ -1032,8 +1032,8 @@ export default class Options {
           offsetY: 0,
           style: {
             color: undefined,
-            fontSize: '12px',
-            fontWeight: 900,
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
             fontFamily: undefined,
             cssClass: ''
           }
@@ -1044,16 +1044,16 @@ export default class Options {
           position: 'back',
           opacity: 0.9,
           stroke: {
-            color: '#b6b6b6',
+            color: 'inherit',
             width: 1,
             dashArray: 3
           },
           fill: {
             type: 'solid', // solid, gradient
-            color: '#B1B9C4',
+            color: 'inherit',
             gradient: {
-              colorFrom: '#D8E3F0',
-              colorTo: '#BED1E6',
+              colorFrom: 'inherit',
+              colorTo: 'inherit',
               stops: [0, 100],
               opacityFrom: 0.4,
               opacityTo: 0.5
@@ -1072,7 +1072,7 @@ export default class Options {
           offsetY: 0,
           formatter: undefined,
           style: {
-            fontSize: '12px',
+            fontSize: 'inherit',
             fontFamily: undefined
           }
         }

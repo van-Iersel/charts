@@ -323,8 +323,6 @@ class Line {
 
     let negativeY = w.globals.gridHeight - negativeYPos
 
-    console.log(negativeY)
-
     let redRect = graphics.drawRect(
       0,
       negativeY,
