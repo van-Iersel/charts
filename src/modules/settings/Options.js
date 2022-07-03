@@ -689,7 +689,7 @@ export default class Options {
         colors: undefined, // array of colors
         opacity: 0.85,
         gradient: {
-          shade: 'dark',
+          shade: 'light',
           type: 'horizontal',
           shadeIntensity: 0.5,
           gradientToColors: undefined,

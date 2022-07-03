@@ -643,7 +643,7 @@ export default class Defaults {
         }
       },
       tooltip: {
-        theme: 'dark',
+        theme: 'light',
         fillSeriesColor: true
       },
       legend: {
@@ -687,7 +687,7 @@ export default class Defaults {
         }
       },
       tooltip: {
-        theme: 'dark',
+        theme: 'light',
         fillSeriesColor: true
       },
       legend: {
@@ -721,7 +721,7 @@ export default class Defaults {
         opacity: 0.7
       },
       tooltip: {
-        theme: 'dark',
+        theme: 'light',
         fillSeriesColor: true
       },
       legend: {
@@ -794,7 +794,7 @@ export default class Defaults {
       },
       fill: {
         gradient: {
-          shade: 'dark',
+          shade: 'light',
           shadeIntensity: 0.4,
           inverseColors: false,
           type: 'diagonal2',

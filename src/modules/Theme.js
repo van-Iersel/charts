@@ -32,10 +32,6 @@ export default class Theme {
     let w = this.w
     let utils = new Utils()
 
-    w.globals.dom.elWrap.classList.add(
-      `vaniersel-charts-theme-${w.config.theme.mode}`
-    )
-
     if (w.config.colors === undefined) {
       w.globals.colors = this.predefined()
     } else {

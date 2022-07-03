@@ -37,10 +37,7 @@ class AxesTooltip {
 
       if (xaxisTooltip === null) {
         ttCtx.xaxisTooltip = document.createElement('div')
-        ttCtx.xaxisTooltip.setAttribute(
-          'class',
-          tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme
-        )
+        ttCtx.xaxisTooltip.setAttribute('class', tooltipCssClass)
 
         renderTo.appendChild(ttCtx.xaxisTooltip)
 
@@ -94,10 +91,7 @@ class AxesTooltip {
 
       if (yaxisTooltip === null) {
         ttCtx.yaxisTooltip = document.createElement('div')
-        ttCtx.yaxisTooltip.setAttribute(
-          'class',
-          tooltipCssClass + ' vaniersel-charts-theme-' + w.config.tooltip.theme
-        )
+        ttCtx.yaxisTooltip.setAttribute('class', tooltipCssClass)
 
         renderTo.appendChild(ttCtx.yaxisTooltip)
 

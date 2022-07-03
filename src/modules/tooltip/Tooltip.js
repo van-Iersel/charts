@@ -73,7 +73,6 @@ export default class Tooltip {
     if (w.config.tooltip.cssClass) {
       tooltipEl.classList.add(w.config.tooltip.cssClass)
     }
-    tooltipEl.classList.add(`vaniersel-charts-theme-${this.tConfig.theme}`)
     w.globals.dom.elWrap.appendChild(tooltipEl)
 
     if (w.globals.axisCharts) {
