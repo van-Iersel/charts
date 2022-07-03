@@ -1,21 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 :root {
-  --font-family: 'Inter';
-  --label-color: #9ca3af;
+  --label-color: #373d3f;
   --border-color: #f3f4f6;
 
   --title-color: #374151;
   --subtitle-color: #9ca3af;
 
-  --tooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%) !important;
-  --tooltip-background: #fff;
-  --tooltip-border: none;
-  --tooltip-border-radius: 4px;
+  --tooltip-shadow: 2px 2px 6px -4px #999;
+  --tooltip-background: rgba(255, 255, 255, 0.96);
+  --tooltip-border: 1px solid #e3e3e3;
+  --tooltip-border-radius: 5px;
   --tooltip-font-size: 14px;
   --tooltip-title-color: #374151;
   --tooltip-title-font-size: 14px;
-  --tooltip-seperator: 1px solid var(--border-color);
+  --tooltip-seperator: 1px solid #ddd;
   --tooltip-value-color: #374151;
   --tooltip-label-color: #6b7280;
 
@@ -31,14 +28,14 @@
   --toolbar-selected-color: #008FFB;
 }
 
-* {
+.vaniersel-charts-canvas > * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .vaniersel-charts-canvas {
-  font-family: var(--font-family);
+  font-family: inherit;
   position: relative;
   user-select: none;
   /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
@@ -94,7 +91,6 @@
   transition: 0.15s ease all;
   padding-bottom: 8px;
   line-height: 1.5;
-
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-active {
@@ -107,10 +103,10 @@
   background: var(--tooltip-background);
 }
 
-/* .vaniersel-charts-tooltip.vaniersel-charts-theme-dark {
+.vaniersel-charts-tooltip.vaniersel-charts-theme-dark {
   color: #fff;
   background: rgba(30, 30, 30, 0.8);
-} */
+}
 
 .vaniersel-charts-tooltip * {
   font-family: inherit;
@@ -124,13 +120,14 @@
 }
 
 .vaniersel-charts-tooltip.vaniersel-charts-theme-light .vaniersel-charts-tooltip-title {
+  background: #ECEFF1;
   border-bottom: var(--tooltip-seperator);
 }
 
-/* .vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {
+.vaniersel-charts-tooltip.vaniersel-charts-theme-dark .vaniersel-charts-tooltip-title {
   background: rgba(0, 0, 0, 0.7);
   border-bottom: 1px solid #333;
-} */
+}
 
 .vaniersel-charts-tooltip-text-y-value,
 .vaniersel-charts-tooltip-text-goals-value,
@@ -190,7 +187,7 @@
   height: 6px;
   position: absolute;
   inset: 2px;
-  background: #fff;
+  background: inherit;
   border-radius: 100%;
 }
 
@@ -271,11 +268,11 @@
   fill: var(--label-color);
 }
 
-/* .vaniersel-charts-xaxistooltip.vaniersel-charts-theme-dark {
+.vaniersel-charts-xaxistooltip.vaniersel-charts-theme-dark {
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: #fff;
-} */
+}
 
 .vaniersel-charts-xaxistooltip:after,
 .vaniersel-charts-xaxistooltip:before {
@@ -318,13 +315,13 @@
   border-bottom-color: #90A4AE;
 }
 
-/* .vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:after {
+.vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:after {
   border-bottom-color: rgba(0, 0, 0, 0.5);
 }
 
 .vaniersel-charts-xaxistooltip-bottom.vaniersel-charts-theme-dark:before {
   border-bottom-color: rgba(0, 0, 0, 0.5);
-} */
+}
 
 .vaniersel-charts-xaxistooltip-top:after {
   border-top-color: #ECEFF1
@@ -334,13 +331,13 @@
   border-top-color: #90A4AE;
 }
 
-/* .vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:after {
+.vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:after {
   border-top-color: rgba(0, 0, 0, 0.5);
 }
 
 .vaniersel-charts-xaxistooltip-top.vaniersel-charts-theme-dark:before {
   border-top-color: rgba(0, 0, 0, 0.5);
-} */
+}
 
 .vaniersel-charts-xaxistooltip.vaniersel-charts-active {
   opacity: 1;
@@ -362,11 +359,11 @@
   border: 1px solid #90A4AE;
 }
 
-/* .vaniersel-charts-yaxistooltip.vaniersel-charts-theme-dark {
+.vaniersel-charts-yaxistooltip.vaniersel-charts-theme-dark {
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: #fff;
-} */
+}
 
 .vaniersel-charts-yaxistooltip:after,
 .vaniersel-charts-yaxistooltip:before {
@@ -409,13 +406,13 @@
   border-left-color: #90A4AE;
 }
 
-/* .vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:after {
+.vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:after {
   border-left-color: rgba(0, 0, 0, 0.5);
 }
 
 .vaniersel-charts-yaxistooltip-left.vaniersel-charts-theme-dark:before {
   border-left-color: rgba(0, 0, 0, 0.5);
-} */
+}
 
 .vaniersel-charts-yaxistooltip-right:after {
   border-right-color: #ECEFF1;
@@ -425,13 +422,13 @@
   border-right-color: #90A4AE;
 }
 
-/* .vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:after {
+.vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:after {
   border-right-color: rgba(0, 0, 0, 0.5);
 }
 
 .vaniersel-charts-yaxistooltip-right.vaniersel-charts-theme-dark:before {
   border-right-color: rgba(0, 0, 0, 0.5);
-} */
+}
 
 .vaniersel-charts-yaxistooltip.vaniersel-charts-active {
   opacity: 1;
@@ -528,19 +525,6 @@
   transform: scale(0.76)
 }
 
-/* .vaniersel-charts-theme-dark .vaniersel-charts-zoom-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-zoomin-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-zoomout-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-reset-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-pan-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-selection-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-menu-icon svg,
-.vaniersel-charts-theme-dark .vaniersel-charts-toolbar-custom-icon svg {
-  fill: #f3f4f5;
-  width: 16px;
-  height: 16px;
-} */
-
 .vaniersel-charts-canvas .vaniersel-charts-zoom-icon.vaniersel-charts-selected svg,
 .vaniersel-charts-canvas .vaniersel-charts-selection-icon.vaniersel-charts-selected svg,
 .vaniersel-charts-canvas .vaniersel-charts-reset-zoom-icon.vaniersel-charts-selected svg {
@@ -616,10 +600,10 @@
   color: var(--menu-item-hover-color);
 }
 
-/* .vaniersel-charts-theme-dark .vaniersel-charts-menu {
+.vaniersel-charts-theme-dark .vaniersel-charts-menu {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
-} */
+}
 
 @media screen and (min-width: 768px) {
   .vaniersel-charts-canvas:hover .vaniersel-charts-toolbar {
@@ -674,7 +658,6 @@
 
 /* markers */
 .vaniersel-charts-marker {
-  fill: #fff;
   transition: 0.15s ease all;
 }
 
