@@ -26,6 +26,11 @@
   --toolbar-icon-color: var(var(--label-color));
   --toolbar-icon-hover-color: #333;
   --toolbar-selected-color: #008FFB;
+
+  --axis-label-font-size: 14px;
+
+  --annotation-label-font-weight: 500;
+  --annotation-label-font-size: 14px;
 }
 
 .vaniersel-charts-canvas > * {
@@ -257,6 +262,7 @@
 .vaniersel-charts-xaxis-label,
 .vaniersel-charts-yaxis-label {
   fill: var(--label-color);
+  font-size: var(--axis-label-font-size);
 }
 
 
@@ -658,4 +664,14 @@
 
 .vaniersel-charts-subtitle-text {
   fill: var(--subtitle-color);
+}
+
+.vaniersel-charts-yaxis-annotation-label {
+  font-weight: var(--annotation-label-font-weight);
+    font-size: var(--annotation-label-font-size);
+}
+
+.vaniersel-charts-xaxis-annotation-label {
+  font-weight: var(--annotation-label-font-weight);
+  font-size: var(--annotation-label-font-size);
 }
