@@ -92,23 +92,23 @@
         },
         {
           x: 2001,
-          y: -45
+          y: 45
         },
         {
           x: 2002,
-          y: -88
+          y: 88
         },
         {
           x: 2003,
-          y: -120
+          y: 120
         },
         {
           x: 2004,
-          y: -156
+          y: 156
         },
         {
           x: 2005,
-          y: -123
+          y: 123
         },
         {
           x: 2006,
@@ -255,9 +255,8 @@
           plotOptions: {
             area: {
               negative: {
-                value: 50,
+                value: 0,
                 stroke: '#7c3aed',
-                fill: '#fae8ff'
               },
             }
           },
@@ -325,7 +324,47 @@
             }
           },
           fill: {
-            opacity: 0.5
+            gradient: {
+              opacityFrom: 0.5,
+              opacityTo: 0.75,
+              type: "vertical",
+              colorStops: [
+                [
+                  {
+                    offset: 0,
+                    color: '#eee',
+                    opacity: 1
+                  },
+                  {
+                    offset: 0.6,
+                    color: 'green',
+                    opacity: 50
+                  },
+                  {
+                    offset: 100,
+                    color: 'red',
+                    opacity: 1
+                  }
+                ],
+                [
+                  {
+                    offset: 0,
+                    color: '#999',
+                    opacity: 1
+                  },
+                  {
+                    offset: 50,
+                    color: 'blue',
+                    opacity: 0.75
+                  },
+                  {
+                    offset: 100,
+                    color: '#ddd',
+                    opacity: 1
+                  }
+                ]
+              ]
+            },
           },
           tooltip: {
             x: {

@@ -390,6 +390,19 @@ class Line {
             'clip-path',
             `url(#negativeMask${w.globals.cuid})`
           )
+          renderedNegativePath.attr('fill-opacity', `0.5`)
+          // const gradient = graphics.drawGradient(
+          //   type,
+          //   '#f3e8ff',
+          //   '#d946ef',
+          //   0.65,
+          //   0.5,
+          //   [0, 50, 100],
+          //   undefined,
+          //   undefined,
+          //   0
+          // )
+          // renderedNegativePath.attr('fill', `url(#${gradient.node.id})`)
         }
       }
     }

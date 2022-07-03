@@ -22712,6 +22712,18 @@
               var renderedNegativePath = graphics.renderPaths(negativePathOpts);
               this.elSeries.add(renderedNegativePath);
               renderedNegativePath.attr('clip-path', "url(#negativeMask".concat(w.globals.cuid, ")"));
+              renderedNegativePath.attr('fill-opacity', "0.5"); // const gradient = graphics.drawGradient(
+              //   type,
+              //   '#f3e8ff',
+              //   '#d946ef',
+              //   0.65,
+              //   0.5,
+              //   [0, 50, 100],
+              //   undefined,
+              //   undefined,
+              //   0
+              // )
+              // renderedNegativePath.attr('fill', `url(#${gradient.node.id})`)
             }
           }
         }

@@ -94,7 +94,7 @@
               negative: {
                 value: 1.0450,
                 stroke: '#ef4444',
-                fill: '#fee2e2'
+                fill: '#ffe4e6'
               },
             }
           },
@@ -123,10 +123,14 @@
           },
           colors: ['#22c55e'],
           yaxis: {
-            colors: '#fdba74'
+            colors: '#fdba74',
+            tooltip: {
+              enabled: true,
+            }
           },
           xaxis: {
             type: 'datetime',
+
           },
           fill: {
             colors: '#dcfce7',
@@ -142,6 +146,17 @@
           title: {
             text: 'Product Trends by Month',
             align: 'left'
+          },
+          tooltip: {
+            x: {
+              show: false
+            },
+            y: {
+              formatter: undefined,
+              title: {
+                formatter: (seriesName) => '',
+              },
+            },
           },
           grid: {
             row: {
