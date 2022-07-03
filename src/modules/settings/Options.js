@@ -394,7 +394,19 @@ export default class Options {
         }
       },
       plotOptions: {
+        line: {
+          negative: {
+            value: 0,
+            stroke: '#dc2626',
+            fill: '#fee2e2'
+          }
+        },
         area: {
+          negative: {
+            value: 0,
+            stroke: '#dc2626',
+            fill: '#fee2e2'
+          },
           fillTo: 'origin'
         },
         bar: {

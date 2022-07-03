@@ -81,7 +81,7 @@
   cursor: default;
   font-size: var(--tooltip-font-size);
   left: 62px;
-  opacity: 1; /* TODO: Turn back to 0 after you're done */
+  opacity: 0; /* TODO: Turn back to 0 after you're done */
   pointer-events: none;
   position: absolute;
   top: 20px;

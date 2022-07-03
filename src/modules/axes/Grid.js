@@ -107,6 +107,9 @@ class Grid {
     gl.dom.elNonForecastMask = document.createElementNS(gl.SVGNS, 'clipPath')
     gl.dom.elNonForecastMask.setAttribute('id', `nonForecastMask${gl.cuid}`)
 
+    gl.dom.negativeMask = document.createElementNS(gl.SVGNS, 'clipPath')
+    gl.dom.negativeMask.setAttribute('id', `negativeMask${gl.cuid}`)
+
     // let barHalfWidth = 0
 
     const type = w.config.chart.type
@@ -155,6 +158,7 @@ class Grid {
     defs.appendChild(gl.dom.elForecastMask)
     defs.appendChild(gl.dom.elNonForecastMask)
     defs.appendChild(gl.dom.elGridRectMarkerMask)
+    defs.appendChild(gl.dom.negativeMask)
   }
 
   _drawGridLines({ i, x1, y1, x2, y2, xCount, parent }) {

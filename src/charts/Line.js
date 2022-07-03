@@ -6,7 +6,6 @@ import Markers from '../modules/Markers'
 import Scatter from './Scatter'
 import Utils from '../utils/Utils'
 import Helpers from './common/line/Helpers'
-
 /**
  * ApexCharts Line Class responsible for drawing Line / Area Charts.
  * This class is also responsible for generating values for Bubble/Scatter charts, so need to rename it to Axis Charts to avoid confusions
@@ -174,9 +173,24 @@ class Line {
       (this.isReversed ? w.globals.gridHeight : 0) +
       (this.isReversed ? this.baseLineY[this.yaxisIndex] * 2 : 0)
 
-    this.areaBottomY = this.zeroY
+    let negative = {}
+    if (w.config.chart.type === 'area') {
+      negative = w.config.plotOptions.area.negative
+    } else {
+      negative = w.config.plotOptions.line.negative
+    }
+
+    let negativeYValue = Number(negative.value)
+
+    let negativeYPos =
+      (negativeYValue - w.globals.minYArr[0]) /
+      (w.globals.yRange[0] / w.globals.gridHeight)
+
+    let negativeY = w.globals.gridHeight - negativeYPos
+
+    this.areaBottomY = negativeY
     if (
-      this.zeroY > w.globals.gridHeight ||
+      negativeY > w.globals.gridHeight ||
       w.config.plotOptions.area.fillTo === 'end'
     ) {
       this.areaBottomY = w.globals.gridHeight
@@ -294,6 +308,37 @@ class Line {
       w.globals.dom.elNonForecastMask.appendChild(elNonForecastMask.node)
     }
 
+    let negative = {}
+    if (type === 'area') {
+      negative = w.config.plotOptions.area.negative
+    } else {
+      negative = w.config.plotOptions.line.negative
+    }
+
+    let negativeYValue = Number(negative.value)
+
+    let negativeYPos =
+      (negativeYValue - w.globals.minYArr[0]) /
+      (w.globals.yRange[0] / w.globals.gridHeight)
+
+    let negativeY = w.globals.gridHeight - negativeYPos
+
+    console.log(negativeY)
+
+    let redRect = graphics.drawRect(
+      0,
+      negativeY,
+      w.globals.gridWidth,
+      w.globals.gridHeight,
+      0,
+      null,
+      1,
+      null,
+      null,
+      null
+    )
+    w.globals.dom.negativeMask.appendChild(redRect.node)
+
     // these elements will be shown after area path animation completes
     if (!this.pointsChart) {
       w.globals.delayedElements.push({
@@ -328,6 +373,24 @@ class Line {
         })
 
         this.elSeries.add(renderedPath)
+
+        if (w.globals.minY < negativeYValue) {
+          const negativePathOpts = {
+            ...defaultRenderedPathOptions,
+            pathFrom: paths.pathFromArea,
+            pathTo: paths.areaPaths[p],
+            stroke: 'none',
+            strokeWidth: 0,
+            strokeLineCap: null,
+            fill: negative.fill
+          }
+          let renderedNegativePath = graphics.renderPaths(negativePathOpts)
+          this.elSeries.add(renderedNegativePath)
+          renderedNegativePath.attr(
+            'clip-path',
+            `url(#negativeMask${w.globals.cuid})`
+          )
+        }
       }
     }
 
@@ -365,6 +428,25 @@ class Line {
         }
         let renderedPath = graphics.renderPaths(linePathCommonOpts)
         this.elSeries.add(renderedPath)
+
+        // If series has negative, then add a second line but with a clip-path
+        if (w.globals.minY < negativeYValue) {
+          const negativePathOpts = {
+            ...defaultRenderedPathOptions,
+            pathFrom: paths.pathFromLine,
+            pathTo: paths.linePaths[p],
+            stroke: negative.stroke,
+            strokeWidth: this.strokeWidth,
+            strokeLineCap: w.config.stroke.lineCap,
+            fill: 'none'
+          }
+          let renderedNegativePath = graphics.renderPaths(negativePathOpts)
+          this.elSeries.add(renderedNegativePath)
+          renderedNegativePath.attr(
+            'clip-path',
+            `url(#negativeMask${w.globals.cuid})`
+          )
+        }
 
         if (forecast.count > 0) {
           let renderedForecastPath = graphics.renderPaths(linePathCommonOpts)
