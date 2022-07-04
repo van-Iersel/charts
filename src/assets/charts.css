@@ -7,13 +7,14 @@
   --subtitle-color: #9699a2;
 
   --tooltip-shadow: 2px 2px 6px -4px #999;
-  --tooltip-background-color: #ECEFF1;
+
   --tooltip-background: rgba(255, 255, 255, 0.96);
   --tooltip-border: 1px solid #e3e3e3;
   --tooltip-border-radius: 5px;
   --tooltip-font-size: 14px;
   --tooltip-title-color: #374151;
   --tooltip-title-font-size: 14px;
+  --tooltip-title-background-color: #ECEFF1;
   --tooltip-seperator: 1px solid #ddd;
   --tooltip-value-color: #374151;
   --tooltip-label-color: #6b7280;
@@ -130,7 +131,7 @@
 }
 
 .vaniersel-charts-tooltip .vaniersel-charts-tooltip-title {
-  background: var(--tooltip-background-color);
+  background: var(--tooltip-title-background-color);
   border-bottom: var(--tooltip-seperator);
 }
 
