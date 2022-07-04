@@ -11,64 +11,7 @@ export default class Helpers {
     let stylesheet = document.createElement('style')
     stylesheet.setAttribute('type', 'text/css')
 
-    const text = `
-
-      .vaniersel-charts-legend {
-        display: flex;
-        overflow: auto;
-        padding: 0 10px;
-      }
-      .vaniersel-charts-legend.apx-legend-position-bottom, .vaniersel-charts-legend.apx-legend-position-top {
-        flex-wrap: wrap
-      }
-      .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {
-        flex-direction: column;
-        bottom: 0;
-      }
-      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-left, .vaniersel-charts-legend.apx-legend-position-right, .vaniersel-charts-legend.apx-legend-position-left {
-        justify-content: flex-start;
-      }
-      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-center, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-center {
-        justify-content: center;
-      }
-      .vaniersel-charts-legend.apx-legend-position-bottom.vaniersel-charts-align-right, .vaniersel-charts-legend.apx-legend-position-top.vaniersel-charts-align-right {
-        justify-content: flex-end;
-      }
-      .vaniersel-charts-legend-series {
-        cursor: pointer;
-        line-height: normal;
-      }
-      .vaniersel-charts-legend.apx-legend-position-bottom .vaniersel-charts-legend-series, .vaniersel-charts-legend.apx-legend-position-top .vaniersel-charts-legend-series{
-        display: flex;
-        align-items: center;
-      }
-      .vaniersel-charts-legend-text {
-        position: relative;
-        font-size: 14px;
-      }
-      .vaniersel-charts-legend-text *, .vaniersel-charts-legend-marker * {
-        pointer-events: none;
-      }
-      .vaniersel-charts-legend-marker {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        margin-right: 3px;
-        border-style: solid;
-      }
-
-      .vaniersel-charts-legend.vaniersel-charts-align-right .vaniersel-charts-legend-series, .vaniersel-charts-legend.vaniersel-charts-align-left .vaniersel-charts-legend-series{
-        display: inline-block;
-      }
-      .vaniersel-charts-legend-series.vaniersel-charts-no-click {
-        cursor: auto;
-      }
-      .vaniersel-charts-legend .vaniersel-charts-hidden-zero-series, .vaniersel-charts-legend .vaniersel-charts-hidden-null-series {
-        display: none !important;
-      }
-      .vaniersel-charts-inactive-legend {
-        opacity: 0.45;
-      }`
+    const text = ``
 
     let rules = document.createTextNode(text)
 

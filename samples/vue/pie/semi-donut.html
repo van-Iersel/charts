@@ -9,13 +9,13 @@
     <link href="../../assets/styles.css" rel="stylesheet" />
 
     <style>
-      
+
         #chart {
       max-width: 380px;
       margin: 35px auto;
       padding: 0;
     }
-      
+
     </style>
 
     <script>
@@ -33,11 +33,11 @@
         )
     </script>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
     <script src="../../../dist/apexcharts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-apexcharts"></script>
-    
+
 
     <script>
       // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
@@ -49,11 +49,11 @@
       };
     </script>
 
-    
+
   </head>
 
   <body>
-    
+
     <div id="app">
       <div id="chart">
       <apexchart type="donut" :options="chartOptions" :series="series"></apexchart>
@@ -74,11 +74,19 @@
           apexchart: VueApexCharts,
         },
         data: {
-          
           series: [44, 55, 41, 17, 15],
           chartOptions: {
             chart: {
               type: 'donut',
+            },
+            tooltip: {
+              fillSeriesColor: false,
+              style: {
+                fontSize: '14px',
+              },
+            },
+            markers: {
+              hollow: true,
             },
             plotOptions: {
               pie: {
@@ -104,12 +112,10 @@
               }
             }]
           },
-          
-          
         },
-        
+
       })
     </script>
-    
+
   </body>
 </html>

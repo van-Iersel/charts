@@ -644,7 +644,8 @@ export default class Defaults {
       },
       tooltip: {
         theme: 'light',
-        fillSeriesColor: true
+        fillSeriesColor: false,
+        marker: true
       },
       legend: {
         position: 'right'
@@ -688,7 +689,7 @@ export default class Defaults {
       },
       tooltip: {
         theme: 'light',
-        fillSeriesColor: true
+        fillSeriesColor: false
       },
       legend: {
         position: 'right'
@@ -722,7 +723,7 @@ export default class Defaults {
       },
       tooltip: {
         theme: 'light',
-        fillSeriesColor: true
+        fillSeriesColor: false
       },
       legend: {
         position: 'right'
@@ -809,7 +810,7 @@ export default class Defaults {
       },
       tooltip: {
         enabled: false,
-        fillSeriesColor: true
+        fillSeriesColor: false
       }
     }
   }

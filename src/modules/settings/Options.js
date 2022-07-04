@@ -31,8 +31,8 @@ export default class Options {
         padding: 20,
         style: {
           colors: [],
-          fontSize: 'inherit',
-          fontWeight: 'inherit',
+          fontSize: '12px',
+          fontWeight: 400,
           fontFamily: undefined,
           cssClass: ''
         },
@@ -167,9 +167,9 @@ export default class Options {
         style: {
           background: 'inherit',
           color: undefined,
-          fontSize: 'inherit',
+          fontSize: '12px',
           fontFamily: undefined,
-          fontWeight: 'inherit',
+          fontWeight: 400,
           cssClass: '',
           padding: {
             left: 5,
@@ -581,9 +581,9 @@ export default class Options {
               show: false,
               name: {
                 show: true,
-                fontSize: 'inherit',
+                fontSize: '22px',
                 fontFamily: undefined,
-                fontWeight: 'inherit',
+                fontWeight: 400,
                 color: undefined,
                 offsetY: -10,
                 formatter(val) {
@@ -592,9 +592,9 @@ export default class Options {
               },
               value: {
                 show: true,
-                fontSize: 'inherit',
+                fontSize: '16px',
                 fontFamily: undefined,
-                fontWeight: 'inherit',
+                fontWeight: 400,
                 color: undefined,
                 offsetY: 10,
                 formatter(val) {
@@ -605,8 +605,8 @@ export default class Options {
                 show: false,
                 showAlways: false,
                 label: 'Total',
-                fontSize: 'inherit',
-                fontWeight: 'inherit',
+                fontSize: '22px',
+                fontWeight: 600,
                 fontFamily: undefined,
                 color: undefined,
                 formatter(w) {
@@ -653,9 +653,9 @@ export default class Options {
         offsetX: 0,
         offsetY: 0,
         style: {
-          fontSize: 'inherit',
+          fontSize: '14px',
           fontFamily: undefined,
-          fontWeight: 'inherit',
+          fontWeight: 'bold',
           colors: undefined
         },
         background: {
@@ -719,8 +719,8 @@ export default class Options {
       },
       grid: {
         show: true,
-        borderColor: 'inherit',
-        strokeDashArray: 0,
+        borderColor: '#90A4AE',
+        strokeDashArray: 4,
         position: 'back',
         xaxis: {
           lines: {
@@ -974,8 +974,8 @@ export default class Options {
           showDuplicates: true,
           style: {
             colors: [],
-            fontSize: 'inherit',
-            fontWeight: 'inherit',
+            fontSize: '12',
+            fontWeight: 400,
             fontFamily: undefined,
             cssClass: ''
           },
