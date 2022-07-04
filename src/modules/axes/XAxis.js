@@ -66,8 +66,14 @@ export default class XAxis {
       transform: `translate(${w.config.xaxis.offsetX}, ${w.config.xaxis.offsetY})`
     })
 
+    let elXaxisTextsClass = 'vaniersel-charts-xaxis-texts-g'
+
+    if (w.config.xaxis.split) {
+      elXaxisTextsClass += ' xaxis-texts-split'
+    }
+
     let elXaxisTexts = graphics.group({
-      class: 'vaniersel-charts-xaxis-texts-g',
+      class: elXaxisTextsClass,
       transform: `translate(${w.globals.translateXAxisX}, ${w.globals.translateXAxisY})`
     })
 

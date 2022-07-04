@@ -1,6 +1,7 @@
 :root {
   --label-color: #373d3f;
   --border-color: #f3f4f6;
+  --marker-hollow-color: #fff;
 
   --title-color: #374151;
   --subtitle-color: #9ca3af;
@@ -177,13 +178,13 @@
   border-radius: 50%;
 }
 
-.vaniersel-charts-tooltip-marker::after {
+.vaniersel-charts-tooltip-marker-hollow::after {
   content: '';
   width: 6px;
   height: 6px;
   position: absolute;
   inset: 2px;
-  background: inherit;
+  background: var(--marker-hollow-color);
   border-radius: 100%;
 }
 
@@ -610,6 +611,10 @@
   transition: 0.15s ease all;
 }
 
+.vaniersel-charts-marker-hollow {
+  fill: var(--marker-hollow-color);
+}
+
 @keyframes opaque {
   0% {
     opacity: 0;
@@ -674,4 +679,18 @@
 .vaniersel-charts-xaxis-annotation-label {
   font-weight: var(--annotation-label-font-weight);
   font-size: var(--annotation-label-font-size);
+}
+
+.xaxis-texts-split text:not(:first-child):not(:last-child) {
+  fill: none;
+}
+
+.vaniersel-charts-legend-marker-hollow::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  inset: 2px;
+  background: var(--marker-hollow-color);
+  border-radius: 100%;
 }

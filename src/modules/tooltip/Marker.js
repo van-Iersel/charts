@@ -53,6 +53,11 @@ export default class Marker {
         let PointClasses = `vaniersel-charts-marker w${(Math.random() + 1)
           .toString(36)
           .substring(4)}`
+
+        if (w.config.markers.hollow) {
+          PointClasses += ' vaniersel-charts-marker-hollow'
+        }
+
         if (
           (w.config.chart.type === 'line' || w.config.chart.type === 'area') &&
           !w.globals.comboCharts &&

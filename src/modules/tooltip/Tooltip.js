@@ -153,6 +153,11 @@ export default class Tooltip {
 
       let point = document.createElement('span')
       point.classList.add('vaniersel-charts-tooltip-marker')
+
+      if (w.config.markers.hollow) {
+        point.classList.add('vaniersel-charts-tooltip-marker-hollow')
+      }
+
       point.style.backgroundColor = w.globals.colors[i]
       gTxt.appendChild(point)
 

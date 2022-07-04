@@ -124,6 +124,10 @@ class Legend {
       let elMarker = document.createElement('span')
       elMarker.classList.add('vaniersel-charts-legend-marker')
 
+      if (w.config.markers.hollow) {
+        elMarker.classList.add('vaniersel-charts-legend-marker-hollow')
+      }
+
       let mOffsetX = w.config.legend.markers.offsetX
       let mOffsetY = w.config.legend.markers.offsetY
       let mHeight = w.config.legend.markers.height
