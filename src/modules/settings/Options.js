@@ -40,14 +40,14 @@ export default class Options {
       },
       axisBorder: {
         show: false,
-        color: 'inherit',
+        color: '#78909C',
         width: 1,
         offsetX: 0,
         offsetY: 0
       },
       axisTicks: {
         show: false,
-        color: 'inherit',
+        color: '#78909C',
         width: 6,
         offsetX: 0,
         offsetY: 0
@@ -1005,15 +1005,15 @@ export default class Options {
         },
         axisBorder: {
           show: true,
-          color: 'inherit',
+          color: '#78909C',
           width: '100%',
           height: 1,
           offsetX: 0,
           offsetY: 0
         },
         axisTicks: {
-          show: true,
-          color: 'inherit',
+          show: false,
+          color: '#78909C',
           height: 6,
           offsetX: 0,
           offsetY: 0

@@ -27,6 +27,18 @@
   --toolbar-icon-color: var(var(--label-color));
   --toolbar-icon-hover-color: #333;
   --toolbar-selected-color: #008FFB;
+
+  --xaxistooltip-label-color: var(--label-color);
+  --xaxistooltip-background: #ECEFF1;
+  --xaxistooltip-border-color: #90A4AE;
+  --xaxistooltip-border: 1px solid var(--xaxistooltip-border-color);
+  --xaxistooltip-shadow: 2px 2px 6px -4px #999;
+
+  --yaxistooltip-label-color: var(--label-color);
+  --yaxistooltip-background: #ECEFF1;
+  --yaxistooltip-border-color: #90A4AE;
+  --yaxistooltip-border: 1px solid var(--yaxistooltip-border-color);
+  --yaxistooltip-shadow: 2px 2px 6px -4px #999;
 }
 
 .vaniersel-charts-canvas > * {
@@ -244,15 +256,16 @@
   opacity: 0;
   padding: 9px 10px;
   pointer-events: none;
-  color: var(--label-color);
+  color: var(--xaxistooltip-label-color);
   font-size: 13px;
   text-align: center;
   border-radius: 2px;
   position: absolute;
   z-index: 10;
-  background: #ECEFF1;
-  border: 1px solid #90A4AE;
+  background: var(--xaxistooltip-background);
+  border: var(--xaxistooltip-border);
   transition: 0.15s ease all;
+  box-shadow: var(--xaxistooltip-shadow);
 }
 
 .vaniersel-charts-xaxis-label,
@@ -295,19 +308,19 @@
 }
 
 .vaniersel-charts-xaxistooltip-bottom:after {
-  border-bottom-color: #ECEFF1;
+  border-bottom-color: var(--xaxistooltip-background);
 }
 
 .vaniersel-charts-xaxistooltip-bottom:before {
-  border-bottom-color: #90A4AE;
+  border-bottom-color: var(--xaxistooltip-border-color);
 }
 
 .vaniersel-charts-xaxistooltip-top:after {
-  border-top-color: #ECEFF1
+  border-top-color: var(--xaxistooltip-background)
 }
 
 .vaniersel-charts-xaxistooltip-top:before {
-  border-top-color: #90A4AE;
+  border-top-color: var(--xaxistooltip-border-color);
 }
 
 .vaniersel-charts-xaxistooltip.vaniersel-charts-active {
@@ -320,14 +333,15 @@
   opacity: 0;
   padding: 4px 10px;
   pointer-events: none;
-  color: var(--label-color);
+  color: var(--yaxistooltip-label-color);
   font-size: 13px;
   text-align: center;
   border-radius: 2px;
   position: absolute;
   z-index: 10;
-  background: #ECEFF1;
+  background: var(--yaxistooltip-background);
   border: 1px solid #90A4AE;
+  box-shadow: var(--yaxistooltip-shadow);
 }
 
 
@@ -365,19 +379,19 @@
 }
 
 .vaniersel-charts-yaxistooltip-left:after {
-  border-left-color: #ECEFF1;
+  border-left-color: var(--yaxistooltip-background);
 }
 
 .vaniersel-charts-yaxistooltip-left:before {
-  border-left-color: #90A4AE;
+  border-left-color: var(--yaxistooltip-border-color);
 }
 
 .vaniersel-charts-yaxistooltip-right:after {
-  border-right-color: #ECEFF1;
+  border-right-color: var(--yaxistooltip-background);
 }
 
 .vaniersel-charts-yaxistooltip-right:before {
-  border-right-color: #90A4AE;
+  border-right-color: var(--yaxistooltip-border-color);
 }
 
 .vaniersel-charts-yaxistooltip.vaniersel-charts-active {

@@ -71,7 +71,7 @@ export default class Defaults {
           show: false
         },
         axisTicks: {
-          show: false
+          show: true
         }
       },
       chart: {
