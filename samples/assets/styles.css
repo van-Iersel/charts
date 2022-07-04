@@ -8,7 +8,7 @@ body {
     height: 100vh;
     background: rgb(247, 250, 252);
     margin: 0;
-    font-family: 'Inter';
+    font-family: 'Inter', system-ui;
 }
 
 #app {

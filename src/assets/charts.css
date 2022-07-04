@@ -141,7 +141,8 @@
   color: var(--tooltip-value-color);
 }
 
-.vaniersel-charts-tooltip-text-y-label {
+.vaniersel-charts-tooltip-text-y-label,
+.vaniersel-charts-tooltip-text-goals-label {
   color: var(--tooltip-label-color);
   margin-left: 6px;
 }
@@ -161,19 +162,13 @@
   font-weight: 500;
 }
 
-.vaniersel-charts-tooltip-text-goals-label,
-.vaniersel-charts-tooltip-text-goals-value {
-  padding: 6px 0 5px;
-}
-
-.vaniersel-charts-tooltip-goals-group,
-.vaniersel-charts-tooltip-text-goals-label,
-.vaniersel-charts-tooltip-text-goals-value {
-  display: flex;
-}
 .vaniersel-charts-tooltip-text-goals-label:not(:empty),
 .vaniersel-charts-tooltip-text-goals-value:not(:empty) {
   margin-top: -6px;
+}
+
+.vaniersel-charts-tooltip-text-goals-label span {
+  display: none;
 }
 
 .vaniersel-charts-tooltip-marker {
@@ -215,10 +210,16 @@
   padding: 0 !important;
 }
 
-.vaniersel-charts-tooltip-y-group {
+.vaniersel-charts-tooltip-y-group,
+.vaniersel-charts-tooltip-goals-group {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  justify-content: flex-end;
+}
+
+.vaniersel-charts-tooltip-goals-group {
+  /* margin-top: 2px; */
 }
 
 .vaniersel-charts-tooltip-box, .vaniersel-charts-custom-tooltip {
@@ -696,6 +697,7 @@
 .vaniersel-charts-legend {
   display: flex;
   overflow: auto;
+  padding: 0 10px;
 }
 
 .vaniersel-charts-legend.apx-legend-position-bottom,
