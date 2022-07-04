@@ -862,8 +862,8 @@ export default class Options {
         offsetY: 0,
         floating: false,
         style: {
-          fontSize: 'inherit',
-          fontWeight: 'inherit',
+          fontSize: '14px',
+          fontWeight: 'bold',
           fontFamily: undefined,
           color: undefined
         }
@@ -876,8 +876,8 @@ export default class Options {
         offsetY: 30,
         floating: false,
         style: {
-          fontSize: 'inherit',
-          fontWeight: 'inherit',
+          fontSize: '12px',
+          fontWeight: 'normal',
           fontFamily: undefined,
           color: undefined
         }
