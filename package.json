@@ -1,6 +1,6 @@
 {
   "name": "@van-iersel/charts",
-  "version": "1.0.11",
+  "version": "2.0.0",
   "description": "A JavaScript Chart Library",
   "repository": {
     "type": "git",
@@ -11,7 +11,6 @@
   "jsdelivr": "dist/apexcharts.js",
   "typings": "types/apexcharts.d.ts",
   "files": [
-    "src",
     "dist/*.js",
     "dist/*.css",
     "dist/locales/*.json",

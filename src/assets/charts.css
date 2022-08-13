@@ -1,23 +1,23 @@
 :root {
-  --label-color: #263238;
-  --border-color: #f3f4f6;
+  --label-color: #94a3b8;
+  --border-color: #f1f5f9;
   --marker-hollow-color: #fff;
 
   --title-color: #263238;
   --subtitle-color: #9699a2;
 
-  --tooltip-shadow: 2px 2px 6px -4px #999;
+  --tooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%);
 
   --tooltip-background: rgba(255, 255, 255, 0.96);
-  --tooltip-border: 1px solid #e3e3e3;
-  --tooltip-border-radius: 5px;
+  --tooltip-border: none;
+  --tooltip-border-radius: 8px;
   --tooltip-font-size: 14px;
-  --tooltip-title-color: #374151;
+  --tooltip-title-color: #475569;
   --tooltip-title-font-size: 14px;
-  --tooltip-title-background-color: #ECEFF1;
-  --tooltip-seperator: 1px solid #ddd;
-  --tooltip-value-color: #374151;
-  --tooltip-label-color: #6b7280;
+  --tooltip-title-background-color: ##fff;
+  --tooltip-seperator: 1px solid var(--border-color);
+  --tooltip-value-color: #475569;
+  --tooltip-label-color: #94a3b8;
 
   --menu-background: #fff;
   --menu-shadow: var(--tooltip-shadow);
@@ -30,17 +30,17 @@
   --toolbar-icon-hover-color: #333;
   --toolbar-selected-color: #008FFB;
 
-  --xaxistooltip-label-color: var(--label-color);
-  --xaxistooltip-background: #ECEFF1;
-  --xaxistooltip-border-color: #90A4AE;
+  --xaxistooltip-label-color: #64748b;
+  --xaxistooltip-background: #fff;
+  --xaxistooltip-border-color: #f1f5f9;
   --xaxistooltip-border: 1px solid var(--xaxistooltip-border-color);
-  --xaxistooltip-shadow: 2px 2px 6px -4px #999;
+  --xaxistooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%);
 
-  --yaxistooltip-label-color: var(--label-color);
-  --yaxistooltip-background: #ECEFF1;
-  --yaxistooltip-border-color: #90A4AE;
+  --yaxistooltip-label-color: #94a3b8;
+  --yaxistooltip-background: #fff;
+  --yaxistooltip-border-color: #f1f5f9;
   --yaxistooltip-border: 1px solid var(--yaxistooltip-border-color);
-  --yaxistooltip-shadow: 2px 2px 6px -4px #999;
+  --yaxistooltip-shadow: 0 8px 24px rgb(135 146 162 / 20%);
 }
 
 .vaniersel-charts-canvas > * {
